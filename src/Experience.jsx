@@ -1,26 +1,25 @@
-import { OrbitControls, Environment } from '@react-three/drei'
+import { OrbitControls, Environment, KeyboardControls } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
 import Model from "./Model.jsx"
 import { Physics } from "@react-three/rapier"
+import Player from './Player.jsx'
+import Ecctrl, { EcctrlAnimation, EcctrlJoystick } from 'ecctrl'
+import CharacterModel from './CharacterModel'
+import Map from './Map'
 
 export default function Experience(){ 
 
+    const characterPosition = [0, 0, 0];
+
     return <>
-            <Perf position="top-left" />
+        <Perf position="bottom-left" />
 
-            <OrbitControls makeDefault />
-
-            <directionalLight castShadow position={ [ 1, 2, 3 ] } intensity={ 4.5 } />
-            <ambientLight intensity={ 1.5 } />
-
-
-
-            <mesh receiveShadow position-y={ - 1 } rotation-x={ - Math.PI * 0.5 } scale={ 10 }>
-                <planeGeometry />
-                <meshStandardMaterial color="greenyellow" />
-            </mesh>
+        <OrbitControls makeDefault />
+        <directionalLight castShadow position={ [ 1, 2, 3 ] } intensity={ 4.5 } />
+        <ambientLight intensity={ 1.5 } />
 
         <Environment
+            receiveShadow
             background
             files={[
                 './environment_maps/first/px.png',
@@ -32,8 +31,13 @@ export default function Experience(){
             ]}
         >
         </Environment>
-            <Physics debug={ false }>
-                <Model />
-            </Physics>
+        
+        {/* debug={ true } */}
+        <Physics >
+            <Model />
+            <Ecctrl debug>
+                <CharacterModel position={characterPosition} />
+            </Ecctrl>
+        </Physics>
     </>
 }
