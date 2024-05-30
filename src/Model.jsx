@@ -54,7 +54,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
                     position={[-6, 2, -2]} 
                     rotation={[pA.x, pA.y, pA.z]}
                     // position={[pB.x, pB.y, pB.z]}
-                    onClick={(e) => console.log("you clicked", e.object.name)} 
+                    onClick={(e) => alert("you clicked", e.object.name)} 
                 >
                     {/* <Html 
                         transform
