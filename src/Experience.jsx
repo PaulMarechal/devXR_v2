@@ -6,6 +6,7 @@ import Player from './Player.jsx'
 import Ecctrl, { EcctrlAnimation, EcctrlJoystick } from 'ecctrl'
 import CharacterModel from './CharacterModel'
 import Map from './Map'
+import Screen from './Screen_wall.jsx'
 
 export default function Experience(){ 
 
@@ -35,6 +36,8 @@ export default function Experience(){
         {/* debug={ true } */}
         <Physics >
             <Model />
+            <Screen/>
+
             <Ecctrl debug>
                 <CharacterModel position={characterPosition} />
             </Ecctrl>

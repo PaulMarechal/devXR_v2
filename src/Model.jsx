@@ -52,22 +52,24 @@ export default function MainModel({ position = [0, 0, 0] }) {
                     object={screen_model.scene} 
                     scale={1.8} 
                     position={[-6, 2, -2]} 
-                    rotation={[pA.x, pA.y, pA.z]}
+                    // rotation={[pA.x, pA.y, pA.z]}
                     // position={[pB.x, pB.y, pB.z]}
                     onClick={(e) => alert("you clicked", e.object.name)} 
                 >
-                    {/* <Html 
-                        transform
-                        wrapperClass="htmlScreen"
-                        distanceFactor={ 1.7 }
-                        scale={0.1}
-                        position={[pB.x, pB.y, pB.z]}
-
-                    >
-                        <iframe src="https:devxr.fr/test" />
-                    </Html> */}
                 </primitive>
             </RigidBody>
+                {/* <Html 
+                    transform 
+                    wrapperClass="htmlScreen"
+                    position={[-10, -2, 0]} 
+                    scale={0.1}
+                    // rotation={[0,(Math.PI / 180), 0]}     
+                    rotation={[pA.x, pA.y, pA.z]}
+                    position={[pB.x, pB.y, pB.z]}
+
+                >
+                    <iframe src="https:devxr.fr/test" />
+                </Html>  */}
         </group>
     );
 }
