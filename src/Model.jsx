@@ -31,11 +31,6 @@ export default function MainModel({ position = [0, 0, 0] }) {
         mesh.castShadow = true;
     });
 
-    screen_model.scene.children.forEach((mesh) => {
-        mesh.receiveShadow = true;
-        mesh.castShadow = true;
-    });
-
     return (
         <group position={position}>
             <RigidBody
@@ -48,15 +43,6 @@ export default function MainModel({ position = [0, 0, 0] }) {
                 ccd
             >
                 <primitive object={sceneModel.scene} scale={0.8} />
-                <primitive 
-                    object={screen_model.scene} 
-                    scale={1.8} 
-                    position={[-6, 2, -2]} 
-                    // rotation={[pA.x, pA.y, pA.z]}
-                    // position={[pB.x, pB.y, pB.z]}
-                    onClick={(e) => alert("you clicked", e.object.name)} 
-                >
-                </primitive>
             </RigidBody>
                 {/* <Html 
                     transform 
