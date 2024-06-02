@@ -5,7 +5,11 @@ import { useControls } from 'leva';
 
 export default function Screen({ position = [0, 0, 0] }) {
     const screen_model = useGLTF("./tv_display.glb");
+
     const test ="./test.jpg";
+    const image_catas = "https://devxr.fr/test/assets/geurinet_escalier_3-2a70bac1.jpeg"
+    const image_navigo = "./navigoDemo.png"
+
 
     const Texture = ({ texture, position, rotation }) => {
     // position={[pA.x, pA.y, pA.z]}
@@ -13,7 +17,7 @@ export default function Screen({ position = [0, 0, 0] }) {
             <mesh position={position} rotation={rotation}>
                 <planeGeometry
                     attach="geometry" 
-                    args={[1.81, 3.19]} 
+                    args={[1.85, 3.25]} 
                     height={200}
                     width={200}
                 />
@@ -57,7 +61,7 @@ export default function Screen({ position = [0, 0, 0] }) {
                     position={[6.07, 3.5, 2.5]}              
                     onClick={(e) => alert("you clicked", e.object.name)} 
                 />
-                <Image url={test} position={[5.99, 3.47, -1.63]} rotation={[0, -1.57, 0]}/>
+                <Image url={image_navigo} position={[5.99, 3.47, -1.63]} rotation={[0, -1.57, 0]}/>
             </group>
             <group>
                 <primitive 
@@ -66,7 +70,7 @@ export default function Screen({ position = [0, 0, 0] }) {
                     position={[6.07, 3.5, -1.5]} 
                     onClick={(e) => alert("you clicked", e.object.name)} 
                 />
-                <Image url={test} position={[5.99, 3.47, 2.39]} rotation={[0, -1.57, 0]}/>
+                <Image url={image_catas} position={[5.99, 3.47, 2.39]} rotation={[0, -1.57, 0]}/>
             </group>
             <group>
                 <primitive 
