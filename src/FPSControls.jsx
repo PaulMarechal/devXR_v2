@@ -108,7 +108,7 @@ const FPScontrols = () => {
       >
         <CapsuleCollider args={[1, 0.25]} />
       </RigidBody>
-      <PointerLockControls />
+      {/* <PointerLockControls /> */}
     </>
   );
 };

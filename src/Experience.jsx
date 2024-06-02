@@ -8,6 +8,7 @@ import CharacterModel from './CharacterModel'
 import Map from './Map'
 import Screen from './Screen_wall.jsx'
 
+
 export default function Experience(){ 
 
     const characterPosition = [0, 0, 0];
