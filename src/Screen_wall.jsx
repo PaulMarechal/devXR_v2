@@ -80,7 +80,7 @@ export default function Screen({ position = [0, 0, 0] }) {
                     rotation={[0, 3.15, 0]}  
                     onClick={(e) => alert("you clicked", e.object.name)} 
                 />
-                <Image url={test} position={[-5.97, 3.45, -1.40]} rotation={[0, 1.58, 0]}/>
+                <Image url={test} position={[-5.97, 3.47, -1.40]} rotation={[0, 1.58, 0]}/>
             </group>
             <group>
                 <primitive 
@@ -90,7 +90,7 @@ export default function Screen({ position = [0, 0, 0] }) {
                     position={[-6.05, 3.5, 2.5]}    
                     onClick={(e) => alert("you clicked", e.object.name)} 
                 />   
-                <Image url={test} position={[-5.97, 3.45, 2.58]} rotation={[0, 1.58, 0]}/>
+                <Image url={test} position={[-5.97, 3.47, 2.58]} rotation={[0, 1.58, 0]}/>
                 {/* <Image url={test} position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]}/> */}
             </group>
         </>

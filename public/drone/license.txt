@@ -1,0 +1,11 @@
+Model Information:
+* title:	Sci-Fi Recon Drone
+* source:	https://sketchfab.com/3d-models/sci-fi-recon-drone-ff2ede3b4ffe42d4afe7c42470c20c05
+* author:	Matthew-David (https://sketchfab.com/Matthew-David)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Sci-Fi Recon Drone" (https://sketchfab.com/3d-models/sci-fi-recon-drone-ff2ede3b4ffe42d4afe7c42470c20c05) by Matthew-David (https://sketchfab.com/Matthew-David) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
