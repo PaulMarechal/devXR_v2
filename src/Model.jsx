@@ -1,18 +1,22 @@
 import * as THREE from 'three';
 import { RigidBody } from "@react-three/rapier";
-import { useGLTF, Environment, Sky, Html } from "@react-three/drei";
-import { useLoader } from '@react-three/fiber';
+import { useGLTF, Environment, Sky, Html, Text3D } from "@react-three/drei";
+import { useLoader, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
-import { useMemo } from 'react';
+import React, { useRef, useMemo } from 'react';
+import { Bloom, EffectComposer } from '@react-three/postprocessing';
+
 import { useControls } from 'leva';
-import HolographicMaterial from "./HolographicMaterial.jsx"
+import HolographicMaterial from "./HolographicMaterial.jsx";
+
+// import Text_3D from './Text_3D.jsx'
 
 export default function MainModel({ position = [0, 0, 0] }) {
-    const sceneModel = useGLTF("./meeting_space.glb");
-    const screen_model = useGLTF("./tv_display.glb");
-    const earth_model = useGLTF("./earth_planet.glb");
-
+    const sceneModel = useGLTF("./assets/meeting_space.glb");
+    const screen_model = useGLTF("./assets/tv_display.glb");
+    const { nodes, materials } = useGLTF('./assets/earth_planet.glb');
+    
     const optionsA = useMemo(() => ({
         x: { value: 0, min: 0, max: Math.PI * 2, step: 0.01 },
         y: { value: 0, min: 0, max: Math.PI * 2, step: 0.01 },
@@ -25,24 +29,28 @@ export default function MainModel({ position = [0, 0, 0] }) {
         z: { value: 0, min: -10, max: 10, step: 0.01 },
     }), []);
 
+    // const optionsC = useMemo(() => ({
+    //     x: { value: 0, min: -30, max: 30, step: 0.01 },
+    //     y: { value: 0, min: -30, max: 30, step: 0.01 },
+    //     z: { value: 0, min: -30, max: 30, step: 0.01 },
+    // }), []);
+
     const pA = useControls('Hologram pos', optionsA);
     const pB = useControls('hologram Rot', optionsB);
+    // const pC = useControls('Cylinder Pos', optionsC);
 
     const holographicControls = useControls({
-        fresnelAmount: { value: 0.45, min: 0.0, max: 1.0, label: "Fresnel Amount" },
-        fresnelOpacity: {
-          value: 1.0,
-          min: 0.0,
-          max: 1.0,
-          label: "Fresnel Opacity",
-        },
-        scanlineSize: { value: 8.0, min: 1.0, max: 15, label: "Scanline size" },
-        hologramBrightness: { value: 1.2, min: 0.0, max: 2, label: "Brightness" },
-        signalSpeed: { value: 0.45, min: 0.0, max: 2, label: "Signal Speed" },
-        hologramColor: { value: "#51a4de", label: "Hologram Color" },
-        enableBlinking: true,
-        enabled: true,
-        Model: { options: ["VADER", "BB8", "WALKER"] },
+        fresnelAmount: { value: 0.0, min: 0.0, max: 1.0},
+        fresnelOpacity: { value: 0.78,min: 0.0, max: 1.0},
+        scanlineSize: { value: 4.6, min: 1.0, max: 15},
+        hologramBrightness: { value: 1.3, min: 0.0, max: 2},
+        signalSpeed: { value: 1.09, min: 0.0, max: 2},
+        hologramOpacity: { value: 0.55, min: 0.0, max: 1.0},
+        hologramColor: { value: "#51a4de"},
+        enableBlinking: false,
+        blinkFresnelOnly: true,
+        enableAdditive: true,
+        side: { options: ["FrontSide", "BackSide", "DoubleSide"] },
     });
 
     sceneModel.scene.children.forEach((mesh) => {
@@ -50,8 +58,14 @@ export default function MainModel({ position = [0, 0, 0] }) {
         mesh.castShadow = true;
     });
 
+    const earth = useRef();
+
+    useFrame((state, delta) => {
+        earth.current.rotation.y += 0.001;
+    });
+
     return (
-        <group position={position}>
+        <group position={position} >
             <RigidBody
                 type="fixed"
                 colliders="trimesh"
@@ -63,24 +77,47 @@ export default function MainModel({ position = [0, 0, 0] }) {
             >
                 <primitive receiveShadow object={sceneModel.scene} scale={0.8} />
             </RigidBody>
-                {/* <Html 
-                    transform 
-                    wrapperClass="htmlScreen"
-                    position={[-10, -2, 0]} 
-                    scale={0.1}
-                    // rotation={[0,(Math.PI / 180), 0]}     
-                    rotation={[pA.x, pA.y, pA.z]}
-                    position={[pB.x, pB.y, pB.z]}
 
-                >
-                    <iframe src="https:devxr.fr/test" />
-                </Html>  */}
-                {/* position={[0, 3.2, 0]} */}
-                <mesh rotation={[pB.x, pB.y, pB.z]}>
-                    <sphereGeometry position={[pA.x, pA.y, pA.z]}/>
-                    <primitive position={[0, 3.25, 0]} object={earth_model.scene} scale={0.013} />
-                    <HolographicMaterial />
-                </mesh>
+            <group ref={earth} dispose={null} scale={0.013} position={[0, 3.2, 0]}>
+                <group rotation={[-Math.PI / 2, 0, 0]}>
+                    <group rotation={[0.274, 0.081, 0.281]}>
+                        <mesh
+                            castShadow
+                            receiveShadow
+                            geometry={nodes.Object_7.geometry}
+                            material={materials.Oceans}
+                            rotation={[-0.286, 0, -0.292]}
+                        >
+                            <HolographicMaterial {...holographicControls} />
+                        </mesh>
+                    </group>
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Object_4.geometry}
+                        material={materials.Land_Masses}
+                    >
+                        <HolographicMaterial {...holographicControls} />
+                    </mesh>
+                </group>
+            </group>
+
+            <Text_3D/>
+
+            <mesh position={[0, 1.76, 0]}>
+                <cylinderGeometry args={[1, 2, 0.05]} />
+                <meshPhysicalMaterial
+                    color="white"              
+                    emissive="purple"      
+                    glow="#FF90f0"     
+                    envMapIntensity={1} 
+                    roughness={0}
+                />
+            </mesh>
+
+            <EffectComposer>
+                <Bloom mipmapBlur />
+            </EffectComposer>
         </group>
     );
 }

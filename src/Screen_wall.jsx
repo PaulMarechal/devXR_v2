@@ -4,7 +4,7 @@ import React, { useMemo } from 'react';
 import { useControls } from 'leva';
 
 export default function Screen({ position = [0, 0, 0] }) {
-    const screen_model = useGLTF("./tv_display.glb");
+    const screen_model = useGLTF("./assets/tv_display.glb");
 
     const test ="./test.jpg";
     const image_catas = "https://devxr.fr/test/assets/geurinet_escalier_3-2a70bac1.jpeg"

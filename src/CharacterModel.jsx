@@ -4,11 +4,15 @@ import { useGLTF, Sparkles } from '@react-three/drei'
 import { useControls } from 'leva';
 import { RigidBody } from "@react-three/rapier";
 
-
 export default function CharacterModel(props) {
   const { nodes, materials } = useGLTF('./drone/scene.gltf')
   const meshRef = useRef()
   const clockRef = useRef({ elapsedTime: 0 })
+
+  Object.values(materials).forEach((material) => {
+    material.receiveShadow = true;
+    material.castShadow = true;
+  });
 
   const optionsB = useMemo(() => ({
     x: { value: 0, min: -10, max: 10, step: 0.01 },
@@ -40,14 +44,15 @@ export default function CharacterModel(props) {
         scale={0.0007}
         position={[0, 0, 0]}
       />
-      <Sparkles 
+      {/* <Sparkles 
         position={[0, 0, -.3]}
         count={6}
         speed={0.5}
-        size={6}
+        size={4}
         scale={0.2}
         noise={[0.8, -10, 5.77]}
-      />
+        opacity={0.5}
+      /> */}
     </group>
   )
 }

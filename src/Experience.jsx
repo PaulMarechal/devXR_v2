@@ -31,8 +31,8 @@ export default function Experience(){
         <Perf position="bottom-left" />
 
         <OrbitControls makeDefault />
-        <directionalLight ref={ directionalLight } castShadow position={ [ 0, 6.5, 0 ] } intensity={ 4.5 } />
-        <ambientLight intensity={ 5 } />
+        <directionalLight ref={ directionalLight } castShadow position={ [ 0, 6.5, 0 ] } intensity={ 2.5 } />
+        <ambientLight intensity={ 2 } />
 
         <Environment
             receiveShadow
@@ -47,7 +47,6 @@ export default function Experience(){
             ]}
         >
         </Environment>
-        
         {/* debug={ true } */}
         <Physics >
             <Model />
