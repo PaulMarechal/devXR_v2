@@ -2,6 +2,8 @@ import React, { useRef, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF, Sparkles } from '@react-three/drei'
 import { useControls } from 'leva';
+import { RigidBody } from "@react-three/rapier";
+
 
 export default function CharacterModel(props) {
   const { nodes, materials } = useGLTF('./drone/scene.gltf')
@@ -25,11 +27,13 @@ export default function CharacterModel(props) {
   })
 
   return (
-    <group {...props} dispose={null} position={[0, 0.5, 0]}>
+    <group {...props} 
+      dispose={null} 
+      position={[0, 0.5, 0]}         
+      castShadow
+    >
       <mesh
         ref={meshRef}
-        castShadow
-        receiveShadow
         geometry={nodes.Object_2.geometry}
         material={materials.initialShadingGroup}
         rotation={[-Math.PI / 2, 0, 0]}
@@ -42,7 +46,6 @@ export default function CharacterModel(props) {
         speed={0.5}
         size={6}
         scale={0.2}
-        // noise={[pB.x, pB.y, pB.z]}
         noise={[0.8, -10, 5.77]}
       />
     </group>
