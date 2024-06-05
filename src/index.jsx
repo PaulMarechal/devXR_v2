@@ -5,9 +5,16 @@ import Experience from './Experience.jsx'
 import { KeyboardControls } from '@react-three/drei'
 import FPScontrols from "./FPScontrols.jsx";
 import { OrbitControls } from '@react-three/drei'
+import $ from "jquery";
 
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
+
+/* Close modal */
+
+$(".close_icon").on("click", function() {
+    $(".modal_infos").css("display", "none")
+})
 
 root.render(
     <KeyboardControls map={ [

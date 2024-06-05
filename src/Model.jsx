@@ -10,12 +10,12 @@ import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import { useControls } from 'leva';
 import HolographicMaterial from "./HolographicMaterial.jsx";
 
-// import Text_3D from './Text_3D.jsx'
+import Text_3D from './Text_3D.jsx'
 
 export default function MainModel({ position = [0, 0, 0] }) {
-    const sceneModel = useGLTF("./assets/meeting_space.glb");
-    const screen_model = useGLTF("./assets/tv_display.glb");
-    const { nodes, materials } = useGLTF('./assets/earth_planet.glb');
+    const sceneModel = useGLTF("./assets/models/meeting_space.glb");
+    const screen_model = useGLTF("./assets/models/tv_display.glb");
+    const { nodes, materials } = useGLTF('./assets/models/earth_planet.glb');
     
     const optionsA = useMemo(() => ({
         x: { value: 0, min: 0, max: Math.PI * 2, step: 0.01 },

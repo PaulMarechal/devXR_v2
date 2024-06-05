@@ -58,3 +58,19 @@ h4 {
     border-radius: 20px; 
     background: #000000;
 }
+
+/* Modal infos */
+.modal_infos{
+    height: 80%;
+    width: 90%;
+    background: #fff;
+    margin: 5% auto;
+    position: relative;
+    border-radius: 15px;
+}
+
+.close_icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
