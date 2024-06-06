@@ -14,7 +14,19 @@ export default function Interface(){
     {/* <div className="time">0.00</div> */}
 
     {/* Restart */}
-    <div className="restart">Bienvenue</div>
+    <div className="restart">
+      {/* <h1>Bienvenue sur</h1>
+      <h2>DevXR.fr</h2>
+      <p>Je vous invite a vous déplacer dans la scene et a cliquer sur les elements pour découvrir ce que nous proposons en développement. Du site web classique pour mettre en avant votre entreprise jusqu'aux sites immersifs en réalité augmentée, réalité virtuelle ou encore réalité mixte.</p>
+      */}
+      <p class="main_title_restart">
+        <span >Bienvenue sur </span>
+        <br/>
+        <span class="name_font">DevXR.fr</span>
+      </p>
+      <p>Je vous invite a vous déplacer dans la scene et a cliquer sur les elements pour découvrir ce que nous proposons en développement. Du site web classique pour mettre en avant votre entreprise jusqu'aux sites immersifs en réalité augmentée, réalité virtuelle ou encore réalité mixte.</p>
+
+    </div>
 
     {/* Controls */}
     <div className="controls">
