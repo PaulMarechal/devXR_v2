@@ -50,8 +50,7 @@ h4 {
 }
 
 /* Display screen */
-.htmlScreen iframe
-{
+.htmlScreen iframe {
     width: 1024px;
     height: 670px;
     border: none;
@@ -67,10 +66,104 @@ h4 {
     margin: 5% auto;
     position: relative;
     border-radius: 15px;
+    display: none;
+    opacity: 0; 
+    transition: opacity 0.5s ease-out;
+}
+
+#catacombes_div, #metro_map_div{
+    display: none; 
+    opacity: 0; 
+    transition: opacity 1.5s ease-out;
 }
 
 .close_icon{
     position: absolute;
     top: 0;
     right: 0;
+    transition: rotate 0.3s ease-out;
+}
+
+.close_icon:hover{
+    rotate: 45deg;
+}
+
+/* Interface */
+.interface{
+    position: fixed; 
+    top: 0;
+    left: 0; 
+    width: 60%; 
+    margin-left: 20%;
+    height: 100%; 
+    pointer-events: none;
+    font-family: 'Bebas Neue', cursive; 
+
+}
+
+/* Time */
+.time{
+    position: absolute;
+    top: 15%; 
+    left: 0; 
+    width: 100%; 
+    color: #fff; 
+    font-size: 6vh; 
+    background: #00000033;
+    padding-bottom: 5px;
+    text-align: center;
+    user-select: none;
+}
+
+/* Restart */
+.restart{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 80px; 
+    background: #00000033;
+    padding-top: 10px;
+    /* pointer-events: auto; */
+    user-select: none;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.6s ease-out;
+}
+
+/**
+ * Controls
+ */
+.controls {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    width: 100%;
+    user-select: none;
+}
+
+.controls .raw {
+    display: flex;
+    justify-content: center;
+}
+
+.controls .key {
+    width: 40px;
+    height: 40px;
+    margin: 4px;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    background: #e4e1e144;
+}
+
+.controls .key.large {
+    width: 144px;
+}
+
+.controls .key.active {
+    background: #ffffff99;
 }

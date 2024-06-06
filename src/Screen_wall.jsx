@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { useGLTF, Html } from "@react-three/drei";
 import React, { useMemo } from 'react';
 import { useControls } from 'leva';
+import $ from "jquery";
 
 export default function Screen({ position = [0, 0, 0] }) {
     const screen_model = useGLTF("./assets/models/tv_display.glb");
@@ -10,6 +11,17 @@ export default function Screen({ position = [0, 0, 0] }) {
     const image_catas = "https://devxr.fr/test/assets/geurinet_escalier_3-2a70bac1.jpeg"
     const image_navigo = "./navigoDemo.png"
 
+
+    function display_modal(elem_to_display){
+        $(".modal_infos").css("display", "block")
+        setTimeout(() => {
+            $(".modal_infos").css("opacity", "1")
+        }, 200);
+        setTimeout(() => {
+            $(elem_to_display).css("display", "grid")
+            $(elem_to_display).css("opacity", "1")
+        }, 350);
+    }
 
     const Texture = ({ texture, position, rotation }) => {
     // position={[pA.x, pA.y, pA.z]}
@@ -54,21 +66,24 @@ export default function Screen({ position = [0, 0, 0] }) {
 
     return (
         <>
+            {/* Catacombes website */}
             <group>
                 <primitive 
                     object={screen_model.scene.clone()} 
                     scale={1.8} 
                     position={[6.07, 3.5, 2.5]}              
-                    onClick={(e) => alert("you clicked", e.object.name)} 
-                />
+                    onClick={() => display_modal("#catacombes_div")} 
+                    />
                 <Image url={image_navigo} position={[5.99, 3.47, -1.63]} rotation={[0, -1.57, 0]}/>
             </group>
+
+            {/* Navigo map */}
             <group>
                 <primitive 
                     object={screen_model.scene.clone()} 
                     scale={1.8} 
                     position={[6.07, 3.5, -1.5]} 
-                    onClick={(e) => alert("you clicked", e.object.name)} 
+                    onClick={() => display_modal("#metro_map_div")} 
                 />
                 <Image url={image_catas} position={[5.99, 3.47, 2.39]} rotation={[0, -1.57, 0]}/>
             </group>
@@ -78,7 +93,7 @@ export default function Screen({ position = [0, 0, 0] }) {
                     scale={1.8} 
                     position={[-6.05, 3.5, -1.5]} 
                     rotation={[0, 3.15, 0]}  
-                    onClick={(e) => alert("you clicked", e.object.name)} 
+                    // onClick={(e) => display_modal()} 
                 />
                 <Image url={test} position={[-5.97, 3.47, -1.40]} rotation={[0, 1.58, 0]}/>
             </group>
@@ -88,7 +103,7 @@ export default function Screen({ position = [0, 0, 0] }) {
                     scale={1.8} 
                     rotation={[0, 3.15, 0]}
                     position={[-6.05, 3.5, 2.5]}    
-                    onClick={(e) => alert("you clicked", e.object.name)} 
+                    // onClick={() => display_modal()} 
                 />   
                 <Image url={test} position={[-5.97, 3.47, 2.58]} rotation={[0, 1.58, 0]}/>
                 {/* <Image url={test} position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]}/> */}

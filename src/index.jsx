@@ -5,15 +5,20 @@ import Experience from './Experience.jsx'
 import { KeyboardControls } from '@react-three/drei'
 import FPScontrols from "./FPScontrols.jsx";
 import { OrbitControls } from '@react-three/drei'
+import Interface from "./Interface.jsx"
 import $ from "jquery";
 
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 /* Close modal */
-
 $(".close_icon").on("click", function() {
-    $(".modal_infos").css("display", "none")
+    $(".modal_infos").css("opacity", "0")
+    $(".text_modale_div").each(function() { $(this).css("opacity", "0"); });
+    setTimeout(() => {
+        $(".modal_infos").css("display", "none")
+        $(".text_modale_div").each(function() { $(this).css("display", "none"); });
+    }, 200);
 })
 
 root.render(
@@ -34,5 +39,6 @@ root.render(
         >
             <Experience />
         </Canvas>
+        <Interface />
     </KeyboardControls>
 )

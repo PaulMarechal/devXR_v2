@@ -18,15 +18,15 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const { nodes, materials } = useGLTF('./assets/models/earth_planet.glb');
     
     const optionsA = useMemo(() => ({
-        x: { value: 0, min: 0, max: Math.PI * 2, step: 0.01 },
-        y: { value: 0, min: 0, max: Math.PI * 2, step: 0.01 },
-        z: { value: 0, min: 0, max: Math.PI * 2, step: 0.01 },
+        x: { value: 0, min: -20, max: Math.PI * 2, step: 0.01 },
+        y: { value: 0, min: -20, max: Math.PI * 2, step: 0.01 },
+        z: { value: 0, min: -20, max: Math.PI * 2, step: 0.01 },
     }), []);
 
     const optionsB = useMemo(() => ({
-        x: { value: 0, min: -10, max: 10, step: 0.01 },
-        y: { value: 0, min: -10, max: 10, step: 0.01 },
-        z: { value: 0, min: -10, max: 10, step: 0.01 },
+        x: { value: 0, min: -20, max: 20, step: 0.01 },
+        y: { value: 0, min: -20, max: 20, step: 0.01 },
+        z: { value: 0, min: -20, max: 20, step: 0.01 },
     }), []);
 
     // const optionsC = useMemo(() => ({
@@ -35,8 +35,8 @@ export default function MainModel({ position = [0, 0, 0] }) {
     //     z: { value: 0, min: -30, max: 30, step: 0.01 },
     // }), []);
 
-    const pA = useControls('Hologram pos', optionsA);
-    const pB = useControls('hologram Rot', optionsB);
+    const pA = useControls('Plane Pos', optionsA);
+    const pB = useControls('Plane Rot', optionsB);
     // const pC = useControls('Cylinder Pos', optionsC);
 
     const holographicControls = useControls({
@@ -103,6 +103,10 @@ export default function MainModel({ position = [0, 0, 0] }) {
             </group>
 
             <Text_3D/>
+            <mesh position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]}  scale={[6, 0.05, 1.4]}>
+                <planeGeometry />
+                <meshBasicMaterial color="#fff" side={THREE.DoubleSide}/>
+            </mesh>
 
             <mesh position={[0, 1.76, 0]}>
                 <cylinderGeometry args={[1, 2, 0.05]} />

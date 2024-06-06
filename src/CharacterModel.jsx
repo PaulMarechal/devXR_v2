@@ -1,13 +1,15 @@
-import React, { useRef, useMemo } from 'react'
+import React, { useRef, useMemo, useEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { useGLTF, Sparkles } from '@react-three/drei'
+import { useGLTF, Sparkles, useKeyboardControls } from '@react-three/drei'
 import { useControls } from 'leva';
 import { RigidBody } from "@react-three/rapier";
+import $ from "jquery";
 
 export default function CharacterModel(props) {
   const { nodes, materials } = useGLTF('./drone/scene.gltf')
   const meshRef = useRef()
   const clockRef = useRef({ elapsedTime: 0 })
+  const  [subscribeKeys, getKeys] = useKeyboardControls()
 
   Object.values(materials).forEach((material) => {
     material.receiveShadow = true;
@@ -21,6 +23,29 @@ export default function CharacterModel(props) {
   }), []);
 
   const pB = useControls('scale sparkles', optionsB);
+
+  useEffect(() => {
+    const unsubscribeJump = subscribeKeys(
+      (state) => state.jump, 
+      
+      (value) => {
+          if (value) {
+              jump()
+          }
+      }
+    )
+    const unsubscribeAny = subscribeKeys(
+      () => {
+        setTimeout(() => {
+          $(".restart").css("opacity", "0")
+        }, 4000);
+        setTimeout(() => {
+          $(".restart").css("display", "none")
+        }, 4650);
+
+      }
+    )
+  })
 
   useFrame((state, delta) => {
     if (meshRef.current) {

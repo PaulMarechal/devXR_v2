@@ -10,12 +10,16 @@ import Screen from './Screen_wall.jsx'
 // import { useControls } from 'leva';
 import { useMemo, useRef } from 'react';
 import * as THREE from 'three'
+import useGame from './stores/useGame.js'
 
 export default function Experience(){ 
 
     const characterPosition = [0, 0, 0];
 
     const directionalLight = useRef()
+
+    const blockCount = useGame((state) =>  state.blockCount )
+
     // useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
 
     // const optionsB = useMemo(() => ({
@@ -49,7 +53,7 @@ export default function Experience(){
         </Environment>
         {/* debug={ true } */}
         <Physics >
-            <Model />
+            <Model count={blockCount}/>
             <Screen/>
 
             <Ecctrl debug>

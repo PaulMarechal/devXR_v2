@@ -1,38 +1,35 @@
-import Ecctrl, {EcctrlAnimation } from "eectrl"
+import { useKeyboardControls } from '@react-three/drei'
 
 export default function Interface(){
-    // return null
-    /**
- * Keyboard control preset
- */
-const keyboardMap = [
-    { name: "forward", keys: ["ArrowUp", "KeyW"] },
-    { name: "backward", keys: ["ArrowDown", "KeyS"] },
-    { name: "leftward", keys: ["ArrowLeft", "KeyA"] },
-    { name: "rightward", keys: ["ArrowRight", "KeyD"] },
-    { name: "jump", keys: ["Space"] },
-    { name: "run", keys: ["Shift"] },
-    // Optional animation key map
-    // { name: "action1", keys: ["1"] },
-    // { name: "action2", keys: ["2"] },
-    // { name: "action3", keys: ["3"] },
-    // { name: "action4", keys: ["KeyF"] },
-  ];
-  
-  return (
-    <>
-      {/* debug={physics} */}
-      <Physics timeStep="vary">
-        {/* Keyboard preset */}
-        <KeyboardControls map={keyboardMap}>
-          {/* Character Control */}
-          <Ecctrl>
-            {/* Replace your model here */}
-            <CharacterModel />
-          </Ecctrl>
-        </KeyboardControls>
-      </Physics>
-    </>
-  );
 
+  const forward = useKeyboardControls((state) => state.forward )
+  const backward = useKeyboardControls((state) => state.backward )
+  const leftward = useKeyboardControls((state) => state.leftward )
+  const rightward = useKeyboardControls((state) => state.rightward )
+  const jump = useKeyboardControls((state) => state.jump )
+  
+  return <div className="interface">
+    
+    {/* Time */}
+    {/* <div className="time">0.00</div> */}
+
+    {/* Restart */}
+    <div className="restart">Bienvenue</div>
+
+    {/* Controls */}
+    <div className="controls">
+        <div className="raw">
+            <div className={` key ${ forward ? 'active' : ''}`}></div>
+        </div>
+        <div className="raw">
+            <div className={` key ${ leftward ? 'active' : ''}`}></div>
+            <div className={` key ${ backward ? 'active' : ''}`}></div>
+            <div className={` key ${ rightward ? 'active' : ''}`}></div>
+        </div>
+        <div className="raw">
+            <div className={` key large ${ jump ? 'active' : ''}`}></div>
+        </div>
+    </div>
+
+  </div>
 }

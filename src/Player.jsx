@@ -36,6 +36,10 @@ export default function Player(){
             }
         )
 
+        subcribeKeys(() => {
+            console.log('any key');
+        })
+
         return () => {
             unsubscribeJump()
         }
