@@ -37,11 +37,19 @@ export default function CharacterModel(props) {
     const unsubscribeAny = subscribeKeys(
       () => {
         setTimeout(() => {
-          $(".restart").css("opacity", "0")
-        }, 4000);
+          $(".welcome_modal").css("opacity", "0")
+          $(".interface").css("pointer-events", "none")
+
+        }, 2500);
         setTimeout(() => {
-          $(".restart").css("display", "none")
-        }, 4650);
+          $(".welcome_modal").css("display", "none")
+        }, 3000);
+        setTimeout(() => {
+          $(".controls").css("opacity", "0")
+        }, 3350);
+        setTimeout(() => {
+          $(".controls").css("display", "none")
+        }, 3850);
 
       }
     )

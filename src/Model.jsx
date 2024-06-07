@@ -29,11 +29,11 @@ export default function MainModel({ position = [0, 0, 0] }) {
         z: { value: 0, min: -20, max: 20, step: 0.01 },
     }), []);
 
-    // const optionsC = useMemo(() => ({
-    //     x: { value: 0, min: -30, max: 30, step: 0.01 },
-    //     y: { value: 0, min: -30, max: 30, step: 0.01 },
-    //     z: { value: 0, min: -30, max: 30, step: 0.01 },
-    // }), []);
+    const optionsC = useMemo(() => ({
+        x: { value: 0, min: -30, max: 30, step: 0.01 },
+        y: { value: 0, min: -30, max: 30, step: 0.01 },
+        z: { value: 0, min: -30, max: 30, step: 0.01 },
+    }), []);
 
     const pA = useControls('Plane Pos', optionsA);
     const pB = useControls('Plane Rot', optionsB);

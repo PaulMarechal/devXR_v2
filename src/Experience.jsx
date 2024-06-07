@@ -11,6 +11,7 @@ import Screen from './Screen_wall.jsx'
 import { useMemo, useRef } from 'react';
 import * as THREE from 'three'
 import useGame from './stores/useGame.js'
+import Computer from './Computer.jsx';
 
 export default function Experience(){ 
 
@@ -59,6 +60,7 @@ export default function Experience(){
             <Ecctrl debug>
                 <CharacterModel castShadow position={characterPosition} />
             </Ecctrl>
+            <Computer/>
         </Physics>
     </>
 }
