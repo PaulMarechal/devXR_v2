@@ -51,14 +51,10 @@ export default function Computer(props) {
                 position={ [ 0.28, 2.15, 1.55 ] }
                 rotation={ [ 0, 0.35, 0 ] }
                 occlude
-                calculatePosition={(el, camera, size) => {
-                    // Votre logique de calcul de position ici
-                    // Exemple de retour de coordonnées : [x, y, z]
-                    return [0, 0, 0]; // Remplacez par votre logique de calcul réelle
-                  }}
+                
             >
                 {/* To addapt the occusion add physics to robot model */}
-                <iframe src="https://devxr.fr/test" />
+                <iframe frameBorder={0} src="https://devxr.fr/test" />
             </Html>
         </primitive>        
     </>

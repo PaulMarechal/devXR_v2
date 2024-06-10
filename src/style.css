@@ -108,7 +108,7 @@ h4 {
     width: 60%; 
     margin-left: 20%;
     height: 100%; 
-    /* pointer-events: none; */
+    pointer-events: none;
     font-family: 'Bebas Neue', cursive; 
     transition: opacity 0.5s ease-out;
 
@@ -209,6 +209,37 @@ h4 {
     width: 144px;
 }
 
+.keyboard{ margin-left: -10vh;}
+.mouse{ margin-left: 10vh; }
+
 .controls .key.active {
     background: #ffffff99;
+}
+
+.controls .key_mouse {
+    width: 45px;
+    height: 46px;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    background: #e4e1e144;
+}
+
+.left_clic {
+    margin-right: 1px;
+    margin-bottom: 1px;
+    border-radius: 30px 2px 2px 2px!important;
+}
+
+.right_clic {
+    margin-right: 1px;
+    margin-bottom: 1px;
+    border-radius: 2px 30px 2px 2px!important;
+}
+
+.large_mouse{
+    margin-top: 0!important;
+    border-radius: 2px 2px 50px 50px!important;
+    width: 94px!important;
+    height: 76px!important;
+    margin-bottom: 1vh!important;
 }

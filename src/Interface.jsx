@@ -33,7 +33,7 @@ export default function Interface(){
     {/* Welcome text */}
     <div className="welcome_modal">
       <div className="close_icon_start" title="Fermer la fenêtre">
-          <svg  xmlns="http://www.w3.org/2000/svg"  width="46"  height="46"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg"  width="46"  height="46"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
       </div>
       <p className="main_title_restart">
         <span >Bienvenue sur </span>
@@ -45,7 +45,8 @@ export default function Interface(){
     </div>
 
     {/* Controls */}
-    <div className="controls">
+    <div>
+    <div className="controls keyboard">
         <div className="raw">
             <div className={` key ${ forward ? 'active' : ''}`}></div>
         </div>
@@ -57,6 +58,23 @@ export default function Interface(){
         <div className="raw">
             <div className={` key large ${ jump ? 'active' : ''}`}></div>
         </div>
+    </div>
+    <div className="controls mouse">
+        <div className="raw">
+            <div className={` key_mouse left_clic ${ forward ? 'active' : ''}`}></div>
+            <div className={` key_mouse right_clic ${ forward ? 'active' : ''}`}></div>
+        </div>
+        <div className="raw">
+            {/* <div className={` key ${ leftward ? 'active' : ''}`}></div>
+            <div className={` key ${ backward ? 'active' : ''}`}></div> */}
+            <div className={` key large_mouse ${ jump ? 'active' : ''}`}></div>
+
+        </div>
+        <div className="raw">
+            {/* <div className={` key large_mouse ${ jump ? 'active' : ''}`}></div> */}
+            {/* <div className={` key large ${ jump ? 'active' : ''}`}></div> */}
+        </div>
+    </div>
     </div>
 
   </div>
