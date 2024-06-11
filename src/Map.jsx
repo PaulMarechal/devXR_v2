@@ -17,7 +17,7 @@ import { useMemo } from 'react';
 import { useControls } from 'leva';
 
 export default function Map({ position = [0, 0, 0] }) {
-const sceneModel = useGLTF("./assets/models/meeting_space.glb"); 
+const sceneModel = useGLTF("./assets/models/meeting_space_2.glb"); 
 sceneModel.scene.children.forEach((mesh) => {
     mesh.receiveShadow = true;
     mesh.castShadow = true;
@@ -39,4 +39,4 @@ sceneModel.scene.children.forEach((mesh) => {
   )
 }
 
-useGLTF.preload('./assets/models/meeting_space.glb')
+useGLTF.preload('./assets/models/meeting_space_2.glb')

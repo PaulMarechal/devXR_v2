@@ -13,20 +13,20 @@ import HolographicMaterial from "./HolographicMaterial.jsx";
 import Text_3D from './Text_3D.jsx'
 
 export default function MainModel({ position = [0, 0, 0] }) {
-    const sceneModel = useGLTF("./assets/models/meeting_space.glb");
+    const sceneModel = useGLTF("./assets/models/meeting_space_3.glb");
     const screen_model = useGLTF("./assets/models/tv_display.glb");
     const { nodes, materials } = useGLTF('./assets/models/earth_planet.glb');
     
     const optionsA = useMemo(() => ({
-        x: { value: 0, min: -20, max: Math.PI * 2, step: 0.01 },
-        y: { value: 0, min: -20, max: Math.PI * 2, step: 0.01 },
-        z: { value: 0, min: -20, max: Math.PI * 2, step: 0.01 },
+        x: { value: -7, min: -30, max: 30, step: 0.01 },
+        y: { value: 1.2, min: -30, max: 30, step: 0.01 },
+        z: { value: -10, min: -30, max: 30, step: 0.01 },
     }), []);
 
     const optionsB = useMemo(() => ({
-        x: { value: 0, min: -20, max: 20, step: 0.01 },
-        y: { value: 0, min: -20, max: 20, step: 0.01 },
-        z: { value: 0, min: -20, max: 20, step: 0.01 },
+        x: { value: -1.5, min: -30, max: 30, step: 0.01 },
+        y: { value: 0, min: -30, max: 30, step: 0.01 },
+        z: { value: 0, min: -30, max: 30, step: 0.01 },
     }), []);
 
     const optionsC = useMemo(() => ({
@@ -76,6 +76,11 @@ export default function MainModel({ position = [0, 0, 0] }) {
                 ccd
             >
                 <primitive receiveShadow object={sceneModel.scene} scale={0.8} />
+{/* position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]} */}
+                <mesh position={[-8.2, 0.75, -9.6]} rotation={[-1.57, 0, 0]}  scale={[4.4, 1, 3]}>
+                    <planeGeometry />
+                    <meshBasicMaterial color="#fff" side={THREE.DoubleSide}/>
+                </mesh>
             </RigidBody>
 
             <group ref={earth} dispose={null} scale={0.013} position={[0, 3.2, 0]}>
@@ -103,7 +108,13 @@ export default function MainModel({ position = [0, 0, 0] }) {
             </group>
 
             <Text_3D/>
-            <mesh position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]}  scale={[6, 0.05, 1.4]}>
+            {/* Under text */}
+            {/* <mesh position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]}  scale={[6, 0.05, 1.4]}>
+                <planeGeometry />
+                <meshBasicMaterial color="#fff" side={THREE.DoubleSide}/>
+            </mesh> */}
+
+            <mesh position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]}  scale={[6, 1, 3]}>
                 <planeGeometry />
                 <meshBasicMaterial color="#fff" side={THREE.DoubleSide}/>
             </mesh>
