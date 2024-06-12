@@ -1,11 +1,12 @@
 import * as THREE from 'three';
 import { RigidBody } from "@react-three/rapier";
-import { useGLTF, Environment, Sky, Html, Text3D } from "@react-three/drei";
+import { useGLTF, useFBX, Environment, Sky, Html, Text3D } from "@react-three/drei";
 import { useLoader, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import React, { useRef, useMemo } from 'react';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
 
 import { useControls } from 'leva';
 import HolographicMaterial from "./HolographicMaterial.jsx";
@@ -13,7 +14,7 @@ import HolographicMaterial from "./HolographicMaterial.jsx";
 import Text_3D from './Text_3D.jsx'
 
 export default function MainModel({ position = [0, 0, 0] }) {
-    const sceneModel = useGLTF("./assets/models/meeting_space_3.glb");
+    const sceneModel = useGLTF("./assets/models/meeting_space_4.glb");
     const screen_model = useGLTF("./assets/models/tv_display.glb");
     const { nodes, materials } = useGLTF('./assets/models/earth_planet.glb');
     
