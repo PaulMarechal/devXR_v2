@@ -1,12 +1,13 @@
 import * as THREE from 'three';
 import { RigidBody } from "@react-three/rapier";
-import { useGLTF, useFBX, Environment, Sky, Html, Text3D } from "@react-three/drei";
+import { useGLTF, useFBX, Environment, Sky, Html, Text3D, Sparkles } from "@react-three/drei";
 import { useLoader, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useState } from 'react';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
+import { useSpring, animated } from '@react-spring/three';
 
 import { useControls } from 'leva';
 import HolographicMaterial from "./HolographicMaterial.jsx";
@@ -18,10 +19,24 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const screen_model = useGLTF("./assets/models/tv_display.glb");
     const { nodes, materials } = useGLTF('./assets/models/earth_planet.glb');
     
+    const [visible, setVisible] = useState(false);
+
+    const { opacity } = useSpring({
+      opacity: visible ? 1 : 0,
+      config: { duration: 1000 },
+    });
+  
+    const handleClick = () => {
+      setVisible(true);
+      setTimeout(() => {
+        setVisible(false);
+      }, 20000);
+    };
+    
     const optionsA = useMemo(() => ({
-        x: { value: -7, min: -30, max: 30, step: 0.01 },
-        y: { value: 1.2, min: -30, max: 30, step: 0.01 },
-        z: { value: -10, min: -30, max: 30, step: 0.01 },
+        x: { value:0, min: -30, max: 30, step: 0.01 },
+        y: { value: 0, min: -30, max: 30, step: 0.01 },
+        z: { value: 0, min: -30, max: 30, step: 0.01 },
     }), []);
 
     const optionsB = useMemo(() => ({
@@ -36,8 +51,8 @@ export default function MainModel({ position = [0, 0, 0] }) {
         z: { value: 0, min: -30, max: 30, step: 0.01 },
     }), []);
 
-    const pA = useControls('Plane Pos', optionsA);
-    const pB = useControls('Plane Rot', optionsB);
+    const pA = useControls('Cube Pos', optionsA);
+    const pB = useControls('Cube Rot', optionsB);
     // const pC = useControls('Cylinder Pos', optionsC);
 
     const holographicControls = useControls({
@@ -77,12 +92,33 @@ export default function MainModel({ position = [0, 0, 0] }) {
                 ccd
             >
                 <primitive receiveShadow object={sceneModel.scene} scale={0.8} />
-{/* position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]} */}
-                <mesh position={[-8.2, 0.75, -9.6]} rotation={[-1.57, 0, 0]}  scale={[4.4, 1, 3]}>
+                
+                {/* Planche */}
+                <animated.mesh
+                    position={[-8.2, 0.75, -9.6]}
+                    rotation={[-1.57, 0, 0]}
+                    scale={[4.4, 1, 3]}
+                >
                     <planeGeometry />
-                    <meshBasicMaterial color="#fff" side={THREE.DoubleSide}/>
+                    <animated.meshBasicMaterial
+                        color="#fff"
+                        side={THREE.DoubleSide}
+                        transparent={true}
+                        opacity={opacity}
+                        // wireframe={true}
+                    />
+                    </animated.mesh>
+
+                {/* Ground in bonus room */}
+                <mesh position={[-18.08, 0.05, -2.6]} rotation={[1.55, 0, 0.35]}  scale={[12, 10, 10]}>
+                    <planeGeometry />
+                    <meshBasicMaterial color="white" transparent={true} opacity={0.5}/>
                 </mesh>
             </RigidBody>
+
+            {/* Sparkles */}
+            <Sparkles position={[19.34, 4.65, 3.28]} rotation={[pB.x, pB.y, pB.z]} wireframe={true} count={100} scale={10} size={6} speed={0.4} />
+
 
             <group ref={earth} dispose={null} scale={0.013} position={[0, 3.2, 0]}>
                 <group rotation={[-Math.PI / 2, 0, 0]}>
@@ -115,7 +151,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
                 <meshBasicMaterial color="#fff" side={THREE.DoubleSide}/>
             </mesh> */}
 
-            <mesh position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]}  scale={[6, 1, 3]}>
+            <mesh scale={[6, 1, 3]}>
                 <planeGeometry />
                 <meshBasicMaterial color="#fff" side={THREE.DoubleSide}/>
             </mesh>
@@ -130,10 +166,17 @@ export default function MainModel({ position = [0, 0, 0] }) {
                     roughness={0}
                 />
             </mesh>
+            {/* position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]} */}
+            
+            {/* Box to click */}
+            <mesh position={[0.23, 1.32, 10]} scale={0.5} onClick={handleClick}>
+                <boxGeometry />
+                <meshStandardMaterial />
+            </mesh>
 
-            <EffectComposer>
+            {/* <EffectComposer>
                 <Bloom mipmapBlur />
-            </EffectComposer>
+            </EffectComposer> */}
         </group>
     );
 }
