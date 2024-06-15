@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { RigidBody } from "@react-three/rapier";
-import { useGLTF, useFBX, Environment, Sky, Html, Text3D, Sparkles } from "@react-three/drei";
+import { useGLTF, useFBX, Environment, Sky, Html, Text3D, Sparkles, Clouds, Cloud } from "@react-three/drei";
 import { useLoader, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
@@ -119,6 +119,10 @@ export default function MainModel({ position = [0, 0, 0] }) {
             {/* Sparkles */}
             <Sparkles position={[19.34, 4.65, 3.28]} rotation={[pB.x, pB.y, pB.z]} wireframe={true} count={100} scale={10} size={6} speed={0.4} />
 
+            <Clouds material={THREE.MeshBasicMaterial}>
+                <Cloud segments={40} bounds={[10, 2, 2]} volume={10} color="orange" />
+                <Cloud seed={1} scale={2} volume={5} color="hotpink" fade={100} />
+            </Clouds>
 
             <group ref={earth} dispose={null} scale={0.013} position={[0, 3.2, 0]}>
                 <group rotation={[-Math.PI / 2, 0, 0]}>
