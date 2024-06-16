@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { RigidBody } from "@react-three/rapier";
-import { useGLTF, useFBX, Environment, Sky, Html, Text3D, Sparkles, Clouds, Cloud } from "@react-three/drei";
+import { useGLTF, useFBX, Environment, Sky, Html, Text3D, Sparkles, Clouds, Cloud, Gltf, MeshPortalMaterial } from "@react-three/drei";
 import { useLoader, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
@@ -13,9 +13,11 @@ import { useControls } from 'leva';
 import HolographicMaterial from "./HolographicMaterial.jsx";
 
 import Text_3D from './Text_3D.jsx'
+import Portal from "./Portal.jsx";
 
 export default function MainModel({ position = [0, 0, 0] }) {
     const sceneModel = useGLTF("./assets/models/meeting_space_4.glb");
+    const guerinet = useGLTF("./assets/models/Guerinet.glb");
     const screen_model = useGLTF("./assets/models/tv_display.glb");
     const { nodes, materials } = useGLTF('./assets/models/earth_planet.glb');
     
@@ -35,24 +37,24 @@ export default function MainModel({ position = [0, 0, 0] }) {
     
     const optionsA = useMemo(() => ({
         x: { value:0, min: -30, max: 30, step: 0.01 },
-        y: { value: 0, min: -30, max: 30, step: 0.01 },
+        y: { value: 1, min: -30, max: 30, step: 0.01 },
         z: { value: 0, min: -30, max: 30, step: 0.01 },
     }), []);
 
     const optionsB = useMemo(() => ({
-        x: { value: -1.5, min: -30, max: 30, step: 0.01 },
-        y: { value: 0, min: -30, max: 30, step: 0.01 },
+        x: { value: 0, min: -30, max: 30, step: 0.01 },
+        y: { value: 3, min: -30, max: 30, step: 0.01 },
         z: { value: 0, min: -30, max: 30, step: 0.01 },
     }), []);
 
     const optionsC = useMemo(() => ({
         x: { value: 0, min: -30, max: 30, step: 0.01 },
-        y: { value: 0, min: -30, max: 30, step: 0.01 },
+        y: { value: 3, min: -30, max: 30, step: 0.01 },
         z: { value: 0, min: -30, max: 30, step: 0.01 },
     }), []);
 
-    const pA = useControls('Cube Pos', optionsA);
-    const pB = useControls('Cube Rot', optionsB);
+    const pA = useControls('Portal second Pos', optionsA);
+    const pB = useControls('Portal second Rot', optionsB);
     // const pC = useControls('Cylinder Pos', optionsC);
 
     const holographicControls = useControls({
@@ -117,12 +119,29 @@ export default function MainModel({ position = [0, 0, 0] }) {
             </RigidBody>
 
             {/* Sparkles */}
-            <Sparkles position={[19.34, 4.65, 3.28]} rotation={[pB.x, pB.y, pB.z]} wireframe={true} count={100} scale={10} size={6} speed={0.4} />
+            <Sparkles position={[19.34, 4.65, 3.28]} rotation={[pB.x, pB.y, pB.z]} wireframe={true} count={150} scale={10} size={6} speed={0.4} />
 
-            <Clouds material={THREE.MeshBasicMaterial}>
-                <Cloud segments={40} bounds={[10, 2, 2]} volume={10} color="orange" />
+            {/* <Clouds material={THREE.MeshBasicMaterial}>
+                <Cloud segments={40} bounds={[10, 2, 2]} volume={10} color="white" />
                 <Cloud seed={1} scale={2} volume={5} color="hotpink" fade={100} />
-            </Clouds>
+            </Clouds> */}
+
+            {/* Portal */}
+            <Portal position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]} id="01" name="Cata" author="Paul Marechal">
+                <primitive object={guerinet.scene} scale={0.8} />
+            </Portal>
+
+            {/* <Gltf src="./assets/models/Guerinet.glb" position={[0, 0, 0]} scale={0.01}/> */}
+
+
+            {/* <mesh position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]}>
+                <planeGeometry />
+                <MeshPortalMaterial>
+                    <mesh>
+                        <Gltf src="./assets/models/Guerinet.glb" position={[0, -2, -3]} scale={0.01}/>
+                    </mesh>
+                </MeshPortalMaterial>
+            </mesh> */}
 
             <group ref={earth} dispose={null} scale={0.013} position={[0, 3.2, 0]}>
                 <group rotation={[-Math.PI / 2, 0, 0]}>
