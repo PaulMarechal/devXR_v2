@@ -119,7 +119,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
             </RigidBody>
 
             {/* Sparkles */}
-            <Sparkles position={[19.34, 4.65, 3.28]} rotation={[pB.x, pB.y, pB.z]} wireframe={true} count={150} scale={10} size={6} speed={0.4} />
+            <Sparkles position={[19.34, 4.65, 3.28]} wireframe={true} count={150} scale={10} size={6} speed={0.4} />
 
             {/* <Clouds material={THREE.MeshBasicMaterial}>
                 <Cloud segments={40} bounds={[10, 2, 2]} volume={10} color="white" />
@@ -127,8 +127,10 @@ export default function MainModel({ position = [0, 0, 0] }) {
             </Clouds> */}
 
             {/* Portal */}
-            <Portal position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]} id="01" name="Cata" author="Paul Marechal">
-                <primitive object={guerinet.scene} scale={0.8} />
+            <Portal id="01" name="Cata" author="Paul Marechal" bg="#ffffff">
+                <ambientLight intensity={Math.PI / 2} />
+                <Gltf src="./assets/models/Guerinet.glb" scale={0.8} position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]} />
+                {/* <primitive receiveShadow object={guerinet.scene} scale={0.8} /> */}
             </Portal>
 
             {/* <Gltf src="./assets/models/Guerinet.glb" position={[0, 0, 0]} scale={0.01}/> */}

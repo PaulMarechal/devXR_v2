@@ -19,14 +19,14 @@ export default function Portal({ id, name, author, bg, width = 1, height = 1.618
     useFrame((state, dt) => easing.damp(portal.current, 'blend', params?.id === id ? 1 : 0, 0.2, dt))
 
     const optionsA = useMemo(() => ({
-        x: { value:4.29, min: -30, max: 30, step: 0.01 },
-        y: { value: 2.51, min: -30, max: 30, step: 0.01 },
-        z: { value: 1.5, min: -30, max: 30, step: 0.01 },
+        x: { value:23.8, min: -30, max: 30, step: 0.01 },
+        y: { value: 2.04, min: -30, max: 30, step: 0.01 },
+        z: { value: 5.58, min: -30, max: 30, step: 0.01 },
     }), []);
 
     const optionsB = useMemo(() => ({
         x: { value: 0, min: -30, max: 30, step: 0.01 },
-        y: { value: 0.17, min: -30, max: 30, step: 0.01 },
+        y: { value: -1.9, min: -30, max: 30, step: 0.01 },
         z: { value: 0, min: -30, max: 30, step: 0.01 },
     }), []);
 
