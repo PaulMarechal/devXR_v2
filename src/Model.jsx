@@ -36,20 +36,20 @@ export default function MainModel({ position = [0, 0, 0] }) {
     };
     
     const optionsA = useMemo(() => ({
-        x: { value:0, min: -30, max: 30, step: 0.01 },
-        y: { value: 1, min: -30, max: 30, step: 0.01 },
-        z: { value: 0, min: -30, max: 30, step: 0.01 },
+        x: { value:0.1, min: -30, max: 30, step: 0.01 },
+        y: { value: -1.8, min: -30, max: 30, step: 0.01 },
+        z: { value: -3, min: -30, max: 30, step: 0.01 },
     }), []);
 
     const optionsB = useMemo(() => ({
         x: { value: 0, min: -30, max: 30, step: 0.01 },
-        y: { value: 3, min: -30, max: 30, step: 0.01 },
+        y: { value: 4.63, min: -30, max: 30, step: 0.01 },
         z: { value: 0, min: -30, max: 30, step: 0.01 },
     }), []);
 
     const optionsC = useMemo(() => ({
         x: { value: 0, min: -30, max: 30, step: 0.01 },
-        y: { value: 3, min: -30, max: 30, step: 0.01 },
+        y: { value: 0, min: -30, max: 30, step: 0.01 },
         z: { value: 0, min: -30, max: 30, step: 0.01 },
     }), []);
 
@@ -129,7 +129,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
             {/* Portal */}
             <Portal id="01" name="Cata" author="Paul Marechal" bg="#ffffff">
                 <ambientLight intensity={Math.PI / 2} />
-                <Gltf src="./assets/models/Guerinet.glb" scale={0.8} position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]} />
+                <Gltf src="./assets/models/Guerinet.glb" scale={1} position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]} />
                 {/* <primitive receiveShadow object={guerinet.scene} scale={0.8} /> */}
             </Portal>
 

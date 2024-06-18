@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { useCursor, MeshPortalMaterial, CameraControls, Gltf, Text, Preload } from '@react-three/drei'
+import { useCursor, MeshPortalMaterial, CameraControls, Gltf, Text, Preload, RoundedBox } from '@react-three/drei'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { useRef, useState, useMemo } from 'react'
 import { useLoader, useFrame } from '@react-three/fiber';
@@ -10,7 +10,7 @@ import { useControls } from 'leva';
 
 // extend(geometry)
 
-export default function Portal({ id, name, author, bg, width = 1, height = 1.61803398875, children, ...props }) {
+export default function Portal({ id, name, author, bg, children, ...props }) {
     const portal = useRef()
     const [, setLocation] = useLocation()
     const [, params] = useRoute('/item/:id')
@@ -19,14 +19,14 @@ export default function Portal({ id, name, author, bg, width = 1, height = 1.618
     useFrame((state, dt) => easing.damp(portal.current, 'blend', params?.id === id ? 1 : 0, 0.2, dt))
 
     const optionsA = useMemo(() => ({
-        x: { value:23.8, min: -30, max: 30, step: 0.01 },
-        y: { value: 2.04, min: -30, max: 30, step: 0.01 },
-        z: { value: 5.58, min: -30, max: 30, step: 0.01 },
+        x: { value:23.94, min: -30, max: 30, step: 0.01 },
+        y: { value: 2.88, min: -30, max: 30, step: 0.01 },
+        z: { value: 6.41, min: -30, max: 30, step: 0.01 },
     }), []);
 
     const optionsB = useMemo(() => ({
         x: { value: 0, min: -30, max: 30, step: 0.01 },
-        y: { value: -1.9, min: -30, max: 30, step: 0.01 },
+        y: { value: -1.84, min: -30, max: 30, step: 0.01 },
         z: { value: 0, min: -30, max: 30, step: 0.01 },
     }), []);
 
@@ -45,11 +45,17 @@ export default function Portal({ id, name, author, bg, width = 1, height = 1.618
           {author}
         </Text>
         <mesh name={id} >
-          <planeGeometry width={1} height={2} />
-          <MeshPortalMaterial ref={portal} events={params?.id === id} side={THREE.DoubleSide}>
-            <color attach="background" args={[bg]} />
-            {children}
-          </MeshPortalMaterial>
+          <RoundedBox
+            args={[3, 3, 0.01]} 
+            radius={0.2} 
+            smoothness={8}
+            bevelSegments={8} 
+          >
+            <MeshPortalMaterial ref={portal} events={params?.id === id} side={THREE.DoubleSide}>
+              <color attach="background" args={[bg]} />
+              {children}
+            </MeshPortalMaterial>
+          </RoundedBox>
         </mesh>
       </group>
     )
