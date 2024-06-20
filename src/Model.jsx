@@ -22,13 +22,10 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const { nodes, materials } = useGLTF('./assets/models/earth_planet.glb');
     
     const [visible, setVisible] = useState(false);
-    const planche = useRef()
 
-    const { opacity, scale, position_planche } = useSpring({
+    const { opacity, scale } = useSpring({
         opacity: visible ? 0.5 : 0,
-        position_planche: visible ? [-8.2, 0.75, -10.2] : [-8.2, -5.75, -10.2], 
         scale: visible ? [4, 1.5, 3.2] : [0.1, 0.1, 1],
-
         config: { duration: 1000 }
     });
     
@@ -99,30 +96,12 @@ export default function MainModel({ position = [0, 0, 0] }) {
                 ccd
             >
                 <primitive receiveShadow object={sceneModel.scene} scale={0.8} />
-
-                {/* Ground in bonus room */}
-                <mesh position={[-18.08, 0.05, -2.6]} rotation={[1.55, 0, 0.35]}  scale={[12, 10, 10]}>
-                    <planeGeometry />
-                    <meshBasicMaterial color="white" transparent={true} opacity={0.5}/>
-                </mesh>
-            </RigidBody>
-
-            {/* Planche */}
-            <RigidBody
-                type="KinematicVelocityBased"
-                colliders="trimesh"
-                rotation={[0, 3.14, 0]}
-                position={[0, 1, 0]}
-                restitution={0}
-                friction={1}
-                ccd
-                >
+                
+                {/* Planche */}
                 <animated.mesh
-                    // position={[-8.2, 0.75, -10.2]}
-                    position={ position_planche }
+                    position={[-8.2, 0.75, -10.2]}
                     rotation={[-1.58, 0, -0.05]}
                     scale={[4, 1.5, 3.2]}
-                    ref={planche}
                     // scale={scale}
                     
                 >
@@ -136,6 +115,11 @@ export default function MainModel({ position = [0, 0, 0] }) {
                     />
                 </animated.mesh>
 
+                {/* Ground in bonus room */}
+                <mesh position={[-18.08, 0.05, -2.6]} rotation={[1.55, 0, 0.35]}  scale={[12, 10, 10]}>
+                    <planeGeometry />
+                    <meshBasicMaterial color="white" transparent={true} opacity={0.5}/>
+                </mesh>
             </RigidBody>
 
             {/* Sparkles */}

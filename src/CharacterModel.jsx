@@ -28,11 +28,13 @@ export default function CharacterModel(props) {
     const unsubscribeJump = subscribeKeys(
       (state) => state.jump, 
       
+      /*
       (value) => {
           if (value) {
               jump()
           }
       }
+          */
     )
     const unsubscribeAny = subscribeKeys(
       () => {
