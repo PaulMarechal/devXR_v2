@@ -23,6 +23,8 @@ export default function MainModel({ position = [0, 0, 0] }) {
     
     const [visible, setVisible] = useState(false);
 
+    const planche = useRef();
+
     const { opacity, scale } = useSpring({
         opacity: visible ? 0.5 : 0,
         scale: visible ? [4, 1.5, 3.2] : [0.1, 0.1, 1],
@@ -38,15 +40,15 @@ export default function MainModel({ position = [0, 0, 0] }) {
     
     
     const optionsA = useMemo(() => ({
-        x: { value:0.1, min: -30, max: 30, step: 0.01 },
-        y: { value: -1.8, min: -30, max: 30, step: 0.01 },
-        z: { value: -3, min: -30, max: 30, step: 0.01 },
+        x: { value:7.15, min: -30, max: 30, step: 0.01 },
+        y: { value:2.42, min: -30, max: 30, step: 0.01 },
+        z: { value:11.4 , min: -30, max: 30, step: 0.01 },
     }), []);
 
     const optionsB = useMemo(() => ({
-        x: { value: 0, min: -30, max: 30, step: 0.01 },
-        y: { value: 4.63, min: -30, max: 30, step: 0.01 },
-        z: { value: 0, min: -30, max: 30, step: 0.01 },
+        x: { value: -1.58, min: -30, max: 30, step: 0.01 },
+        y: { value: 0, min: -30, max: 30, step: 0.01 },
+        z: { value: -0.05, min: -30, max: 30, step: 0.01 },
     }), []);
 
     const optionsC = useMemo(() => ({
@@ -55,8 +57,8 @@ export default function MainModel({ position = [0, 0, 0] }) {
         z: { value: 0, min: -30, max: 30, step: 0.01 },
     }), []);
 
-    const pA = useControls('Portal second Pos', optionsA);
-    const pB = useControls('Portal second Rot', optionsB);
+    const pA = useControls('Planche Pos', optionsA);
+    const pB = useControls('Planche Rot', optionsB);
     // const pC = useControls('Cylinder Pos', optionsC);
 
     const holographicControls = useControls({
@@ -82,6 +84,12 @@ export default function MainModel({ position = [0, 0, 0] }) {
 
     useFrame((state, delta) => {
         earth.current.rotation.y += 0.001;
+
+        const time = state.clock.getElapsedTime()
+
+        const y = Math.sin(time) -1
+
+        planche.current.setNextKinematicTranslation({ x: 0, y, z:0})
     });
 
     return (
@@ -96,30 +104,39 @@ export default function MainModel({ position = [0, 0, 0] }) {
                 ccd
             >
                 <primitive receiveShadow object={sceneModel.scene} scale={0.8} />
-                
-                {/* Planche */}
-                <animated.mesh
-                    position={[-8.2, 0.75, -10.2]}
-                    rotation={[-1.58, 0, -0.05]}
-                    scale={[4, 1.5, 3.2]}
-                    // scale={scale}
-                    
-                >
-                    <planeGeometry />
-                    <animated.meshBasicMaterial
-                        // side={THREE.DoubleSide}
-                        transparent={true}
-                        opacity={opacity}
-                        // opacity={0.5}
-                        // wireframe={true}
-                    />
-                </animated.mesh>
 
                 {/* Ground in bonus room */}
                 <mesh position={[-18.08, 0.05, -2.6]} rotation={[1.55, 0, 0.35]}  scale={[12, 10, 10]}>
                     <planeGeometry />
                     <meshBasicMaterial color="white" transparent={true} opacity={0.5}/>
                 </mesh>
+            </RigidBody>
+
+            {/* Planche */}
+            <RigidBody
+                ref={ planche }
+                type="kinematicPosition"
+                position={[0, 1, 0]}
+
+            >
+
+                <animated.mesh
+                    // position={[-8.2, 0.75, -10.2]}
+                    // rotation={[-1.58, 0, -0.05]}
+                    position={[pA.x, pA.y, pA.z]} 
+                    rotation={[pB.x, pB.y, pB.z]}
+                    scale={[4, 1.5, 3.2]}
+                    // scale={scale}
+                >
+                    <planeGeometry />
+                    <animated.meshBasicMaterial
+                        side={THREE.DoubleSide}
+                        // transparent={true}
+                        // opacity={opacity}
+                        opacity={1}
+                        wireframe={true}
+                    />
+                </animated.mesh>
             </RigidBody>
 
             {/* Sparkles */}
@@ -133,7 +150,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
             {/* Portal */}
             <Portal id="2023" name="Catacombes.xyz" bg="#ffffff">
                 <ambientLight intensity={Math.PI / 2} />
-                <Gltf src="./assets/models/Guerinet.glb" scale={1} position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]} />
+                <Gltf src="./assets/models/Guerinet.glb" scale={1} position={[0.1, -1.8, -3]} rotation={[0, 4.63, 0]} />
                 {/* <primitive receiveShadow object={guerinet.scene} scale={0.8} /> */}
             </Portal>
 
