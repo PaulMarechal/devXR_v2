@@ -23,8 +23,6 @@ export default function MainModel({ position = [0, 0, 0] }) {
     
     const [visible, setVisible] = useState(false);
 
-    const planche = useRef();
-
     const { opacity, scale } = useSpring({
         opacity: visible ? 0.5 : 0,
         scale: visible ? [4, 1.5, 3.2] : [0.1, 0.1, 1],
@@ -40,7 +38,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
     
     
     const optionsA = useMemo(() => ({
-        x: { value:7.15, min: -30, max: 30, step: 0.01 },
+        x: { value:8.5, min: -30, max: 30, step: 0.01 },
         y: { value:2.42, min: -30, max: 30, step: 0.01 },
         z: { value:11.4 , min: -30, max: 30, step: 0.01 },
     }), []);
@@ -81,6 +79,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
     });
 
     const earth = useRef();
+    const planche = useRef();
 
     useFrame((state, delta) => {
         earth.current.rotation.y += 0.001;
@@ -117,7 +116,8 @@ export default function MainModel({ position = [0, 0, 0] }) {
                 ref={ planche }
                 type="kinematicPosition"
                 position={[0, 1, 0]}
-
+                restitution={0}
+                friction={1}
             >
 
                 <animated.mesh
@@ -131,10 +131,10 @@ export default function MainModel({ position = [0, 0, 0] }) {
                     <planeGeometry />
                     <animated.meshBasicMaterial
                         side={THREE.DoubleSide}
-                        // transparent={true}
-                        // opacity={opacity}
-                        opacity={1}
-                        wireframe={true}
+                        transparent={true}
+                        opacity={opacity}
+                        // opacity={1}
+                        // wireframe={true}
                     />
                 </animated.mesh>
             </RigidBody>
