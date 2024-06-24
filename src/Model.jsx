@@ -26,6 +26,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const { opacity, scale } = useSpring({
         opacity: visible ? 0.5 : 0,
         scale: visible ? [4, 1.5, 3.2] : [0.1, 0.1, 1],
+        position: visible ? [7.9, 2.42, 11.4] : [7.9, 1, 11.4], 
         config: { duration: 1000 }
     });
     
@@ -38,7 +39,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
     
     
     const optionsA = useMemo(() => ({
-        x: { value:8.5, min: -30, max: 30, step: 0.01 },
+        x: { value:7.9, min: -30, max: 30, step: 0.01 },
         y: { value:2.42, min: -30, max: 30, step: 0.01 },
         z: { value:11.4 , min: -30, max: 30, step: 0.01 },
     }), []);
@@ -80,15 +81,19 @@ export default function MainModel({ position = [0, 0, 0] }) {
 
     const earth = useRef();
     const planche = useRef();
+    const planche_pos = useRef();
 
     useFrame((state, delta) => {
         earth.current.rotation.y += 0.001;
 
         const time = state.clock.getElapsedTime()
 
-        const y = Math.sin(time) -1
+        // const y = Math.sin(time) - 1
+        const y = Math.sin(time) - 0.5
 
-        planche.current.setNextKinematicTranslation({ x: 0, y, z:0})
+        console.log(planche_pos.current.position.y)
+
+        planche.current.setNextKinematicTranslation({ x: 0, y:y, z:0})
     });
 
     return (
@@ -98,7 +103,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
                 colliders="trimesh"
                 rotation={[0, 3.14, 0]}
                 position={[0, 1, 0]}
-                restitution={0}
+                restitution={0.2}
                 friction={1}
                 ccd
             >
@@ -123,6 +128,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
                 <animated.mesh
                     // position={[-8.2, 0.75, -10.2]}
                     // rotation={[-1.58, 0, -0.05]}
+                    ref={planche_pos}
                     position={[pA.x, pA.y, pA.z]} 
                     rotation={[pB.x, pB.y, pB.z]}
                     scale={[4, 1.5, 3.2]}
