@@ -26,7 +26,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const { opacity, scale } = useSpring({
         opacity: visible ? 0.5 : 0,
         scale: visible ? [4, 1.5, 3.2] : [0.1, 0.1, 1],
-        position: visible ? [7.9, 2.42, 11.4] : [7.9, 1, 11.4], 
+        // position: visible ? [7.9, 1, 11.4] : [7.9, 3, 11.4], 
         config: { duration: 1000 }
     });
     
@@ -88,16 +88,41 @@ export default function MainModel({ position = [0, 0, 0] }) {
 
         const time = state.clock.getElapsedTime()
 
-        // const y = Math.sin(time) - 1
-        const y = Math.sin(time) - 0.5
+        const y = planche_pos.current.position.y + 3
+        const y_ = planche_pos.current.position.y - 3
+        // const y = Math.sin(time) - 0.5
 
+        // let y = 1
+        
         console.log(planche_pos.current.position.y)
 
-        planche.current.setNextKinematicTranslation({ x: 0, y:y, z:0})
+        if (planche_pos.current.material.opacity >= 0.1) {
+            // for(let i = y; i < y_; i++){
+            //     console.log(i)
+            //     planche.current.setNextKinematicTranslation({ x: 0, y:y_, z:0})  
+            // }
+
+                planche.current.setNextKinematicTranslation({ x: 0, y:y_, z:0})      
+            // setTimeout(() => {
+            // }, 2000);
+
+        } else {   
+            
+            // for(let i = y_; i < y; i += 0.01){
+            //     console.log(i)
+            //     planche.current.setNextKinematicTranslation({ x: 0, y:y, z:0})  
+            // }
+            planche.current.setNextKinematicTranslation({ x: 0, y:y, z:0})      
+
+            // setTimeout(() => {
+            // }, 2000);
+
+        }
     });
 
     return (
-        <group position={position} >
+        // position={position}
+        <group >
             <RigidBody
                 type="fixed"
                 colliders="trimesh"
@@ -120,9 +145,11 @@ export default function MainModel({ position = [0, 0, 0] }) {
             <RigidBody
                 ref={ planche }
                 type="kinematicPosition"
+                colliders="trimesh"
                 position={[0, 1, 0]}
-                restitution={0}
+                restitution={0.2}
                 friction={1}
+                ccd
             >
 
                 <animated.mesh
