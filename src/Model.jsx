@@ -19,6 +19,8 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const sceneModel = useGLTF("./assets/models/meeting_space_4.glb");
     const guerinet = useGLTF("./assets/models/Guerinet.glb");
     const screen_model = useGLTF("./assets/models/tv_display.glb");
+    const alarm_button = useGLTF("./assets/models/alarm_button.glb");
+    
     const { nodes, materials } = useGLTF('./assets/models/earth_planet.glb');
     
     const [visible, setVisible] = useState(false);
@@ -249,8 +251,17 @@ export default function MainModel({ position = [0, 0, 0] }) {
             
             {/* Box to click */}
             <mesh position={[0.23, 1.32, 10]} scale={0.5} onClick={handleClick}>
-                <boxGeometry />
-                <meshStandardMaterial />
+                {/* <boxGeometry />
+                <meshStandardMaterial /> */}
+                <primitive 
+                    receiveShadow 
+                    object={alarm_button.scene} 
+                    scale={0.11} 
+                    // position={[pA.x, pA.y, pA.z]} 
+                    // rotation={[pB.x, pB.y, pB.z]}
+                    position={[28.85, 1.67, 0]}
+                    rotation={[0, 2.9, 0]}
+                />
             </mesh>
 
             {/* <EffectComposer>
