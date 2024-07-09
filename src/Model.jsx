@@ -28,7 +28,6 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const { opacity, scale } = useSpring({
         opacity: visible ? 0.5 : 0,
         scale: visible ? [4, 1.5, 3.2] : [0.1, 0.1, 1],
-        // position: visible ? [7.9, 1, 11.4] : [7.9, 3, 11.4], 
         config: { duration: 1000 }
     });
     
@@ -52,15 +51,8 @@ export default function MainModel({ position = [0, 0, 0] }) {
         z: { value: -0.05, min: -30, max: 30, step: 0.01 },
     }), []);
 
-    const optionsC = useMemo(() => ({
-        x: { value: 0, min: -30, max: 30, step: 0.01 },
-        y: { value: 0, min: -30, max: 30, step: 0.01 },
-        z: { value: 0, min: -30, max: 30, step: 0.01 },
-    }), []);
-
     const pA = useControls('Planche Pos', optionsA);
     const pB = useControls('Planche Rot', optionsB);
-    // const pC = useControls('Cylinder Pos', optionsC);
 
     const holographicControls = useControls({
         fresnelAmount: { value: 0.0, min: 0.0, max: 1.0},
