@@ -92,38 +92,20 @@ export default function MainModel({ position = [0, 0, 0] }) {
 
         const y = planche_pos.current.position.y + 3
         const y_ = planche_pos.current.position.y - 3
-        // const y = Math.sin(time) - 0.5
 
+        // const y = Math.sin(time) - 0.5
         // let y = 1
         
         console.log(planche_pos.current.position.y)
 
         if (planche_pos.current.material.opacity >= 0.1) {
-            // for(let i = y; i < y_; i++){
-            //     console.log(i)
-            //     planche.current.setNextKinematicTranslation({ x: 0, y:y_, z:0})  
-            // }
-
-                planche.current.setNextKinematicTranslation({ x: 0, y:y_, z:0})      
-            // setTimeout(() => {
-            // }, 2000);
-
+            planche.current.setNextKinematicTranslation({ x: 0, y:y_, z:0})      
         } else {   
-            
-            // for(let i = y_; i < y; i += 0.01){
-            //     console.log(i)
-            //     planche.current.setNextKinematicTranslation({ x: 0, y:y, z:0})  
-            // }
             planche.current.setNextKinematicTranslation({ x: 0, y:y, z:0})      
-
-            // setTimeout(() => {
-            // }, 2000);
-
         }
     });
 
     return (
-        // position={position}
         <group >
             <RigidBody
                 type="fixed"
@@ -161,7 +143,6 @@ export default function MainModel({ position = [0, 0, 0] }) {
                     position={[pA.x, pA.y, pA.z]} 
                     rotation={[pB.x, pB.y, pB.z]}
                     scale={[4, 1.5, 3.2]}
-                    // scale={scale}
                 >
                     <planeGeometry />
                     <animated.meshBasicMaterial
@@ -186,20 +167,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
             <Portal id="2023" name="Catacombes.xyz" bg="#ffffff">
                 <ambientLight intensity={Math.PI / 2} />
                 <Gltf src="./assets/models/Guerinet.glb" scale={1} position={[0.1, -1.8, -3]} rotation={[0, 4.63, 0]} />
-                {/* <primitive receiveShadow object={guerinet.scene} scale={0.8} /> */}
             </Portal>
-
-            {/* <Gltf src="./assets/models/Guerinet.glb" position={[0, 0, 0]} scale={0.01}/> */}
-
-
-            {/* <mesh position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]}>
-                <planeGeometry />
-                <MeshPortalMaterial>
-                    <mesh>
-                        <Gltf src="./assets/models/Guerinet.glb" position={[0, -2, -3]} scale={0.01}/>
-                    </mesh>
-                </MeshPortalMaterial>
-            </mesh> */}
 
             <group ref={earth} dispose={null} scale={0.013} position={[0, 3.2, 0]}>
                 <group rotation={[-Math.PI / 2, 0, 0]}>
@@ -226,11 +194,6 @@ export default function MainModel({ position = [0, 0, 0] }) {
             </group>
 
             <Text_3D/>
-            {/* Under text */}
-            {/* <mesh position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]}  scale={[6, 0.05, 1.4]}>
-                <planeGeometry />
-                <meshBasicMaterial color="#fff" side={THREE.DoubleSide}/>
-            </mesh> */}
 
             <mesh scale={[6, 1, 3]}>
                 <planeGeometry />
@@ -251,22 +214,14 @@ export default function MainModel({ position = [0, 0, 0] }) {
             
             {/* Box to click */}
             <mesh position={[0.23, 1.32, 10]} scale={0.5} onClick={handleClick}>
-                {/* <boxGeometry />
-                <meshStandardMaterial /> */}
                 <primitive 
                     receiveShadow 
                     object={alarm_button.scene} 
                     scale={0.11} 
-                    // position={[pA.x, pA.y, pA.z]} 
-                    // rotation={[pB.x, pB.y, pB.z]}
                     position={[28.85, 1.67, 0]}
                     rotation={[0, 2.9, 0]}
                 />
             </mesh>
-
-            {/* <EffectComposer>
-                <Bloom mipmapBlur />
-            </EffectComposer> */}
         </group>
     );
 }
