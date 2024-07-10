@@ -4,10 +4,11 @@ import { useGLTF, useFBX, Environment, Sky, Html, Text3D, Sparkles, Clouds, Clou
 import { useLoader, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
-import React, { useRef, useMemo, useState } from 'react';
+import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
 import { useSpring, animated } from '@react-spring/three';
+import Confetti from './components/Confetti';
 
 import { useControls } from 'leva';
 import HolographicMaterial from "./HolographicMaterial.jsx";
@@ -15,15 +16,52 @@ import HolographicMaterial from "./HolographicMaterial.jsx";
 import Text_3D from './Text_3D.jsx'
 import Portal from "./Portal.jsx";
 
+const Shape = ({ id, position, onClick }) => {
+    const mesh = useRef();
+
+    useFrame(() => {
+        if (mesh.current) {
+            mesh.current.rotation.x += 0.01;
+            mesh.current.rotation.y += 0.01;
+        }
+    });
+
+    const handleClick = () => {
+        if (mesh.current) {
+            const position = mesh.current.position;
+            onClick(id, position);
+        }
+    };
+
+    return (
+        <animated.mesh ref={mesh} position={position} onClick={handleClick}>
+            <boxGeometry args={[1, 1, 1]} />
+            <meshStandardMaterial color={'orange'} />
+        </animated.mesh>
+    );
+};
+
 export default function MainModel({ position = [0, 0, 0] }) {
     const sceneModel = useGLTF("./assets/models/meeting_space_4.glb");
-    const guerinet = useGLTF("./assets/models/Guerinet.glb");
-    const screen_model = useGLTF("./assets/models/tv_display.glb");
     const alarm_button = useGLTF("./assets/models/alarm_button.glb");
-    
     const { nodes, materials } = useGLTF('./assets/models/earth_planet.glb');
-    
+    const [gameStarted, setGameStarted] = useState(false);
+    const [shapes, setShapes] = useState([]);
+    const [score, setScore] = useState(0);
     const [visible, setVisible] = useState(false);
+
+    const [explosionPosition, setExplosionPosition] = useState(null);
+    const [isExploding, setIsExploding] = useState(false);
+    
+    useEffect(() => {
+        if (isExploding) {
+            console.log('Explosion at:', explosionPosition); 
+        }
+    }, [isExploding, explosionPosition]);
+
+    const handleClickStartGame = () => {
+        setGameStarted(true); 
+    };
 
     const { opacity, scale } = useSpring({
         opacity: visible ? 0.5 : 0,
@@ -37,8 +75,27 @@ export default function MainModel({ position = [0, 0, 0] }) {
             setVisible(false);
         }, 20000);
     };
-    
-    
+
+    useEffect(() => {
+        if (gameStarted) {
+            const newShapes = Array(5).fill().map(() => ({
+                id: Math.random(),
+                position: [
+                    5 + (Math.random() * 7 ),
+                    2 + (Math.random() * 4 - 1),
+                    21 + (Math.random() * 6 - 2),
+                ],
+            }));
+            setShapes(newShapes);
+
+            const timer = setTimeout(() => {
+                setShapes([]);
+            }, 20000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [gameStarted]);
+
     const optionsA = useMemo(() => ({
         x: { value:7.9, min: -30, max: 30, step: 0.01 },
         y: { value:2.42, min: -30, max: 30, step: 0.01 },
@@ -80,25 +137,32 @@ export default function MainModel({ position = [0, 0, 0] }) {
     useFrame((state, delta) => {
         earth.current.rotation.y += 0.001;
 
-        const time = state.clock.getElapsedTime()
-
-        const y = planche_pos.current.position.y + 3
-        const y_ = planche_pos.current.position.y - 3
-
-        // const y = Math.sin(time) - 0.5
-        // let y = 1
-        
-        console.log(planche_pos.current.position.y)
+        const y = planche_pos.current.position.y + 3;
+        const y_ = planche_pos.current.position.y - 3;
 
         if (planche_pos.current.material.opacity >= 0.1) {
-            planche.current.setNextKinematicTranslation({ x: 0, y:y_, z:0})      
+            planche.current.setNextKinematicTranslation({ x: 0, y: y_, z: 0 })      
         } else {   
-            planche.current.setNextKinematicTranslation({ x: 0, y:y, z:0})      
+            planche.current.setNextKinematicTranslation({ x: 0, y: y, z: 0 })      
         }
     });
 
+    const handleClick_ = (id, position) => {
+        console.log(position); 
+        if (!position) return; 
+        const updatedShapes = shapes.filter(shape => shape.id !== id);
+        setShapes(updatedShapes);
+        setExplosionPosition(position);
+        setIsExploding(true);
+        setTimeout(() => {
+            setIsExploding(false);
+            setExplosionPosition(null);
+        }, 1000);
+        setScore(score + 1);
+    };
+
     return (
-        <group >
+        <group>
             <RigidBody
                 type="fixed"
                 colliders="trimesh"
@@ -119,7 +183,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
 
             {/* Planche */}
             <RigidBody
-                ref={ planche }
+                ref={planche}
                 type="kinematicPosition"
                 colliders="trimesh"
                 position={[0, 1, 0]}
@@ -129,8 +193,6 @@ export default function MainModel({ position = [0, 0, 0] }) {
             >
 
                 <animated.mesh
-                    // position={[-8.2, 0.75, -10.2]}
-                    // rotation={[-1.58, 0, -0.05]}
                     ref={planche_pos}
                     position={[pA.x, pA.y, pA.z]} 
                     rotation={[pB.x, pB.y, pB.z]}
@@ -141,19 +203,12 @@ export default function MainModel({ position = [0, 0, 0] }) {
                         side={THREE.DoubleSide}
                         transparent={true}
                         opacity={opacity}
-                        // opacity={1}
-                        // wireframe={true}
                     />
                 </animated.mesh>
             </RigidBody>
 
             {/* Sparkles */}
             <Sparkles position={[19.34, 4.65, 3.28]} wireframe={true} count={150} scale={10} size={6} speed={0.4} />
-
-            {/* <Clouds material={THREE.MeshBasicMaterial}>
-                <Cloud segments={40} bounds={[10, 2, 2]} volume={10} color="white" />
-                <Cloud seed={1} scale={2} volume={5} color="hotpink" fade={100} />
-            </Clouds> */}
 
             {/* Portal */}
             <Portal id="2023" name="Catacombes.xyz" bg="#ffffff">
@@ -185,7 +240,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
                 </group>
             </group>
 
-            <Text_3D/>
+            <Text_3D />
 
             <mesh scale={[6, 1, 3]}>
                 <planeGeometry />
@@ -202,7 +257,6 @@ export default function MainModel({ position = [0, 0, 0] }) {
                     roughness={0}
                 />
             </mesh>
-            {/* position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]} */}
             
             {/* Box to click */}
             <mesh position={[0.23, 1.32, 10]} scale={0.5} onClick={handleClick}>
@@ -214,6 +268,39 @@ export default function MainModel({ position = [0, 0, 0] }) {
                     rotation={[0, 2.9, 0]}
                 />
             </mesh>
+
+            {shapes.map((shape) => (
+                <Shape
+                    key={shape.id}
+                    id={shape.id}
+                    position={shape.position}
+                    onClick={handleClick_}
+                />
+            ))}
+
+            {isExploding && explosionPosition && (
+                <Confetti
+                    rate={2}
+                    amount={20}
+                    fallingHeight={9}
+                    enableShadows
+                    isExploding
+                    colors={['yellow', 'white', 'red']}
+                    position={[explosionPosition.x, explosionPosition.y, explosionPosition.z]}
+                    // position={[10,43, 4.13, 21.7]}
+                />
+            )}
+
+            <mesh position={[0, 2, 11]} onClick={handleClickStartGame}>
+                <boxGeometry args={[1, 1, 1]} />
+                <meshStandardMaterial color={'blue'} />
+            </mesh>
+
+            <Html>
+                <div style={{ position: 'absolute', top: 2, left: 20, color: 'white', fontSize: '24px' }}>
+                    Score: {score}
+                </div>
+            </Html>
         </group>
     );
 }
