@@ -157,7 +157,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
         setTimeout(() => {
             setIsExploding(false);
             setExplosionPosition(null);
-        }, 100);
+        }, 1000);
         setScore(score + 1);
     };
 
@@ -297,8 +297,12 @@ export default function MainModel({ position = [0, 0, 0] }) {
             </mesh>
 
             <Html>
-                <div style={{ position: 'absolute', top: 2, left: 20, color: 'white', fontSize: '24px' }}>
-                    Score: {score}
+                <div style={{ position: 'absolute', top: '-38vh', left: '-3vh', color: 'white', textAlign: 'center' }}>
+                    <h4>
+                        <span style={{fontSize: '24px'}}>Score</span> 
+                        <br/>
+                        <span style={{fontSize: '30px'}}>{score}</span>
+                    </h4>
                 </div>
             </Html>
         </group>
