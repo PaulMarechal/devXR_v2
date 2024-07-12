@@ -157,7 +157,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
         setTimeout(() => {
             setIsExploding(false);
             setExplosionPosition(null);
-        }, 1000);
+        }, 100);
         setScore(score + 1);
     };
 
