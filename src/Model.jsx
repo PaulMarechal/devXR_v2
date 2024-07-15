@@ -1,19 +1,18 @@
+import React, { useRef, useMemo, useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 import * as THREE from 'three';
 import { RigidBody } from "@react-three/rapier";
 import { useGLTF, useFBX, Environment, Sky, Html, Text3D, Sparkles, Clouds, Cloud, Gltf, MeshPortalMaterial } from "@react-three/drei";
 import { useLoader, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
-import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import { useSpring, animated } from '@react-spring/three';
 import Confetti from './components/Confetti';
-
 import { useControls } from 'leva';
 import HolographicMaterial from "./HolographicMaterial.jsx";
-
-import Text_3D from './Text_3D.jsx'
+import Text_3D from './Text_3D.jsx';
 import Portal from "./Portal.jsx";
 
 const Shape = ({ id, position, onClick }) => {
@@ -49,10 +48,22 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const [shapes, setShapes] = useState([]);
     const [score, setScore] = useState(0);
     const [visible, setVisible] = useState(false);
-
     const [explosionPosition, setExplosionPosition] = useState(null);
     const [isExploding, setIsExploding] = useState(false);
-    
+    const [highScores, setHighScores] = useState([]);
+    const [playerName, setPlayerName] = useState("");
+    const [startTime, setStartTime] = useState(null);
+    const [gameEnded, setGameEnded] = useState(false);
+
+    useEffect(() => {
+        // Charger les scores depuis les cookies
+        const savedHighScores = Cookies.get('highScores');
+        console.log(savedHighScores)
+        if (savedHighScores) {
+            setHighScores(JSON.parse(savedHighScores));
+        }
+    }, []);
+
     useEffect(() => {
         if (isExploding) {
             console.log('Explosion at:', explosionPosition); 
@@ -60,7 +71,10 @@ export default function MainModel({ position = [0, 0, 0] }) {
     }, [isExploding, explosionPosition]);
 
     const handleClickStartGame = () => {
-        setGameStarted(true); 
+        setGameStarted(true);
+        setScore(0); 
+        setStartTime(new Date());
+        setGameEnded(false);
     };
 
     const { opacity, scale } = useSpring({
@@ -68,7 +82,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
         scale: visible ? [4, 1.5, 3.2] : [0.1, 0.1, 1],
         config: { duration: 1000 }
     });
-    
+
     const handleClick = () => {
         setVisible(true);
         setTimeout(() => {
@@ -78,7 +92,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
 
     useEffect(() => {
         if (gameStarted) {
-            const newShapes = Array(5).fill().map(() => ({
+            const newShapes = Array(30).fill().map(() => ({
                 id: Math.random(),
                 position: [
                     5 + (Math.random() * 7 ),
@@ -90,40 +104,42 @@ export default function MainModel({ position = [0, 0, 0] }) {
 
             const timer = setTimeout(() => {
                 setShapes([]);
-            }, 20000);
+                setGameEnded(true);
+                setGameStarted(false);
+              }, 20000);
 
             return () => clearTimeout(timer);
         }
     }, [gameStarted]);
 
-    const optionsA = useMemo(() => ({
-        x: { value:7.9, min: -30, max: 30, step: 0.01 },
-        y: { value:2.42, min: -30, max: 30, step: 0.01 },
-        z: { value:11.4 , min: -30, max: 30, step: 0.01 },
-    }), []);
+    // const optionsA = useMemo(() => ({
+    //     x: { value:7.9, min: -30, max: 30, step: 0.01 },
+    //     y: { value:2.42, min: -30, max: 30, step: 0.01 },
+    //     z: { value:11.4 , min: -30, max: 30, step: 0.01 },
+    // }), []);
 
-    const optionsB = useMemo(() => ({
-        x: { value: -1.58, min: -30, max: 30, step: 0.01 },
-        y: { value: 0, min: -30, max: 30, step: 0.01 },
-        z: { value: -0.05, min: -30, max: 30, step: 0.01 },
-    }), []);
+    // const optionsB = useMemo(() => ({
+    //     x: { value: -1.58, min: -30, max: 30, step: 0.01 },
+    //     y: { value: 0, min: -30, max: 30, step: 0.01 },
+    //     z: { value: -0.05, min: -30, max: 30, step: 0.01 },
+    // }), []);
 
-    const pA = useControls('Planche Pos', optionsA);
-    const pB = useControls('Planche Rot', optionsB);
+    // const pA = useControls('Planche Pos', optionsA);
+    // const pB = useControls('Planche Rot', optionsB);
 
-    const holographicControls = useControls({
-        fresnelAmount: { value: 0.0, min: 0.0, max: 1.0},
-        fresnelOpacity: { value: 0.78,min: 0.0, max: 1.0},
-        scanlineSize: { value: 4.6, min: 1.0, max: 15},
-        hologramBrightness: { value: 1.3, min: 0.0, max: 2},
-        signalSpeed: { value: 1.09, min: 0.0, max: 2},
-        hologramOpacity: { value: 0.55, min: 0.0, max: 1.0},
-        hologramColor: { value: "#51a4de"},
-        enableBlinking: false,
-        blinkFresnelOnly: true,
-        enableAdditive: true,
-        side: { options: ["FrontSide", "BackSide", "DoubleSide"] },
-    });
+    // const holographicControls = useControls({
+    //     fresnelAmount: { value: 0.0, min: 0.0, max: 1.0},
+    //     fresnelOpacity: { value: 0.78,min: 0.0, max: 1.0},
+    //     scanlineSize: { value: 4.6, min: 1.0, max: 15},
+    //     hologramBrightness: { value: 1.3, min: 0.0, max: 2},
+    //     signalSpeed: { value: 1.09, min: 0.0, max: 2},
+    //     hologramOpacity: { value: 0.55, min: 0.0, max: 1.0},
+    //     hologramColor: { value: "#51a4de"},
+    //     enableBlinking: false,
+    //     blinkFresnelOnly: true,
+    //     enableAdditive: true,
+    //     side: { options: ["FrontSide", "BackSide", "DoubleSide"] },
+    // });
 
     sceneModel.scene.children.forEach((mesh) => {
         mesh.receiveShadow = true;
@@ -161,6 +177,31 @@ export default function MainModel({ position = [0, 0, 0] }) {
         setScore(score + 1);
     };
 
+    useEffect(() => {
+        if (!gameStarted && score > 0) {
+            const endTime = new Date();
+            const duration = new Date().toLocaleString();
+            const newScore = { name: playerName, score, time: duration };
+            const updatedHighScores = [...highScores, newScore].sort((a, b) => b.score - a.score).slice(0, 3);
+            setHighScores(updatedHighScores);
+            Cookies.set('highScores', JSON.stringify(updatedHighScores));
+        }
+    }, [gameStarted, score, startTime, playerName, highScores]);
+
+    const handleSubmitName = () => {
+        if (!playerName) return;
+    
+        const endTime = new Date();
+        const duration = new Date().toLocaleString();
+        const newScore = { name: playerName, score, time: duration };
+        const updatedHighScores = [...highScores, newScore].sort((a, b) => b.score - a.score).slice(0, 3);
+        setHighScores(updatedHighScores);
+        Cookies.set('highScores', JSON.stringify(updatedHighScores));
+        setGameEnded(false); // Reset game end state
+
+      };
+    
+
     return (
         <group>
             <RigidBody
@@ -194,8 +235,10 @@ export default function MainModel({ position = [0, 0, 0] }) {
 
                 <animated.mesh
                     ref={planche_pos}
-                    position={[pA.x, pA.y, pA.z]} 
-                    rotation={[pB.x, pB.y, pB.z]}
+                    // position={[pA.x, pA.y, pA.z]} 
+                    // rotation={[pB.x, pB.y, pB.z]}
+                    position={[7.9, 2.42, 11.4]}
+                    rotation={[-1.58, 0, -0.05]}
                     scale={[4, 1.5, 3.2]}
                 >
                     <planeGeometry />
@@ -226,7 +269,19 @@ export default function MainModel({ position = [0, 0, 0] }) {
                             material={materials.Oceans}
                             rotation={[-0.286, 0, -0.292]}
                         >
-                            <HolographicMaterial {...holographicControls} />
+                            <HolographicMaterial
+                                fresnelOpacity={0.78}
+                                scanlineSize={4.6}
+                                hologramBrightness={1.3}
+                                signalSpeed={1.09}
+                                hologramOpacity={0.55}
+                                hologramColor={"#51a4de"}
+                                enableBlinking={false}
+                                blinkFresnelOnly={true}
+                                enableAdditive={true}
+                                side={"FrontSide"}
+                            />
+                            {/* {...holographicControls} */}
                         </mesh>
                     </group>
                     <mesh
@@ -235,7 +290,19 @@ export default function MainModel({ position = [0, 0, 0] }) {
                         geometry={nodes.Object_4.geometry}
                         material={materials.Land_Masses}
                     >
-                        <HolographicMaterial {...holographicControls} />
+                        <HolographicMaterial 
+                            fresnelOpacity={0.78}
+                            scanlineSize={4.6}
+                            hologramBrightness={1.3}
+                            signalSpeed={1.09}
+                            hologramOpacity={0.55}
+                            hologramColor={"#51a4de"}
+                            enableBlinking={false}
+                            blinkFresnelOnly={true}
+                            enableAdditive={true}
+                            side={"FrontSide"}
+                            // {...holographicControls} 
+                        />
                     </mesh>
                 </group>
             </group>
@@ -287,7 +354,6 @@ export default function MainModel({ position = [0, 0, 0] }) {
                     isExploding
                     colors={['yellow', 'white', 'red']}
                     position={[explosionPosition.x, explosionPosition.y, explosionPosition.z]}
-                    // position={[10,43, 4.13, 21.7]}
                 />
             )}
 
@@ -297,14 +363,35 @@ export default function MainModel({ position = [0, 0, 0] }) {
             </mesh>
 
             <Html>
-                <div style={{ position: 'absolute', top: '-38vh', left: '-3vh', color: 'white', textAlign: 'center' }}>
-                    <h4>
-                        <span style={{fontSize: '24px'}}>Score</span> 
-                        <br/>
-                        <span style={{fontSize: '30px'}}>{score}</span>
-                    </h4>
-                </div>
-            </Html>
+  <div style={{ position: 'absolute', top: '-38vh', left: '-3vh', color: 'white', textAlign: 'center' }}>
+    <h4>
+      <span style={{ fontSize: '24px' }}>Score</span> 
+      <br/>
+      <span style={{ fontSize: '30px' }}>{score}</span>
+    </h4>
+  </div>
+    
+    <div style={{ position: 'absolute', top: '-38vh', left: '83vh', color: 'white', textAlign: 'center', width: '38vh' }}>
+      <h3>High Scores</h3>
+      <ol>
+        {highScores.map((score, index) => (
+          <li key={index}>{score.name}: {score.score} points ({score.time}s)</li>
+        ))}
+      </ol>
+    </div>
+
+  {/* {gameStarted ? (
+  ) : null} */}
+  {gameEnded && (
+    <div>
+      <input type="text" value={playerName} onChange={(e) => setPlayerName(e.target.value)} placeholder="Enter your name" />
+      <button onClick={handleSubmitName} style={{ position: 'absolute', top: '15vh', left: '3vh', color: 'black', backgroundColor: 'white', padding: '10px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+        Valider
+      </button>
+    </div>
+  )}
+</Html>
+
         </group>
     );
 }

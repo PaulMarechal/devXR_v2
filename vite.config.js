@@ -37,6 +37,7 @@ export default {
         sourcemap: true // Add sourcemap
     },
     optimizeDeps: {
-        exclude: ['js-big-decimal']
+        exclude: ['js-big-decimal'], 
+        include: ['@react-three/rapier']
     },
 }
