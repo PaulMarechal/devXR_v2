@@ -16,13 +16,13 @@ export default function CharacterModel(props) {
     material.castShadow = true;
   });
 
-  const optionsB = useMemo(() => ({
-    x: { value: 0, min: -10, max: 10, step: 0.01 },
-    y: { value: 0, min: -10, max: 10, step: 0.01 },
-    z: { value: 0, min: -10, max: 10, step: 0.01 },
-  }), []);
+  // const optionsB = useMemo(() => ({
+  //   x: { value: 0, min: -10, max: 10, step: 0.01 },
+  //   y: { value: 0, min: -10, max: 10, step: 0.01 },
+  //   z: { value: 0, min: -10, max: 10, step: 0.01 },
+  // }), []);
 
-  const pB = useControls('scale sparkles', optionsB);
+  // const pB = useControls('scale sparkles', optionsB);
 
   useEffect(() => {
     const unsubscribeJump = subscribeKeys(

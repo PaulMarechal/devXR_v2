@@ -23,7 +23,7 @@ export default create((set)=>{
 
         end: () => {
             set(() => {
-                return { phase: 'ended' }
+                return { phase: 'endedd' }
             })
         }
     }

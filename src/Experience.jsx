@@ -57,7 +57,7 @@ export default function Experience(){
             <Model count={blockCount}/>
             <Screen/>
 
-            <Ecctrl debug>
+            <Ecctrl > {/* debug */}
                 <CharacterModel castShadow position={characterPosition} />
             </Ecctrl>
             <Computer/>

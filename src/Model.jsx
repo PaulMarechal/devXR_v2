@@ -92,7 +92,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
 
     useEffect(() => {
         if (gameStarted) {
-            const newShapes = Array(30).fill().map(() => ({
+            const newShapes = Array(50).fill().map(() => ({
                 id: Math.random(),
                 position: [
                     5 + (Math.random() * 7 ),
@@ -164,7 +164,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
     });
 
     const handleClick_ = (id, position) => {
-        console.log(position); 
+        // console.log(position); 
         if (!position) return; 
         const updatedShapes = shapes.filter(shape => shape.id !== id);
         setShapes(updatedShapes);
@@ -195,6 +195,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
         const duration = new Date().toLocaleString();
         const newScore = { name: playerName, score, time: duration };
         const updatedHighScores = [...highScores, newScore].sort((a, b) => b.score - a.score).slice(0, 3);
+        console.log(updatedHighScores)
         setHighScores(updatedHighScores);
         Cookies.set('highScores', JSON.stringify(updatedHighScores));
         setGameEnded(false); // Reset game end state
@@ -371,7 +372,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
     </h4>
   </div>
     
-    <div style={{ position: 'absolute', top: '-38vh', left: '83vh', color: 'white', textAlign: 'center', width: '38vh' }}>
+    <div style={{ position: 'absolute', top: '-38vh', left: '54vh', color: 'white', textAlign: 'center', width: '38vh' }}>
       <h3>High Scores</h3>
       <ol>
         {highScores.map((score, index) => (

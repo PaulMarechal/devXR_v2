@@ -11,20 +11,20 @@ export default function Computer(props) {
     const computer = useGLTF('./assets/models/computer_sci_fi_2.glb')
 
 
-    const optionsZ = useMemo(() => ({
-        x: { value: 0.28, min: -10, max: 10, step: 0.01 },
-        y: { value: 2.15, min: -10, max: 10, step: 0.01 },
-        z: { value: 1.6, min: -10, max: 10, step: 0.01 },
-    }), []);
+    // const optionsZ = useMemo(() => ({
+    //     x: { value: 0.28, min: -10, max: 10, step: 0.01 },
+    //     y: { value: 2.15, min: -10, max: 10, step: 0.01 },
+    //     z: { value: 1.6, min: -10, max: 10, step: 0.01 },
+    // }), []);
 
-    const optionsE = useMemo(() => ({
-        x: { value: 0, min: -10, max: 10, step: 0.01 },
-        y: { value: 0.35, min: -10, max: 10, step: 0.01 },
-        z: { value: 0, min: -10, max: 10, step: 0.01 },
-    }), []);
+    // const optionsE = useMemo(() => ({
+    //     x: { value: 0, min: -10, max: 10, step: 0.01 },
+    //     y: { value: 0.35, min: -10, max: 10, step: 0.01 },
+    //     z: { value: 0, min: -10, max: 10, step: 0.01 },
+    // }), []);
 
-    const pZ = useControls('Computer Pos', optionsZ);
-    const pE = useControls('Computer Rot', optionsE);
+    // const pZ = useControls('Computer Pos', optionsZ);
+    // const pE = useControls('Computer Rot', optionsE);
 
   return (
     <>

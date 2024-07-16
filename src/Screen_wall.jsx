@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { useGLTF, Html } from "@react-three/drei";
 import React, { useMemo } from 'react';
-import { useControls } from 'leva';
+// import { useControls } from 'leva';
 import $ from "jquery";
 
 export default function Screen({ position = [0, 0, 0] }) {
@@ -43,20 +43,20 @@ export default function Screen({ position = [0, 0, 0] }) {
     return <Texture texture={texture} position={position} rotation={rotation} />;
     };
 
-    const optionsA = useMemo(() => ({
-        x: { value: 0, min: -10, max: Math.PI * 3, step: 0.01 },
-        y: { value: 0, min: -10, max: Math.PI * 3, step: 0.01 },
-        z: { value: 0, min: -10, max: Math.PI * 3, step: 0.01 },
-    }), []);
+    // const optionsA = useMemo(() => ({
+    //     x: { value: 0, min: -10, max: Math.PI * 3, step: 0.01 },
+    //     y: { value: 0, min: -10, max: Math.PI * 3, step: 0.01 },
+    //     z: { value: 0, min: -10, max: Math.PI * 3, step: 0.01 },
+    // }), []);
 
-    const optionsB = useMemo(() => ({
-        x: { value: 0, min: -10, max: 10, step: 0.01 },
-        y: { value: 0, min: -10, max: 10, step: 0.01 },
-        z: { value: 0, min: -10, max: 10, step: 0.01 },
-    }), []);
+    // const optionsB = useMemo(() => ({
+    //     x: { value: 0, min: -10, max: 10, step: 0.01 },
+    //     y: { value: 0, min: -10, max: 10, step: 0.01 },
+    //     z: { value: 0, min: -10, max: 10, step: 0.01 },
+    // }), []);
 
-    const pA = useControls('Screen POs', optionsA);
-    const pB = useControls('Screen Rot', optionsB);
+    // const pA = useControls('Screen POs', optionsA);
+    // const pB = useControls('Screen Rot', optionsB);
 
 
     screen_model.scene.children.forEach((mesh) => {

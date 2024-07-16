@@ -6,7 +6,7 @@ import { useLoader, useFrame } from '@react-three/fiber';
 import { useRoute, useLocation } from 'wouter'
 import { easing, geometry } from 'maath'
 import { suspend } from 'suspend-react'
-import { useControls } from 'leva';
+// import { useControls } from 'leva';
 
 // extend(geometry)
 
@@ -18,23 +18,23 @@ export default function Portal({ id, name, author, bg, children, ...props }) {
     useCursor(hovered)
     useFrame((state, dt) => easing.damp(portal.current, 'blend', params?.id === id ? 1 : 0, 0.2, dt))
 
-    const optionsA = useMemo(() => ({
-        x: { value:23.94, min: -30, max: 30, step: 0.01 },
-        y: { value: 2.88, min: -30, max: 30, step: 0.01 },
-        z: { value: 6.41, min: -30, max: 30, step: 0.01 },
-    }), []);
+    // const optionsA = useMemo(() => ({
+    //     x: { value:23.94, min: -30, max: 30, step: 0.01 },
+    //     y: { value: 2.88, min: -30, max: 30, step: 0.01 },
+    //     z: { value: 6.41, min: -30, max: 30, step: 0.01 },
+    // }), []);
 
-    const optionsB = useMemo(() => ({
-        x: { value: 0, min: -30, max: 30, step: 0.01 },
-        y: { value: -1.84, min: -30, max: 30, step: 0.01 },
-        z: { value: 0, min: -30, max: 30, step: 0.01 },
-    }), []);
+    // const optionsB = useMemo(() => ({
+    //     x: { value: 0, min: -30, max: 30, step: 0.01 },
+    //     y: { value: -1.84, min: -30, max: 30, step: 0.01 },
+    //     z: { value: 0, min: -30, max: 30, step: 0.01 },
+    // }), []);
 
-    const pA = useControls('Portal Pos', optionsA);
-    const pB = useControls('Portal Rot', optionsB);
+    // const pA = useControls('Portal Pos', optionsA);
+    // const pB = useControls('Portal Rot', optionsB);
 
     return (
-      <group {...props} position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]}>
+      <group {...props} position={[23.94, 2.88, 6.41]} rotation={[0, -1.84, 0]}>
         <Text fontSize={0.3} anchorY="top" anchorX="left" lineHeight={0.8} position={[-1.39, 1.37, 0.01]} material-toneMapped={false}>
           {name}
         </Text>
