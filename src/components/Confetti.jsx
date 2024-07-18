@@ -47,7 +47,7 @@ export default function ExplosionConfetti(
   function explode() {
     const boom = new THREE.Object3D()
     boom.position.copy(new THREE.Vector3(position[0], position[1], position[2])); // Set initial position from props
-    console.log(boom.position)
+    // console.log(boom.position)
 
     groupRef.current.add(boom)
     booms.push(boom)

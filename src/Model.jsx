@@ -56,25 +56,29 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const [gameEnded, setGameEnded] = useState(false);
 
     useEffect(() => {
-        // Charger les scores depuis les cookies
-        const savedHighScores = Cookies.get('highScores');
+        const savedHighScores = JSON.parse(localStorage.getItem('highScores')) || [];
         console.log(savedHighScores)
-        if (savedHighScores) {
-            setHighScores(JSON.parse(savedHighScores));
-        }
+        setHighScores(savedHighScores);
     }, []);
+    
+    // // Update high scores in localStorage whenever they change
+    // useEffect(() => {
+    //     localStorage.setItem('highScores', JSON.stringify(highScores));
+    //     console.log(highScores)
+    // }, [highScores]);
 
     useEffect(() => {
         if (isExploding) {
-            console.log('Explosion at:', explosionPosition); 
+            // console.log('Explosion at:', explosionPosition); 
         }
     }, [isExploding, explosionPosition]);
 
     const handleClickStartGame = () => {
+        // Start the game, reset score and game ended state
         setGameStarted(true);
-        setScore(0); 
-        setStartTime(new Date());
+        setScore(0);
         setGameEnded(false);
+        setPlayerName(""); // Clear player name input
     };
 
     const { opacity, scale } = useSpring({
@@ -177,31 +181,38 @@ export default function MainModel({ position = [0, 0, 0] }) {
         setScore(score + 1);
     };
 
-    useEffect(() => {
-        if (!gameStarted && score > 0) {
-            const endTime = new Date();
-            const duration = new Date().toLocaleString();
-            const newScore = { name: playerName, score, time: duration };
-            const updatedHighScores = [...highScores, newScore].sort((a, b) => b.score - a.score).slice(0, 3);
-            setHighScores(updatedHighScores);
-            Cookies.set('highScores', JSON.stringify(updatedHighScores));
-        }
-    }, [gameStarted, score, startTime, playerName, highScores]);
+    // Update high scores in localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+  }, [highScores]);
 
-    const handleSubmitName = () => {
-        if (!playerName) return;
-    
-        const endTime = new Date();
-        const duration = new Date().toLocaleString();
-        const newScore = { name: playerName, score, time: duration };
-        const updatedHighScores = [...highScores, newScore].sort((a, b) => b.score - a.score).slice(0, 3);
-        console.log(updatedHighScores)
-        setHighScores(updatedHighScores);
-        Cookies.set('highScores', JSON.stringify(updatedHighScores));
-        setGameEnded(false); // Reset game end state
 
-      };
-    
+//   useEffect(() => {
+//     if (!gameStarted && score > 0) {
+//       const duration = new Date().toLocaleString();
+//       const newScore = { name: playerName, score, time: duration };
+//       const updatedHighScores = [...highScores, newScore].sort((a, b) => b.score - a.score).slice(0, 10);
+//       setHighScores(updatedHighScores);
+//     }
+//   }, [gameStarted, score, playerName, highScores]);
+
+  const handleSubmitName = () => {
+    if (!playerName) return;
+
+    const duration = new Date().toLocaleString();
+    const newScore = { name: playerName, score, time: duration };
+    const updatedHighScores = [...highScores, newScore].sort((a, b) => b.score - a.score).slice(0, 10);
+    setHighScores(updatedHighScores);
+    console.log(updatedHighScores)
+    localStorage.setItem('highScores', JSON.stringify(updatedHighScores));
+    setGameEnded(false); // Reset game end state
+
+    setTimeout(() => {
+        setScore(0);
+    }, 20000); // Clear the score after 20 seconds
+};
+
+
 
     return (
         <group>
@@ -358,41 +369,56 @@ export default function MainModel({ position = [0, 0, 0] }) {
                 />
             )}
 
-            <mesh position={[0, 2, 11]} onClick={handleClickStartGame}>
-                <boxGeometry args={[1, 1, 1]} />
-                <meshStandardMaterial color={'blue'} />
-            </mesh>
+            {!gameStarted && !gameEnded && (
+                <mesh position={[0, 2, 11]} onClick={handleClickStartGame}>
+                    <boxGeometry args={[1, 1, 1]} />
+                    <meshStandardMaterial color={'blue'} />
+                </mesh>
+            )}
 
             <Html>
-  <div style={{ position: 'absolute', top: '-38vh', left: '-3vh', color: 'white', textAlign: 'center' }}>
-    <h4>
-      <span style={{ fontSize: '24px' }}>Score</span> 
-      <br/>
-      <span style={{ fontSize: '30px' }}>{score}</span>
-    </h4>
-  </div>
-    
-    <div style={{ position: 'absolute', top: '-38vh', left: '54vh', color: 'white', textAlign: 'center', width: '38vh' }}>
-      <h3>High Scores</h3>
-      <ol>
-        {highScores.map((score, index) => (
-          <li key={index}>{score.name}: {score.score} points ({score.time}s)</li>
-        ))}
-      </ol>
-    </div>
+                {gameStarted ? (
+                    <div style={{ position: 'absolute', top: '-38vh', left: '-3vh', color: 'white', textAlign: 'center' }}>
+                        <h4>
+                            <span style={{ fontSize: '24px' }}>Score</span> 
+                            <br/>
+                            <span style={{ fontSize: '30px' }}>{score}</span>
+                        </h4>
+                    </div>
+                ) : null}
 
-  {/* {gameStarted ? (
-  ) : null} */}
-  {gameEnded && (
-    <div>
-      <input type="text" value={playerName} onChange={(e) => setPlayerName(e.target.value)} placeholder="Enter your name" />
-      <button onClick={handleSubmitName} style={{ position: 'absolute', top: '15vh', left: '3vh', color: 'black', backgroundColor: 'white', padding: '10px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
-        Valider
-      </button>
-    </div>
-  )}
-</Html>
+                {gameEnded && (
+                    <>
+                        <div>
+          <input
+            type="text"
+            value={playerName}
+            onChange={(e) => setPlayerName(e.target.value)}
+            placeholder="Enter your name"
+          />
+          <button
+            onClick={handleSubmitName}
+            style={{ position: 'absolute', top: '15vh', left: '3vh', color: 'black', backgroundColor: 'white', padding: '10px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
+          >
+            Valider
+          </button>
+        </div>
+                    </>
+                )}
 
+                {gameEnded && (
+                    < >
+                        <div style={{ position: 'absolute', top: '-38vh', left: '54vh', color: 'white', textAlign: 'center', width: '38vh' }}>
+                            <h3>Your best score : </h3>
+                            <ol>
+                                {highScores.map((score, index) => (
+                                    <li key={index}>{score.name}: {score.score} points ({score.time}s)</li>
+                                ))}
+                            </ol>
+                        </div>
+                    </>
+                )}
+            </Html>
         </group>
     );
 }
