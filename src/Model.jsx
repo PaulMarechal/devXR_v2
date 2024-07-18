@@ -15,10 +15,45 @@ import HolographicMaterial from "./HolographicMaterial.jsx";
 import Text_3D from './Text_3D.jsx';
 import Portal from "./Portal.jsx";
 
+const geometries = [
+    'boxGeometry',
+    'cylinderGeometry',
+    'coneGeometry',
+    'dodecahedronGeometry',
+    'torusGeometry', 
+    'ringGeometry', 
+    'icosahedronGeometry',
+    'capsuleGeometry'
+];
+  
+const materials = [
+    'meshNormalMaterial',
+    'meshStandardMaterial',
+    'meshBasicMaterial',
+    'meshPhongMaterial'
+];
+
+const colors = [
+    '#90F1EF', 
+    '#FFD6E0', 
+    '#FFEF9F', 
+    '#C1FBA4', 
+    '#7BF1A8', 
+    '#ffbe0b', 
+    '#fb5607', 
+    '#8338ec', 
+    '#3a86ff'
+
+]
+let nextShapeId = 0;
 const Shape = ({ id, position, onClick }) => {
     const mesh = useRef();
     const randomX = Math.random();
     const randomY = Math.random();
+
+    const Geometry = geometries[Math.floor(Math.random() * geometries.length)];
+    const Material = materials[Math.floor(Math.random() * materials.length)];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
     useFrame(() => {
         if (mesh.current) {
@@ -26,17 +61,18 @@ const Shape = ({ id, position, onClick }) => {
             mesh.current.rotation.y += 0.01 * randomY;
         }
     });
+
     const handleClick = () => {
         if (mesh.current) {
-            const position = mesh.current.position ;
-            onClick(id, position);
+            const position = mesh.current.position;
+            onClick(id, position);  // Passer l'id en tant que paramètre
         }
     };
 
     return (
         <animated.mesh ref={mesh} position={position} onClick={handleClick}>
-            <boxGeometry args={[1, 1, 1]} />
-            <meshStandardMaterial color={'orange'} />
+            <Geometry args={[0.75]} />
+            <Material color={randomColor} />
         </animated.mesh>
     );
 };
@@ -59,7 +95,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
 
     useEffect(() => {
         const savedHighScores = JSON.parse(localStorage.getItem('highScores')) || [];
-        console.log(savedHighScores)
+        // console.log(savedHighScores)
         setHighScores(savedHighScores);
     }, []);
     
@@ -99,23 +135,23 @@ export default function MainModel({ position = [0, 0, 0] }) {
         const random = Math.random() * 14;
         if (gameStarted) {
             const newShapes = Array(50).fill().map(() => ({
-                id: Math.random(),
+                id: nextShapeId++,  
                 position: [
-                    5 + (Math.random() * 6 * random ),
-                    2 + (Math.random() * ((5 - 1) * random) ),
+                    5 + (Math.random() * 6 * random),
+                    2 + (Math.random() * ((5 - 1) * random)),
                     21 + (Math.random() * ((10 - 2) * random)),
                 ],
             }));
             setShapes(newShapes);
-
+    
             const timer = setTimeout(() => {
                 setShapes([]);
                 setGameEnded(true);
                 setGameStarted(false);
                 setShowHighScores(true);
-                setTimeout(() => setShowHighScores(false), 50000); // Hide after 50 seconds
-              }, 20000);
-
+                setTimeout(() => setShowHighScores(false), 50000); // Masque après 50 secondes
+            }, 20000);
+    
             return () => clearTimeout(timer);
         }
     }, [gameStarted]);
@@ -172,7 +208,6 @@ export default function MainModel({ position = [0, 0, 0] }) {
     });
 
     const handleClick_ = (id, position) => {
-        // console.log(position); 
         if (!position) return; 
         const updatedShapes = shapes.filter(shape => shape.id !== id);
         setShapes(updatedShapes);
@@ -199,7 +234,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
 //     }
 //   }, [gameStarted, score, playerName, highScores]);
 
-  const handleSubmitName = () => {
+const handleSubmitName = () => {
     if (!playerName) return;
 
     const duration = new Date().toLocaleString();
@@ -350,15 +385,14 @@ export default function MainModel({ position = [0, 0, 0] }) {
                     rotation={[0, 2.9, 0]}
                 />
             </mesh>
-
             {shapes.map((shape) => (
-                <Shape
-                    key={shape.id}
-                    id={shape.id}
-                    position={shape.position}
-                    onClick={handleClick_}
-                />
-            ))}
+    <Shape
+        key={shape.id}  // Utiliser shape.id comme clé
+        id={shape.id}
+        position={shape.position}
+        onClick={handleClick_}  // Passer l'id en tant que paramètre
+    />
+))}
 
             {isExploding && explosionPosition && (
                 <Confetti
