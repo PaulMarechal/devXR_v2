@@ -17,17 +17,18 @@ import Portal from "./Portal.jsx";
 
 const Shape = ({ id, position, onClick }) => {
     const mesh = useRef();
+    const randomX = Math.random();
+    const randomY = Math.random();
 
     useFrame(() => {
         if (mesh.current) {
-            mesh.current.rotation.x += 0.01;
-            mesh.current.rotation.y += 0.01;
+            mesh.current.rotation.x += 0.01 * randomX;
+            mesh.current.rotation.y += 0.01 * randomY;
         }
     });
-
     const handleClick = () => {
         if (mesh.current) {
-            const position = mesh.current.position;
+            const position = mesh.current.position ;
             onClick(id, position);
         }
     };
@@ -95,13 +96,14 @@ export default function MainModel({ position = [0, 0, 0] }) {
     };
 
     useEffect(() => {
+        const random = Math.random() * 14;
         if (gameStarted) {
             const newShapes = Array(50).fill().map(() => ({
                 id: Math.random(),
                 position: [
-                    5 + (Math.random() * 7 ),
-                    2 + (Math.random() * 4 - 1),
-                    21 + (Math.random() * 6 - 2),
+                    5 + (Math.random() * 6 * random ),
+                    2 + (Math.random() * ((5 - 1) * random) ),
+                    21 + (Math.random() * ((10 - 2) * random)),
                 ],
             }));
             setShapes(newShapes);
