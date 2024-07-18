@@ -54,6 +54,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const [playerName, setPlayerName] = useState("");
     const [startTime, setStartTime] = useState(null);
     const [gameEnded, setGameEnded] = useState(false);
+    const [showHighScores, setShowHighScores] = useState(false);
 
     useEffect(() => {
         const savedHighScores = JSON.parse(localStorage.getItem('highScores')) || [];
@@ -74,11 +75,10 @@ export default function MainModel({ position = [0, 0, 0] }) {
     }, [isExploding, explosionPosition]);
 
     const handleClickStartGame = () => {
-        // Start the game, reset score and game ended state
         setGameStarted(true);
         setScore(0);
         setGameEnded(false);
-        setPlayerName(""); // Clear player name input
+        setPlayerName(""); 
     };
 
     const { opacity, scale } = useSpring({
@@ -110,6 +110,8 @@ export default function MainModel({ position = [0, 0, 0] }) {
                 setShapes([]);
                 setGameEnded(true);
                 setGameStarted(false);
+                setShowHighScores(true);
+                setTimeout(() => setShowHighScores(false), 50000); // Hide after 50 seconds
               }, 20000);
 
             return () => clearTimeout(timer);
@@ -181,10 +183,9 @@ export default function MainModel({ position = [0, 0, 0] }) {
         setScore(score + 1);
     };
 
-    // Update high scores in localStorage whenever they change
-  useEffect(() => {
-    localStorage.setItem('highScores', JSON.stringify(highScores));
-  }, [highScores]);
+    useEffect(() => {
+        localStorage.setItem('highScores', JSON.stringify(highScores));
+    }, [highScores]);
 
 
 //   useEffect(() => {
@@ -201,7 +202,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
 
     const duration = new Date().toLocaleString();
     const newScore = { name: playerName, score, time: duration };
-    const updatedHighScores = [...highScores, newScore].sort((a, b) => b.score - a.score).slice(0, 10);
+    const updatedHighScores = [...highScores, newScore].sort((a, b) => b.score - a.score).slice(0, 3);
     setHighScores(updatedHighScores);
     console.log(updatedHighScores)
     localStorage.setItem('highScores', JSON.stringify(updatedHighScores));
@@ -209,7 +210,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
 
     setTimeout(() => {
         setScore(0);
-    }, 20000); // Clear the score after 20 seconds
+    }, 50000); // 50 seconds
 };
 
 
@@ -406,9 +407,11 @@ export default function MainModel({ position = [0, 0, 0] }) {
                     </>
                 )}
 
-                {gameEnded && (
-                    < >
-                        <div style={{ position: 'absolute', top: '-38vh', left: '54vh', color: 'white', textAlign: 'center', width: '38vh' }}>
+                
+
+                {showHighScores && (
+                    <>
+                        <div id="best_score_display" style={{ position: 'absolute', top: '-38vh', left: '54vh', color: 'white', textAlign: 'center', width: '38vh' }}>
                             <h3>Your best score : </h3>
                             <ol>
                                 {highScores.map((score, index) => (
@@ -417,7 +420,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
                             </ol>
                         </div>
                     </>
-                )}
+                )}  
             </Html>
         </group>
     );
