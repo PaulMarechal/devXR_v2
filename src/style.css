@@ -8,17 +8,24 @@ html,body,#root {
 }
 
 /* font font */
-h4 {
+h1, h4 {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 3.2vh;
     margin: 0.3em;
 }
 
-.poppins-light {
+h1{
+    font-size: 4.2vh;
+}
+
+h4{
+    font-size: 3.2vh;
+}
+
+.text_modale_div div p {
     font-family: "Poppins", sans-serif;
-    font-weight: 300;
+    font-weight: 200;
     font-style: normal;
 }
   
@@ -42,12 +49,24 @@ h4 {
     text-align: center
 }
 
+.button_header_banner{
+    cursor: pointer;
+}
+
 .header_banner div:not(.button_header_banner_logo) {
     flex: 1
 }
 
 .button_header_banner.button_header_banner_logo {
     flex: 4
+}
+
+.button_header_banner_logo {
+    background-image: url('https://devxr.fr/assets/images/logo/logo_devxr.png') !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    /* background-size: cover !important; */
+    background-size: 17vh!important; 
 }
 
 .glassmorphism_button_header_white {
@@ -182,7 +201,7 @@ h4 {
 }
 
 .name_font{
-    font-size: 8vw;
+    font-size: 8vw!important;
 }
 
 .text_intro{
@@ -259,4 +278,20 @@ h4 {
     width: 94px!important;
     height: 76px!important;
     margin-bottom: 1vh!important;
+}
+
+.text_catacombes_page{
+    overflow-y: scroll;
+    height: -webkit-fill-available;
+}
+
+.text_modale_div{
+    height: -webkit-fill-available;
+}
+
+.text_modale_div::-webkit-scrollbar-thumb, .text_catacombes_page::-webkit-scrollbar-thumb {
+    background-color: #00f;
+    margin-left: 2px;
+    border-radius: 20px;
+    width: 5px !important;
 }
