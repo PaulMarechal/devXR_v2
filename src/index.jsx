@@ -11,6 +11,7 @@ import $ from "jquery";
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
+
 /* Close modal */
 $(".close_icon").on("click", function() {
     $(".modal_infos").css("opacity", "0")
@@ -20,6 +21,7 @@ $(".close_icon").on("click", function() {
         $(".text_modale_div").each(function() { $(this).css("display", "none"); });
     }, 200);
 })
+
 
 root.render(
     <KeyboardControls map={ [

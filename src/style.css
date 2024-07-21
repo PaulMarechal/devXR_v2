@@ -289,9 +289,72 @@ h4{
     height: -webkit-fill-available;
 }
 
-.text_modale_div::-webkit-scrollbar-thumb, .text_catacombes_page::-webkit-scrollbar-thumb {
-    background-color: #00f;
-    margin-left: 2px;
-    border-radius: 20px;
-    width: 5px !important;
+#first_text_catacombes_page{
+    width: 56%;
+    margin: 10vh auto;
+    text-align: center;
+}
+
+#second_div_text_catacombes_page{
+    width: 45%;
+    top: 11vh;
+    position: relative;
+    float: right;
+}
+
+#title_catacombes_page{
+    margin: 7vh auto 2vh 7vh;
+    font-size: 7vh;
+}
+
+#first_image_room_guerinet{
+    width: 33%;
+    margin: 0 10vh;
+}
+
+[data-scroll-container] {
+    overflow: hidden;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* test locomotive */
+[data-scroll-container] {
+    height: 80vh;
+    overflow: hidden;
+}
+
+.text_modale_div {
+    height: 80vh;
+    overflow: hidden;
+}
+
+.text_catacombes_page {
+    padding: 20px;
+}
+
+#first_text_catacombes_page {
+    width: 56%;
+    margin: 10vh auto;
+    text-align: center;
+}
+
+#second_div_text_catacombes_page {
+    width: 45%;
+    top: 11vh;
+    position: relative;
+    float: right;
+}
+
+#title_catacombes_page {
+    margin: 7vh auto 2vh 7vh;
+    font-size: 7vh;
+}
+
+#first_image_room_guerinet {
+    width: 33%;
+    margin: 0 10vh;
 }
