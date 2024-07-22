@@ -13,13 +13,19 @@ export default function Screen({ position = [0, 0, 0] }) {
 
 
     function display_modal(elem_to_display){
-        $(".modal_infos").css("display", "block")
+        // Hide all modals first
+        $(".modal_infos").css("display", "none").css("opacity", "0");
+        $(".text_modale_div").css("display", "none").css("opacity", "0");
+    
+        // Display the modal wrapper
+        $(".modal_infos").css("display", "block");
         setTimeout(() => {
-            $(".modal_infos").css("opacity", "1")
+            $(".modal_infos").css("opacity", "1");
         }, 200);
+    
+        // Display the specific modal content
         setTimeout(() => {
-            $(elem_to_display).css("display", "grid")
-            $(elem_to_display).css("opacity", "1")
+            $(elem_to_display).css("display", "grid").css("opacity", "1");
         }, 350);
     }
 
