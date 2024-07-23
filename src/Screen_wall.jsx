@@ -25,7 +25,7 @@ export default function Screen({ position = [0, 0, 0] }) {
     
         // Display the specific modal content
         setTimeout(() => {
-            $(elem_to_display).css("display", "grid").css("opacity", "1");
+            $(elem_to_display).css("display", "block").css("opacity", "1");
         }, 350);
     }
 

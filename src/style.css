@@ -27,6 +27,7 @@ h4{
     font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: normal;
+    font-size: 2.1vh;
 }
   
 .poppins-black {
@@ -107,12 +108,17 @@ h4{
     transition: opacity 0.5s ease-out;
     top: 0;
     left: 0;
+    overflow: hidden;
+
+    background: #0f0f0f;
+    color: #fff;
 }
 
 #catacombes_div, #metro_map_div{
     display: none; 
     opacity: 0; 
     transition: opacity 1.5s ease-out;
+    /* margin-top: -20vh; */
 }
 
 /* Close icons */
@@ -229,7 +235,7 @@ h4{
     transition: opacity 0.5s ease-out;
 }
 
-.controls .raw {
+.controls .raw{
     display: flex;
     justify-content: center;
 }
@@ -285,6 +291,8 @@ h4{
 .text_catacombes_page{
     overflow-y: scroll;
     height: -webkit-fill-available;
+    scrollbar-color: rgb(148, 148, 148) transparent;
+    padding: 0 17vh;
 }
 
 .text_modale_div{
@@ -305,7 +313,7 @@ h4{
 }
 
 #title_catacombes_page{
-    margin: 7vh auto 2vh 7vh;
+    margin: 7vh auto 2vh -9vh;
     font-size: 7vh;
 }
 
@@ -334,10 +342,6 @@ html, body {
     overflow: hidden;
 }
 
-.text_catacombes_page {
-    padding: 20px;
-}
-
 #first_text_catacombes_page {
     width: 56%;
     margin: 10vh auto;
@@ -352,11 +356,75 @@ html, body {
 }
 
 #title_catacombes_page {
-    margin: 7vh auto 2vh 7vh;
+    margin: 7vh auto 2vh -9vh;
     font-size: 7vh;
 }
 
 #first_image_room_guerinet {
     width: 33%;
     margin: 0 10vh;
+}
+
+.div_video_catacombes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    gap: 10px; 
+}
+
+.div_text_under_images, 
+.second_div_video_text, 
+.third_div_video_text{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+    gap: 10px; 
+}
+
+.div_text_under_images p{
+    height: 100px;
+    width: 56vh;
+    text-align: justify;
+    margin: 5vh 0 10vh 0;
+}
+
+.div_video_catacombes img, 
+.div_video_catacombes video{
+    width: 400px;
+    height: 400px;
+}
+
+.title_modale_presentation{
+    margin: 13vh 0 4vh 0
+}
+
+.second_div_video_text video {
+    width: 20%;
+    border-radius: 50px;
+}
+
+.second_div_video_text p{
+    width: 39vh;
+    text-align: justify;
+    line-height: 4vh;
+}
+
+.third_div_video_text span img{
+    width: 250px;
+    height: 250px;
+}
+
+.third_div_video_text span img:nth-of-type(2) {
+    border-radius: 45px;
+}
+
+.third_div_video_text span{
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.third_div_video_text p{
+    width: 55vh;
+    text-align: justify;
 }

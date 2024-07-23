@@ -20,6 +20,8 @@
     "ecctrl": "^1.0.79",
     "jquery": "^3.7.1",
     "js-cookie": "^3.0.5",
+    "lenis": "^1.1.6",
+    "locomotive-scroll": "^4.1.4",
     "maath": "^0.10.7",
     "r3f-perf": "^7.1.2",
     "react": "18.2",
