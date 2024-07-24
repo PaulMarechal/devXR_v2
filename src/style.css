@@ -7,6 +7,11 @@ html,body,#root {
     background: ivory
 }
 
+@font-face {
+    font-family: SF_Pro_Display;
+    src: url("../public/assets/font/sf-pro-display/SFPRODISPLAYBOLD.OTF");
+}
+
 /* font font */
 h1, h4 {
     font-family: "Bebas Neue", sans-serif;
@@ -28,6 +33,15 @@ h4{
     font-weight: 200;
     font-style: normal;
     font-size: 2.1vh;
+    color: #86868b;
+}
+
+b{
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 2.2vh;
+    color: #f5f5f7;
 }
   
 .poppins-black {
@@ -306,10 +320,14 @@ h4{
 }
 
 #second_div_text_catacombes_page{
-    width: 45%;
-    top: 11vh;
+    width: 87vh;
+    top: 7vh;
     position: relative;
     float: right;
+}
+
+#second_div_text_catacombes_page p{
+    text-align: justify;
 }
 
 #title_catacombes_page{
@@ -319,7 +337,12 @@ h4{
 
 #first_image_room_guerinet{
     width: 33%;
-    margin: 0 10vh;
+    margin: 0 3vh;
+}
+
+#first_image_room_guerinet, .div_video_catacombes img, 
+.div_video_catacombes video{
+    filter: brightness(1.75);
 }
 
 [data-scroll-container] {
@@ -348,21 +371,16 @@ html, body {
     text-align: center;
 }
 
-#second_div_text_catacombes_page {
+/* #second_div_text_catacombes_page {
     width: 45%;
     top: 11vh;
     position: relative;
     float: right;
-}
+} */
 
 #title_catacombes_page {
     margin: 7vh auto 2vh -9vh;
     font-size: 7vh;
-}
-
-#first_image_room_guerinet {
-    width: 33%;
-    margin: 0 10vh;
 }
 
 .div_video_catacombes{
@@ -381,6 +399,18 @@ html, body {
     gap: 10px; 
 }
 
+.title_immersive_exploration{
+    text-align: center;
+    margin-top: 16vh;
+}
+
+.second_div_video_text, 
+.third_div_video_text{
+    margin: 10vh 0;
+}
+
+.div_text_under_images{margin-bottom: 5vh; margin-bottom: 10vh;}
+
 .div_text_under_images p{
     height: 100px;
     width: 56vh;
@@ -388,37 +418,96 @@ html, body {
     margin: 5vh 0 10vh 0;
 }
 
+.visit_website_text{text-align: center; margin-bottom: 10vh;}
+
 .div_video_catacombes img, 
 .div_video_catacombes video{
-    width: 400px;
-    height: 400px;
+    width: 45vh;
+    height: 45vh;
 }
 
 .title_modale_presentation{
-    margin: 13vh 0 4vh 0
+    margin: 13vh 0 4vh 0;
+    text-align: center;
 }
 
 .second_div_video_text video {
     width: 20%;
+    border-radius: 40px;
+}
+
+.third_div_video_text video {
     border-radius: 50px;
 }
 
 .second_div_video_text p{
-    width: 39vh;
+    width: 71vh;
     text-align: justify;
     line-height: 4vh;
 }
 
 .third_div_video_text span img{
-    width: 250px;
-    height: 250px;
+    width: 25vh;
+    height: 25vh;
 }
 
-.third_div_video_text span img:nth-of-type(2) {
+/* .third_div_video_text span img:nth-of-type(2) {
     border-radius: 45px;
+} */
+
+.third_div_video_text span span p{
+    width: fit-content;
+    margin: 2px 8px;
 }
 
-.third_div_video_text span{
+.third_div_video_text span span:nth-of-type(2) {
+    width: fit-content;
+    background: rgb(188 188 188 / 25%);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 4px 10px;
+    text-align: center;
+    display: -webkit-inline-box;
+    height: 28px;
+}
+
+.third_div_video_text > span:nth-of-type(2) > span {
+    background: rgba(188, 188, 188, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 0px 4px;
+    text-align: center;
+    height: 34px;
+    display: ruby;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.third_div_video_text > span:nth-of-type(2) > span > p:nth-of-type(2) {
+    display: inline-block;
+    width: fit-content;
+    background: rgba(188, 188, 188, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 4px 10px;
+    text-align: center;
+    height: 21px;
+    margin: 3px auto;
+    padding-top: 1px;
+}
+
+.third_div_video_text > span:nth-of-type(2) > span > p { color: #fff;}
+
+.third_div_video_text span {
     display: flex;
     flex-direction: column;
     gap: 10px; 
@@ -427,4 +516,16 @@ html, body {
 .third_div_video_text p{
     width: 55vh;
     text-align: justify;
+}
+
+.visit_website_text b a{
+    color: #f5f5f7;
+}
+
+.text_catacombes_page h4{
+    font-family: SF_Pro_Display;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 5vh;
+    color: #f5f5f7;;
 }
