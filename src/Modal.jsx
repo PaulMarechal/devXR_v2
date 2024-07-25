@@ -139,7 +139,51 @@ export default function Modal() {
                 </div>
 
                 <div className="text_modale_div" id="metro_map_div">
-                    <h1>Test metro</h1>
+
+                    <div className="title_navigo_section">
+                        <h1>Paris XR Guide: <br/>Navigo Augmentée.</h1>
+                        <p>Découvrez une nouvelle façon de vous déplacer dans Paris avec notre <b>Carte Navigo Interactive</b>, un outil révolutionnaire pour les voyageurs urbains. Grâce à la réalité augmentée, votre simple carte Navigo se transforme en une <b>carte du métro de Paris en 3D</b>.</p>
+                    </div>
+
+                    <div className="second_div_navigo_page">
+                        <video src="https://devxr.fr/assets/video/demo_navigo_realite_augmentee.mp4" loop muted autoPlay={true}></video>
+                        <p>Imaginez-vous en train de sortir de la station, cherchant la ligne de métro ou le RER le plus proche. Plus besoin de consulter des applications ou des plans papier compliqués. Avec notre technologie de <b>scanning AR</b>, il suffit de pointer votre smartphone vers votre carte Navigo pour voir s'afficher instantanément une <b>carte interactive en 3D</b>. Cette carte vous montre <b>votre position exacte</b> et vous guide vers la station la plus proche.</p>
+                    </div>
+
+                    <div className="third_div_navigo_page">
+                        <div className="third_div_first_text">
+                            <h4>Un Guide en Temps Réel</h4>
+                            <p>Notre système utilise la géolocalisation pour identifier votre position précise, même si vous êtes dans un lieu que vous ne connaissez pas. Une fois votre position déterminée, la carte AR affiche clairement les lignes de métro et de RER à proximité, avec des indications pour les correspondances possibles. Vous pouvez <b>explorer les lignes en 3D</b>, les voir se superposer à votre carte Navigo.</p>
+                        </div>
+
+                        <div className="third_div_second_text">
+                            <h4>Accessibilité et Simplicité</h4>
+                            <p>Que vous soyez un <b>habitué des transports parisiens</b> ou un <b>touriste découvrant la ville lumière</b>, cette technologie est conçue pour être intuitive et accessible. Le design 3D est fluide et immersif, vous permettant de naviguer facilement à travers le réseau complexe des transports en commun parisiens.</p>
+                        </div>
+                    </div>
+
+                    <div className="fouth_div_img_navigo">
+                        <img src="https://devxr.fr/assets/images/carte_metro/carte_metro_wireframe.png" alt="" />
+                        <img src="https://devxr.fr/assets/images/carte_metro/carte_metro_second.png" alt="" />
+                        <img src="https://devxr.fr/assets/images/carte_metro/carte_metro_final.png" alt="" />
+                    </div>
+
+                    <div className="fifth_div_navigo_page">
+                        <span>
+                            <h4>Une Expérience Immersive</h4>
+                            <p>Plongez dans une <b>expérience augmentée</b> unique avec notre Carte Navigo Interactive. Cette technologie ne se contente pas de vous montrer le réseau de transport parisien : elle vous place littéralement <b>au cœur de la ville</b>. En scannant simplement votre carte Navigo avec votre smartphone, vous verrez apparaître une <b>carte du métro de Paris en 3D</b>, vous indiquant <b>précisément où vous vous trouvez</b>.</p>
+
+                            <span>
+                                <p>Pour tester cette fonctionnalité, scannez le <b>QR code</b> ci-dessous ou utilisez l’image de la carte Navigo pour voir la magie opérer. Explorez Paris sous un nouvel angle, où que vous soyez, avec une technologie moderne qui rend la découverte de la ville plus <b>accessible et engageante.</b></p>
+                                <img src="https://devxr.fr/assets/images/metro/carte_metro_qr.png" alt="" />
+                            </span>
+                        </span>
+                        <img id="carte_navigo_img" src="https://devxr.fr/assets/images/metro/carte_navigo.png" alt="" />
+                    </div>
+
+                    <div className="last_text_navigo_page">
+                        <p>Explorez Paris de manière interactive et découvrez les secrets du réseau métropolitain avec notre <b>Carte Navigo Interactive</b> en Réalité Augmentée. Transformez chaque voyage en une <b>aventure numérique passionnante</b>.</p>
+                    </div>
                 </div>
             </div>
         </div>

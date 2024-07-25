@@ -303,19 +303,18 @@ b{
     margin-bottom: 1vh!important;
 }
 
-.text_catacombes_page{
+.text_catacombes_page, #metro_map_div{
     overflow-y: scroll;
-    height: -webkit-fill-available;
     scrollbar-color: rgb(148, 148, 148) transparent;
     padding: 0 17vh;
     user-select: none;
 }
 
-.text_modale_div{
+.text_modale_div, .text_catacombes_page{
     height: -webkit-fill-available;
 }
 
-#first_text_catacombes_page{
+#first_text_catacombes_page, .title_navigo_section p{
     width: 70.5%;
     margin: 10vh auto;
     text-align: center;
@@ -332,7 +331,7 @@ b{
     text-align: justify;
 }
 
-#title_catacombes_page{
+#title_catacombes_page, .title_navigo_section h1{
     margin: 7vh auto 2vh -9vh;
     font-size: 7vh;
 }
@@ -345,6 +344,19 @@ b{
 #first_image_room_guerinet, .div_video_catacombes img, 
 .div_video_catacombes video{
     filter: brightness(1.75);
+}
+
+
+.fouth_div_img_navigo img:nth-of-type(1){
+    filter: brightness(2);
+}
+    
+.fouth_div_img_navigo img:nth-of-type(2){
+    filter: brightness(1.4);
+}
+
+.fouth_div_img_navigo img:nth-of-type(3){
+    filter: brightness(1.1);
 }
 
 [data-scroll-container] {
@@ -379,7 +391,12 @@ html, body {
     font-size: 7vh;
 }
 
-.div_video_catacombes{
+.fouth_div_img_navigo{
+    margin-bottom: 15vh;
+}
+
+.div_video_catacombes, .fouth_div_img_navigo, 
+.fifth_div_navigo_page{
     display: flex;
     justify-content: space-between;
     align-items: center; 
@@ -388,7 +405,9 @@ html, body {
 
 .div_text_under_images, 
 .second_div_video_text, 
-.third_div_video_text{
+.third_div_video_text, 
+.second_div_navigo_page, 
+.third_div_navigo_page{
     display: flex;
     justify-content: space-evenly;
     align-items: center; 
@@ -420,6 +439,11 @@ html, body {
 .div_video_catacombes video{
     width: 45vh;
     height: 45vh;
+}
+
+.fouth_div_img_navigo img{
+    width: 40vh;
+    height: 40vh;
 }
 
 .title_modale_presentation{
@@ -593,4 +617,84 @@ html, body {
     font-size: 5vh;
     color: #f5f5f7;
     margin-left: 0;
+}
+
+/* Navigo page */
+
+.second_div_navigo_page{
+    display: inline-flex;
+    width: -webkit-fill-available;
+    margin-bottom: 15vh;
+
+}
+
+.second_div_navigo_page video{
+    width: 20%;
+    border-radius: 50px;
+}
+
+.second_div_navigo_page p{
+    width: 54vh;
+    top: 0vh;
+    position: relative;
+    float: right;
+    text-align: justify;
+}
+
+.third_div_navigo_page div h4{
+    margin-left: 0;
+    width: 53vh;
+    text-align: center;
+}
+
+.third_div_navigo_page div p{
+    text-align: justify;
+    width: 53vh;
+}
+
+.third_div_navigo_page{
+    margin-bottom: 15vh;
+}
+
+.third_div_second_text{
+    margin-top:-6.1vh;
+}
+
+.fifth_div_navigo_page{
+    margin-bottom: 15vh;
+}
+
+.fifth_div_navigo_page span p{
+    text-align: justify;
+    width: 96%;
+}
+
+.fifth_div_navigo_page span span{
+    display: inline-flex
+}
+
+.fifth_div_navigo_page span span p{
+    width: 93vh;
+    margin: 3vh 5vh 3vh 0;
+    text-align: justify;
+}
+
+.fifth_div_navigo_page span span img{
+    width: 15vh;
+    height: 15vh;
+    border-radius: 15px;
+}
+
+.fifth_div_navigo_page img{
+    rotate: -90deg;
+    width: 30vh;
+}
+
+#carte_navigo_img{
+    padding-right: 3vh;
+}
+
+.last_text_navigo_page{
+    margin-bottom: 15vh;
+    text-align: center;
 }
