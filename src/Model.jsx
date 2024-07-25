@@ -195,15 +195,19 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const planche_pos = useRef();
 
     useFrame((state, delta) => {
-        earth.current.rotation.y += 0.001;
-
-        const y = planche_pos.current.position.y + 3;
-        const y_ = planche_pos.current.position.y - 3;
-
-        if (planche_pos.current.material.opacity >= 0.1) {
-            planche.current.setNextKinematicTranslation({ x: 0, y: y_, z: 0 })      
-        } else {   
-            planche.current.setNextKinematicTranslation({ x: 0, y: y, z: 0 })      
+        if (earth.current && planche_pos.current) {
+            earth.current.rotation.y += 0.001;
+    
+            const y = planche_pos.current.position.y + 3;
+            const y_ = planche_pos.current.position.y - 3;
+    
+            if (planche.current) {
+                if (planche_pos.current.material.opacity >= 0.1) {
+                    planche.current.setNextKinematicTranslation({ x: 0, y: y_, z: 0 });
+                } else {
+                    planche.current.setNextKinematicTranslation({ x: 0, y: y, z: 0 });
+                }
+            }
         }
     });
 
