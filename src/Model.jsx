@@ -79,8 +79,11 @@ const Shape = ({ id, position, onClick }) => {
 
 export default function MainModel({ position = [0, 0, 0] }) {
     const sceneModel = useGLTF("./assets/models/meeting_space_4.glb");
-    const alarm_button = useGLTF("./assets/models/alarm_button.glb");
+    // const alarm_button = useGLTF("./assets/models/alarm_button.glb");
+    const alarm_button = useGLTF("./assets/models/sci-fi_control_panel.glb");
     const { nodes, materials } = useGLTF('./assets/models/earth_planet.glb');
+    const control_panel = useGLTF("./assets/models/control_panel.glb");
+
     const [gameStarted, setGameStarted] = useState(false);
     const [shapes, setShapes] = useState([]);
     const [score, setScore] = useState(0);
@@ -157,19 +160,19 @@ export default function MainModel({ position = [0, 0, 0] }) {
     }, [gameStarted]);
 
     // const optionsA = useMemo(() => ({
-    //     x: { value:7.9, min: -30, max: 30, step: 0.01 },
-    //     y: { value:2.42, min: -30, max: 30, step: 0.01 },
-    //     z: { value:11.4 , min: -30, max: 30, step: 0.01 },
+    //     x: { value:28.85, min: -30, max: 30, step: 0.01 },
+    //     y: { value:1.67, min: -30, max: 30, step: 0.01 },
+    //     z: { value:0 , min: -30, max: 30, step: 0.01 },
     // }), []);
 
     // const optionsB = useMemo(() => ({
-    //     x: { value: -1.58, min: -30, max: 30, step: 0.01 },
-    //     y: { value: 0, min: -30, max: 30, step: 0.01 },
-    //     z: { value: -0.05, min: -30, max: 30, step: 0.01 },
+    //     x: { value: 0, min: -30, max: 30, step: 0.01 },
+    //     y: { value: 2.9, min: -30, max: 30, step: 0.01 },
+    //     z: { value: 0, min: -30, max: 30, step: 0.01 },
     // }), []);
 
-    // const pA = useControls('Planche Pos', optionsA);
-    // const pB = useControls('Planche Rot', optionsB);
+    // const pA = useControls('Button Pos', optionsA);
+    // const pB = useControls('Button Rot', optionsB);
 
     // const holographicControls = useControls({
     //     fresnelAmount: { value: 0.0, min: 0.0, max: 1.0},
@@ -384,8 +387,8 @@ const handleSubmitName = () => {
                 <primitive 
                     receiveShadow 
                     object={alarm_button.scene} 
-                    scale={0.11} 
-                    position={[28.85, 1.67, 0]}
+                    scale={1.5} 
+                    position={[28.87, 1.67, 0]}
                     rotation={[0, 2.9, 0]}
                 />
             </mesh>
@@ -410,12 +413,13 @@ const handleSubmitName = () => {
                 />
             )}
 
-            {!gameStarted && !gameEnded && (
-                <mesh position={[0, 2, 11]} onClick={handleClickStartGame}>
-                    <boxGeometry args={[1, 1, 1]} />
-                    <meshStandardMaterial color={'blue'} />
-                </mesh>
-            )}
+            <primitive 
+                position={[0, 1, 20.27]}
+                onClick={handleClickStartGame}
+                castShadow 
+                object={control_panel.scene} 
+                scale={0.8} 
+            />
 
             <Html>
                 {gameStarted ? (
@@ -431,23 +435,21 @@ const handleSubmitName = () => {
                 {gameEnded && (
                     <>
                         <div>
-          <input
-            type="text"
-            value={playerName}
-            onChange={(e) => setPlayerName(e.target.value)}
-            placeholder="Enter your name"
-          />
-          <button
-            onClick={handleSubmitName}
-            style={{ position: 'absolute', top: '15vh', left: '3vh', color: 'black', backgroundColor: 'white', padding: '10px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
-          >
-            Valider
-          </button>
-        </div>
+                            <input
+                                type="text"
+                                value={playerName}
+                                onChange={(e) => setPlayerName(e.target.value)}
+                                placeholder="Enter your name"
+                            />
+                            <button
+                                onClick={handleSubmitName}
+                                style={{ position: 'absolute', top: '15vh', left: '3vh', color: 'black', backgroundColor: 'white', padding: '10px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
+                            >
+                                Valider
+                            </button>
+                        </div>
                     </>
                 )}
-
-                
 
                 {showHighScores && (
                     <>

@@ -28,7 +28,7 @@ h4{
     font-size: 3.2vh;
 }
 
-.text_modale_div div p, a {
+.text_modale_div div p, a, footer p {
     font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: normal;
@@ -697,4 +697,20 @@ html, body {
 .last_text_navigo_page{
     margin-bottom: 15vh;
     text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: transparent; 
+    color: #333; 
+    text-align: center; 
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+  
+footer p {
+    margin: 0; 
+    font-size: 14px;
 }
