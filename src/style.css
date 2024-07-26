@@ -303,7 +303,9 @@ b{
     margin-bottom: 1vh!important;
 }
 
-.text_catacombes_page, #metro_map_div{
+.text_catacombes_page, 
+#metro_map_div, #helico_aerobay_div, 
+#site_classique_presentation_page{
     overflow-y: scroll;
     scrollbar-color: rgb(148, 148, 148) transparent;
     padding: 0 17vh;
@@ -314,7 +316,9 @@ b{
     height: -webkit-fill-available;
 }
 
-#first_text_catacombes_page, .title_navigo_section p{
+#first_text_catacombes_page, 
+.title_navigo_section p, 
+.first_text_site_classique{
     width: 70.5%;
     margin: 10vh auto;
     text-align: center;
@@ -396,7 +400,7 @@ html, body {
 }
 
 .div_video_catacombes, .fouth_div_img_navigo, 
-.fifth_div_navigo_page{
+.fifth_div_navigo_page, .first_div_aero_page{
     display: flex;
     justify-content: space-between;
     align-items: center; 
@@ -407,7 +411,7 @@ html, body {
 .second_div_video_text, 
 .third_div_video_text, 
 .second_div_navigo_page, 
-.third_div_navigo_page{
+.third_div_navigo_page, .third_div_aero_page{
     display: flex;
     justify-content: space-evenly;
     align-items: center; 
@@ -699,6 +703,61 @@ html, body {
     text-align: center;
 }
 
+/* Aero page */
+.first_div_aero_page video{
+    width: 50%;
+}
+
+.first_div_aero_page div p{
+    text-align: justify;
+}
+
+.first_div_aero_page div h4, .second_div_aero_page h4{
+    margin-left: 0;
+}
+
+.second_div_aero_page{
+    margin: 15vh auto;
+    width: 80%;
+    text-align: center;
+
+}
+
+.first_div_aero_page{
+    margin: 15vh 0;
+}
+
+/* .third_div_aero_page img{
+    width: 59vh;
+}
+
+.third_div_aero_page{
+    margin: 15vh;
+} */
+
+.third_div_aero_page span h4{
+    margin-left: 0;
+}
+
+.third_div_aero_page span{
+    padding: 0 17vh 0 0;
+    text-align: justify;
+}
+
+.third_div_aero_page img{
+    margin: 4vh 0;
+    width: 59vh;
+}
+
+.third_div_aero_page{
+    margin: 15vh 0;
+}
+
+.fouth_div_aero_page{
+    width: 80%;
+    margin: 15vh auto;
+    text-align: center;
+}
 /* Footer */
 footer {
     background-color: transparent; 

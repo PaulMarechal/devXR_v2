@@ -99,7 +99,7 @@ export default function Screen({ position = [0, 0, 0] }) {
                     scale={1.8} 
                     position={[-6.05, 3.5, -1.5]} 
                     rotation={[0, 3.15, 0]}  
-                    // onClick={(e) => display_modal()} 
+                    onClick={(e) => display_modal("#site_classique_presentation_page")} 
                 />
                 <Image url={test} position={[-5.97, 3.47, -1.40]} rotation={[0, 1.58, 0]}/>
             </group>
@@ -109,7 +109,7 @@ export default function Screen({ position = [0, 0, 0] }) {
                     scale={1.8} 
                     rotation={[0, 3.15, 0]}
                     position={[-6.05, 3.5, 2.5]}    
-                    // onClick={() => display_modal()} 
+                    onClick={(e) => display_modal("#helico_aerobay_div")} 
                 />   
                 <Image url={test} position={[-5.97, 3.47, 2.58]} rotation={[0, 1.58, 0]}/>
                 {/* <Image url={test} position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]}/> */}

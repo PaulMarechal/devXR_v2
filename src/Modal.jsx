@@ -57,6 +57,7 @@ export default function Modal() {
                     </svg>
                 </div>
 
+                {/* catacombes.xyz presentation page */}
                 <div className="text_modale_div" id="catacombes_div">
                     <div className="text_catacombes_page" >
                         <h1 id="title_catacombes_page" >Découvrez les Catacombes Interdites<br/> de Paris avec catacombes.xyz</h1>
@@ -138,6 +139,7 @@ export default function Modal() {
                     </div>
                 </div>
 
+                {/* Paris metro map presentation page */}
                 <div className="text_modale_div" id="metro_map_div">
 
                     <div className="title_navigo_section">
@@ -184,6 +186,86 @@ export default function Modal() {
                     <div className="last_text_navigo_page">
                         <p>Explorez Paris de manière interactive et découvrez les secrets du réseau métropolitain avec notre <b>Carte Navigo Interactive</b> en Réalité Augmentée. Transformez chaque voyage en une <b>aventure numérique passionnante</b>.</p>
                     </div>
+                </div>
+
+                {/* Aero-Bay Helico 3D presentation page */}
+                <div className="text_modale_div" id="helico_aerobay_div">
+                    <h1 id="title_catacombes_page" >Présentation de la Page Interactive <br/>d'aero-bay.com</h1>
+
+                    <div>
+                        <p id="first_text_catacombes_page" >
+                            Découvrez la nouvelle <b>page interactive d'aero-bay.com</b>, spécialement conçue pour révolutionner votre expérience d'achat de pièces détachées pour avions et hélicoptères. En tant que premier revendeur de pièces Airbus en Europe, AeroBay innove en vous offrant une manière inédite de parcourir notre vaste catalogue.
+                        </p>
+                    </div>
+
+                    <div className="first_div_aero_page">
+                        <div>
+                            <h4>Visualisation 3D Immersive</h4>
+                            <p>
+                                Naviguez à travers un <b>modèle 3D détaillé d'un hélicoptère</b>, où chaque pièce disponible à la vente est marquée par un point rouge interactif. En survolant ou en cliquant sur ces points, vous pouvez accéder instantanément à des informations détaillées sur chaque pièce : son nom, ses spécifications techniques, son état, et bien plus encore. Cette interface intuitive vous permet de <b>visualiser directement les pièces</b> que vous recherchez, rendant la navigation plus intuitive et efficace.
+                            </p>
+                        </div>
+                        <video src="https://devxr.fr/assets/video/screen_helico_3D.mp4" loop muted autoPlay={true}></video>
+                    </div>
+
+                    <div className="second_div_aero_page">
+                        <h4>Accès Rapide aux Informations Complètes</h4>
+                        <p>Chaque point interactif sur le modèle 3D est lié à une page produit complète. En un seul clic, vous pouvez <b>accéder à toutes les informations nécessaires</b> sur la pièce, y compris sa disponibilité, son prix, et des détails supplémentaires sur son utilisation. Cela vous permet non seulement de <b>gagner du temps</b> dans vos recherches, mais aussi de <b>faciliter vos décisions d'achat</b>.</p>
+                    </div>
+
+                    <div className="third_div_aero_page">
+                        <span>
+                            <h4>Augmenter les Ventes et l'Engagement des Utilisateurs</h4>
+                            <p>Cette fonctionnalité offre un double avantage : elle permet aux clients de <b>voir en un coup d'œil tout ce qui est disponible pour un modèle spécifique</b>, tout en stimulant l'intérêt pour d'autres pièces similaires ou complémentaires. En intégrant des éléments de <b>gamification</b>, nous encourageons les utilisateurs à interagir davantage avec notre plateforme, ce qui se traduit par une <b>augmentation significative du temps passé sur la page</b> – jusqu'à trois fois plus longtemps – et par conséquent, une augmentation des ventes potentielles.</p>
+                        </span>
+                        <img src="https://devxr.fr/assets/images/aero/capture_ecran_helico_3D_first.png" alt="" />
+                    </div>
+
+                    <div className="fouth_div_aero_page">
+                        <p>Avec cette nouvelle page, AeroBay.com ne se contente pas de vendre des pièces détachées ; nous vous offrons une <b>expérience d'achat innovante</b> et personnalisée, alignée avec les <b>dernières avancées technologiques</b> du secteur. Explorez notre modèle 3D et découvrez comment nous facilitons vos ventes tout en enrichissant votre <b>expérience utilisateur</b>.</p>
+                    </div>
+                </div>
+
+                {/* Site classique presentation page */}
+                <div className="text_modale_div" id="site_classique_presentation_page">
+                    <h1 id="title_catacombes_page">Réalisation de sites 2D. <br/>Classiques et Efficaces.</h1>
+                    
+                    <div>
+                        <p className="first_text_site_classique" >
+                            Chez DevXR, nous ne nous limitons pas aux technologies immersives comme la réalité virtuelle et augmentée. Nous sommes également spécialisés dans la création de <b>sites web 2D classiques</b>, parfaitement adaptés aux besoins des entreprises souhaitant une présence en ligne professionnelle et efficace.
+                        </p>
+                    </div>
+
+                    <div className="second_div_site_classique_page">
+                        <h4>Un Exemple de Réalisation : Site de Nettoyage d'Entreprise et de Voitures</h4>
+                        <p>
+                            L'un de nos récents projets est la création d'un site web pour une société spécialisée dans le <b>nettoyage d'entreprise et de véhicules</b>. Ce site est conçu en <b>version "one page"</b>, une approche moderne qui permet aux visiteurs de trouver rapidement et facilement toutes les informations nécessaires sans avoir à naviguer à travers de multiples pages.
+                        </p>
+                    </div>
+
+                    <div className="third_div_site_classique_page">
+                        <h4>Design Adaptatif et Navigation Intuitive</h4>
+                        <p>Le site est entièrement <b>responsive</b>, s'adaptant parfaitement aux écrans de bureau, tablettes et smartphones. Ce design adaptatif garantit une <b>expérience utilisateur optimale</b>, quelle que soit la taille de l'écran. Nous avons mis un point d'honneur à rendre la navigation <b>intuitive et fluide</b>, permettant aux utilisateurs de parcourir les différents services offerts par la société sans être submergés par trop d'informations.</p>
+                    </div>
+
+                    <div className="fouth_div_site_classique_page">
+                        <h4>Présentation des Services</h4>
+                        <p>
+                            La page met en valeur les différents services de la société de manière claire et concise, avec des sections dédiées pour chaque service, des descriptions détaillées et des visuels attractifs. Cette structure permet aux visiteurs de <b>comprendre rapidement l'étendue des services proposés</b> et de trouver exactement ce qu'ils recherchent.
+                        </p>
+                    </div>
+
+                    <div className="fifth_div_site_classique_page">
+                        <h4>Un Exemple de Nos Compétences Diversifiées</h4>
+                        <p>Ce projet démontre notre capacité à réaliser des sites web 2D <b>fonctionnels et esthétiques</b>, en ligne avec les attentes de nos clients. Que vous ayez besoin d'un site web simple pour présenter vos services ou d'une solution plus complexe, DevXR est votre partenaire de choix pour créer des expériences en ligne engageantes et professionnelles.</p>
+                    </div>
+
+                    <div className="last_text_site_classique_page">
+                        <p>
+                            En choisissant DevXR pour la création de votre site web, vous bénéficiez d'un design soigné, d'une navigation intuitive et d'une <p>présentation claire de vos services</p>. Que vous cherchiez à attirer de nouveaux clients ou à fournir des informations clés à vos utilisateurs, nous sommes là pour vous aider à réaliser vos objectifs avec un site web de qualité.
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </div>
