@@ -3,7 +3,16 @@ import { Text3D, Wireframe, RoundedBox } from '@react-three/drei'
 import { useMemo } from 'react'
 import { useControls } from 'leva';
 
-export default function Text_3D({ position = [0, 0, 0], scale=[1], rotation = [0, 0, 0], text = "Default Text", materialType = "Wireframe", showRoundedBox = false, size = [1, 1, 1], textPosition=[0, 0.07, 0.32], textRotation=[-0.4, 0, 0] }){ 
+export default function Text_3D({ 
+    position = [0, 0, 0], 
+    scale=[1], 
+    rotation = [0, 0, 0], 
+    text = "Default Text", 
+    materialType = "Wireframe", 
+    showRoundedBox = false, 
+    size = [1, 1, 1], 
+    textPosition=[0, 0.07, 0.32], 
+    textRotation=[-0.4, 0, 0] }){ 
 
     // const optionsC = useMemo(() => ({
     //     x: { value: 0, min: -30, max: 30, step: 0.01 },
@@ -25,8 +34,6 @@ export default function Text_3D({ position = [0, 0, 0], scale=[1], rotation = [0
         <mesh 
             position={position}
             rotation={rotation}
-            // rotation={rotation}
-            // position={position}
         >
             <Text3D
                 font="./fonts/Roboto_Regular.json"
@@ -54,10 +61,6 @@ export default function Text_3D({ position = [0, 0, 0], scale=[1], rotation = [0
                 )}
             </Text3D>
 
-            {/* <mesh scale={[3.3, .5, 2]} position={position}>
-                <planeGeometry />
-                <meshBasicMaterial color="#fff" side={THREE.DoubleSide}/>
-            </mesh> */}
             {showRoundedBox && (
                 <RoundedBox
                     position={[0.8, 0.12, .2]}

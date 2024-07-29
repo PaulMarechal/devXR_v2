@@ -79,10 +79,10 @@ const Shape = ({ id, position, onClick }) => {
 
 export default function MainModel({ position = [0, 0, 0] }) {
     const sceneModel = useGLTF("./assets/models/meeting_space_4.glb");
-    // const alarm_button = useGLTF("./assets/models/alarm_button.glb");
     const alarm_button = useGLTF("./assets/models/sci-fi_control_panel.glb");
     const { nodes, materials } = useGLTF('./assets/models/earth_planet.glb');
     const control_panel = useGLTF("./assets/models/control_panel.glb");
+    const model = useGLTF("./assets/models/model-8.gltf");
 
     const [gameStarted, setGameStarted] = useState(false);
     const [shapes, setShapes] = useState([]);
@@ -380,6 +380,14 @@ const handleSubmitName = () => {
                 <meshBasicMaterial color="#fff" side={THREE.DoubleSide}/>
             </mesh>
 
+            <primitive 
+                    receiveShadow 
+                    object={model.scene} 
+                    scale={.4} 
+                    position={[-4, 1.89, -6]}
+                    rotation={[0, 2.9, 0]}
+            />
+
             <mesh position={[0, 1.76, 0]}>
                 <cylinderGeometry args={[1, 2, 0.05]} />
                 <meshPhysicalMaterial
@@ -402,13 +410,13 @@ const handleSubmitName = () => {
                 />
             </mesh>
             {shapes.map((shape) => (
-    <Shape
-        key={shape.id}  // Utiliser shape.id comme clé
-        id={shape.id}
-        position={shape.position}
-        onClick={handleClick_}  // Passer l'id en tant que paramètre
-    />
-))}
+                <Shape
+                    key={shape.id}  // Utiliser shape.id comme clé
+                    id={shape.id}
+                    position={shape.position}
+                    onClick={handleClick_}  // Passer l'id en tant que paramètre
+                />
+            ))}
 
             {isExploding && explosionPosition && (
                 <Confetti
