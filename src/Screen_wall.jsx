@@ -3,6 +3,7 @@ import { useGLTF, Html } from "@react-three/drei";
 import React, { useMemo } from 'react';
 // import { useControls } from 'leva';
 import $ from "jquery";
+import Text_3D from './Text_3D.jsx';
 
 export default function Screen({ position = [0, 0, 0] }) {
     const screen_model = useGLTF("./assets/models/tv_display.glb");
@@ -82,6 +83,18 @@ export default function Screen({ position = [0, 0, 0] }) {
                     />
                 <Image url={image_navigo} position={[5.99, 3.47, -1.63]} rotation={[0, -1.57, 0]}/>
             </group>
+            <Text_3D 
+                text={"Réalité mixte"} 
+                scale={0.2}
+                position={[6.07, 1.9, 1.6]}
+                rotation={[0, -1.6, 0]}
+                size={[2, .5, 0.2]}
+                materialType={"meshStandardMaterial"} 
+                showRoundedBox={true} 
+                position_rounded_box={[0.8, 0.12, .2]}
+                textPosition={[0, 0.07, 0.32]}
+                textRotation={[-0.4, 0, 0]}
+            />
 
             {/* Navigo map */}
             <group>
@@ -93,6 +106,19 @@ export default function Screen({ position = [0, 0, 0] }) {
                 />
                 <Image url={image_catas} position={[5.99, 3.47, 2.39]} rotation={[0, -1.57, 0]}/>
             </group>
+            <Text_3D 
+                text={"Réalité augmentée"} 
+                scale={0.2}
+                position={[6.07, 1.9, -2.4]}
+                rotation={[0, -1.6, 0]}
+                size={[2.4, .5, 0.2]}
+                textPosition={[-.37, 0.07, 0.32]}
+                textRotation={[-0.4, 0, 0]}
+                materialType={"meshStandardMaterial"} 
+                showRoundedBox={true} 
+            />
+
+            {/* Site classique */}
             <group>
                 <primitive 
                     object={screen_model.scene.clone()} 
@@ -103,6 +129,19 @@ export default function Screen({ position = [0, 0, 0] }) {
                 />
                 <Image url={test} position={[-5.97, 3.47, -1.40]} rotation={[0, 1.58, 0]}/>
             </group>
+            <Text_3D 
+                text={"Classique - 2D"} 
+                scale={0.2}
+                position={[-5.9, 1.9, -.6]}
+                rotation={[0, 1.6, 0]}
+                size={[2, .5, 0.2]}
+                textPosition={[-.08, 0.07, 0.32]}
+                textRotation={[-0.4, 0, 0]}
+                materialType={"meshStandardMaterial"} 
+                showRoundedBox={true} 
+            />
+
+            {/* 3D model */}
             <group>
                 <primitive 
                     object={screen_model.scene.clone()} 
@@ -112,8 +151,18 @@ export default function Screen({ position = [0, 0, 0] }) {
                     onClick={(e) => display_modal("#helico_aerobay_div")} 
                 />   
                 <Image url={test} position={[-5.97, 3.47, 2.58]} rotation={[0, 1.58, 0]}/>
-                {/* <Image url={test} position={[pA.x, pA.y, pA.z]} rotation={[pB.x, pB.y, pB.z]}/> */}
             </group>
+            <Text_3D 
+                text={"Présentation 3D"} 
+                scale={0.2}
+                position={[-5.9, 1.9, 3.45]}
+                rotation={[0, 1.6, 0]}
+                size={[2.3, .5, 0.2]}
+                textPosition={[-.18, 0.07, 0.32]}
+                textRotation={[-0.4, 0, 0]}
+                materialType={"meshStandardMaterial"} 
+                showRoundedBox={true} 
+            />
         </>
     );
 }

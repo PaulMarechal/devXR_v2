@@ -159,20 +159,20 @@ export default function MainModel({ position = [0, 0, 0] }) {
         }
     }, [gameStarted]);
 
-    // const optionsA = useMemo(() => ({
-    //     x: { value:28.85, min: -30, max: 30, step: 0.01 },
-    //     y: { value:1.67, min: -30, max: 30, step: 0.01 },
-    //     z: { value:0 , min: -30, max: 30, step: 0.01 },
-    // }), []);
+    const optionsA = useMemo(() => ({
+        x: { value:5.96, min: -30, max: 30, step: 0.01 },
+        y: { value:1.98, min: -30, max: 30, step: 0.01 },
+        z: { value:1.8 , min: -30, max: 30, step: 0.01 },
+    }), []);
 
-    // const optionsB = useMemo(() => ({
-    //     x: { value: 0, min: -30, max: 30, step: 0.01 },
-    //     y: { value: 2.9, min: -30, max: 30, step: 0.01 },
-    //     z: { value: 0, min: -30, max: 30, step: 0.01 },
-    // }), []);
+    const optionsB = useMemo(() => ({
+        x: { value: 0, min: -30, max: 30, step: 0.01 },
+        y: { value: -1.4, min: -30, max: 30, step: 0.01 },
+        z: { value: 1.57, min: -30, max: 30, step: 0.01 },
+    }), []);
 
-    // const pA = useControls('Button Pos', optionsA);
-    // const pB = useControls('Button Rot', optionsB);
+    const pA = useControls('Button Pos', optionsA);
+    const pB = useControls('Button Rot', optionsB);
 
     // const holographicControls = useControls({
     //     fresnelAmount: { value: 0.0, min: 0.0, max: 1.0},
@@ -364,7 +364,16 @@ const handleSubmitName = () => {
                 </group>
             </group>
 
-            <Text_3D />
+            <Text_3D 
+                position={[-2.3, 5.1, -7.8]} 
+                rotation={[0, 0, 0]}
+                scale={1}
+                textRotation={[0, 0, 0]}
+                text={"DevXR.fr"} 
+                materialType={"Wireframe"} 
+                showRoundedBox={false} 
+
+            />
 
             <mesh scale={[6, 1, 3]}>
                 <planeGeometry />
