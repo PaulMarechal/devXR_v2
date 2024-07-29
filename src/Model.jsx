@@ -82,7 +82,8 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const alarm_button = useGLTF("./assets/models/sci-fi_control_panel.glb");
     const { nodes, materials } = useGLTF('./assets/models/earth_planet.glb');
     const control_panel = useGLTF("./assets/models/control_panel.glb");
-    const model = useGLTF("./assets/models/model-8.gltf");
+    const small_plant = useGLTF("./assets/models/small_plant.gltf");
+    const coffee_cup = useGLTF("./assets/models/coffee_cup.gltf");
 
     const [gameStarted, setGameStarted] = useState(false);
     const [shapes, setShapes] = useState([]);
@@ -380,11 +381,21 @@ const handleSubmitName = () => {
                 <meshBasicMaterial color="#fff" side={THREE.DoubleSide}/>
             </mesh>
 
+            {/* Small plant */}
             <primitive 
                     receiveShadow 
-                    object={model.scene} 
+                    object={small_plant.scene} 
                     scale={.4} 
                     position={[-4, 1.89, -6]}
+                    rotation={[0, 2.9, 0]}
+            />
+
+            {/* Coffee cup */}
+            <primitive 
+                    receiveShadow 
+                    object={coffee_cup.scene} 
+                    scale={.15} 
+                    position={[1, 1.7, -1.8]}
                     rotation={[0, 2.9, 0]}
             />
 
