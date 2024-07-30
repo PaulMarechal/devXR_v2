@@ -30,7 +30,7 @@ export default function Computer(props) {
     <>
         <rectAreaLight
             width={ 2.5 }
-            height={ 1.65 }
+            height={ 1.66 }
             intensity={ 65 }
             color={ '#ff6900' }
             rotation={ [ - 0.1, Math.PI, 0 ] }
@@ -46,9 +46,9 @@ export default function Computer(props) {
                 transform
                 wrapperClass="htmlScreen"
                 distanceFactor={ 0.6 }
-                // position={ [ 0, 1.56, - 1.4 ] }
-                // rotation-x={ - 0.256 }
-                position={ [ 0.28, 2.15, 1.55 ] }
+                // position={ [ pZ.x, pZ.y, pZ.z ] }
+                // rotation={ [pE.x, pE.y, pE.z] }
+                position={ [ 0.27, 2.13, 1.54 ] }
                 rotation={ [ 0, 0.35, 0 ] }
                 occlude
                 
