@@ -17,26 +17,22 @@
     -->
     <div id="root"></div>
 
-    <div class="header_banner">
-        <div class="button_header_banner glassmorphism_button_header_white ">
-            <h4>Product</h4>
-        </div>
-        <div class="button_header_banner glassmorphism_button_header_white">
-            <h4>About us</h4>
-        </div>
+    
 
-        <div class="button_header_banner glassmorphism_button_header_white button_header_banner_logo"></div>
 
-        <div class="button_header_banner glassmorphism_button_header_white">
-            <h4>Prestations</h4>
-        </div>
-        <div class="button_header_banner glassmorphism_button_header_orange">
-            <h4>Contact</h4>
-        </div>
-    </div>
+
+
     <footer>
         <p>&copy; 2024 DevXR. All rights reserved.</p>
     </footer>
+
+    <script>
+        const button = document.querySelector("#product");
+
+        button.addEventListener("click", () => {
+            alert("yo")
+        });
+    </script>
     
     <script type="module" src="./index.jsx"></script>
 </body>
