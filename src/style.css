@@ -411,7 +411,9 @@ html, body {
 .second_div_video_text, 
 .third_div_video_text, 
 .second_div_navigo_page, 
-.third_div_navigo_page, .third_div_aero_page{
+.third_div_navigo_page, 
+.third_div_aero_page, 
+.div_img_site_classique{
     display: flex;
     justify-content: space-evenly;
     align-items: center; 
@@ -757,6 +759,26 @@ html, body {
     width: 80%;
     margin: 15vh auto;
     text-align: center;
+}
+
+.second_div_site_classique_page span{
+    display: inline-flex;
+}
+
+.second_div_site_classique_page span video{
+    width: 50%;
+}
+
+.div_img_site_classique img:nth-of-type(1){
+    width: 16vh;
+}
+
+.div_img_site_classique img:nth-of-type(2){
+    width: 31vh;
+}
+
+.div_img_site_classique img:nth-of-type(3){
+    width: 73vh;
 }
 /* Footer */
 footer {

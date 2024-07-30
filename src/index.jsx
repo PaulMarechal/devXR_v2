@@ -4,7 +4,7 @@ import { Canvas } from '@react-three/fiber';
 import Experience from './Experience.jsx';
 import { KeyboardControls, ScrollControls, Scroll, useScroll } from '@react-three/drei';
 import FPScontrols from "./FPScontrols.jsx";
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, Loader } from '@react-three/drei';
 import Interface from "./Interface.jsx";
 import $ from "jquery";
 import Modal from "./Modal.jsx";
@@ -49,6 +49,9 @@ const App = () => {
             </Canvas>
             <Interface />
             <Modal />
+            <Loader
+                dataInterpolation={(p) => `Loading ${p.toFixed(2)}%`} // Text
+            />
         </KeyboardControls>
     );
 };

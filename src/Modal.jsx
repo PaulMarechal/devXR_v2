@@ -236,16 +236,27 @@ export default function Modal() {
                         </p>
                     </div>
 
-                    <div className="second_div_site_classique_page">
-                        <h4>Un Exemple de Réalisation : Site de Nettoyage d'Entreprise et de Voitures</h4>
-                        <p>
-                            L'un de nos récents projets est la création d'un site web pour une société spécialisée dans le <b>nettoyage d'entreprise et de véhicules</b>. Ce site est conçu en <b>version "one page"</b>, une approche moderne qui permet aux visiteurs de trouver rapidement et facilement toutes les informations nécessaires sans avoir à naviguer à travers de multiples pages.
-                        </p>
+                    <div className="first_div_aero_page">
+                        <div>
+                            <h4>Un Exemple de Réalisation : Site de Nettoyage d'Entreprise et de Voitures</h4>
+                            <p>
+                                L'un de nos récents projets est la création d'un site web pour une société spécialisée dans le <b>nettoyage d'entreprise et de véhicules</b>. Ce site est conçu en <b>version "one page"</b>, une approche moderne qui permet aux visiteurs de trouver rapidement et facilement toutes les informations nécessaires sans avoir à naviguer à travers de multiples pages.
+                            </p>
+                        </div>
+                        <video src="https://devxr.fr/assets/video/capture_ecran_site_classique.mp4" loop autoPlay={true} muted></video>
                     </div>
 
                     <div className="third_div_site_classique_page">
                         <h4>Design Adaptatif et Navigation Intuitive</h4>
                         <p>Le site est entièrement <b>responsive</b>, s'adaptant parfaitement aux écrans de bureau, tablettes et smartphones. Ce design adaptatif garantit une <b>expérience utilisateur optimale</b>, quelle que soit la taille de l'écran. Nous avons mis un point d'honneur à rendre la navigation <b>intuitive et fluide</b>, permettant aux utilisateurs de parcourir les différents services offerts par la société sans être submergés par trop d'informations.</p>
+                    </div>
+
+                    <div className="div_img_site_classique">
+                        <img src="https://devxr.fr/assets/images/site_classique/capture_iphone.png" alt=""/>
+
+                        <img src="https://devxr.fr/assets/images/site_classique/capture_ipad.png" alt="" />
+                            
+                        <img src="https://devxr.fr/assets/images/site_classique/capture_mac.png" alt="" />
                     </div>
 
                     <div className="fouth_div_site_classique_page">

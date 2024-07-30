@@ -8,7 +8,7 @@ import CharacterModel from './CharacterModel'
 import Map from './Map'
 import Screen from './Screen_wall.jsx'
 // import { useControls } from 'leva';
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef, useState, useEffect } from 'react';
 import * as THREE from 'three'
 import useGame from './stores/useGame.js'
 import Computer from './Computer.jsx';
@@ -16,21 +16,19 @@ import Computer from './Computer.jsx';
 export default function Experience(){ 
 
     const characterPosition = [0, 0, 0];
+    const [showCharacterModel, setShowCharacterModel] = useState(false);
 
     const directionalLight = useRef()
 
     const blockCount = useGame((state) =>  state.blockCount )
 
-    // useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowCharacterModel(true);
+        }, 2000);
 
-    // const optionsB = useMemo(() => ({
-    //     x: { value: 0, min: -10, max: 10, step: 0.01 },
-    //     y: { value: 0, min: -10, max: 10, step: 0.01 },
-    //     z: { value: 0, min: -10, max: 10, step: 0.01 },
-    // }), []);
-
-    // const pB = useControls('Light position', optionsB);
-
+        return () => clearTimeout(timer);
+    }, []);
 
     return <>
         <Perf position="bottom-left" />
@@ -57,9 +55,11 @@ export default function Experience(){
             <Model count={blockCount}/>
             <Screen/>
 
-            <Ecctrl > {/* debug */}
-                <CharacterModel castShadow position={characterPosition} />
-            </Ecctrl>
+            {showCharacterModel && 
+                <Ecctrl > {/* debug */}
+                    <CharacterModel castShadow position={characterPosition} />
+                </Ecctrl>
+            }
             <Computer/>
         </Physics>
     </>

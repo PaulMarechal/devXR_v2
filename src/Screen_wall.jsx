@@ -1,16 +1,20 @@
 import * as THREE from 'three';
 import { useGLTF, Html } from "@react-three/drei";
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef, useEffect } from 'react';
 // import { useControls } from 'leva';
 import $ from "jquery";
 import Text_3D from './Text_3D.jsx';
+import { useThree } from '@react-three/fiber';
 
 export default function Screen({ position = [0, 0, 0] }) {
     const screen_model = useGLTF("./assets/models/tv_display.glb");
 
-    const test ="./test.jpg";
-    const image_catas = "https://devxr.fr/test/assets/geurinet_escalier_3-2a70bac1.jpeg"
-    const image_navigo = "./navigoDemo.png"
+    const test ="./assets/images/cadres/test.jpg";
+    const image_catas = "./assets/images/cadres/geurinet_escalier.jpeg"
+    const image_navigo = "./assets/images/cadres/navigoDemo_2.png"
+    const image_aero = "./assets/images/cadres/aero.png"
+    const as_clean = "./assets/images/cadres/as_clean_2.png"
+    
 
 
     function display_modal(elem_to_display){
@@ -29,6 +33,22 @@ export default function Screen({ position = [0, 0, 0] }) {
             $(elem_to_display).css("display", "block").css("opacity", "1");
         }, 350);
     }
+
+    const { gl } = useThree();
+    const canvasRef = useRef();
+
+    useEffect(() => {
+        canvasRef.current = gl.domElement;
+    }, [gl]);
+
+    const handlePointerOver = () => {
+        if (canvasRef.current) canvasRef.current.style.cursor = 'pointer';
+    };
+
+    const handlePointerOut = () => {
+        if (canvasRef.current) canvasRef.current.style.cursor = 'auto';
+    };
+
 
     const Texture = ({ texture, position, rotation }) => {
     // position={[pA.x, pA.y, pA.z]}
@@ -80,13 +100,21 @@ export default function Screen({ position = [0, 0, 0] }) {
                     scale={1.8} 
                     position={[6.07, 3.5, 2.5]}              
                     onClick={() => display_modal("#catacombes_div")} 
+                    onPointerOver={handlePointerOver}
+                    onPointerOut={handlePointerOut}
                     />
-                <Image url={image_navigo} position={[5.99, 3.47, -1.63]} rotation={[0, -1.57, 0]}/>
+                <Image 
+                    url={image_navigo} 
+                    position={[5.99, 3.47, -1.63]} 
+                    rotation={[0, -1.57, 0]}
+                    onPointerOver={handlePointerOver}
+                    onPointerOut={handlePointerOut}
+                />
             </group>
             <Text_3D 
                 text={"Réalité mixte"} 
                 scale={0.2}
-                position={[6.07, 1.9, 1.6]}
+                position={[6.02, 1.9, 1.6]}
                 rotation={[0, -1.6, 0]}
                 size={[2, .5, 0.2]}
                 materialType={"meshStandardMaterial"} 
@@ -103,13 +131,21 @@ export default function Screen({ position = [0, 0, 0] }) {
                     scale={1.8} 
                     position={[6.07, 3.5, -1.5]} 
                     onClick={() => display_modal("#metro_map_div")} 
+                    onPointerOver={handlePointerOver}
+                    onPointerOut={handlePointerOut}
                 />
-                <Image url={image_catas} position={[5.99, 3.47, 2.39]} rotation={[0, -1.57, 0]}/>
+                <Image 
+                    url={image_catas} 
+                    position={[5.99, 3.47, 2.39]} 
+                    rotation={[0, -1.57, 0]}
+                    onPointerOver={handlePointerOver}
+                    onPointerOut={handlePointerOut}
+                />
             </group>
             <Text_3D 
                 text={"Réalité augmentée"} 
                 scale={0.2}
-                position={[6.07, 1.9, -2.4]}
+                position={[6.03, 1.9, -2.4]}
                 rotation={[0, -1.6, 0]}
                 size={[2.4, .5, 0.2]}
                 textPosition={[-.37, 0.07, 0.32]}
@@ -126,8 +162,16 @@ export default function Screen({ position = [0, 0, 0] }) {
                     position={[-6.05, 3.5, -1.5]} 
                     rotation={[0, 3.15, 0]}  
                     onClick={(e) => display_modal("#site_classique_presentation_page")} 
+                    onPointerOver={handlePointerOver}
+                    onPointerOut={handlePointerOut}
                 />
-                <Image url={test} position={[-5.97, 3.47, -1.40]} rotation={[0, 1.58, 0]}/>
+                <Image 
+                    url={as_clean} 
+                    position={[-5.97, 3.47, -1.39]} 
+                    rotation={[0, 1.579, 0]}
+                    onPointerOver={handlePointerOver}
+                    onPointerOut={handlePointerOut}
+                />
             </group>
             <Text_3D 
                 text={"Classique - 2D"} 
@@ -149,13 +193,21 @@ export default function Screen({ position = [0, 0, 0] }) {
                     rotation={[0, 3.15, 0]}
                     position={[-6.05, 3.5, 2.5]}    
                     onClick={(e) => display_modal("#helico_aerobay_div")} 
+                    onPointerOver={handlePointerOver}
+                    onPointerOut={handlePointerOut}
                 />   
-                <Image url={test} position={[-5.97, 3.47, 2.58]} rotation={[0, 1.58, 0]}/>
+                <Image 
+                    url={image_aero} 
+                    position={[-5.97, 3.47, 2.6]} 
+                    rotation={[0, 1.579, 0]}
+                    onPointerOver={handlePointerOver}
+                    onPointerOut={handlePointerOut}
+                />
             </group>
             <Text_3D 
                 text={"Présentation 3D"} 
                 scale={0.2}
-                position={[-5.9, 1.9, 3.45]}
+                position={[-5.9, 1.89, 3.45]}
                 rotation={[0, 1.6, 0]}
                 size={[2.3, .5, 0.2]}
                 textPosition={[-.18, 0.07, 0.32]}

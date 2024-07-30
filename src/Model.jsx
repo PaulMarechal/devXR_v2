@@ -82,8 +82,12 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const alarm_button = useGLTF("./assets/models/sci-fi_control_panel.glb");
     const { nodes, materials } = useGLTF('./assets/models/earth_planet.glb');
     const control_panel = useGLTF("./assets/models/control_panel.glb");
-    const small_plant = useGLTF("./assets/models/small_plant.gltf");
     const coffee_cup = useGLTF("./assets/models/coffee_cup.gltf");
+    const guitare = useGLTF("./assets/models/guitare.gltf");
+    const audio_headset = useGLTF("./assets/models/audio_headset.gltf");
+    const bike = useGLTF("./assets/models/bike.gltf");
+    const bike_ = useGLTF("./assets/models/model-14.gltf");
+
 
     const [gameStarted, setGameStarted] = useState(false);
     const [shapes, setShapes] = useState([]);
@@ -160,20 +164,20 @@ export default function MainModel({ position = [0, 0, 0] }) {
         }
     }, [gameStarted]);
 
-    const optionsA = useMemo(() => ({
-        x: { value:5.96, min: -30, max: 30, step: 0.01 },
-        y: { value:1.98, min: -30, max: 30, step: 0.01 },
-        z: { value:1.8 , min: -30, max: 30, step: 0.01 },
-    }), []);
+    // const optionsA = useMemo(() => ({
+    //     x: { value:5.96, min: -30, max: 30, step: 0.01 },
+    //     y: { value:1.98, min: -30, max: 30, step: 0.01 },
+    //     z: { value:1.8 , min: -30, max: 30, step: 0.01 },
+    // }), []);
 
-    const optionsB = useMemo(() => ({
-        x: { value: 0, min: -30, max: 30, step: 0.01 },
-        y: { value: -1.4, min: -30, max: 30, step: 0.01 },
-        z: { value: 1.57, min: -30, max: 30, step: 0.01 },
-    }), []);
+    // const optionsB = useMemo(() => ({
+    //     x: { value: 0, min: -30, max: 30, step: 0.01 },
+    //     y: { value: -1.4, min: -30, max: 30, step: 0.01 },
+    //     z: { value: 1.57, min: -30, max: 30, step: 0.01 },
+    // }), []);
 
-    const pA = useControls('Button Pos', optionsA);
-    const pB = useControls('Button Rot', optionsB);
+    // const pA = useControls('Button Pos', optionsA);
+    // const pB = useControls('Button Rot', optionsB);
 
     // const holographicControls = useControls({
     //     fresnelAmount: { value: 0.0, min: 0.0, max: 1.0},
@@ -381,23 +385,52 @@ const handleSubmitName = () => {
                 <meshBasicMaterial color="#fff" side={THREE.DoubleSide}/>
             </mesh>
 
-            {/* Small plant */}
-            <primitive 
-                    receiveShadow 
-                    object={small_plant.scene} 
-                    scale={.4} 
-                    position={[-4, 1.89, -6]}
-                    rotation={[0, 2.9, 0]}
-            />
-
             {/* Coffee cup */}
             <primitive 
-                    receiveShadow 
-                    object={coffee_cup.scene} 
-                    scale={.15} 
-                    position={[1, 1.7, -1.8]}
-                    rotation={[0, 2.9, 0]}
+                receiveShadow 
+                object={coffee_cup.scene} 
+                scale={.15} 
+                position={[1, 1.7, -1.8]}
+                rotation={[0, 2.9, 0]}
             />
+
+            {/* Guitare */}
+            {/* <primitive 
+                receiveShadow 
+                object={guitare.scene} 
+                scale={2} 
+                position={[-5.73, 1.59, -3]}
+                rotation={[-0.2, 1.3, 0.2]}
+            /> */}
+
+            {/* Audio headset */}
+            <primitive 
+                receiveShadow 
+                object={audio_headset.scene} 
+                scale={0.18} 
+                position={[2, 1.72, -6.34]}
+                rotation={[-1.2, 0, 0]}
+            />
+
+            {/* Bike */}
+            <primitive 
+                receiveShadow 
+                object={bike.scene} 
+                scale={0.5} 
+                position={[0, 2.05, 4.4]}
+                rotation={[0.2, 0, 0]}
+            />
+
+
+            {/* Bike */}
+            <primitive 
+                receiveShadow 
+                object={bike_.scene} 
+                scale={0.1} 
+                position={[2.2, 1.77, -5.7]}
+                rotation={[-1.6, 0, -0.25]}
+            />
+
 
             <mesh position={[0, 1.76, 0]}>
                 <cylinderGeometry args={[1, 2, 0.05]} />
@@ -495,3 +528,5 @@ const handleSubmitName = () => {
         </group>
     );
 }
+
+useGLTF.preload('./assets/models/meeting_space_6.glb')
