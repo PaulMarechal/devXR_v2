@@ -318,12 +318,103 @@ export default function Modal() {
 
                     {/* Realisations tab */}
                     <div className="text_modale_div" id="product_div">
-                        <h1 id="title_catacombes_page">Nos réalisations</h1>
-                        <div>Site classique en 2D</div>
-                        <div>Site immersif en 3D</div>
-                        <div>Réalité augmentée - QR code - ou sur une page spéciale </div>
-                        <div>Réalité vituelle - accessible avec un casque de type Oculus Quest 2</div>
-                        <div>Réalité mixte - mélange des différentes technologies ( 3D - AR - VR )</div>
+                        <h1 id="title_catacombes_page">Nos Solutions Digitales.</h1>
+
+                        <div class="display_infos_product">
+                            {/* Sites 2D */}
+                            <div className="realisation_infos_div_first">
+                                <svg  xmlns="http://www.w3.org/2000/svg"  width="44"  height="44"  viewBox="0 0 24 24"  fill="none"  stroke="#fff"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-world-www">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M19.5 7a9 9 0 0 0 -7.5 -4a8.991 8.991 0 0 0 -7.484 4" />
+                                    <path d="M11.5 3a16.989 16.989 0 0 0 -1.826 4" />
+                                    <path d="M12.5 3a16.989 16.989 0 0 1 1.828 4" />
+                                    <path d="M19.5 17a9 9 0 0 1 -7.5 4a8.991 8.991 0 0 1 -7.484 -4" />
+                                    <path d="M11.5 21a16.989 16.989 0 0 1 -1.826 -4" />
+                                    <path d="M12.5 21a16.989 16.989 0 0 0 1.828 -4" />
+                                    <path d="M2 10l1 4l1.5 -4l1.5 4l1 -4" />
+                                    <path d="M17 10l1 4l1.5 -4l1.5 4l1 -4" />
+                                    <path d="M9.5 10l1 4l1.5 -4l1.5 4l1 -4" />
+                                </svg>
+                                <h4>Site Classique en 2D</h4>
+                                <p>Conception de sites web traditionnels, alliant design élégant et fonctionnalités robustes. Parfait pour présenter vos services ou votre portfolio avec une navigation intuitive et une esthétique moderne.</p>
+                            </div>
+
+                            {/* Sites 3D */}
+                            <div className="realisation_infos_div_first">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-badge-3d" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                    <path d="M7 9.5a.5 .5 0 0 1 .5 -.5h1a1.5 1.5 0 0 1 0 3h-.5h.5a1.5 1.5 0 0 1 0 3h-1a.5 .5 0 0 1 -.5 -.5" />
+                                    <path d="M14 9v6h1a2 2 0 0 0 2 -2v-2a2 2 0 0 0 -2 -2h-1z" />
+                                </svg>
+                                <h4>Site Immersif en 3D</h4>
+                                <p>Créez une expérience utilisateur captivante avec des sites web en 3D. Idéal pour mettre en valeur vos produits ou services de manière interactive et innovante, offrant une immersion totale dans votre univers.</p>
+                            </div>
+
+                            {/* augmented reality */}
+                            <div className="realisation_infos_div_first">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-augmented-reality" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M4 8v-2a2 2 0 0 1 2 -2h2" />
+                                    <path d="M4 16v2a2 2 0 0 0 2 2h2" />
+                                    <path d="M16 4h2a2 2 0 0 1 2 2v2" />
+                                    <path d="M16 20h2a2 2 0 0 0 2 -2v-2" />
+                                    <path d="M12 12.5l4 -2.5" />
+                                    <path d="M8 10l4 2.5v4.5l4 -2.5v-4.5l-4 -2.5z" />
+                                    <path d="M8 10v4.5l4 2.5" />
+                                </svg>
+                                <h4>Réalité Augmentée (AR)</h4>
+                                <p>Offrez une expérience enrichie à vos utilisateurs grâce à la réalité augmentée. Que ce soit via des QR codes ou des pages dédiées, l'AR permet de superposer des éléments virtuels sur le monde réel, ajoutant une dimension ludique et informative à votre communication.</p>
+                            </div>
+                        </div>
+
+                        <div className="display_infos_product">
+                            {/* virtual reality */}
+                            <div class="realisation_infos_div_second">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-vision-pro" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M12 7c1.143 0 2.235 .035 3.275 .104c1.017 .068 1.95 .207 2.798 .42c.813 .203 1.52 .505 2.119 .909a3.903 3.903 0 0 1 1.328 1.531c.326 .657 .48 1.48 .48 2.466c0 1.006 -.189 1.91 -.574 2.707c-.375 .779 -.886 1.396 -1.537 1.848a3.696 3.696 0 0 1 -2.16 .66c-.509 0 -.97 -.068 -1.382 -.21a5.84 5.84 0 0 1 -1.17 -.548a18.45 18.45 0 0 1 -1.045 -.695a9.104 9.104 0 0 0 -1.001 -.63a2.376 2.376 0 0 0 -1.13 -.301c-.373 0 -.75 .097 -1.132 .3c-.316 .17 -.65 .38 -1 .63c-.322 .23 -.67 .462 -1.047 .695a5.78 5.78 0 0 1 -1.168 .548c-.413 .142 -.872 .21 -1.378 .21a3.706 3.706 0 0 1 -2.165 -.659c-.651 -.452 -1.162 -1.07 -1.537 -1.848c-.385 -.798 -.574 -1.7 -.574 -2.709c-.004 -.98 .15 -1.802 .477 -2.46a3.897 3.897 0 0 1 1.33 -1.531c.6 -.403 1.307 -.704 2.12 -.907a16.088 16.088 0 0 1 2.8 -.423c1.04 -.071 2.13 -.107 3.273 -.107z" />
+                                </svg>
+                                <h4>Réalité Virtuelle (VR)</h4>
+                                <p>Plongez vos visiteurs dans un environnement virtuel complet accessible avec un casque de type Oculus Quest 2. Idéal pour les visites virtuelles de lieux culturels, les démonstrations de produits ou les formations immersives.</p>
+                            </div>
+
+                            {/* Mixed reality */}
+                            <div className="realisation_infos_div_second">
+                                <span>
+                                    {/* AR */}
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-badge-ar" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                        <path d="M7 15v-4.5a1.5 1.5 0 0 1 3 0v4.5" />
+                                        <path d="M7 13h3" />
+                                        <path d="M14 12h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6m3 0l-2 -3" />
+                                    </svg>
+
+                                    {/* VR */}
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-badge-vr" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                        <path d="M14 12h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6m3 0l-2 -3" />
+                                        <path d="M7 9l2 6l2 -6" />
+                                    </svg>
+
+                                    {/* 3D */}
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-badge-3d" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                        <path d="M7 9.5a.5 .5 0 0 1 .5 -.5h1a1.5 1.5 0 0 1 0 3h-.5h.5a1.5 1.5 0 0 1 0 3h-1a.5 .5 0 0 1 -.5 -.5" />
+                                        <path d="M14 9v6h1a2 2 0 0 0 2 -2v-2a2 2 0 0 0 -2 -2h-1z" />
+                                    </svg>
+                                </span>
+                                <h4>Réalité Mixte (MR)</h4>
+                                <p>Combinez les meilleures technologies (3D, AR, VR) pour créer des expériences de réalité mixte uniques. Que ce soit pour des démonstrations interactives, des jeux ou des simulations, la réalité mixte offre un terrain d'exploration vaste et innovant pour se démarquer.</p>
+                            </div>
+                        </div>
+
+                        <div className="fouth_div_aero_page">
+                            <p>Ces différentes options permettent de créer des expériences sur mesure, adaptées à vos besoins et à ceux de vos utilisateurs. Explorez les possibilités offertes par chaque technologie et choisissez la solution qui correspond le mieux à votre projet !</p>
+                        </div>
                     </div>
 
                     {/* About us tab */}

@@ -402,7 +402,8 @@ html, body {
 }
 
 .div_video_catacombes, .fouth_div_img_navigo, 
-.fifth_div_navigo_page, .first_div_aero_page{
+.fifth_div_navigo_page, .first_div_aero_page, 
+.display_infos_product{
     display: flex;
     justify-content: space-between;
     align-items: center; 
@@ -781,6 +782,37 @@ html, body {
 
 .div_img_site_classique img:nth-of-type(3){
     width: 73vh;
+}
+
+.display_infos_product{
+    margin: 9vh 2vh 6vh 2vh;
+}
+
+.realisation_infos_div_first{
+    width: 37vh;
+    height: 37vh;
+    text-align: center;
+}
+
+.realisation_infos_div_second{
+    width: 57vh;
+    height: 29vh;
+    text-align: center;
+    margin: 2vh 6vh;
+}
+
+.realisation_infos_div_second p, .realisation_infos_div_first p{
+    text-align: justify;
+}
+
+.display_infos_product .realisation_infos_div_second, .display_infos_product .realisation_infos_div_first{
+    padding: 2vh 4vh;
+    background: rgb(50 50 50 / 25%);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 /* Footer */
 footer {

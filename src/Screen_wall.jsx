@@ -8,6 +8,7 @@ import { useThree } from '@react-three/fiber';
 
 export default function Screen({ position = [0, 0, 0] }) {
     const screen_model = useGLTF("./assets/models/tv_display.glb");
+    const phone = useGLTF("./assets/models/phone.gltf");
 
     const test ="./assets/images/cadres/test.jpg";
     const image_catas = "./assets/images/cadres/geurinet_escalier.jpeg"
@@ -183,6 +184,16 @@ export default function Screen({ position = [0, 0, 0] }) {
                 textRotation={[-0.4, 0, 0]}
                 materialType={"meshStandardMaterial"} 
                 showRoundedBox={true} 
+            />
+
+            {/* Phone */}
+            <primitive 
+                receiveShadow 
+                object={phone.scene} 
+                scale={0.1} 
+                position={[2.2, 1.77, -5.7]}
+                rotation={[-1.6, 0, -0.25]}
+                onClick={() => display_modal("#contact_us_div")} 
             />
 
             {/* 3D model */}
