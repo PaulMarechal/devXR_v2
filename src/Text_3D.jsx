@@ -69,9 +69,10 @@ export default function Text_3D({
                     radius={0.09} // Radius of the rounded corners. Default is 0.05
                     smoothness={16} // The number of curve segments. Default is 4
                     bevelSegments={4} // The number of bevel segments. Default is 4, setting it to 0 removes the bevel, as a result the texture is applied to the whole geometry.
-                    creaseAngle={0.4} // Smooth normals everywhere except faces that meet at an angle greater than the crease angle
+                    creaseAngle={0.5} // Smooth normals everywhere except faces that meet at an angle greater than the crease angle
+                    
                 >
-                    <meshPhongMaterial color="#f3f3f3" />
+                    <meshPhongMaterial color="#f3f3f3" transparent={true} opacity={0.5}/>
                 </RoundedBox>
             )}
         </mesh>
