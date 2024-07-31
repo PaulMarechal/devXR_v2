@@ -257,7 +257,7 @@ const handleSubmitName = () => {
 
     setTimeout(() => {
         setScore(0);
-    }, 50000); // 50 seconds
+    }, 500000); // 50 seconds
 };
 
 
@@ -513,12 +513,43 @@ const handleSubmitName = () => {
                 {showHighScores && (
                     <>
                         <div id="best_score_display" style={{ position: 'absolute', top: '-38vh', left: '54vh', color: 'white', textAlign: 'center', width: '38vh' }}>
-                            <h3>Your best score : </h3>
-                            <ol>
+                            <h3>Best scores : </h3>
+                            {/* <ol>
                                 {highScores.map((score, index) => (
                                     <li key={index}>{score.name}: {score.score} points ({score.time}s)</li>
                                 ))}
                             </ol>
+                             */}
+                             <div className="podium">
+                                <div className="position second">
+                                    <span className="player-info">
+                                        <h4>{highScores[1].name}</h4>
+                                        <h4>{highScores[1].score} points</h4>
+                                    </span>
+                                    <div className="key" title={`Date de réalisation: ${highScores[1].date}`}>
+                                        <h4>2</h4>
+                                    </div>
+                                </div>
+                                <div className="position first">
+                                    <span className="player-info">
+                                        <h4>{highScores[0].name}</h4>
+                                        <h4>{highScores[0].score} points</h4>
+                                    </span>
+                                    <div className="key" title={`Date de réalisation: ${highScores[0].date}`}>
+                                        <h4>1</h4>
+                                    </div>
+                                </div>
+                                <div className="position third">
+                                    <span className="player-info">
+                                        <h4>{highScores[2].name}</h4>
+                                        <h4>{highScores[2].score} points</h4>
+                                    </span>
+                                    <div className="key" title={`Date de réalisation: ${highScores[2].date}`}>
+                                        <h4>3</h4>
+                                    </div>
+                                </div>
+</div>
+
                         </div>
                     </>
                 )}  

@@ -67,8 +67,8 @@ export default function Screen({ position = [0, 0, 0] }) {
     };
 
     const Image = ({ url, position, rotation }) => {
-    const texture = useMemo(() => new THREE.TextureLoader().load(url), [url]);
-    return <Texture texture={texture} position={position} rotation={rotation} />;
+        const texture = useMemo(() => new THREE.TextureLoader().load(url), [url]);
+        return <Texture texture={texture} position={position} rotation={rotation} />;
     };
 
     // const optionsA = useMemo(() => ({

@@ -830,3 +830,55 @@ footer p {
     margin: 0; 
     font-size: 14px;
 }
+
+/* Podium */
+.podium {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 250px; /* Ajusté pour l'espace des noms des joueurs */
+  }
+  
+  .position {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+  }
+  
+  .player-info {
+    margin-bottom: 8px; /* Espace entre le nom du joueur et le bloc */
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+  
+  .key {
+    width: 60px;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    background: #e4e1e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px 0; /* Ajuste la hauteur du bloc */
+  }
+  
+  .first .key {
+    height: 100px;
+    background: gold;
+  }
+  
+  .second .key {
+    height: 80px;
+    background: silver;
+  }
+  
+  .third .key {
+    height: 60px;
+    background: bronze;
+  }
+  
