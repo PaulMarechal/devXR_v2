@@ -86,8 +86,6 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const guitare = useGLTF("./assets/models/guitare.gltf");
     const audio_headset = useGLTF("./assets/models/audio_headset.gltf");
     const bike = useGLTF("./assets/models/bike.gltf");
-    const bike_ = useGLTF("./assets/models/model-14.gltf");
-
 
     const [gameStarted, setGameStarted] = useState(false);
     const [shapes, setShapes] = useState([]);
@@ -423,13 +421,13 @@ const handleSubmitName = () => {
 
 
             {/* Bike */}
-            <primitive 
+            {/* <primitive 
                 receiveShadow 
                 object={bike_.scene} 
                 scale={0.1} 
                 position={[2.2, 1.77, -5.7]}
                 rotation={[-1.6, 0, -0.25]}
-            />
+            /> */}
 
 
             <mesh position={[0, 1.76, 0]}>

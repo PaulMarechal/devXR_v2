@@ -310,7 +310,7 @@ export default function Modal() {
 
                         <div className="last_text_site_classique_page">
                             <p>
-                                En choisissant DevXR pour la création de votre site web, vous bénéficiez d'un design soigné, d'une navigation intuitive et d'une <p>présentation claire de vos services</p>. Que vous cherchiez à attirer de nouveaux clients ou à fournir des informations clés à vos utilisateurs, nous sommes là pour vous aider à réaliser vos objectifs avec un site web de qualité.
+                                En choisissant DevXR pour la création de votre site web, vous bénéficiez d'un design soigné, d'une navigation intuitive et d'une <b>présentation claire de vos services</b>. Que vous cherchiez à attirer de nouveaux clients ou à fournir des informations clés à vos utilisateurs, nous sommes là pour vous aider à réaliser vos objectifs avec un site web de qualité.
                             </p>
                         </div>
 
@@ -320,10 +320,10 @@ export default function Modal() {
                     <div className="text_modale_div" id="product_div">
                         <h1 id="title_catacombes_page">Nos Solutions Digitales.</h1>
 
-                        <div class="display_infos_product">
+                        <div className="display_infos_product">
                             {/* Sites 2D */}
                             <div className="realisation_infos_div_first">
-                                <svg  xmlns="http://www.w3.org/2000/svg"  width="44"  height="44"  viewBox="0 0 24 24"  fill="none"  stroke="#fff"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-world-www">
+                                <svg  xmlns="http://www.w3.org/2000/svg"  width="44"  height="44"  viewBox="0 0 24 24"  fill="none"  stroke="#fff"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-world-www">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M19.5 7a9 9 0 0 0 -7.5 -4a8.991 8.991 0 0 0 -7.484 4" />
                                     <path d="M11.5 3a16.989 16.989 0 0 0 -1.826 4" />
@@ -341,7 +341,7 @@ export default function Modal() {
 
                             {/* Sites 3D */}
                             <div className="realisation_infos_div_first">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-badge-3d" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-badge-3d" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
                                     <path d="M7 9.5a.5 .5 0 0 1 .5 -.5h1a1.5 1.5 0 0 1 0 3h-.5h.5a1.5 1.5 0 0 1 0 3h-1a.5 .5 0 0 1 -.5 -.5" />
@@ -353,7 +353,7 @@ export default function Modal() {
 
                             {/* augmented reality */}
                             <div className="realisation_infos_div_first">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-augmented-reality" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-augmented-reality" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M4 8v-2a2 2 0 0 1 2 -2h2" />
                                     <path d="M4 16v2a2 2 0 0 0 2 2h2" />
@@ -370,8 +370,8 @@ export default function Modal() {
 
                         <div className="display_infos_product">
                             {/* virtual reality */}
-                            <div class="realisation_infos_div_second">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-vision-pro" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <div className="realisation_infos_div_second">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-device-vision-pro" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M12 7c1.143 0 2.235 .035 3.275 .104c1.017 .068 1.95 .207 2.798 .42c.813 .203 1.52 .505 2.119 .909a3.903 3.903 0 0 1 1.328 1.531c.326 .657 .48 1.48 .48 2.466c0 1.006 -.189 1.91 -.574 2.707c-.375 .779 -.886 1.396 -1.537 1.848a3.696 3.696 0 0 1 -2.16 .66c-.509 0 -.97 -.068 -1.382 -.21a5.84 5.84 0 0 1 -1.17 -.548a18.45 18.45 0 0 1 -1.045 -.695a9.104 9.104 0 0 0 -1.001 -.63a2.376 2.376 0 0 0 -1.13 -.301c-.373 0 -.75 .097 -1.132 .3c-.316 .17 -.65 .38 -1 .63c-.322 .23 -.67 .462 -1.047 .695a5.78 5.78 0 0 1 -1.168 .548c-.413 .142 -.872 .21 -1.378 .21a3.706 3.706 0 0 1 -2.165 -.659c-.651 -.452 -1.162 -1.07 -1.537 -1.848c-.385 -.798 -.574 -1.7 -.574 -2.709c-.004 -.98 .15 -1.802 .477 -2.46a3.897 3.897 0 0 1 1.33 -1.531c.6 -.403 1.307 -.704 2.12 -.907a16.088 16.088 0 0 1 2.8 -.423c1.04 -.071 2.13 -.107 3.273 -.107z" />
                                 </svg>
@@ -383,7 +383,7 @@ export default function Modal() {
                             <div className="realisation_infos_div_second">
                                 <span>
                                     {/* AR */}
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-badge-ar" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-badge-ar" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                         <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
                                         <path d="M7 15v-4.5a1.5 1.5 0 0 1 3 0v4.5" />
@@ -392,7 +392,7 @@ export default function Modal() {
                                     </svg>
 
                                     {/* VR */}
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-badge-vr" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-badge-vr" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                         <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
                                         <path d="M14 12h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6m3 0l-2 -3" />
@@ -400,7 +400,7 @@ export default function Modal() {
                                     </svg>
 
                                     {/* 3D */}
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-badge-3d" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-badge-3d" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                         <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
                                         <path d="M7 9.5a.5 .5 0 0 1 .5 -.5h1a1.5 1.5 0 0 1 0 3h-.5h.5a1.5 1.5 0 0 1 0 3h-1a.5 .5 0 0 1 -.5 -.5" />
@@ -419,39 +419,23 @@ export default function Modal() {
 
                     {/* About us tab */}
                     <div className="text_modale_div" id="about_us_div">
-                        <h1 id="title_catacombes_page">L'équipe de DevXR</h1>
+                    <h1 id="title_catacombes_page">L'équipe de DevXR</h1>
                         <div>
-                            <p className="first_text_site_classique" >
-                                <b>Chez DevXR</b>, nous sommes une équipe passionnée par la fusion des arts et des technologies pour créer des expériences numériques exceptionnelles. Nous combinons expertise technique et créativité pour réaliser des projets qui se démarquent et répondent aux besoins uniques de nos clients.
+                            <p className="first_text_site_classique">
+                                <b>Chez DevXR</b>, nous sommes une équipe multidisciplinaire passionnée par la fusion des arts et des technologies pour créer des expériences numériques uniques et captivantes. Nous combinons expertise technique et sens artistique pour répondre aux besoins variés de nos clients.
                             </p>
                         </div>
-
                         <div>
-                            <p><b>Notre fondateur</b>, Paul Maréchal, a débuté sa carrière dans le secteur de la restauration, où il a occupé des postes de directeur de restaurant, allant du salon de thé aux restaurants étoilés. Cette expérience lui a permis de développer des compétences en gestion, en service client et en attention aux détails, des qualités qui sont aujourd'hui au cœur de notre approche en développement web.</p>
+                            <p> <a href="https://paulmarechal.xyz/" target="_blank" rel="noopener noreferrer"><b>Paul Maréchal</b></a>, notre fondateur, a débuté sa carrière dans la restauration, où il a développé une attention minutieuse aux détails et une solide expérience en gestion et service client. Il s'est ensuite reconverti en développement, étudiant à <b>l'ESIEE Paris Tech</b> et à <b>La Sorbonne</b>, se spécialisant en développement web et 3D. Paul a également acquis une expérience précieuse en tant que développeur front-end et responsable IT chez <b>Aero-Bay</b>, avant de partager son expertise en 3D à l'<b>IIM Digital School</b>.</p>
                         </div>
-
                         <div>
-                            <p>Après avoir décidé de changer de carrière, il a entrepris des études de développement à l'<b>ESIEE Paris Tech</b>. Durant cette période, il a travaillé sur divers projets en groupe et en solo, avec des langages de programmation obligatoires, et a eu l'occasion de présenter ses travaux devant un jury composé de professeurs et de professionnels. C'est à ce moment-là qu'il a découvert sa passion pour le développement 3D.</p>
+                            <p><b>Paloma Sanchez</b>, issue des <b>Beaux-Arts</b>, apporte une touche artistique unique à notre équipe. Après une formation en arts visuels, Paloma s'est reconvertie dans le développement UI/UX, combinant sa sensibilité esthétique avec des compétences techniques pour créer des interfaces utilisateur intuitives et attrayantes. Son parcours riche en créativité et en design est essentiel pour assurer une expérience utilisateur optimale dans chacun de nos projets.</p>
                         </div>
-
                         <div>
-                            <p>Poursuivant sa formation à <b>La Sorbonne</b>, sur le campus Pierre et Marie Curie à Paris, il a approfondi ses connaissances en développement et en architecture réseau. Cette étape lui a permis d'acquérir une compréhension plus approfondie des technologies web et des systèmes informatiques.</p>
+                            <p>Notre équipe inclut également des développeurs spécialisés dans le <b>backend</b>, assurant la stabilité et la sécurité de nos solutions numériques. Ces experts en systèmes serveur et bases de données travaillent en étroite collaboration avec nos développeurs frontend pour créer des applications performantes et robustes, capables de répondre aux besoins les plus exigeants.</p>
                         </div>
-
-                        <div>
-                            <p>Après sa formation, il a rejoint <b>Aero-Bay</b> en tant que développeur front-end, où il a rapidement été promu responsable IT. Dans ce rôle, il a refait complètement le design du site et a proposé de nouveaux outils, contribuant ainsi à l'amélioration significative de la présence en ligne de l'entreprise.</p>
-                        </div>
-
-                        <div>
-                            <p>Fort de son expérience, il a ensuite été invité à donner des cours de <b>3D</b> à l'<b>école IIM Digital School</b> pour le master spécialisé en design et 3D à Nanterre. Cette expérience lui a permis de partager ses connaissances avec la prochaine génération de créateurs et de continuer à évoluer dans le domaine de la 3D.</p>
-                        </div>
-
-                        <div>
-                            <p>Chez DevXR, nous croyons en l'innovation constante et en l'exploration de nouvelles technologies pour offrir à nos clients des solutions à la fois créatives et fonctionnelles. Nous nous engageons à dépasser vos attentes et à transformer vos idées en réalité, en alliant expertise technique et passion pour le design.</p>
-                        </div>
-
-                        <div>
-                            <p>Nous sommes impatients de collaborer avec vous et de donner vie à vos projets les plus ambitieux.</p>
+                        <div className="fouth_div_aero_page">
+                            <p>Chez DevXR, nous croyons en l'innovation constante et en l'exploration de nouvelles technologies. Nous nous engageons à dépasser vos attentes, en alliant expertise technique, créativité et passion pour le design, afin de donner vie à vos projets les plus ambitieux.</p>
                         </div>
                     </div>
 
