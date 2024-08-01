@@ -14,6 +14,7 @@ import { useControls } from 'leva';
 import HolographicMaterial from "./HolographicMaterial.jsx";
 import Text_3D from './Text_3D.jsx';
 import Portal from "./Portal.jsx";
+import $ from "jquery";
 
 const geometries = [
     'boxGeometry',
@@ -153,9 +154,20 @@ export default function MainModel({ position = [0, 0, 0] }) {
             const timer = setTimeout(() => {
                 setShapes([]);
                 setGameEnded(true);
+                setTimeout(() => {
+                    const inputDiv = document.querySelector(".input_div_name")
+                    const input_name = document.querySelector(".input_name")
+                    if (inputDiv) {
+                        inputDiv.style.opacity = 1;
+                        inputDiv.style.top = "-5vh";
+                        input_name.focus();
+                    } else {
+                        console.error("Element with class 'input_div_name' not found.");
+                    }
+                }, 200);
                 setGameStarted(false);
                 setShowHighScores(true);
-                setTimeout(() => setShowHighScores(false), 50000); // Masque après 50 secondes
+                setTimeout(() => setShowHighScores(false), 500000); // Masque après 50 secondes
             }, 20000);
     
             return () => clearTimeout(timer);
@@ -493,17 +505,15 @@ const handleSubmitName = () => {
 
                 {gameEnded && (
                     <>
-                        <div>
+                        <div className="input_div_name">
                             <input
                                 type="text"
                                 value={playerName}
+                                className="input_name"
                                 onChange={(e) => setPlayerName(e.target.value)}
                                 placeholder="Enter your name"
                             />
-                            <button
-                                onClick={handleSubmitName}
-                                style={{ position: 'absolute', top: '15vh', left: '3vh', color: 'black', backgroundColor: 'white', padding: '10px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
-                            >
+                            <button onClick={handleSubmitName} className="button_validate">
                                 Valider
                             </button>
                         </div>
@@ -512,44 +522,56 @@ const handleSubmitName = () => {
 
                 {showHighScores && (
                     <>
-                        <div id="best_score_display" style={{ position: 'absolute', top: '-38vh', left: '54vh', color: 'white', textAlign: 'center', width: '38vh' }}>
-                            <h3>Best scores : </h3>
+                        <div id="best_score_display">
+                            <h3>- &nbsp;  Best scores &nbsp;  -</h3>
                             {/* <ol>
                                 {highScores.map((score, index) => (
                                     <li key={index}>{score.name}: {score.score} points ({score.time}s)</li>
                                 ))}
                             </ol>
                              */}
-                             <div className="podium">
-                                <div className="position second">
-                                    <span className="player-info">
-                                        <h4>{highScores[1].name}</h4>
-                                        <h4>{highScores[1].score} points</h4>
-                                    </span>
-                                    <div className="key" title={`Date de réalisation: ${highScores[1].date}`}>
-                                        <h4>2</h4>
+                            <div className="podium">
+                                {highScores[1] && (
+                                    <div className="position second">
+                                        <span className="player-info">
+                                            <h4>{highScores[1].name}</h4>
+                                            <p>
+                                                <b>{highScores[1].score}</b> 
+                                                <br/>
+                                                <b>points</b>
+                                            </p>
+                                        </span>
+                                        <div className="position_player" title={`Date de réalisation: ${highScores[1].time}`}>
+                                            <svg  xmlns="http://www.w3.org/2000/svg"  width="36"  height="36"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-laurel-wreath-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6.436 8a8.6 8.6 0 0 0 -.436 2.727c0 4.017 2.686 7.273 6 7.273s6 -3.256 6 -7.273a8.6 8.6 0 0 0 -.436 -2.727" /><path d="M14.5 21s-.682 -3 -2.5 -3s-2.5 3 -2.5 3" /><path d="M18.52 5.23c.292 1.666 -1.02 2.77 -1.02 2.77s-1.603 -.563 -1.895 -2.23c-.292 -1.666 1.02 -2.77 1.02 -2.77s1.603 .563 1.895 2.23" /><path d="M21.094 12.14c-1.281 1.266 -3.016 .76 -3.016 .76s-.454 -1.772 .828 -3.04c1.28 -1.266 3.016 -.76 3.016 -.76s.454 1.772 -.828 3.04" /><path d="M17.734 18.826c-1.5 -.575 -1.734 -2.19 -1.734 -2.19s1.267 -1.038 2.767 -.462c1.5 .575 1.733 2.19 1.733 2.19s-1.267 1.038 -2.767 .462" /><path d="M6.267 18.826c1.5 -.575 1.733 -2.19 1.733 -2.19s-1.267 -1.038 -2.767 -.462c-1.5 .575 -1.733 2.19 -1.733 2.19s1.267 1.038 2.767 .462" /><path d="M2.906 12.14c1.281 1.266 3.016 .76 3.016 .76s.454 -1.772 -.828 -3.04c-1.281 -1.265 -3.016 -.76 -3.016 -.76s-.454 1.772 .828 3.04" /><path d="M5.48 5.23c-.292 1.666 1.02 2.77 1.02 2.77s1.603 -.563 1.895 -2.23c.292 -1.666 -1.02 -2.77 -1.02 -2.77s-1.603 .563 -1.895 2.23" /><path d="M10.6 8h2a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-1a1 1 0 0 0 -1 1v1a1 1 0 0 0 1 1h2" /></svg>                                        </div>
                                     </div>
-                                </div>
-                                <div className="position first">
-                                    <span className="player-info">
-                                        <h4>{highScores[0].name}</h4>
-                                        <h4>{highScores[0].score} points</h4>
-                                    </span>
-                                    <div className="key" title={`Date de réalisation: ${highScores[0].date}`}>
-                                        <h4>1</h4>
+                                )}
+                                {highScores[0] && (
+                                    <div className="position first">
+                                        <span className="player-info">
+                                            <h4>{highScores[0].name}</h4>
+                                            <p>
+                                                <b>{highScores[0].score}</b> 
+                                                <br/>
+                                                <b>points</b>
+                                            </p>
+                                        </span>
+                                        <div className="position_player" title={`Date de réalisation: ${highScores[0].time}`}>
+                                            <svg  xmlns="http://www.w3.org/2000/svg"  width="36"  height="36"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-laurel-wreath-1"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6.436 8a8.6 8.6 0 0 0 -.436 2.727c0 4.017 2.686 7.273 6 7.273s6 -3.256 6 -7.273a8.6 8.6 0 0 0 -.436 -2.727" /><path d="M14.5 21s-.682 -3 -2.5 -3s-2.5 3 -2.5 3" /><path d="M18.52 5.23c.292 1.666 -1.02 2.77 -1.02 2.77s-1.603 -.563 -1.895 -2.23c-.292 -1.666 1.02 -2.77 1.02 -2.77s1.603 .563 1.895 2.23" /><path d="M21.094 12.14c-1.281 1.266 -3.016 .76 -3.016 .76s-.454 -1.772 .828 -3.04c1.28 -1.266 3.016 -.76 3.016 -.76s.454 1.772 -.828 3.04" /><path d="M17.734 18.826c-1.5 -.575 -1.734 -2.19 -1.734 -2.19s1.267 -1.038 2.767 -.462c1.5 .575 1.733 2.19 1.733 2.19s-1.267 1.038 -2.767 .462" /><path d="M6.267 18.826c1.5 -.575 1.733 -2.19 1.733 -2.19s-1.267 -1.038 -2.767 -.462c-1.5 .575 -1.733 2.19 -1.733 2.19s1.267 1.038 2.767 .462" /><path d="M2.906 12.14c1.281 1.266 3.016 .76 3.016 .76s.454 -1.772 -.828 -3.04c-1.281 -1.265 -3.016 -.76 -3.016 -.76s-.454 1.772 .828 3.04" /><path d="M5.48 5.23c-.292 1.666 1.02 2.77 1.02 2.77s1.603 -.563 1.895 -2.23c.292 -1.666 -1.02 -2.77 -1.02 -2.77s-1.603 .563 -1.895 2.23" /><path d="M11 9l1 -1v6" /></svg>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="position third">
-                                    <span className="player-info">
-                                        <h4>{highScores[2].name}</h4>
-                                        <h4>{highScores[2].score} points</h4>
-                                    </span>
-                                    <div className="key" title={`Date de réalisation: ${highScores[2].date}`}>
-                                        <h4>3</h4>
+                                )}
+                                {highScores[2] && (
+                                    <div className="position third">
+                                        <span className="player-info">
+                                            <h4>{highScores[2].name}</h4>
+                                            <p><b>{highScores[2].score}</b> <br/><b>points</b></p>
+                                        </span>
+                                        <div className="position_player" title={`Date de réalisation: ${highScores[2].time}`}>
+                                            <svg  xmlns="http://www.w3.org/2000/svg"  width="36"  height="36"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-laurel-wreath-3"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6.436 8a8.6 8.6 0 0 0 -.436 2.727c0 4.017 2.686 7.273 6 7.273s6 -3.256 6 -7.273a8.6 8.6 0 0 0 -.436 -2.727" /><path d="M14.5 21s-.682 -3 -2.5 -3s-2.5 3 -2.5 3" /><path d="M18.52 5.23c.292 1.666 -1.02 2.77 -1.02 2.77s-1.603 -.563 -1.895 -2.23c-.292 -1.666 1.02 -2.77 1.02 -2.77s1.603 .563 1.895 2.23" /><path d="M21.094 12.14c-1.281 1.266 -3.016 .76 -3.016 .76s-.454 -1.772 .828 -3.04c1.28 -1.266 3.016 -.76 3.016 -.76s.454 1.772 -.828 3.04" /><path d="M17.734 18.826c-1.5 -.575 -1.734 -2.19 -1.734 -2.19s1.267 -1.038 2.767 -.462c1.5 .575 1.733 2.19 1.733 2.19s-1.267 1.038 -2.767 .462" /><path d="M6.267 18.826c1.5 -.575 1.733 -2.19 1.733 -2.19s-1.267 -1.038 -2.767 -.462c-1.5 .575 -1.733 2.19 -1.733 2.19s1.267 1.038 2.767 .462" /><path d="M2.906 12.14c1.281 1.266 3.016 .76 3.016 .76s.454 -1.772 -.828 -3.04c-1.281 -1.265 -3.016 -.76 -3.016 -.76s-.454 1.772 .828 3.04" /><path d="M5.48 5.23c-.292 1.666 1.02 2.77 1.02 2.77s1.603 -.563 1.895 -2.23c.292 -1.666 -1.02 -2.77 -1.02 -2.77s-1.603 .563 -1.895 2.23" /><path d="M10.5 8h1.5a1.5 1.5 0 0 1 0 3h-1h1a1.5 1.5 0 0 1 0 3h-1.5" /></svg>
+                                        </div>
                                     </div>
-                                </div>
-</div>
-
+                                )}
+                            </div>
                         </div>
                     </>
                 )}  

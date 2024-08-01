@@ -49,9 +49,9 @@ const App = () => {
             </Canvas>
             <Interface />
             <Modal />
-            <Loader
+            {/* <Loader
                 dataInterpolation={(p) => `Loading ${p.toFixed(2)}%`} // Text
-            />
+            /> */}
         </KeyboardControls>
         
     );

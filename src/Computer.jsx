@@ -11,31 +11,23 @@ export default function Computer(props) {
     const computer = useGLTF('./assets/models/computer_sci_fi_2.glb')
 
 
-    // const optionsZ = useMemo(() => ({
-    //     x: { value: 0.28, min: -10, max: 10, step: 0.01 },
-    //     y: { value: 2.15, min: -10, max: 10, step: 0.01 },
-    //     z: { value: 1.6, min: -10, max: 10, step: 0.01 },
-    // }), []);
+    const optionsZ = useMemo(() => ({
+        x: { value: 0.27, min: -10, max: 10, step: 0.01 },
+        y: { value: 2.13, min: -10, max: 10, step: 0.01 },
+        z: { value: 1.54, min: -10, max: 10, step: 0.01 },
+    }), []);
 
-    // const optionsE = useMemo(() => ({
-    //     x: { value: 0, min: -10, max: 10, step: 0.01 },
-    //     y: { value: 0.35, min: -10, max: 10, step: 0.01 },
-    //     z: { value: 0, min: -10, max: 10, step: 0.01 },
-    // }), []);
+    const optionsE = useMemo(() => ({
+        x: { value: 0, min: -10, max: 10, step: 0.01 },
+        y: { value: 0.35, min: -10, max: 10, step: 0.01 },
+        z: { value: 0, min: -10, max: 10, step: 0.01 },
+    }), []);
 
-    // const pZ = useControls('Computer Pos', optionsZ);
-    // const pE = useControls('Computer Rot', optionsE);
+    const pZ = useControls('Computer Pos', optionsZ);
+    const pE = useControls('Computer Rot', optionsE);
 
   return (
     <>
-        <rectAreaLight
-            width={ 2.5 }
-            height={ 1.66 }
-            intensity={ 65 }
-            color={ '#ff6900' }
-            rotation={ [ - 0.1, Math.PI, 0 ] }
-            position={ [ 0, 0.55, - 1.15 ] }
-        />      
         <primitive
             object={ computer.scene }
             position={[6.53, 1.64, -7.0]} 
@@ -46,10 +38,10 @@ export default function Computer(props) {
                 transform
                 wrapperClass="htmlScreen"
                 distanceFactor={ 0.6 }
-                // position={ [ pZ.x, pZ.y, pZ.z ] }
-                // rotation={ [pE.x, pE.y, pE.z] }
-                position={ [ 0.27, 2.13, 1.54 ] }
-                rotation={ [ 0, 0.35, 0 ] }
+                position={ [ pZ.x, pZ.y, pZ.z ] }
+                rotation={ [pE.x, pE.y, pE.z] }
+                // position={ [ 0.27, 2.13, 1.54 ] }
+                // rotation={ [ 0, 0.35, 0 ] }
                 occlude
                 
             >
@@ -60,5 +52,3 @@ export default function Computer(props) {
     </>
   )
 }
-
-useGLTF.preload('./assets/models/mac_computer.gltf')

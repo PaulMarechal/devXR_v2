@@ -13,7 +13,7 @@ html,body,#root {
 }
 
 /* font font */
-h1, h4 {
+h1, h3, h4 {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -22,6 +22,11 @@ h1, h4 {
 
 h1{
     font-size: 4.2vh;
+}
+
+h3{
+    font-size: 3.8vh;
+    margin: 1vh 0;
 }
 
 h4{
@@ -832,53 +837,128 @@ footer p {
 }
 
 /* Podium */
+#best_score_display{
+    position: absolute;
+    top: -41vh;
+    left: 78vh;
+    color: white;
+    text-align: center;
+    width: 27vh;
+    padding-bottom: 2vh;
+
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
 .podium {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 250px; /* Ajusté pour l'espace des noms des joueurs */
-  }
+    height: 250px; 
+    height: -webkit-fill-available;
+}
   
-  .position {
+.position {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 10px;
-  }
+    margin: 0 2px;
+}
   
-  .player-info {
-    margin-bottom: 8px; /* Espace entre le nom du joueur et le bloc */
+.player-info {
+    margin-bottom: 8px; 
     font-size: 16px;
     font-weight: bold;
     color: #333;
     text-align: center;
-  }
+}
+
+.player-info h4{color: #fff;}
+
+.player-info p b:nth-of-type(1){
+    font-size: 2vh;
+}
+
+.player-info p b:nth-of-type(2){
+    font-size: 1.5vh;
+}
   
-  .key {
+.position_player {
     width: 60px;
     border-radius: 10px;
-    border: 2px solid #ffffff;
+    /* border: 2px solid #ffffff; */
     background: #e4e1e1;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
     cursor: pointer;
-    padding: 10px 0; /* Ajuste la hauteur du bloc */
-  }
+    padding: 10px 0; 
+}
+
+.input_name{
+    height: 3.5vh;
+    margin-top: -1vh;
+    width: 24vh;
+    border-radius: 10px;
+    border: none;
+}
+
+.input_div_name{
+    position: absolute;
+    transition: opacity 0.5s ease-out, top 0.5s ease-out;
+    opacity: 0;
+    top: -10vh;
+    left: 79.5vh;
+}
+
+.button_validate{
+    position: absolute;
+    top: -0.5vh;
+    left: 18.3vh;
+    height: 3.1vh;
+    color: #333333;
+    background-color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #caccce;
+    padding: 4px 5px 2px 5px;
+    border-radius: 8px;
+}
   
-  .first .key {
+/* .position_player h4{ margin: 0; } */
+
+.first .position_player {
     height: 100px;
     background: gold;
-  }
+}
   
-  .second .key {
-    height: 80px;
+.second .position_player {
+    height: 70px;
     background: silver;
-  }
+}
   
-  .third .key {
-    height: 60px;
-    background: bronze;
-  }
+.third .position_player {
+    height: 45px;
+    background: #c8823c ;
+}
+
+.position span h4{
+    text-align: center;
+    margin: 0;
+}
+
+.icon-tabler-laurel-wreath-1{margin-top: -9vh;}
+.icon-tabler-laurel-wreath-2{margin-top: -6vh;}
+.icon-tabler-laurel-wreath-3{margin-top: -3vh;}
+
+.position span p{
+    margin-top: 0;
+}
   
