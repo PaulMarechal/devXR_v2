@@ -246,16 +246,6 @@ export default function MainModel({ position = [0, 0, 0] }) {
         localStorage.setItem('highScores', JSON.stringify(highScores));
     }, [highScores]);
 
-
-//   useEffect(() => {
-//     if (!gameStarted && score > 0) {
-//       const duration = new Date().toLocaleString();
-//       const newScore = { name: playerName, score, time: duration };
-//       const updatedHighScores = [...highScores, newScore].sort((a, b) => b.score - a.score).slice(0, 10);
-//       setHighScores(updatedHighScores);
-//     }
-//   }, [gameStarted, score, playerName, highScores]);
-
 const handleSubmitName = () => {
     if (!playerName) return;
 
@@ -269,7 +259,7 @@ const handleSubmitName = () => {
 
     setTimeout(() => {
         setScore(0);
-    }, 500000); // 50 seconds
+    }, 50000); // 50 seconds
 };
 
 
