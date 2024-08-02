@@ -584,12 +584,25 @@ export default function Modal() {
                         <h1 id="title_catacombes_page">Contact Us</h1>
                         <div>
                             <p className="first_text_site_classique" >
-                                Pour toute question ou demande de renseignements, <b>n'hésitez pas à nous contacter</b>. Notre équipe est disponible pour discuter de vos projets et vous fournir des solutions adaptées à vos besoins.
+                                Pour toute question ou demande de renseignements, <b>n'hésitez pas à nous contacter</b>. Nous sommes disponibles pour discuter de vos projets et vous fournir des solutions adaptées à vos besoins.
                             </p>
                         </div>
 
                         <div>
-                            <p><b>Envoyez-nous un message</b> via le formulaire de contact ou directement par email à <a href="contact@paulmarechal.xyz">DevXR</a> ou par <a href="tel:+33648357374">téléphone</a>. Nous sommes impatients de vous aider !</p>
+                            <p><b>Envoyez-nous un message</b> et nous tacherons de vous recontacter dans les meilleurs délais. </p>
+                                
+                            <div>
+                                <a href="contact@paulmarechal.xyz">
+                                    <svg id="contact_mail" xmlns="http://www.w3.org/2000/svg"  width="50"  height="50"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg>
+                                    Mail
+                                </a>
+                                <a href="tel:+33648357374">
+                                    <svg id="contact_tel" xmlns="http://www.w3.org/2000/svg"  width="50"  height="50"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-phone"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /></svg>
+                                    Téléphone
+                                </a>
+
+                            </div>
+                             
                         </div>
                     </div>
                 </div>

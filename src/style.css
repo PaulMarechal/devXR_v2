@@ -80,7 +80,8 @@ b{
 }
 
 .button_header_banner.button_header_banner_logo {
-    flex: 4
+    flex: 4;
+    cursor: auto;
 }
 
 .button_header_banner_logo {
@@ -965,6 +966,39 @@ html, body {
 .contact_us_presentation{
     text-align: center;
     margin: 20vh 15vh;
+}
+
+#contact_us_div div:nth-child(2){
+    text-align: center;
+}
+
+#contact_us_div div div a{
+    display: grid;
+    width: 13vh;
+    text-align: center;
+}
+
+#contact_us_div div div {
+    display: flex;
+    justify-content: center;
+}
+
+#contact_us_div div div a svg{
+    margin-left: 3.6vh;
+}
+
+#contact_us_div div div p{
+    text-align: center;
+}
+
+#contact_tel, #contact_mail{
+    transition: fill 0.5s ease-out, stroke 0.5s ease-out;
+}
+
+#contact_tel:hover, 
+#contact_mail:hover{
+    fill:#fff;
+    stroke:#0f0f0f;
 }
 /* Footer */
 footer {

@@ -167,7 +167,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
                 }, 200);
                 setGameStarted(false);
                 setShowHighScores(true);
-                setTimeout(() => setShowHighScores(false), 500000); // Masque après 50 secondes
+                setTimeout(() => setShowHighScores(false), 50000); // Masque après 50 secondes
             }, 20000);
     
             return () => clearTimeout(timer);
