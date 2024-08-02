@@ -19,7 +19,6 @@ export default function Modal() {
             $(elem_to_display).css("display", "block").css("opacity", "1");
         }, 350);
     }
-    // const scrollRef = useRef()
 
     useEffect(() => {
         // const scroll = new LocomotiveScroll({
@@ -37,25 +36,66 @@ export default function Modal() {
             }, 200);
         });
 
-        $("#qr_code_v1").on("click", () =>{
-            $("#background_color_button").css("margin-left", "0")
-            $("#guerinet_qr_v2").css("opacity", "0");
-            $("#fdc_qr_v2").css("opacity", "0");
-            setTimeout(() => {       
-                $("#cabi_qr_v1").css("opacity", "1");
-                $("#cabibis_qr_v1").css("opacity", "1");
+        function update_qr_code_display(button_id, button_margin, hide_selectors, show_selectors) {
+            $(button_id).css("margin-left", button_margin);
+        
+            hide_selectors.forEach(selector => {
+                $(selector).css("opacity", "0");
+            });
+        
+            setTimeout(() => {
+                show_selectors.forEach(selector => {
+                    $(selector).css("opacity", "1");
+                });
             }, 450);
-        })
+        }
 
-        $("#qr_code_v2").on("click", () =>{
-            $("#background_color_button").css("margin-left", "39px")
-            $("#cabi_qr_v1").css("opacity", "0");
-            $("#cabibis_qr_v1").css("opacity", "0");
-            setTimeout(() => {       
-                $("#guerinet_qr_v2").css("opacity", "1");
-                $("#fdc_qr_v2").css("opacity", "1");
-            }, 450);
-        })
+
+        
+        $("#qr_code_v1").on("click", () => {
+            update_qr_code_display("#background_color_button", "0", ["#guerinet_qr_v2", "#fdc_qr_v2"], ["#cabi_qr_v1", "#cabibis_qr_v1"]);
+        });
+        
+        $("#qr_code_v2").on("click", () => {
+            update_qr_code_display("#background_color_button", "39px", ["#cabi_qr_v1", "#cabibis_qr_v1"], ["#guerinet_qr_v2", "#fdc_qr_v2"]);
+        });
+
+        $("#ar_icon_exemple").on("click", () => {
+            update_qr_code_display("#background_color_button_third", "2px", [".realite_virtuelle_exemple"], [".realite_augmente_exemple"]);
+        });
+
+        $("#vr_icon_exemple").on("click", () => {
+            update_qr_code_display("#background_color_button_third", "46px", [".realite_augmente_exemple"], [".realite_virtuelle_exemple"]);
+        });
+
+
+
+        $(document).ready(function () {
+            function updateDisplay(targetImageClass, buttonMargin) {
+                $(".classique_website_img").css("opacity", "0");
+                $("#background_color_button_second").css("margin-left", buttonMargin);
+        
+                setTimeout(() => {
+                    $(targetImageClass).css("opacity", "1");
+                }, 450);
+            }
+        
+            $("#display_iphone").on("click", function() {
+                updateDisplay(".iphone_classic", "3px");
+            });
+        
+            $("#display_ipad").on("click", function() {
+                updateDisplay(".ipad_classic", "44px");
+            });
+        
+            $("#display_mac").on("click", function() {
+                updateDisplay(".mac_classic", "86px");
+            });
+        
+            updateDisplay(".iphone_classic", "3px");
+        });
+
+
 
         return () => {
             $(".close_icon").off("click");
@@ -426,7 +466,7 @@ export default function Modal() {
                             </p>
                         </div>
                         <div>
-                            <p> <a href="https://paulmarechal.xyz/" target="_blank" rel="noopener noreferrer"><b>Paul Maréchal</b></a>, notre fondateur, a débuté sa carrière dans la restauration, où il a développé une attention minutieuse aux détails et une solide expérience en gestion et service client. Il s'est ensuite reconverti en développement, étudiant à <b>l'ESIEE Paris Tech</b> et à <b>La Sorbonne</b>, se spécialisant en développement web et 3D. Paul a également acquis une expérience précieuse en tant que développeur front-end et responsable IT chez <b>Aero-Bay</b>, avant de partager son expertise en 3D à l'<b>IIM Digital School</b>.</p>
+                            <p> <a href="https://paulmarechal.xyz/" target="_blank" rel="noopener noreferrer"><b>Paul Maréchal</b></a>, a débuté sa carrière dans la restauration, où il a développé une attention minutieuse aux détails et une solide expérience en gestion et service client. Il s'est ensuite reconverti en développement, étudiant à <b>l'ESIEE Paris Tech</b> et à <b>La Sorbonne</b>, se spécialisant en développement web et 3D. Paul a également acquis une expérience précieuse en tant que développeur front-end et responsable IT chez <b>Aero-Bay</b>, avant de partager son expertise en 3D à l'<b>IIM Digital School</b>.</p>
                         </div>
                         <div>
                             <p><b>Paloma Sanchez</b>, issue des <b>Beaux-Arts</b>, apporte une touche artistique unique à notre équipe. Après une formation en arts visuels, Paloma s'est reconvertie dans le développement UI/UX, combinant sa sensibilité esthétique avec des compétences techniques pour créer des interfaces utilisateur intuitives et attrayantes. Son parcours riche en créativité et en design est essentiel pour assurer une expérience utilisateur optimale dans chacun de nos projets.</p>
@@ -444,36 +484,97 @@ export default function Modal() {
                         <h1 id="title_catacombes_page">Nos Services</h1>
                         <div>
                             <p className="first_text_site_classique" >
-                                Chez <b>DevXR</b>, nous offrons une gamme complète de prestations adaptées à vos besoins spécifiques. Que vous recherchiez un site web classique ou une expérience numérique immersive, nous avons les compétences et l’expertise nécessaires pour réaliser vos projets avec succès. Découvrez nos services ci-dessous :
+                                Chez <b>DevXR</b>, nous offrons une gamme complète de prestations adaptées à vos besoins spécifiques. Que vous recherchiez un site web classique ou une expérience numérique immersive, nous avons les compétences et l’expertise nécessaires pour réaliser vos projets avec succès.
                             </p>
                         </div>
 
-                        <div>
-                            <h4>Développement Web Classique</h4>
-                            <p>Nous concevons des sites web classiques sur mesure, qu’ils soient statiques ou dynamiques, One Page ou des structures plus complexes. Nos sites sont entièrement responsives, garantissant une expérience utilisateur optimale sur tous les appareils, des smartphones aux ordinateurs de bureau. Nous mettons l'accent sur une interface moderne et ergonomique pour que votre site se distingue par son esthétique et sa fonctionnalité.</p>
+                        <div className="classic_website_presentation_div">
+                            <span>
+                                <h4>Développement Web Classique</h4>
+                                <p>Nous concevons des sites web classiques sur mesure, qu’ils soient statiques ou dynamiques, One Page ou des structures plus complexes. Nos sites sont entièrement responsives, garantissant une expérience utilisateur optimale sur tous les appareils, des smartphones aux ordinateurs de bureau. Nous mettons l'accent sur une interface moderne et ergonomique pour que votre site se distingue par son esthétique et sa fonctionnalité.</p>
+                            </span>
+                            <div>
+                                <div>
+                                    <span id="background_color_button_second"></span>
+                                    <p id="display_iphone">
+                                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-device-mobile"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14z" /><path d="M11 4h2" /><path d="M12 17v.01" /></svg>
+                                    </p>
+                                    <p id="display_ipad">
+                                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-device-tablet"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v16a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1v-16z" /><path d="M11 17a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" /></svg>
+                                    </p>
+                                    <p id="display_mac">
+                                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-device-laptop"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 19l18 0" /><path d="M5 6m0 1a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v8a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1z" /></svg>
+                                    </p>
+                                </div>
+                            
+                                <img className="classique_website_img iphone_classic" alt="" src="https://devxr.fr/assets/images/site_classique/capture_iphone.png"/>
+                                <img className="classique_website_img ipad_classic" alt="" src="https://devxr.fr/assets/images/site_classique/capture_ipad.png"/>
+                                <img className="classique_website_img mac_classic" alt="" src="https://devxr.fr/assets/images/site_classique/capture_mac.png"/>
+                            </div>
                         </div>
 
-                        <div>
+                        <div className="experience_immeersives_3D">
+                            <div>
+                                <h4>Une seule limite. <br/>Votre immagination.</h4>
+                                {/* <div>
+                                    <a href="https://paulmarechal.xyz" target="_blank" rel="noopener noreferrer">
+                                        <video src="https://devxr.fr/assets/video/capture_ecran_3D.mp4" loop autoPlay={true} muted></video>
+                                    </a>
+                                    <div>
+                                        <a href="https://paulmarechal.xyz/new_cv/" target="_blank" rel="noopener noreferrer">
+                                            <video src="https://devxr.fr/assets/video/capture_ecran_3D_second.mp4" loop autoPlay={true} muted></video>
+                                        </a>
+                                        <a href="https://catacombes.xyz" target="_blank" rel="noopener noreferrer">
+                                            <video src="https://devxr.fr/assets/video/capture_ecran_3D_third.mp4" loop autoPlay={true} muted></video>
+                                        </a>
+                                    </div>
+                                </div> */}
+                            </div>
+
+                            {/* <h4>Expériences Immersives en 3D.</h4> */}
+                            <div className="text_experience_3D">
+                                <p>Pour des présentations plus innovantes, nous réalisons des <b>sites web immersifs en 3D</b>. Ces sites sont parfaits pour <b>présenter vos produits</b> de manière captivante et originale. Les éléments de la scène sont <b>interactifs</b>, vous permettant d'explorer et de découvrir des projets.</p>
+                                <p>Vous pouvez vous déplacer dans ces scènes en utilisant les flèches directionnelles et la souris. De plus, des <b>bonus cachés</b> sont intégrés dans la scène pour offrir une expérience ludique et engageante. N'hésitez pas à cliquer sur les éléments pour en découvrir davantage !</p>
+                            </div>
+
+                        </div>
+
+                        <div className="exemple_different_reality">
+                            <div id="exemple_different_button">
+                                <span id="background_color_button_third"></span>
+                            
+                                <p id="ar_icon_exemple">
+                                    <svg xmlns="http://www.w3.org/2000/svg"  width="35"  height="35"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-badge-ar"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M7 15v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M7 13h3" /><path d="M14 12h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6m3 0l-2 -3" /></svg>
+                                </p>
+                                <p id="vr_icon_exemple">
+                                    <svg xmlns="http://www.w3.org/2000/svg"  width="35"  height="35"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-badge-vr"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M14 12h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6m3 0l-2 -3" /><path d="M7 9l2 6l2 -6" /></svg>
+                                </p>
+                            </div>
+                            
+                            <div className="realite_virtuelle_exemple">
+                                <div>
+                                    <h4>Réalité Virtuelle (VR)</h4>
+                                    <p>Nous développons des <b>sites en réalité virtuelle (VR)</b> pour des <b>visites virtuelles</b> de sites culturels, musées ou propriétés immobilières. Ces expériences immersives permettent aux utilisateurs de <b>plonger dans un environnement virtuel riche et détaillé</b>, offrant une nouvelle dimension d’interaction et de découverte.</p>
+                                </div>
+                                <video src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4" loop autoPlay={true} muted></video>
+                            </div>
+
+                            <div className="realite_augmente_exemple">
+                                <div>
+                                    <h4>Réali55 Augmentée (AR)</h4>
+                                    <p>Nous créons des <b>applications web en réalité augmentée (AR)</b> pour des expériences interactives uniques. Après avoir scanné un QR code ou chargé une page, les utilisateurs peuvent <b>visualiser des objets virtuels</b> ou obtenir des <b>informations supplémentaires</b>. Ces applications permettent de créer des expériences mémorables et engageantes qui enrichissent la réalité quotidienne.</p>
+                                </div>
+                                <video src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true}></video>
+                            </div>
+                        </div>
+
+
+                        <div className="seo_infos">
                             <h4>Optimisation SEO et Méthodes de Développement</h4>
                             <p>Nous nous occupons de l’<b>optimisation pour les moteurs de recherche (SEO)</b> afin de maximiser la visibilité de votre site. En utilisant les <b>dernières pratiques de développement</b> et en respectant les normes actuelles, nous assurons que votre site est à la pointe de la technologie et performant. Nous suivons les meilleures pratiques du secteur pour garantir la qualité et la pérennité de vos projets.</p>
                         </div>
 
-                        <div>
-                            <h4>Expériences Immersives en 3D</h4>
-                            <p>Pour des présentations plus innovantes, nous réalisons des <b>sites web immersifs en 3D</b>. Ces sites sont parfaits pour <b>présenter vos produits</b> de manière captivante et originale. Les éléments de la scène sont <b>interactifs</b>, vous permettant d'explorer et de découvrir des projets réalisés par notre équipe. Vous pouvez vous déplacer dans ces scènes en utilisant les flèches directionnelles et la souris. De plus, des <b>bonus cachés</b> sont intégrés dans la scène pour offrir une expérience ludique et engageante. N'hésitez pas à cliquer sur les éléments pour en découvrir davantage !</p>
-                        </div>
-
-                        <div>
-                            <h4>Réalité Virtuelle (VR)</h4>
-                            <p>Nous développons des <b>sites en réalité virtuelle (VR)</b> pour des <b>visites virtuelles</b> de sites culturels, musées ou propriétés immobilières. Ces expériences immersives permettent aux utilisateurs de <b>plonger dans un environnement virtuel riche et détaillé</b>, offrant une nouvelle dimension d’interaction et de découverte.</p>
-                        </div>
-
-                        <div>
-                            <h4>Réalité Augmentée (AR)</h4>
-                            <p>Nous créons des <b>applications web en réalité augmentée (AR)</b> pour des expériences interactives uniques. Après avoir scanné un QR code ou chargé une page, les utilisateurs peuvent <b>visualiser des objets virtuels</b> ou obtenir des <b>informations supplémentaires</b>. Ces applications permettent de créer des expériences mémorables et engageantes qui enrichissent la réalité quotidienne.</p>
-                        </div>
-
-                        <div>
+                        <div className="contact_us_presentation">
                             <p>Nous nous engageons à fournir des solutions créatives et fonctionnelles qui répondent à vos attentes et dépassent vos objectifs. Explorez nos prestations et découvrez comment nous pouvons transformer vos idées en réalité. <b>Contactez-nous</b> pour discuter de vos projets et démarrer votre aventure avec DevXR.</p>
                         </div>
                     </div>
