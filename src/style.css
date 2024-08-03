@@ -1019,8 +1019,8 @@ footer p {
 /* Podium */
 #best_score_display{
     position: absolute;
-    top: -41vh;
-    left: 78vh;
+    top: -35vh;
+    left: 73vh;
     color: white;
     text-align: center;
     width: 27vh;
@@ -1047,6 +1047,36 @@ footer p {
     flex-direction: column;
     align-items: center;
     margin: 0 2px;
+}
+
+.position_duck{
+    position: fixed;
+    top: -43vh;
+    left: 73.2vh;
+    color: white;
+    text-align: center;
+    color: #333;
+    padding: 0.5vh 2.6vh 0.5vh 0;
+    width: max-content;
+    display: inline-flex;
+
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 20px 10px 10px 20px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.position_duck img{
+    width: 7vh;
+    border-radius: 14px;
+    margin: 0 1vh 0 0.7vh;
+}
+
+.position_duck h4{
+    font-size: 2.5vh;
+    margin: 2vh 0;
 }
   
 .player-info {

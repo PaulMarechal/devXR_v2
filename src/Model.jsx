@@ -1,8 +1,8 @@
-import React, { useRef, useMemo, useState, useEffect } from 'react';
+import React, { useRef, useMemo, useState, useEffect, Suspense } from 'react';
 import Cookies from 'js-cookie';
 import * as THREE from 'three';
 import { RigidBody } from "@react-three/rapier";
-import { useGLTF, useFBX, Environment, Sky, Html, Text3D, Sparkles, Clouds, Cloud, Gltf, MeshPortalMaterial } from "@react-three/drei";
+import { useGLTF, useFBX, Environment, Sky, Html, Text3D, Sparkles, Clouds, Cloud, Gltf, MeshPortalMaterial, useAspect, useVideoTexture, useTexture } from "@react-three/drei";
 import { useLoader, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
@@ -15,6 +15,7 @@ import HolographicMaterial from "./HolographicMaterial.jsx";
 import Text_3D from './Text_3D.jsx';
 import Portal from "./Portal.jsx";
 import $ from "jquery";
+import SmallDuck from './SmallDuck.jsx';
 
 const geometries = [
     'boxGeometry',
@@ -66,7 +67,7 @@ const Shape = ({ id, position, onClick }) => {
     const handleClick = () => {
         if (mesh.current) {
             const position = mesh.current.position;
-            onClick(id, position);  // Passer l'id en tant que paramètre
+            onClick(id, position);  
         }
     };
 
@@ -79,7 +80,7 @@ const Shape = ({ id, position, onClick }) => {
 };
 
 export default function MainModel({ position = [0, 0, 0] }) {
-    const sceneModel = useGLTF("./assets/models/meeting_space_4.glb");
+    const sceneModel = useGLTF("./assets/models/meeting_space_7.glb");
     const alarm_button = useGLTF("./assets/models/sci-fi_control_panel.glb");
     const { nodes, materials } = useGLTF('./assets/models/earth_planet.glb');
     const control_panel = useGLTF("./assets/models/control_panel.glb");
@@ -87,7 +88,11 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const guitare = useGLTF("./assets/models/guitare.gltf");
     const audio_headset = useGLTF("./assets/models/audio_headset.gltf");
     const bike = useGLTF("./assets/models/bike.gltf");
-
+    const small_duck = useGLTF("./assets/models/small_duck.gltf");
+        
+    const texture = useVideoTexture("https://paulmarechal.xyz/CV/rainingCode.mp4")
+    const size = useAspect(1000, 630)
+        
     const [gameStarted, setGameStarted] = useState(false);
     const [shapes, setShapes] = useState([]);
     const [score, setScore] = useState(0);
@@ -100,11 +105,62 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const [gameEnded, setGameEnded] = useState(false);
     const [showHighScores, setShowHighScores] = useState(false);
 
+    const [duckClickCount, setDuckClickCount] = useState(0);
+    const [showDuckScore, setShowDuckScore] = useState(false);
+    const [displayScoreDuck, setDisplayScoreDuck] = useState(true);
+    const [displayBravoDuck, setDisplayBravoDuck] = useState(false);
+    
     useEffect(() => {
         const savedHighScores = JSON.parse(localStorage.getItem('highScores')) || [];
-        // console.log(savedHighScores)
         setHighScores(savedHighScores);
     }, []);
+
+    // const optionsA = useMemo(() => ({
+    //     x: { value:17.7, min: -30, max: 30, step: 0.01 },
+    //     y: { value:6.45, min: -30, max: 30, step: 0.01 },
+    //     z: { value:7.5 , min: -30, max: 30, step: 0.01 },
+    // }), []);
+
+    // const optionsB = useMemo(() => ({
+    //     x: { value: 0, min: -30, max: 30, step: 0.01 },
+    //     y: { value: 3, min: -30, max: 30, step: 0.01 },
+    //     z: { value: 0, min: -30, max: 30, step: 0.01 },
+    // }), []);
+
+    // const pA = useControls('Text Pos', optionsA);
+    // const pB = useControls('Text Rot', optionsB);
+
+                  // position={[pA.x, pA.y, pA.z]} 
+                // rotation={[pB.x, pB.y, pB.z]}
+
+    const initialDucks = [
+        { id: 0, position: [17.7, 6.45, 7.5], rotation: [0, 3, 0] },
+        { id: 1, position: [-11.5, -5.75, 7.5], rotation: [0, 1, 0] },
+        { id: 2, position: [0.1, 5, -0.2], rotation: [0, 3, 0] },
+        { id: 3, position: [15, 0.42, -3.8], rotation: [0, 2, 0] },
+        { id: 4, position: [-6.6, -0.8, -3.9], rotation: [0, 1.5, 0] },
+    ];
+
+    const [ducks, setDucks] = useState(initialDucks);
+
+    const handleDuckClick = (id) => {
+        setDuckClickCount(prevCount => {
+            
+            setShowDuckScore(true)
+            console.log(prevCount)
+            const newCount = prevCount + 1;
+
+            if (newCount >= 5) {
+                setDisplayScoreDuck(false);
+                setDisplayBravoDuck(true);
+            }
+
+            return newCount;
+        });
+
+        setDucks(prevDucks => prevDucks.filter(duck => duck.id !== id));
+    };
+
     
     // // Update high scores in localStorage whenever they change
     // useEffect(() => {
@@ -174,34 +230,30 @@ export default function MainModel({ position = [0, 0, 0] }) {
         }
     }, [gameStarted]);
 
-    // const optionsA = useMemo(() => ({
-    //     x: { value:5.96, min: -30, max: 30, step: 0.01 },
-    //     y: { value:1.98, min: -30, max: 30, step: 0.01 },
-    //     z: { value:1.8 , min: -30, max: 30, step: 0.01 },
-    // }), []);
-
-    // const optionsB = useMemo(() => ({
-    //     x: { value: 0, min: -30, max: 30, step: 0.01 },
-    //     y: { value: -1.4, min: -30, max: 30, step: 0.01 },
-    //     z: { value: 1.57, min: -30, max: 30, step: 0.01 },
-    // }), []);
-
-    // const pA = useControls('Button Pos', optionsA);
-    // const pB = useControls('Button Rot', optionsB);
-
     // const holographicControls = useControls({
     //     fresnelAmount: { value: 0.0, min: 0.0, max: 1.0},
     //     fresnelOpacity: { value: 0.78,min: 0.0, max: 1.0},
     //     scanlineSize: { value: 4.6, min: 1.0, max: 15},
     //     hologramBrightness: { value: 1.3, min: 0.0, max: 2},
     //     signalSpeed: { value: 1.09, min: 0.0, max: 2},
-    //     hologramOpacity: { value: 0.55, min: 0.0, max: 1.0},
+    //     hologramOpacity:dz { value: 0.55, min: 0.0, max: 1.0},
     //     hologramColor: { value: "#51a4de"},
     //     enableBlinking: false,
     //     blinkFresnelOnly: true,
     //     enableAdditive: true,
     //     side: { options: ["FrontSide", "BackSide", "DoubleSide"] },
     // });
+
+    // Video
+    // function VideoMaterial({ url }) {
+    //     const texture = useVideoTexture(url)
+    //     return <meshBasicMaterial map={texture} toneMapped={false} />
+    // }
+      
+    //   function FallbackMaterial({ url }) {
+    //     const texture = useTexture(url)
+    //     return <meshBasicMaterial map={texture} toneMapped={false} />
+    // }
 
     sceneModel.scene.children.forEach((mesh) => {
         mesh.receiveShadow = true;
@@ -253,7 +305,7 @@ const handleSubmitName = () => {
     const newScore = { name: playerName, score, time: duration };
     const updatedHighScores = [...highScores, newScore].sort((a, b) => b.score - a.score).slice(0, 3);
     setHighScores(updatedHighScores);
-    console.log(updatedHighScores)
+    // console.log(updatedHighScores)
     localStorage.setItem('highScores', JSON.stringify(updatedHighScores));
     setGameEnded(false); // Reset game end state
 
@@ -297,8 +349,6 @@ const handleSubmitName = () => {
 
                 <animated.mesh
                     ref={planche_pos}
-                    // position={[pA.x, pA.y, pA.z]} 
-                    // rotation={[pB.x, pB.y, pB.z]}
                     position={[7.9, 2.42, 11.4]}
                     rotation={[-1.58, 0, -0.05]}
                     scale={[4, 1.5, 3.2]}
@@ -318,8 +368,10 @@ const handleSubmitName = () => {
             {/* Portal */}
             <Portal id="2023" name="Catacombes.xyz" bg="#ffffff">
                 <ambientLight intensity={Math.PI / 2} />
-                <Gltf src="./assets/models/Guerinet.glb" scale={1} position={[0.1, -1.8, -3]} rotation={[0, 4.63, 0]} />
+                <Gltf src="./assets/models/Guerinet.glb" scale={1} position={[0.1, -1.8, -2.3]} rotation={[0, 4.63, 0]} />
             </Portal>
+
+            
 
             <group ref={earth} dispose={null} scale={0.013} position={[0, 3.2, 0]}>
                 <group rotation={[-Math.PI / 2, 0, 0]}>
@@ -360,7 +412,7 @@ const handleSubmitName = () => {
                             hologramOpacity={0.55}
                             hologramColor={"#51a4de"}
                             enableBlinking={false}
-                            blinkFresnelOnly={true}
+                            blinkFresnelOnly={true}dz
                             enableAdditive={true}
                             side={"FrontSide"}
                             // {...holographicControls} 
@@ -377,13 +429,42 @@ const handleSubmitName = () => {
                 text={"DevXR.fr"} 
                 materialType={"Wireframe"} 
                 showRoundedBox={false} 
-
             />
 
-            <mesh scale={[6, 1, 3]}>
+            <Text_3D 
+                position={[9.46, -0.7, -21]} 
+                rotation={[0, -0.3, 0]}
+                scale={1.3}
+                textRotation={[0, 0, 0]}
+                text={"WELCOME TO"} 
+                // materialType={"Wireframe"} 
+                materialType={"meshNormalMaterial"}
+                showRoundedBox={false} 
+                />
+
+            <Text_3D 
+                position={[9.6, -2.7, -21]} 
+                rotation={[0, -0.3, 0]}
+                // position={[pA.x, pA.y, pA.z]} 
+                // rotation={[pB.x, pB.y, pB.z]}
+                scale={1.7}
+                textRotation={[0, 0, 0]}
+                materialType={"meshNormalMaterial"}
+                text={"BACK-END"} 
+                // materialType={"Wireframe"} 
+                showRoundedBox={false} 
+            />
+
+            {/* <mesh scale={size}                     
+                // position={[-5.99, -3.5, 0.65]} 
+                position={[-6.1, -3.5, 0.65]} 
+                rotation={[0, 1.57, 0]}
+            >
                 <planeGeometry />
-                <meshBasicMaterial color="#fff" side={THREE.DoubleSide}/>
-            </mesh>
+                <Suspense fallback={<FallbackMaterial url="./assets/images/cadres/aero.png" />}>
+                    <VideoMaterial url="https://paulmarechal.xyz/CV/rainingCode.mp4" />
+                </Suspense>
+            </mesh> */}
 
             {/* Coffee cup */}
             <primitive 
@@ -393,15 +474,6 @@ const handleSubmitName = () => {
                 position={[1, 1.7, -1.8]}
                 rotation={[0, 2.9, 0]}
             />
-
-            {/* Guitare */}
-            {/* <primitive 
-                receiveShadow 
-                object={guitare.scene} 
-                scale={2} 
-                position={[-5.73, 1.59, -3]}
-                rotation={[-0.2, 1.3, 0.2]}
-            /> */}
 
             {/* Audio headset */}
             <primitive 
@@ -421,16 +493,14 @@ const handleSubmitName = () => {
                 rotation={[0.2, 0, 0]}
             />
 
-
-            {/* Bike */}
-            {/* <primitive 
-                receiveShadow 
-                object={bike_.scene} 
-                scale={0.1} 
-                position={[2.2, 1.77, -5.7]}
-                rotation={[-1.6, 0, -0.25]}
-            /> */}
-
+            {ducks.map(duck => (
+                <SmallDuck
+                    key={duck.id}
+                    position={duck.position}
+                    rotation={duck.rotation}
+                    onClick={() => handleDuckClick(duck.id)}
+                />
+            ))}
 
             <mesh position={[0, 1.76, 0]}>
                 <cylinderGeometry args={[1, 2, 0.05]} />
@@ -565,9 +635,33 @@ const handleSubmitName = () => {
                         </div>
                     </>
                 )}  
+
+            {ducks.map(duck => (
+                <SmallDuck
+                    key={duck.id}
+                    position={duck.position}
+                    rotation={duck.rotation}
+                    onClick={() => handleDuckClick(duck.id)}
+                />
+            ))}
+            {showDuckScore && (
+                <div className="position_duck">
+                    <img src="https://devxr.fr/assets/images/canard/canard.png" alt="" />
+                    {displayScoreDuck && (
+                        <h4>
+                            Canards : {duckClickCount} / 5
+                        </h4>
+                    )}
+                    {displayBravoDuck && (
+                        <h4>
+                            BRAVO ! 🎉 
+                        </h4>
+                    )}
+                </div>
+            )}
             </Html>
         </group>
     );
 }
 
-useGLTF.preload('./assets/models/meeting_space_6.glb')
+useGLTF.preload('./assets/models/meeting_space_7.glb')

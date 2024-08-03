@@ -34,19 +34,19 @@ export default function Portal({ id, name, author, bg, children, ...props }) {
     // const pB = useControls('Portal Rot', optionsB);
 
     return (
-      <group {...props} position={[23.94, 2.88, 6.41]} rotation={[0, -1.84, 0]}>
-        <Text fontSize={0.3} anchorY="top" anchorX="left" lineHeight={0.8} position={[-1.39, 1.37, 0.01]} material-toneMapped={false}>
+      <group {...props} position={[24.14, 2.88, 4.9]} rotation={[0, -1.84, 0]}>
+        <Text fontSize={0.3} anchorY="top" anchor X="left" lineHeight={0.8} position={[-0.5, 1.37, 0.01]} material-toneMapped={false}>
           {name}
         </Text>
-        <Text fontSize={0.25} anchorX="right" position={[1.36, -1.2, 0.01]} material-toneMapped={false}>
+        <Text fontSize={0.25} anchorX="right" position={[1.6, -1.2, 0.01]} material-toneMapped={false}>
           {id}
         </Text>
-        <Text fontSize={0.04} anchorX="right" position={[0.0, -0.677, 0.01]} material-toneMapped={false}>
+        <Text fontSize={0.04} anchorX="right" position={[0, -0.677, 0.01]} material-toneMapped={false}>
           {author}
         </Text>
         <mesh name={id} >
           <RoundedBox
-            args={[3, 3, 0.01]} 
+            args={[4.2, 3, 0.01]} 
             radius={0.2} 
             smoothness={8}
             bevelSegments={8} 

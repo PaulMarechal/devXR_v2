@@ -40,6 +40,13 @@ export default function Text_3D({
                 scale={scale} 
                 position={textPosition}
                 rotation={textRotation}
+                curveSegments={30}
+                bevelEnabled
+                bevelSize={0.04}
+                bevelThickness={0.1}
+                height={0.5}
+                lineHeight={0.5}
+                letterSpacing={-0.02}
             >
                 {text}
                 {materialType === "Wireframe" && (
