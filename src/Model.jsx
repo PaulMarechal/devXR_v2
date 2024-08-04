@@ -144,8 +144,9 @@ export default function MainModel({ position = [0, 0, 0] }) {
         setDuckClickCount(prevCount => {
             
             setShowDuckScore(true)
-            console.log(prevCount)
+            console.log("prevCount : " + prevCount)
             const newCount = prevCount + 1;
+            console.log("newCount : " + newCount);
 
             if (newCount >= 5) {
                 setDisplayScoreDuck(false);
@@ -507,7 +508,7 @@ const handleSubmitName = () => {
             <Levitation position={[18.4, -4, 2.5]} showCubeGeo={false} numTexts={10}/>
 
 
-            <Levitation position={[18.4, 3.1, 2.5]} showCubeGeo={true} showText={false} numTexts={0}/>
+            <Levitation position={[18.4, 3.4, 2.5]} showCubeGeo={true} showText={false} numTexts={0}/>
 
             {/* Box to click */}
             <mesh position={[0.23, 1.32, 10]} scale={0.5} onClick={handleClick}>

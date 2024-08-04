@@ -57,7 +57,7 @@ export default function Experience(){
 
             {/* <Computer/> */}
             {showCharacterModel && 
-                <Ecctrl maxVelLimit={5} wakeUpDelay={200} showSlopeRayOrigin={false} autoBalanceSpringOnY={0.1}> {/* debug */}
+                <Ecctrl maxVelLimit={3} wakeUpDelay={200} showSlopeRayOrigin={false} autoBalanceSpringOnY={0.1}> {/* debug */}
                     <CharacterModel castShadow position={characterPosition}/>
                 </Ecctrl>
             }
