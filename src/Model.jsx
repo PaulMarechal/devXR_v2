@@ -2,7 +2,7 @@ import React, { useRef, useMemo, useState, useEffect, Suspense } from 'react';
 import Cookies from 'js-cookie';
 import * as THREE from 'three';
 import { RigidBody } from "@react-three/rapier";
-import { useGLTF, useFBX, Environment, Sky, Html, Text3D, Sparkles, Clouds, Cloud, Gltf, MeshPortalMaterial, useAspect, useVideoTexture, useTexture } from "@react-three/drei";
+import { useGLTF, useFBX, Environment, Sky, Html, Sparkles, Clouds, Cloud, Gltf, MeshPortalMaterial, useAspect, useVideoTexture, useTexture } from "@react-three/drei";
 import { useLoader, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
@@ -117,9 +117,9 @@ export default function MainModel({ position = [0, 0, 0] }) {
     }, []);
 
     const optionsA = useMemo(() => ({
-        x: { value:17.7, min: -30, max: 30, step: 0.01 },
-        y: { value:6.45, min: -30, max: 30, step: 0.01 },
-        z: { value:7.5 , min: -30, max: 30, step: 0.01 },
+        x: { value:0, min: -30, max: 30, step: 0.01 },
+        y: { value:0, min: -30, max: 30, step: 0.01 },
+        z: { value:0, min: -30, max: 30, step: 0.01 },
     }), []);
 
     const optionsB = useMemo(() => ({
@@ -128,8 +128,8 @@ export default function MainModel({ position = [0, 0, 0] }) {
         z: { value: 0, min: -30, max: 30, step: 0.01 },
     }), []);
 
-    const pA = useControls('Text Pos', optionsA);
-    const pB = useControls('Text Rot', optionsB);
+    const pA = useControls('Obj Pos', optionsA);
+    const pB = useControls('Obj Rot', optionsB);
 
 
     const initialDucks = [
@@ -444,8 +444,6 @@ const handleSubmitName = () => {
             <Text_3D 
                 position={[9.6, -2.7, -21]} 
                 rotation={[0, -0.3, 0]}
-                // position={[pA.x, pA.y, pA.z]} 
-                // rotation={[pB.x, pB.y, pB.z]}
                 scale={1.7}
                 textRotation={[0, 0, 0]}
                 materialType={"meshNormalMaterial"}
@@ -512,8 +510,12 @@ const handleSubmitName = () => {
                 />
             </mesh>
 
-            <Levitation position={[pA.x, pA.y, pA.z]}/>
-            
+            <Levitation position={[0, -3.7, 0]} showCubeGeo={false} numTexts={30}/>
+            <Levitation position={[18.4, -4, 2.5]} showCubeGeo={false} numTexts={30}/>
+
+
+            <Levitation position={[18.4, 3.1, 2.5]} showCubeGeo={true} showText={false} numTexts={0}/>
+
             {/* Box to click */}
             <mesh position={[0.23, 1.32, 10]} scale={0.5} onClick={handleClick}>
                 <primitive 
