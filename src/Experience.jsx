@@ -16,6 +16,8 @@ import Computer from './Computer.jsx';
 export default function Experience(){ 
 
     const characterPosition = [0, 0, 0];
+    const characterRef = useRef();
+
     const [showCharacterModel, setShowCharacterModel] = useState(false);
 
     const directionalLight = useRef()

@@ -27,7 +27,6 @@ export default function CharacterModel(props) {
   useEffect(() => {
     const unsubscribeJump = subscribeKeys(
       (state) => state.jump, 
-      
       /*
       (value) => {
           if (value) {
