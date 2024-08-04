@@ -16,6 +16,7 @@ import Text_3D from './Text_3D.jsx';
 import Portal from "./Portal.jsx";
 import $ from "jquery";
 import SmallDuck from './SmallDuck.jsx';
+import Levitation from './Levitation_obj.jsx';
 
 const geometries = [
     'boxGeometry',
@@ -115,28 +116,26 @@ export default function MainModel({ position = [0, 0, 0] }) {
         setHighScores(savedHighScores);
     }, []);
 
-    // const optionsA = useMemo(() => ({
-    //     x: { value:17.7, min: -30, max: 30, step: 0.01 },
-    //     y: { value:6.45, min: -30, max: 30, step: 0.01 },
-    //     z: { value:7.5 , min: -30, max: 30, step: 0.01 },
-    // }), []);
+    const optionsA = useMemo(() => ({
+        x: { value:17.7, min: -30, max: 30, step: 0.01 },
+        y: { value:6.45, min: -30, max: 30, step: 0.01 },
+        z: { value:7.5 , min: -30, max: 30, step: 0.01 },
+    }), []);
 
-    // const optionsB = useMemo(() => ({
-    //     x: { value: 0, min: -30, max: 30, step: 0.01 },
-    //     y: { value: 3, min: -30, max: 30, step: 0.01 },
-    //     z: { value: 0, min: -30, max: 30, step: 0.01 },
-    // }), []);
+    const optionsB = useMemo(() => ({
+        x: { value: 0, min: -30, max: 30, step: 0.01 },
+        y: { value: 3, min: -30, max: 30, step: 0.01 },
+        z: { value: 0, min: -30, max: 30, step: 0.01 },
+    }), []);
 
-    // const pA = useControls('Text Pos', optionsA);
-    // const pB = useControls('Text Rot', optionsB);
+    const pA = useControls('Text Pos', optionsA);
+    const pB = useControls('Text Rot', optionsB);
 
-                  // position={[pA.x, pA.y, pA.z]} 
-                // rotation={[pB.x, pB.y, pB.z]}
 
     const initialDucks = [
         { id: 0, position: [17.7, 6.45, 7.5], rotation: [0, 3, 0] },
         { id: 1, position: [-11.5, -5.75, 7.5], rotation: [0, 1, 0] },
-        { id: 2, position: [0.1, 5, -0.2], rotation: [0, 3, 0] },
+        { id: 2, position: [0.1, 5.25, -0.2], rotation: [0, 3, 0] },
         { id: 3, position: [15, 0.42, -3.8], rotation: [0, 2, 0] },
         { id: 4, position: [-6.6, -0.8, -3.9], rotation: [0, 1.5, 0] },
     ];
@@ -512,6 +511,8 @@ const handleSubmitName = () => {
                     roughness={0}
                 />
             </mesh>
+
+            <Levitation position={[pA.x, pA.y, pA.z]}/>
             
             {/* Box to click */}
             <mesh position={[0.23, 1.32, 10]} scale={0.5} onClick={handleClick}>
