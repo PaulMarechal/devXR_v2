@@ -51,14 +51,14 @@ export default function Experience(){
         >
         </Environment>
         {/* debug={ true } */}
+        <Screen/>
         <Physics >
             <Model count={blockCount}/>
-            <Screen/>
 
             {/* <Computer/> */}
             {showCharacterModel && 
-                <Ecctrl > {/* debug */}
-                    <CharacterModel castShadow position={characterPosition} />
+                <Ecctrl maxVelLimit={5} wakeUpDelay={200} showSlopeRayOrigin={false} autoBalanceSpringOnY={0.1}> {/* debug */}
+                    <CharacterModel castShadow position={characterPosition}/>
                 </Ecctrl>
             }
         </Physics>

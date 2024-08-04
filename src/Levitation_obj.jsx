@@ -5,7 +5,7 @@ import * as THREE from 'three';
 
 export default function Levitation({ position = [0, 0, 0], showCubeGeo = false, numTexts = 2 }) {
     const [showLevitation, setShowLevitation] = useState(false);
-    const [opacity, setOpacity] = useState(0); // Opacité initiale à 0
+    const [opacity, setOpacity] = useState(0);
     const fontUrl = "./assets/font/3D/SF Pro Display_Medium.json";
     const textRefs = useRef([]);
     const boxRef = useRef();
@@ -91,7 +91,7 @@ export default function Levitation({ position = [0, 0, 0], showCubeGeo = false, 
                             <meshNormalMaterial 
                                 wireframe={true} 
                                 transparent={true} 
-                                opacity={opacity} // Appliquer l'opacité
+                                opacity={opacity} 
                             />
                         </Text3D>
                     ))}
@@ -101,13 +101,13 @@ export default function Levitation({ position = [0, 0, 0], showCubeGeo = false, 
                                 <meshStandardMaterial 
                                     color="hotpink" 
                                     transparent={true} 
-                                    opacity={opacity} // Appliquer l'opacité
+                                    opacity={opacity} 
                                 />
                             </Box>
                             <Cone ref={coneRef} scale="0.4">
                                 <meshStandardMaterial 
                                     transparent={true} 
-                                    opacity={opacity} // Appliquer l'opacité
+                                    opacity={opacity} 
                                 />
                             </Cone>
                         </>

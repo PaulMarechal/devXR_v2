@@ -1,8 +1,8 @@
-import React, { useRef, useMemo, useState, useEffect, Suspense } from 'react';
+import React, { useRef, useMemo, useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import * as THREE from 'three';
 import { RigidBody } from "@react-three/rapier";
-import { useGLTF, useFBX, Environment, Sky, Html, Sparkles, Clouds, Cloud, Gltf, MeshPortalMaterial, useAspect, useVideoTexture, useTexture } from "@react-three/drei";
+import { useGLTF, useFBX, Environment, Sky, Html, Sparkles, Clouds, Cloud, Gltf, MeshPortalMaterial } from "@react-three/drei";
 import { useLoader, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
@@ -91,9 +91,6 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const bike = useGLTF("./assets/models/bike.gltf");
     const small_duck = useGLTF("./assets/models/small_duck.gltf");
         
-    const texture = useVideoTexture("https://paulmarechal.xyz/CV/rainingCode.mp4")
-    const size = useAspect(1000, 630)
-        
     const [gameStarted, setGameStarted] = useState(false);
     const [shapes, setShapes] = useState([]);
     const [score, setScore] = useState(0);
@@ -117,20 +114,20 @@ export default function MainModel({ position = [0, 0, 0] }) {
         setHighScores(savedHighScores);
     }, []);
 
-    const optionsA = useMemo(() => ({
-        x: { value:0, min: -30, max: 30, step: 0.01 },
-        y: { value:0, min: -30, max: 30, step: 0.01 },
-        z: { value:0, min: -30, max: 30, step: 0.01 },
-    }), []);
+    // const optionsA = useMemo(() => ({
+    //     x: { value:0, min: -30, max: 30, step: 0.01 },
+    //     y: { value:0, min: -30, max: 30, step: 0.01 },
+    //     z: { value:0, min: -30, max: 30, step: 0.01 },
+    // }), []);
 
-    const optionsB = useMemo(() => ({
-        x: { value: 0, min: -30, max: 30, step: 0.01 },
-        y: { value: 3, min: -30, max: 30, step: 0.01 },
-        z: { value: 0, min: -30, max: 30, step: 0.01 },
-    }), []);
+    // const optionsB = useMemo(() => ({
+    //     x: { value: 0, min: -30, max: 30, step: 0.01 },
+    //     y: { value: 3, min: -30, max: 30, step: 0.01 },
+    //     z: { value: 0, min: -30, max: 30, step: 0.01 },
+    // }), []);
 
-    const pA = useControls('Obj Pos', optionsA);
-    const pB = useControls('Obj Rot', optionsB);
+    // const pA = useControls('Obj Pos', optionsA);
+    // const pB = useControls('Obj Rot', optionsB);
 
 
     const initialDucks = [
@@ -255,17 +252,6 @@ export default function MainModel({ position = [0, 0, 0] }) {
     //     enableAdditive: true,
     //     side: { options: ["FrontSide", "BackSide", "DoubleSide"] },
     // });
-
-    // Video
-    // function VideoMaterial({ url }) {
-    //     const texture = useVideoTexture(url)
-    //     return <meshBasicMaterial map={texture} toneMapped={false} />
-    // }
-      
-    //   function FallbackMaterial({ url }) {
-    //     const texture = useTexture(url)
-    //     return <meshBasicMaterial map={texture} toneMapped={false} />
-    // }
 
     sceneModel.scene.children.forEach((mesh) => {
         mesh.receiveShadow = true;
@@ -465,17 +451,6 @@ const handleSubmitName = () => {
                 showRoundedBox={false} 
             />
 
-            {/* <mesh scale={size}                     
-                // position={[-5.99, -3.5, 0.65]} 
-                position={[-6.1, -3.5, 0.65]} 
-                rotation={[0, 1.57, 0]}
-            >
-                <planeGeometry />
-                <Suspense fallback={<FallbackMaterial url="./assets/images/cadres/aero.png" />}>
-                    <VideoMaterial url="https://paulmarechal.xyz/CV/rainingCode.mp4" />
-                </Suspense>
-            </mesh> */}
-
             {/* Coffee cup */}
             <primitive 
                 receiveShadow 
@@ -502,6 +477,11 @@ const handleSubmitName = () => {
                 position={[0, 2.05, 4.4]}
                 rotation={[0.2, 0, 0]}
             />
+
+{/* <Clouds material={THREE.MeshBasicMaterial}>
+  <Cloud segments={40} bounds={[10, 2, 2]} volume={10} color="orange" />
+  <Cloud seed={1} scale={2} volume={5} color="hotpink" fade={100} />
+</Clouds> */}
 
             {ducks.map(duck => (
                 <SmallDuck
