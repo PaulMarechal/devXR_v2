@@ -225,10 +225,10 @@ export default function MainModel({ position = [0, 0, 0] }) {
                     const input_name = document.querySelector(".input_name")
                     if (inputDiv) {
                         inputDiv.style.opacity = 1;
-                        inputDiv.style.top = "-5vh";
+                        inputDiv.style.top = "3vh";
                         input_name.focus();
                     } else {
-                        console.error("Element with class 'input_div_name' not found.");
+                        console.error("x");
                     }
                 }, 200);
                 setGameStarted(false);

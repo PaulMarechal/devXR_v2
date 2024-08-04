@@ -1019,8 +1019,8 @@ footer p {
 /* Podium */
 #best_score_display{
     position: absolute;
-    top: -35vh;
-    left: 73vh;
+    top: -33vh;
+    left: 78vh;
     color: white;
     text-align: center;
     width: 27vh;
@@ -1052,7 +1052,7 @@ footer p {
 .position_duck{
     position: fixed;
     top: -43vh;
-    left: 73.2vh;
+    left: 79.8vh;
     color: white;
     text-align: center;
     color: #333;
