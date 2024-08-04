@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 import { useGLTF, Html } from "@react-three/drei";
 import React, { useMemo, useRef, useEffect } from 'react';
-// import { useControls } from 'leva';
 import $ from "jquery";
 import Text_3D from './Text_3D.jsx';
 import { useThree } from '@react-three/fiber';
@@ -15,7 +14,11 @@ export default function Screen({ position = [0, 0, 0] }) {
     const image_navigo = "./assets/images/cadres/navigoDemo_2.png"
     const image_aero = "./assets/images/cadres/aero.png"
     const as_clean = "./assets/images/cadres/as_clean_2.png"
-    
+
+    const fdc_qr = "./assets/images/QR_code/fond_du_cresw.webp"
+    const fdc_2_qr = "./assets/images/QR_code/fond_du_crew_1.webp"
+    const lune_ar = "./assets/images/QR_code/Lune1.webp"
+    const anubis_qr = "./assets/images/QR_code/anubis.webp"
 
 
     function display_modal(elem_to_display){
@@ -52,7 +55,6 @@ export default function Screen({ position = [0, 0, 0] }) {
 
 
     const Texture = ({ texture, position, rotation }) => {
-    // position={[pA.x, pA.y, pA.z]}
     return (
             <mesh position={position} rotation={rotation}>
                 <planeGeometry
@@ -66,26 +68,30 @@ export default function Screen({ position = [0, 0, 0] }) {
         );
     };
 
+    const Texture_qr = ({ texture, position, rotation }) => {
+        // position={[pA.x, pA.y, pA.z]}
+        return (
+                <mesh position={position} rotation={rotation}>
+                    <planeGeometry
+                        attach="geometry" 
+                        args={[2.5, 2.2]} 
+                        height={1000}
+                        width={1000}
+                    />
+                    <meshBasicMaterial attach="material" map={texture} />
+                </mesh>
+            );
+        };
+
     const Image = ({ url, position, rotation }) => {
         const texture = useMemo(() => new THREE.TextureLoader().load(url), [url]);
         return <Texture texture={texture} position={position} rotation={rotation} />;
     };
 
-    // const optionsA = useMemo(() => ({
-    //     x: { value: 0, min: -10, max: Math.PI * 3, step: 0.01 },
-    //     y: { value: 0, min: -10, max: Math.PI * 3, step: 0.01 },
-    //     z: { value: 0, min: -10, max: Math.PI * 3, step: 0.01 },
-    // }), []);
-
-    // const optionsB = useMemo(() => ({
-    //     x: { value: 0, min: -10, max: 10, step: 0.01 },
-    //     y: { value: 0, min: -10, max: 10, step: 0.01 },
-    //     z: { value: 0, min: -10, max: 10, step: 0.01 },
-    // }), []);
-
-    // const pA = useControls('Screen POs', optionsA);
-    // const pB = useControls('Screen Rot', optionsB);
-
+    const Image_QR = ({ url, position, rotation }) => {
+        const texture = useMemo(() => new THREE.TextureLoader().load(url), [url]);
+        return <Texture_qr texture={texture} position={position} rotation={rotation} />;
+    };
 
     screen_model.scene.children.forEach((mesh) => {
         mesh.receiveShadow = true;
@@ -225,6 +231,35 @@ export default function Screen({ position = [0, 0, 0] }) {
                 textRotation={[-0.4, 0, 0]}
                 materialType={"meshStandardMaterial"} 
                 showRoundedBox={true} 
+            />
+
+            {/* QR Code */}
+            {/* Plan ancien */}
+            <Image_QR 
+                url={fdc_qr} 
+                position={[-5.99, -3.6, -1.20]} 
+                rotation={[0, 1.57, 0]}
+            />
+
+            {/* Island */}
+            <Image_QR 
+                url={fdc_2_qr} 
+                position={[-5.99, -3.6, 2.2]} 
+                rotation={[0, 1.56, 0]}
+            />
+
+            {/* Picasso style*/}
+            <Image_QR 
+                url={lune_ar} 
+                position={[24.8, -3.6, 2.9]} 
+                rotation={[0, -1.8, 0]}
+            />
+
+            {/* Paris street */}
+            <Image_QR 
+                url={anubis_qr} 
+                position={[23.90, -3.60, 6.40]} 
+                rotation={[0, -1.83, 0]}
             />
         </>
     );
