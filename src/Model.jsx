@@ -105,6 +105,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const [startTime, setStartTime] = useState(null);
     const [gameEnded, setGameEnded] = useState(false);
     const [showHighScores, setShowHighScores] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const [duckClickCount, setDuckClickCount] = useState(0);
     const [showDuckScore, setShowDuckScore] = useState(false);
@@ -192,6 +193,18 @@ export default function MainModel({ position = [0, 0, 0] }) {
             setVisible(false);
         }, 20000);
     };
+
+    useEffect(() => {
+        const handleLoad = () => {
+            setIsLoaded(true);
+        };
+
+        window.addEventListener('load', handleLoad);
+
+        return () => {
+            window.removeEventListener('load', handleLoad);
+        };
+    }, []);
 
     useEffect(() => {
         const random = Math.random() * 14;
@@ -509,9 +522,9 @@ const handleSubmitName = () => {
                     roughness={0}
                 />
             </mesh>
-
-            <Levitation position={[0, -3.7, 0]} showCubeGeo={false} numTexts={30}/>
-            <Levitation position={[18.4, -4, 2.5]} showCubeGeo={false} numTexts={30}/>
+            
+            <Levitation position={[0, -3.7, 0]} showCubeGeo={false} numTexts={10}/>
+            <Levitation position={[18.4, -4, 2.5]} showCubeGeo={false} numTexts={10}/>
 
 
             <Levitation position={[18.4, 3.1, 2.5]} showCubeGeo={true} showText={false} numTexts={0}/>
