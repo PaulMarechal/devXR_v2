@@ -810,13 +810,13 @@ html, body {
 
 .realisation_infos_div_first{
     width: 37vh;
-    height: 37vh;
+    height: 42vh;
     text-align: center;
 }
 
 .realisation_infos_div_second{
     width: 57vh;
-    height: 29vh;
+    height: 36vh;
     text-align: center;
     margin: 2vh 6vh;
 }
@@ -958,7 +958,7 @@ html, body {
 }
 
 #ar_icon_exemple svg, #vr_icon_exemple svg{
-    margin: -37px 5px 3px 5px;
+    margin: -37px 5px 0px 5px;
 }
 
 .seo_infos{margin: 15vh 0;}

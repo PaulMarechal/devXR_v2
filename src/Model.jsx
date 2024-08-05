@@ -504,8 +504,8 @@ const handleSubmitName = () => {
                 />
             </mesh>
             
-            <Levitation position={[0, -3.7, 0]} showCubeGeo={false} numTexts={10}/>
-            <Levitation position={[18.4, -4, 2.5]} showCubeGeo={false} numTexts={10}/>
+            <Levitation position={[0, -3.7, 0]} showCubeGeo={false} numTexts={15}/>
+            <Levitation position={[18.4, -3.7, 2.5]} showCubeGeo={false} numTexts={15}/>
 
 
             <Levitation position={[18.4, 3.4, 2.5]} showCubeGeo={true} showText={false} numTexts={0}/>
