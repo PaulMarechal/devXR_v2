@@ -421,7 +421,7 @@ const handleSubmitName = () => {
             </group>
 
             <Text_3D 
-                position={[-2.3, 5.1, -7.8]} 
+                position={[-2.3, 5.1, -8.5]} 
                 rotation={[0, 0, 0]}
                 scale={1}
                 textRotation={[0, 0, 0]}
