@@ -474,11 +474,11 @@ html, body {
 
 .second_div_video_text video {
     width: 20%;
-    border-radius: 40px;
+    border-radius: 30px;
 }
 
 .third_div_video_text video {
-    border-radius: 40px;
+    border-radius: 30px;
 }
 
 .second_div_video_text p{
@@ -943,7 +943,8 @@ html, body {
 .realite_augmente_exemple video{
     margin: 0 11.5vh;
     width: 27vh;
-    border-radius: 45px;
+    border-radius: 30px;
+    cursor: pointer;
 }
 
 .realite_virtuelle_exemple div, .realite_augmente_exemple div{
@@ -965,7 +966,7 @@ html, body {
 }
 
 #ar_icon_exemple svg, #vr_icon_exemple svg{
-    margin: -37px 5px 0px 5px;
+    margin: -2vh 5px 0px 5px;
 }
 
 .seo_infos{margin: 15vh 0;}

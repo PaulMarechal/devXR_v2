@@ -89,7 +89,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const guitare = useGLTF("./assets/models/guitare.gltf");
     const audio_headset = useGLTF("./assets/models/audio_headset.gltf");
     const bike = useGLTF("./assets/models/bike.gltf");
-    const small_duck = useGLTF("./assets/models/small_duck.gltf");
+    // const small_duck = useGLTF("./assets/models/small_duck.gltf");
         
     const [gameStarted, setGameStarted] = useState(false);
     const [shapes, setShapes] = useState([]);
@@ -549,6 +549,15 @@ const handleSubmitName = () => {
                 scale={0.8} 
             />
 
+            {ducks.map(duck => (
+                <SmallDuck
+                    key={duck.id}
+                    position={duck.position}
+                    rotation={duck.rotation}
+                    onClick={() => handleDuckClick(duck.id)}
+                />
+            ))}
+
             <Html>
                 {gameStarted ? (
                     <div style={{ position: 'absolute', top: '-38vh', left: '-3vh', color: 'white', textAlign: 'center' }}>
@@ -633,29 +642,22 @@ const handleSubmitName = () => {
                     </>
                 )}  
 
-            {ducks.map(duck => (
-                <SmallDuck
-                    key={duck.id}
-                    position={duck.position}
-                    rotation={duck.rotation}
-                    onClick={() => handleDuckClick(duck.id)}
-                />
-            ))}
-            {showDuckScore && (
-                <div className="position_duck">
-                    <img src="https://devxr.fr/assets/images/canard/canard.png" alt="" />
-                    {displayScoreDuck && (
-                        <h4>
-                            Canards : {duckClickCount} / 5
-                        </h4>
-                    )}
-                    {displayBravoDuck && (
-                        <h4>
-                            BRAVO ! 🎉 
-                        </h4>
-                    )}
-                </div>
-            )}
+                {showDuckScore && (
+
+                    <div className="position_duck">
+                        <img src="https://devxr.fr/assets/images/canard/canard.png" alt="" />
+                        {displayScoreDuck && (
+                            <h4>
+                                Canards : {duckClickCount} / 5
+                            </h4>
+                        )}
+                        {displayBravoDuck && (
+                            <h4>
+                                BRAVO ! 🎉 
+                            </h4>
+                        )}
+                    </div>
+                )}
             </Html>
         </group>
     );

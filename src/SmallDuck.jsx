@@ -8,7 +8,6 @@ function SmallDuck({ position, rotation, onClick }) {
     return (
         <>
             <Clone
-                receiveShadow
                 object={small_duck.scene}
                 scale={0.2}
                 position={position}

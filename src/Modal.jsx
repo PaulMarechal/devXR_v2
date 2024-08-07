@@ -116,7 +116,7 @@ export default function Modal() {
                 <div className="button_header_banner glassmorphism_button_header_white button_header_banner_logo"></div>
 
                 <div className="button_header_banner glassmorphism_button_header_white" onClick={() => display_modal("#prestations_div")}>
-                    <h4>Prestations</h4>
+                    <h4>Solutions</h4>
                 </div>
                 <div className="button_header_banner glassmorphism_button_header_orange" onClick={() => display_modal("#contact_us_div")}>
                     <h4>Contact</h4>
@@ -472,7 +472,7 @@ export default function Modal() {
                             <p>J'ai eu l'idée de créer DevXR car je crois fermement que la 3D et la réalité mixte représentent l'avenir du commerce en ligne. Mon ambition est de repousser les limites de l'innovation et de l'interactivité pour offrir des expériences client immersives et engageantes. Découvrez d'autres exemples de réalisations <a href="https://paulmarechal.xyz/" target="_blank" rel="noopener noreferrer">ici</a>.</p> 
                         </div>
                         <div>
-                            <p>Notre équipe inclut également des développeurs spécialisés dans le <b>backend</b>, assurant la stabilité et la sécurité de nos solutions numériques. Ces experts en systèmes serveur et bases de données travaillent en étroite collaboration avec nos développeurs frontend pour créer des applications performantes et robustes, capables de répondre aux besoins les plus exigeants.</p>
+                            <p>Je travaille également avec des développeurs spécialisés dans le <b>backend</b>, assurant la stabilité et la sécurité de nos solutions numériques. Je peux aussi faire appel à des designers pour certains plus gros projets.</p>
                         </div>
                         <div className="fouth_div_aero_page">
                             <p>Chez DevXR, nous croyons en l'innovation constante et en l'exploration de nouvelles technologies. Nous nous engageons à dépasser vos attentes, en alliant expertise technique, créativité et passion pour le design, afin de donner vie à vos projets les plus ambitieux.</p>
@@ -557,15 +557,15 @@ export default function Modal() {
                                     <h4>Réalité Virtuelle (VR)</h4>
                                     <p>Nous développons des <b>sites en réalité virtuelle (VR)</b> pour des <b>visites virtuelles</b> de sites culturels, musées ou propriétés immobilières. Ces expériences immersives permettent aux utilisateurs de <b>plonger dans un environnement virtuel riche et détaillé</b>, offrant une nouvelle dimension d’interaction et de découverte.</p>
                                 </div>
-                                <video src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4" loop autoPlay={true} muted></video>
+                                <video onClick={() => display_modal("#catacombes_div")} src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4" loop autoPlay={true} muted ></video>
                             </div>
 
                             <div className="realite_augmente_exemple">
                                 <div>
-                                    <h4>Réali55 Augmentée (AR)</h4>
+                                    <h4>Réalité Augmentée (AR)</h4>
                                     <p>Nous créons des <b>applications web en réalité augmentée (AR)</b> pour des expériences interactives uniques. Après avoir scanné un QR code ou chargé une page, les utilisateurs peuvent <b>visualiser des objets virtuels</b> ou obtenir des <b>informations supplémentaires</b>. Ces applications permettent de créer des expériences mémorables et engageantes qui enrichissent la réalité quotidienne.</p>
                                 </div>
-                                <video src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true}></video>
+                                <video onClick={() => display_modal("#catacombes_div")} src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true}></video>
                             </div>
                         </div>
 
