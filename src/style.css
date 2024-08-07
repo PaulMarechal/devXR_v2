@@ -64,7 +64,7 @@ b{
     top: 0;
     left: 0;
     position: fixed;
-    height: 50px
+    height: 6vh;
 }
 
 .header_banner div {
@@ -73,6 +73,11 @@ b{
 
 .button_header_banner{
     cursor: pointer;
+}
+
+.button_header_banner h4{
+    margin: 1vh 3vh;
+    text-align: center;
 }
 
 .header_banner div:not(.button_header_banner_logo) {
@@ -812,6 +817,7 @@ html, body {
     width: 37vh;
     height: 42vh;
     text-align: center;
+    cursor: pointer;
 }
 
 .realisation_infos_div_second{
@@ -819,6 +825,7 @@ html, body {
     height: 36vh;
     text-align: center;
     margin: 2vh 6vh;
+    cursor: pointer;
 }
 
 .realisation_infos_div_second p, .realisation_infos_div_first p{

@@ -107,10 +107,10 @@ export default function Modal() {
         <>
             <div className="header_banner">
                 <div className="button_header_banner glassmorphism_button_header_white" onClick={() => display_modal("#product_div")} >
-                    <h4>Product</h4>
+                    <h4>Offres</h4>
                 </div>
                 <div className="button_header_banner glassmorphism_button_header_white" onClick={() => display_modal("#about_us_div")} >
-                    <h4>About us</h4>
+                    <h4>Présentation</h4>
                 </div>
 
                 <div className="button_header_banner glassmorphism_button_header_white button_header_banner_logo"></div>
@@ -133,7 +133,7 @@ export default function Modal() {
                             <path d="M6 6l12 12" />
                         </svg>
                     </div>
-
+                    
                     {/* catacombes.xyz presentation page */}
                     <div className="text_modale_div" id="catacombes_div">
                         <div className="text_catacombes_page" >
@@ -362,7 +362,7 @@ export default function Modal() {
 
                         <div className="display_infos_product">
                             {/* Sites 2D */}
-                            <div className="realisation_infos_div_first">
+                            <div className="realisation_infos_div_first" onClick={() => display_modal("#site_classique_presentation_page")} >
                                 <svg  xmlns="http://www.w3.org/2000/svg"  width="44"  height="44"  viewBox="0 0 24 24"  fill="none"  stroke="#fff"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-world-www">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M19.5 7a9 9 0 0 0 -7.5 -4a8.991 8.991 0 0 0 -7.484 4" />
@@ -380,7 +380,7 @@ export default function Modal() {
                             </div>
 
                             {/* Sites 3D */}
-                            <div className="realisation_infos_div_first">
+                            <div className="realisation_infos_div_first" onClick={() => display_modal("#helico_aerobay_div")}>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-badge-3d" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
@@ -392,7 +392,7 @@ export default function Modal() {
                             </div>
 
                             {/* augmented reality */}
-                            <div className="realisation_infos_div_first">
+                            <div className="realisation_infos_div_first" onClick={() => display_modal("#catacombes_div")}>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-augmented-reality" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M4 8v-2a2 2 0 0 1 2 -2h2" />
@@ -410,7 +410,7 @@ export default function Modal() {
 
                         <div className="display_infos_product">
                             {/* virtual reality */}
-                            <div className="realisation_infos_div_second">
+                            <div className="realisation_infos_div_second" onClick={() => display_modal("#catacombes_div")}>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-device-vision-pro" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M12 7c1.143 0 2.235 .035 3.275 .104c1.017 .068 1.95 .207 2.798 .42c.813 .203 1.52 .505 2.119 .909a3.903 3.903 0 0 1 1.328 1.531c.326 .657 .48 1.48 .48 2.466c0 1.006 -.189 1.91 -.574 2.707c-.375 .779 -.886 1.396 -1.537 1.848a3.696 3.696 0 0 1 -2.16 .66c-.509 0 -.97 -.068 -1.382 -.21a5.84 5.84 0 0 1 -1.17 -.548a18.45 18.45 0 0 1 -1.045 -.695a9.104 9.104 0 0 0 -1.001 -.63a2.376 2.376 0 0 0 -1.13 -.301c-.373 0 -.75 .097 -1.132 .3c-.316 .17 -.65 .38 -1 .63c-.322 .23 -.67 .462 -1.047 .695a5.78 5.78 0 0 1 -1.168 .548c-.413 .142 -.872 .21 -1.378 .21a3.706 3.706 0 0 1 -2.165 -.659c-.651 -.452 -1.162 -1.07 -1.537 -1.848c-.385 -.798 -.574 -1.7 -.574 -2.709c-.004 -.98 .15 -1.802 .477 -2.46a3.897 3.897 0 0 1 1.33 -1.531c.6 -.403 1.307 -.704 2.12 -.907a16.088 16.088 0 0 1 2.8 -.423c1.04 -.071 2.13 -.107 3.273 -.107z" />
@@ -420,7 +420,7 @@ export default function Modal() {
                             </div>
 
                             {/* Mixed reality */}
-                            <div className="realisation_infos_div_second">
+                            <div className="realisation_infos_div_second" onClick={() => display_modal("#catacombes_div")}>
                                 <span>
                                     {/* AR */}
                                     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-badge-ar" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -459,17 +459,17 @@ export default function Modal() {
 
                     {/* About us tab */}
                     <div className="text_modale_div" id="about_us_div">
-                    <h1 id="title_catacombes_page">L'équipe de DevXR</h1>
+                        <h1 id="title_catacombes_page">L'équipe de DevXR</h1>
                         <div>
                             <p className="first_text_site_classique">
                                 <b>Chez DevXR</b>, nous sommes une équipe multidisciplinaire passionnée par la fusion des arts et des technologies pour créer des expériences numériques uniques et captivantes. Nous combinons expertise technique et sens artistique pour répondre aux besoins variés de nos clients.
                             </p>
                         </div>
                         <div>
-                            <p> <a href="https://paulmarechal.xyz/" target="_blank" rel="noopener noreferrer"><b>Paul Maréchal</b></a>, a débuté sa carrière dans la restauration, où il a développé une attention minutieuse aux détails et une solide expérience en gestion et service client. Il s'est ensuite reconverti en développement, étudiant à <b>l'ESIEE Paris Tech</b> et à <b>La Sorbonne</b>, se spécialisant en développement web et 3D. Paul a également acquis une expérience précieuse en tant que développeur front-end et responsable IT chez <b>Aero-Bay</b>, avant de partager son expertise en 3D à l'<b>IIM Digital School</b>.</p>
+                            <p>J'ai débuté ma carrière dans la restauration, où j'ai développé une attention minutieuse aux détails et une solide expérience en gestion et service client. Je me suis ensuite reconverti en développement, étudiant à <b>l'ESIEE Paris Tech</b> et à <b>La Sorbonne</b>, me spécialisant en développement web et 3D. J'ai également acquis une expérience précieuse en tant que développeur front-end et responsable IT chez <b>Aero-Bay</b>, avant de partager mon expertise en 3D à l'<b>IIM Digital School </b>.</p>
                         </div>
                         <div>
-                            <p><b>Paloma Sanchez</b>, issue des <b>Beaux-Arts</b>, apporte une touche artistique unique à notre équipe. Après une formation en arts visuels, Paloma s'est reconvertie dans le développement UI/UX, combinant sa sensibilité esthétique avec des compétences techniques pour créer des interfaces utilisateur intuitives et attrayantes. Son parcours riche en créativité et en design est essentiel pour assurer une expérience utilisateur optimale dans chacun de nos projets.</p>
+                            <p>J'ai eu l'idée de créer DevXR car je crois fermement que la 3D et la réalité mixte représentent l'avenir du commerce en ligne. Mon ambition est de repousser les limites de l'innovation et de l'interactivité pour offrir des expériences client immersives et engageantes. Découvrez d'autres exemples de réalisations <a href="https://paulmarechal.xyz/" target="_blank" rel="noopener noreferrer">ici</a>.</p> 
                         </div>
                         <div>
                             <p>Notre équipe inclut également des développeurs spécialisés dans le <b>backend</b>, assurant la stabilité et la sécurité de nos solutions numériques. Ces experts en systèmes serveur et bases de données travaillent en étroite collaboration avec nos développeurs frontend pour créer des applications performantes et robustes, capables de répondre aux besoins les plus exigeants.</p>
@@ -478,6 +478,7 @@ export default function Modal() {
                             <p>Chez DevXR, nous croyons en l'innovation constante et en l'exploration de nouvelles technologies. Nous nous engageons à dépasser vos attentes, en alliant expertise technique, créativité et passion pour le design, afin de donner vie à vos projets les plus ambitieux.</p>
                         </div>
                     </div>
+
 
                     {/* Prestations */}
                     <div className="text_modale_div" id="prestations_div">
@@ -605,3 +606,6 @@ export default function Modal() {
         </>
     );
 }
+
+
+
