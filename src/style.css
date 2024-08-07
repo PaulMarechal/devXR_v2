@@ -283,28 +283,42 @@ b{
 .keyboard{ margin-left: -10vh;}
 .mouse{ margin-left: 10vh; }
 
-.controls .key.active {
+.controls .key.active, .controls .key_mouse.active {
     background: #ffffff99;
 }
 
 .controls .key_mouse {
-    width: 4.5vh;
-    height: 4.5vh;
+    width: 4.1vh;
+    height: 4.1vh;
     border-radius: 10px;
     border: 2px solid #ffffff;
     background: #e4e1e144;
+}
+
+@keyframes moveLeftRight {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(10px); }
+}
+  
+.controls.mouse {
+    animation: moveLeftRight 4s infinite;
 }
 
 .left_clic {
     margin-right: 1px;
     margin-bottom: 1px;
     border-radius: 30px 2px 2px 2px!important;
+    background: #e4e1e144;
 }
 
 .right_clic {
     margin-right: 1px;
     margin-bottom: 1px;
     border-radius: 2px 30px 2px 2px!important;
+    background: #e4e1e144;
 }
 
 .large_mouse{
@@ -828,6 +842,7 @@ html, body {
     cursor: pointer;
 }
 
+
 .realisation_infos_div_second p, .realisation_infos_div_first p{
     text-align: justify;
 }
@@ -840,6 +855,12 @@ html, body {
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: background-color 0.5s ease-out;
+}
+
+.realisation_infos_div_second:hover, .realisation_infos_div_first:hover {
+    background: rgba(120, 120, 120, 0.25);
+
 }
 
 .classic_website_presentation_div{
@@ -973,7 +994,7 @@ html, body {
 
 .contact_us_presentation{
     text-align: center;
-    margin: 20vh 15vh;
+    margin: 15vh 15vh;
 }
 
 #contact_us_div div:nth-child(2){
@@ -1010,6 +1031,10 @@ html, body {
 }
 
 .align_conter{text-align: center;}
+
+.fifth_div_site_classique_page{
+    margin: 10vh 0;
+}
 /* Footer */
 footer {
     background-color: transparent; 

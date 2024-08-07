@@ -140,7 +140,7 @@ export default function Modal() {
                             <h1 id="title_catacombes_page" >Découvrez les Catacombes Interdites<br/> de Paris avec catacombes.xyz</h1>
                             <p id="first_text_catacombes_page" >
                                 Plongez dans l'histoire secrète de Paris 
-                                <span> grâce à notre projet innovant, <b>catacombes.xyz</b>. Ce site unique vous offre une <b>exploration immersive</b> des catacombes interdites de la Rive Gauche de Paris. Découvrez les carrières de Paris comme jamais auparavant, avec des <b>visites en 3D</b>, des expériences de <b>réalité virtuelle (VR) et de réalité augmentée (AR)</b>.</span>
+                                <span> grâce à notre projet innovant, <a href="https://catacombes.xyz" target="_blank" rel="noopener noreferrer"><b>catacombes.xyz</b></a>. Ce site unique vous offre une <b>exploration immersive</b> des catacombes interdites de la Rive Gauche de Paris. Découvrez les carrières de Paris comme jamais auparavant, avec des <b>visites en 3D</b>, des expériences de <b>réalité virtuelle (VR) et de réalité augmentée (AR)</b>.</span>
                             </p>
                             <div id="second_div_text_catacombes_page">
                                 <h4>Photogrammétrie de Haute Précision.</h4>
@@ -168,7 +168,7 @@ export default function Modal() {
                                 <video src="https://devxr.fr/assets/video/demo_catacombes_realite_virtuelle.mp4" loop muted autoPlay={true} ></video>
                                 <span>
                                     <h4>Exploration Interactive.</h4>
-                                    <p>Transformez votre smartphone en une fenêtre vers les catacombes. <b>Scannez des cartes</b> spécifiques que nous avons dispersées dans les carrières et regardez les salles en 3D <b>apparaître directement</b> en réalité augmentée. Promenez-vous librement à travers ces représentations virtuelles, examinez la <b>taille</b>, la <b>hauteur</b> et les <b>détails fascinants</b> de chaque salle.</p>
+                                    <p>Sur la vidéo à côté, vous pouvez voir comment, à partir d'un lien, un modèle 3D grandeur nature peut apparaître. Ici, il s'agit d'une salle des catacombes, mais cela peut être tout ce que vous souhaitez : un appartement à faire visiter à des clients, des œuvres d'art, des meubles etc. Imaginez pouvoir offrir des visites immersives et détaillées de vos produits ou espaces directement depuis un simple lien.</p>
                                     <span className="hover-container">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-circle-plus">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -186,7 +186,7 @@ export default function Modal() {
                             <div className="third_div_video_text">
                                 <span>
                                     <h4>Découverte Augmentée.</h4>
-                                    <p >Sur notre site, nous avons également inclus une section dédiée aux cartes des carrières. Chaque carte, lorsqu'elle est <b>scannée avec votre téléphone</b>, fait apparaître une <b>salle en réalité augmentée</b>. Cette fonctionnalité interactive permet une nouvelle dimension d'<b>exploration</b> et de <b>découverte</b>, offrant une <b>perspective unique</b> sur la taille et la composition des catacombes.</p>
+                                    <p>Nous avons également inclus une section dédiée aux cartes des carrières. Chaque carte, lorsqu'elle est <b>scannée avec votre téléphone</b>, fait apparaître une <b>salle en réalité augmentée</b>. Cette fonctionnalité interactive permet une nouvelle dimension d'<b>exploration</b> et de <b>découverte</b>, offrant une <b>perspective unique</b> sur la taille et la composition des catacombes.</p>
                                 </span>
                                 <video src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true}></video>
                                 <span>
@@ -267,7 +267,7 @@ export default function Modal() {
 
                     {/* Aero-Bay Helico 3D presentation page */}
                     <div className="text_modale_div" id="helico_aerobay_div">
-                        <h1 id="title_catacombes_page" >Présentation de la Page Interactive <br/>d'aero-bay.com</h1>
+                        <h1 id="title_catacombes_page" >Présentation de la Page Interactive <br/>de aero-bay.com</h1>
 
                         <div>
                             <p id="first_text_catacombes_page" >
@@ -348,7 +348,7 @@ export default function Modal() {
                             <p>Ce projet démontre notre capacité à réaliser des sites web 2D <b>fonctionnels et esthétiques</b>, en ligne avec les attentes de nos clients. Que vous ayez besoin d'un site web simple pour présenter vos services ou d'une solution plus complexe, DevXR est votre partenaire de choix pour créer des expériences en ligne engageantes et professionnelles.</p>
                         </div>
 
-                        <div className="last_text_site_classique_page">
+                        <div className="contact_us_presentation">
                             <p>
                                 En choisissant DevXR pour la création de votre site web, vous bénéficiez d'un design soigné, d'une navigation intuitive et d'une <b>présentation claire de vos services</b>. Que vous cherchiez à attirer de nouveaux clients ou à fournir des informations clés à vos utilisateurs, nous sommes là pour vous aider à réaliser vos objectifs avec un site web de qualité.
                             </p>
