@@ -137,8 +137,7 @@ export default function Levitation({ position = [0, 0, 0], showCubeGeo = false, 
                                     transparent={true} 
                                     opacity={opacity} 
                                 />
-                            </Icosahedron>Icosahedron
-
+                            </Icosahedron>
                         </>
                     )}
                 </>
