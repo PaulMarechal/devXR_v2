@@ -204,7 +204,7 @@ b{
     /* display: flex; */
     /* justify-content: center; */
     /* pointer-events: auto; */
-    font-size: 80px; 
+    font-size: 9vh; 
     position: absolute;
     top: 10%;
     left: 0;
@@ -268,8 +268,8 @@ b{
 }
 
 .controls .key {
-    width: 40px;
-    height: 40px;
+    width: 4vh;
+    height: 4vh;
     margin: 4px;
     border-radius: 10px;
     border: 2px solid #ffffff;
@@ -277,7 +277,7 @@ b{
 }
 
 .controls .key.large {
-    width: 144px;
+    width: 14vh;
 }
 
 .keyboard{ margin-left: -10vh;}
@@ -288,8 +288,8 @@ b{
 }
 
 .controls .key_mouse {
-    width: 45px;
-    height: 46px;
+    width: 4.5vh;
+    height: 4.5vh;
     border-radius: 10px;
     border: 2px solid #ffffff;
     background: #e4e1e144;
@@ -310,8 +310,8 @@ b{
 .large_mouse{
     margin-top: 0!important;
     border-radius: 2px 2px 50px 50px!important;
-    width: 94px!important;
-    height: 76px!important;
+    width: 9vh!important;
+    height: 7.5vh!important;
     margin-bottom: 1vh!important;
 }
 
