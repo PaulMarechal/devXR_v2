@@ -9,6 +9,7 @@ import Interface from "./Interface.jsx";
 import $ from "jquery";
 import Modal from "./Modal.jsx";
 import React, { useEffect } from 'react';
+import { BrowserView, MobileView } from 'react-device-detect';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 const App = () => {
@@ -30,30 +31,57 @@ const App = () => {
     }, []);
 
     return (
-        <KeyboardControls map={ [
-            { name: 'forward', keys: ['ArrowUp', 'KeyW'] },
-            { name: 'backward', keys: ['ArrowDown', 'KeyS'] },
-            { name: 'leftward', keys: ['ArrowLeft', 'KeyA'] },
-            { name: 'rightward', keys: ['ArrowRight', 'KeyD'] },
-            { name: 'jump', keys: ['Space'] },
-            { name: 'run', keys: ['Shift'] }
-        ] }>
-            <Canvas
-                camera={{
-                    fov: 45,
-                    near: 0.1,
-                    far: 200,
-                }}
-            >
-                <Experience />
-            </Canvas>
-            <Interface />
-            <Modal />
-            <Loader
-                dataInterpolation={(p) => `Loading ${p.toFixed(2)}%`} // Text
-            />
-        </KeyboardControls>
-        
+        <>
+        <MobileView>
+            <div className="container">
+                <div className="grid">
+                    <div className="grid-item span-2-1">
+                        1
+                    </div>
+                    <div className="grid-item span-2-1">
+                        2
+                    </div>
+                    <div className="grid-item span-1-4">
+                        3
+                    </div>
+                    <div className="grid-item span-2-2">
+                        4
+                    </div>
+                    <div className="grid-item span-1-2">
+                        5
+                    </div>
+                    <div className="grid-item span-3-2">
+                        6
+                    </div>
+                </div>
+            </div>
+        </MobileView>
+        <BrowserView className="window_size">
+            <KeyboardControls map={ [
+                { name: 'forward', keys: ['ArrowUp', 'KeyW'] },
+                { name: 'backward', keys: ['ArrowDown', 'KeyS'] },
+                { name: 'leftward', keys: ['ArrowLeft', 'KeyA'] },
+                { name: 'rightward', keys: ['ArrowRight', 'KeyD'] },
+                { name: 'jump', keys: ['Space'] },
+                { name: 'run', keys: ['Shift'] }
+            ] }>
+                <Canvas
+                    camera={{
+                        fov: 45,
+                        near: 0.1,
+                        far: 200,
+                    }}
+                >
+                    <Experience />
+                </Canvas>
+                <Interface />
+                <Modal />
+                <Loader
+                    dataInterpolation={(p) => `Loading ${p.toFixed(2)}%`} // Text
+                />
+            </KeyboardControls>
+        </BrowserView>
+        </>
     );
 };
 useGLTF.preload('./assets/models/meeting_space_7.glb')

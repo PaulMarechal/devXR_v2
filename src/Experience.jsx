@@ -30,7 +30,7 @@ export default function Experience(){
 
     return (
         <>
-            <Perf position="bottom-left" />
+            {/* <Perf position="bottom-left" /> */}
             <OrbitControls makeDefault />
             <directionalLight ref={ directionalLight } castShadow position={ [ 0, 6.5, 0 ] } intensity={ 2.5 } />
             <ambientLight intensity={ 2 } />
