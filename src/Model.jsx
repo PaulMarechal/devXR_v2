@@ -505,6 +505,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
                 anchorY="middle"
                 position={[8.9, -2.5, 5]}
                 rotation={[0, 3, 0]}
+                onClick={() => window.location.reload()}
             >
                 Bienvenue dans le back-end de DevXR.fr. Pour revenir dans la version front il faut utiliser les escaliers ou cliquer ici. N'hésitez à pas scanner les QR Codes avec votre telephone et à trouver les bonus dans la scene. 
             </Text>
