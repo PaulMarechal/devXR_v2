@@ -36,22 +36,22 @@ const App = () => {
             <div className="container">
                 <div className="grid">
                     <div className="grid-item span-2-1">
-                        1
+                        <h1>1</h1>
                     </div>
                     <div className="grid-item span-2-1">
-                        2
+                         <h1>2</h1>
                     </div>
                     <div className="grid-item span-1-4">
-                        3
+                        <h1>3</h1>
                     </div>
                     <div className="grid-item span-2-2">
-                        4
+                        <h1>4</h1>
                     </div>
                     <div className="grid-item span-1-2">
-                        5
+                        <h1>5</h1>
                     </div>
                     <div className="grid-item span-3-2">
-                        6
+                        <h1>6</h1>
                     </div>
                 </div>
             </div>
