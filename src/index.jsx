@@ -2,7 +2,7 @@ import './style.css';
 import ReactDOM from 'react-dom/client';
 import { Canvas } from '@react-three/fiber';
 import Experience from './Experience.jsx';
-import { KeyboardControls, ScrollControls, Scroll, useScroll, Html } from '@react-three/drei';
+import { KeyboardControls, ScrollControls, Scroll, useScroll, Html, useGLTF } from '@react-three/drei';
 import FPScontrols from "./FPScontrols.jsx";
 import { OrbitControls, Loader } from '@react-three/drei';
 import Interface from "./Interface.jsx";
@@ -49,12 +49,13 @@ const App = () => {
             </Canvas>
             <Interface />
             <Modal />
-            {/* <Loader
+            <Loader
                 dataInterpolation={(p) => `Loading ${p.toFixed(2)}%`} // Text
-            /> */}
+            />
         </KeyboardControls>
         
     );
 };
+useGLTF.preload('./assets/models/meeting_space_7.glb')
 
 root.render(<App />);

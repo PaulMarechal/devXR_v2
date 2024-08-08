@@ -159,7 +159,7 @@ b{
 
 .close_icon_start{
     position: absolute;
-    top: -26px;
+    top: -2vh;
     right: 0;
     transition: rotate 0.3s ease-out;
     pointer-events: auto;
@@ -678,7 +678,7 @@ html, body {
 
 .second_div_navigo_page video{
     width: 20%;
-    border-radius: 50px;
+    border-radius: 40px;
 }
 
 .second_div_navigo_page p{
@@ -1055,7 +1055,7 @@ footer p {
 #best_score_display{
     position: absolute;
     top: -33vh;
-    left: 78vh;
+    left: 69vh;
     color: white;
     text-align: center;
     width: 27vh;
@@ -1087,7 +1087,7 @@ footer p {
 .position_duck{
     position: fixed;
     top: -43vh;
-    left: 79.8vh;
+    left: 71.5vh;
     color: white;
     text-align: center;
     color: #333;
@@ -1095,13 +1095,17 @@ footer p {
     width: max-content;
     display: inline-flex;
     user-select: none;
-
+    transition: left 0.5s ease-out;
     background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 20px 10px 10px 20px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.position_duck:hover{
+    left: 71.5vh;
 }
 
 .position_duck img{
@@ -1159,13 +1163,13 @@ footer p {
     transition: opacity 0.5s ease-out, top 0.5s ease-out;
     opacity: 0;
     top: -10vh;
-    left: 79.5vh;
+    left: 71.5vh;
 }
 
 .button_validate{
     position: absolute;
-    top: -0.5vh;
-    left: 18.3vh;
+    top: -5px;
+    left: 10.9rem;
     height: 3.1vh;
     color: #333333;
     background-color: white;

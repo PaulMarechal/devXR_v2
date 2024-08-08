@@ -2,7 +2,7 @@ import React, { useRef, useMemo, useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import * as THREE from 'three';
 import { RigidBody } from "@react-three/rapier";
-import { useGLTF, useFBX, Environment, Sky, Html, Sparkles, Clouds, Cloud, Gltf, MeshPortalMaterial } from "@react-three/drei";
+import { useGLTF, useFBX, Environment, Sky, Html, Sparkles, Clouds, Cloud, Gltf, MeshPortalMaterial, Text } from "@react-three/drei";
 import { useLoader, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
@@ -89,7 +89,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
     const guitare = useGLTF("./assets/models/guitare.gltf");
     const audio_headset = useGLTF("./assets/models/audio_headset.gltf");
     const bike = useGLTF("./assets/models/bike.gltf");
-    // const small_duck = useGLTF("./assets/models/small_duck.gltf");
+    const position_duck = document.querySelector(".position_duck")
         
     const [gameStarted, setGameStarted] = useState(false);
     const [shapes, setShapes] = useState([]);
@@ -114,20 +114,20 @@ export default function MainModel({ position = [0, 0, 0] }) {
         setHighScores(savedHighScores);
     }, []);
 
-    // const optionsA = useMemo(() => ({
-    //     x: { value:0, min: -30, max: 30, step: 0.01 },
-    //     y: { value:0, min: -30, max: 30, step: 0.01 },
-    //     z: { value:0, min: -30, max: 30, step: 0.01 },
-    // }), []);
+    const optionsA = useMemo(() => ({
+        x: { value:0, min: -30, max: 30, step: 0.01 },
+        y: { value:0, min: -30, max: 30, step: 0.01 },
+        z: { value:0, min: -30, max: 30, step: 0.01 },
+    }), []);
 
-    // const optionsB = useMemo(() => ({
-    //     x: { value: 0, min: -30, max: 30, step: 0.01 },
-    //     y: { value: 3, min: -30, max: 30, step: 0.01 },
-    //     z: { value: 0, min: -30, max: 30, step: 0.01 },
-    // }), []);
+    const optionsB = useMemo(() => ({
+        x: { value: 0, min: -30, max: 30, step: 0.01 },
+        y: { value: 3, min: -30, max: 30, step: 0.01 },
+        z: { value: 0, min: -30, max: 30, step: 0.01 },
+    }), []);
 
-    // const pA = useControls('Obj Pos', optionsA);
-    // const pB = useControls('Obj Rot', optionsB);
+    const pA = useControls('Obj Pos', optionsA);
+    const pB = useControls('Obj Rot', optionsB);
 
 
     const initialDucks = [
@@ -225,7 +225,7 @@ export default function MainModel({ position = [0, 0, 0] }) {
                     const input_name = document.querySelector(".input_name")
                     if (inputDiv) {
                         inputDiv.style.opacity = 1;
-                        inputDiv.style.top = "3vh";
+                        inputDiv.style.top = "5vh";
                         input_name.focus();
                     } else {
                         console.error("x");
@@ -239,6 +239,8 @@ export default function MainModel({ position = [0, 0, 0] }) {
             return () => clearTimeout(timer);
         }
     }, [gameStarted]);
+
+    
 
     // const holographicControls = useControls({
     //     fresnelAmount: { value: 0.0, min: 0.0, max: 1.0},
@@ -278,6 +280,23 @@ export default function MainModel({ position = [0, 0, 0] }) {
                 }
             }
         }
+
+        if(position_duck){
+            if(position_duck.style.left > "71.5"){
+                alert("yo")
+                setTimeout(() => {
+                    position_duck.style.left = "89.5vh"
+                }, 20000);
+            }
+        
+            position_duck.addEventListener("mouseenter", () => {
+                position_duck.style.left = "71.5vh"
+            });
+        
+            position_duck.addEventListener("mouseleave", () => {
+                position_duck.style.left = "89.5vh"
+            });
+        }
     });
 
     const handleClick_ = (id, position) => {
@@ -297,23 +316,21 @@ export default function MainModel({ position = [0, 0, 0] }) {
         localStorage.setItem('highScores', JSON.stringify(highScores));
     }, [highScores]);
 
-const handleSubmitName = () => {
-    if (!playerName) return;
+    const handleSubmitName = () => {
+        if (!playerName) return;
 
-    const duration = new Date().toLocaleString();
-    const newScore = { name: playerName, score, time: duration };
-    const updatedHighScores = [...highScores, newScore].sort((a, b) => b.score - a.score).slice(0, 3);
-    setHighScores(updatedHighScores);
-    // console.log(updatedHighScores)
-    localStorage.setItem('highScores', JSON.stringify(updatedHighScores));
-    setGameEnded(false); // Reset game end state
+        const duration = new Date().toLocaleString();
+        const newScore = { name: playerName, score, time: duration };
+        const updatedHighScores = [...highScores, newScore].sort((a, b) => b.score - a.score).slice(0, 3);
+        setHighScores(updatedHighScores);
+        // console.log(updatedHighScores)
+        localStorage.setItem('highScores', JSON.stringify(updatedHighScores));
+        setGameEnded(false); // Reset game end state
 
-    setTimeout(() => {
-        setScore(0);
-    }, 50000); // 50 seconds
-};
-
-
+        setTimeout(() => {
+            setScore(0);
+        }, 50000); // 50 seconds
+    };
 
     return (
         <group>
@@ -478,6 +495,36 @@ const handleSubmitName = () => {
                 position={[0, 2.05, 4.4]}
                 rotation={[0.2, 0, 0]}
             />
+
+            <Text 
+                maxWidth={5} 
+                textAlign={"justify"} 
+                fontSize={0.25} 
+                color="black" 
+                anchorX="center" 
+                anchorY="middle"
+                position={[8.9, -2.5, 5]}
+                rotation={[0, 3, 0]}
+            >
+                Bienvenue dans le back-end de DevXR.fr. Pour revenir dans la version front il faut utiliser les escaliers ou cliquer ici. N'hésitez à pas scanner les QR Codes avec votre telephone et à trouver les bonus dans la scene. 
+            </Text>
+
+            <Text 
+                // position={[pA.x, pA.y, pA.z]} 
+                // rotation={[pB.x, pB.y, pB.z]} 
+                maxWidth={5} 
+                textAlign={"justify"} 
+                fontSize={0.25} 
+                color="#fff" 
+                anchorX="center" 
+                anchorY="middle"
+                position={[24.4, -5.3, 4.6]}
+                rotation={[0, 4.45, 0]}
+            >
+                Scannez les QR Codes avec votre téléphoner et découvrez ce qu'ils cachent. 
+            </Text>
+
+
 
 {/* <Clouds material={THREE.MeshBasicMaterial}>
   <Cloud segments={40} bounds={[10, 2, 2]} volume={10} color="orange" />
@@ -663,4 +710,3 @@ const handleSubmitName = () => {
     );
 }
 
-useGLTF.preload('./assets/models/meeting_space_7.glb')

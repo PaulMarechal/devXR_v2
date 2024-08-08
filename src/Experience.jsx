@@ -1,4 +1,4 @@
-import { OrbitControls, Environment, KeyboardControls, useHelper } from '@react-three/drei'
+import { OrbitControls, Environment, KeyboardControls, useHelper, useGLTF } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
 import Model from "./Model.jsx"
 import { Physics } from "@react-three/rapier"
