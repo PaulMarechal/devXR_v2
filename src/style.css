@@ -129,7 +129,7 @@ b{
 
 /* Modal infos */
 .modal_infos{
-    height: 80%;
+    height: 85%;
     width: 90%;
     background: #fff;
     margin: 5%;
@@ -419,7 +419,7 @@ html, body {
 }
 
 .text_modale_div {
-    height: 80vh;
+    height: 87vh;
     overflow: hidden;
 }
 

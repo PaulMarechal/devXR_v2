@@ -14,7 +14,7 @@ import { useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { useMemo } from 'react';
-import { useControls } from 'leva';
+// import { useControls } from 'leva';
 
 export default function Map({ position = [0, 0, 0] }) {
 const sceneModel = useGLTF("./assets/models/meeting_space_2.glb"); 
