@@ -10,6 +10,7 @@ import $ from "jquery";
 import Modal from "./Modal.jsx";
 import React, { useEffect } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
+import Mobile_interface from "./Mobile_interface.jsx";
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 const App = () => {
@@ -33,28 +34,8 @@ const App = () => {
     return (
         <>
         <MobileView>
-            <div className="container">
-                <div className="grid">
-                    <div className="grid-item span-2-1">
-                        <h1>1</h1>
-                    </div>
-                    <div className="grid-item span-2-1">
-                         <h1>2</h1>
-                    </div>
-                    <div className="grid-item span-1-4">
-                        <h1>3</h1>
-                    </div>
-                    <div className="grid-item span-2-2">
-                        <h1>4</h1>
-                    </div>
-                    <div className="grid-item span-1-2">
-                        <h1>5</h1>
-                    </div>
-                    <div className="grid-item span-3-2">
-                        <h1>6</h1>
-                    </div>
-                </div>
-            </div>
+            <Mobile_interface />
+            <Modal/>
         </MobileView>
         <BrowserView className="window_size">
             <KeyboardControls map={ [

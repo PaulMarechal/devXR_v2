@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { Text3D, Wireframe, RoundedBox } from '@react-three/drei'
 import { useMemo } from 'react'
-import { useControls } from 'leva';
+// import { useControls } from 'leva';
 
 export default function Text_3D({ 
     position = [0, 0, 0], 

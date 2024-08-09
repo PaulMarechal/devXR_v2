@@ -45,7 +45,7 @@ export default function Screen({ position = [0, 0, 0] }) {
           scale={1.8}
           rotation={[0, 3.15, 0]}
           position={[-5.9, 3.5, 2.5]}
-          onClick={(e) => alert("you clicked", e.object.name)}
+          // onClick={(e) => alert("you clicked", e.object.name)}
         >
           <AddPictures position={[pA.x, pA.y, pA.z]} imageUrls={images} />
         </primitive>

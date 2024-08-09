@@ -10,7 +10,7 @@ import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import { useSpring, animated } from '@react-spring/three';
 import Confetti from './components/Confetti';
-import { useControls } from 'leva';
+// import { useControls } from 'leva';
 import HolographicMaterial from "./HolographicMaterial.jsx";
 import Text_3D from './Text_3D.jsx';
 import Portal from "./Portal.jsx";
@@ -114,20 +114,20 @@ export default function MainModel({ position = [0, 0, 0] }) {
         setHighScores(savedHighScores);
     }, []);
 
-    const optionsA = useMemo(() => ({
-        x: { value:0, min: -30, max: 30, step: 0.01 },
-        y: { value:0, min: -30, max: 30, step: 0.01 },
-        z: { value:0, min: -30, max: 30, step: 0.01 },
-    }), []);
+    // const optionsA = useMemo(() => ({
+    //     x: { value:0, min: -30, max: 30, step: 0.01 },
+    //     y: { value:0, min: -30, max: 30, step: 0.01 },
+    //     z: { value:0, min: -30, max: 30, step: 0.01 },
+    // }), []);
 
-    const optionsB = useMemo(() => ({
-        x: { value: 0, min: -30, max: 30, step: 0.01 },
-        y: { value: 3, min: -30, max: 30, step: 0.01 },
-        z: { value: 0, min: -30, max: 30, step: 0.01 },
-    }), []);
+    // const optionsB = useMemo(() => ({
+    //     x: { value: 0, min: -30, max: 30, step: 0.01 },
+    //     y: { value: 3, min: -30, max: 30, step: 0.01 },
+    //     z: { value: 0, min: -30, max: 30, step: 0.01 },
+    // }), []);
 
-    const pA = useControls('Obj Pos', optionsA);
-    const pB = useControls('Obj Rot', optionsB);
+    // const pA = useControls('Obj Pos', optionsA);
+    // const pB = useControls('Obj Rot', optionsB);
 
 
     const initialDucks = [
