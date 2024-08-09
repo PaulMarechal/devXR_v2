@@ -1261,6 +1261,7 @@ footer p {
 }
 /* Portrait mode */
 @media screen and (orientation: portrait) {
+
     .grid {
       width: 100%;
       height: 84%;
@@ -1308,6 +1309,36 @@ footer p {
     .contact_us_presentation {
         text-align: center;
         margin: 15vh 4vh;
+    }
+
+    .display_infos_product{
+        display:flow-root;
+    }
+
+    #title_catacombes_page{
+        margin-left: 0vh;
+    }
+
+    .modal_infos{
+        height: 92%;
+    }
+
+    .display_infos_product, 
+    .realisation_infos_div_second, 
+    .display_infos_product, 
+    .realisation_infos_div_first{
+        width: -webkit-fill-available;
+        height: fit-content;
+        margin: 4vh 0;
+    }
+
+    .close_icon{
+        z-index: 9;
+    }
+
+    .fouth_div_aero_page {
+        width: 87%;
+        margin: 7vh auto;
     }
 }
   
