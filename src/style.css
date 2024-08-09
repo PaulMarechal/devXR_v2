@@ -1293,6 +1293,22 @@ footer p {
       grid-column: span 3;
       grid-row: span 2;
     }
+
+    .text_catacombes_page, 
+    #metro_map_div, #helico_aerobay_div, 
+    #site_classique_presentation_page, 
+    #product_div, #about_us_div, 
+    #prestations_div, #contact_us_div{
+        overflow-y: scroll;
+        scrollbar-color: rgb(148, 148, 148) transparent;
+        padding: 0 3vh;
+        user-select: none;
+    }
+
+    .contact_us_presentation {
+        text-align: center;
+        margin: 15vh 4vh;
+    }
 }
   
 /* Landscape mode */
