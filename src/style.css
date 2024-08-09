@@ -1252,32 +1252,47 @@ footer p {
   
   /* Grid item styles */
 .grid-item {
-    background-color: lightGray;
+    background-color: rgb(0, 0, 0);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
 }
 /* Portrait mode */
 @media screen and (orientation: portrait) {
+    body, .container{
+        background: #3d3d3d;
+    }
 
     .grid {
-      width: 100%;
-      height: 84%;
-      margin-top: -25%;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(4, 1fr);
+        width: 100%;
+        height: 78%;
+        margin-top: -2vh;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        padding-bottom: 7vh;
     }
   
     .span-2-1 {
-      grid-column: span 2;
-      grid-row: span 1;
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .span-1-3{
+        grid-column: span 1;
+        grid-row: span 2;
+    }
+
+    .span-3-1 {
+        grid-column: span 3;
+        grid-row: span 1;
     }
   
     .span-1-4 {
-      grid-column: span 1;
-      grid-row: span 4;
+        grid-column: span 1;
+        grid-row: span 4;
     }
   
     .span-2-2 {
@@ -1295,15 +1310,17 @@ footer p {
       grid-row: span 2;
     }
 
+    .two_icons_large{
+        display: flex;
+        justify-content: space-between;
+    }
+
     .text_catacombes_page, 
     #metro_map_div, #helico_aerobay_div, 
     #site_classique_presentation_page, 
     #product_div, #about_us_div, 
     #prestations_div, #contact_us_div{
-        overflow-y: scroll;
-        scrollbar-color: rgb(148, 148, 148) transparent;
         padding: 0 3vh;
-        user-select: none;
     }
 
     .contact_us_presentation {
@@ -1339,6 +1356,29 @@ footer p {
     .fouth_div_aero_page {
         width: 87%;
         margin: 7vh auto;
+    }
+
+    .grid-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .grid-item div h4{
+        font-size: 2.5vh;
+    }
+
+    .logo_mobile_main{
+        background-image: url('https://devxr.fr/assets/images/logo/logo_devxr.png') !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        /* background-size: cover !important; */
+        background-size: 23vh!important;     
+        /* background-color: #e0e0e0; */
+        background-color: transparent;
+        box-shadow: none;
     }
 }
   
