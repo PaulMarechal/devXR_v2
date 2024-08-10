@@ -51,7 +51,7 @@ export default function Experience(){
             <Physics >
                 <Model count={blockCount}/>
                 {showCharacterModel && 
-                    <Ecctrl position={[0,3,0]} characterInitDir={0.5} maxVelLimit={3} wakeUpDelay={200} showSlopeRayOrigin={false} autoBalanceSpringOnY={0.1}> {/* debug */}
+                    <Ecctrl position={[0,3,0]} maxVelLimit={3} wakeUpDelay={200} showSlopeRayOrigin={false} autoBalanceSpringOnY={0.1}> {/* debug */}
                         <CharacterModel castShadow position={characterPosition}/>
                     </Ecctrl>
                 }
