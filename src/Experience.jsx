@@ -1,24 +1,18 @@
-import { OrbitControls, Environment, KeyboardControls, useHelper, useGLTF } from '@react-three/drei'
-import { Perf } from 'r3f-perf'
-import Model from "./Model.jsx"
+import { OrbitControls, Environment } from '@react-three/drei'
 import { Physics } from "@react-three/rapier"
-import Player from './Player.jsx'
-import Ecctrl, { EcctrlAnimation, EcctrlJoystick } from 'ecctrl'
+import Ecctrl from 'ecctrl'
 import CharacterModel from './CharacterModel'
-import Map from './Map'
+import Model from "./Model.jsx"
 import Screen from './Screen_wall.jsx'
-// import { useControls } from 'leva';
-import { useMemo, useRef, useState, useEffect } from 'react';
-import * as THREE from 'three'
+import { useEffect, useState } from 'react'
 import useGame from './stores/useGame.js'
-import Computer from './Computer.jsx';
+import * as THREE from 'three'
 
-export default function Experience(){ 
+export default function Experience() { 
     const characterPosition = [0, 0, 1];
-    // const characterRef = useRef();
     const [showCharacterModel, setShowCharacterModel] = useState(false);
-    const directionalLight = useRef()
-    const blockCount = useGame((state) =>  state.blockCount )
+    const [controlMode, setControlMode] = useState("PointToMove");
+    const blockCount = useGame((state) => state.blockCount);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -28,12 +22,32 @@ export default function Experience(){
         return () => clearTimeout(timer);
     }, []);
 
+    useEffect(() => {
+        const handleMouseDown = () => {
+            setControlMode("PointToMove");
+        };
+
+        const handleKeyDown = (event) => {
+            const keys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "KeyW", "KeyA", "KeyS", "KeyD"];
+            if (keys.includes(event.code)) {
+                setControlMode("FixedCamera");
+            }
+        };
+
+        window.addEventListener('mousedown', handleMouseDown);
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('mousedown', handleMouseDown);
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
+
     return (
         <>
-            {/* <Perf position="bottom-left" /> */}
             <OrbitControls makeDefault />
-            <directionalLight ref={ directionalLight } castShadow position={ [ 0, 6.5, 0 ] } intensity={ 2.5 } />
-            <ambientLight intensity={ 2 } />
+            <directionalLight castShadow position={[0, 6.5, 0]} intensity={2.5} />
+            <ambientLight intensity={2} />
             <Environment
                 receiveShadow
                 background
@@ -45,17 +59,16 @@ export default function Experience(){
                     './environment_maps/first/pz.png',
                     './environment_maps/first/nz.png',
                 ]}
-            >
-            </Environment>
-            <Screen/>
-            <Physics >
-                <Model count={blockCount}/>
+            />
+            <Screen />
+            <Physics>
+                <Model count={blockCount} />
                 {showCharacterModel && 
-                    <Ecctrl position={[0,3,0]} maxVelLimit={3} wakeUpDelay={200} showSlopeRayOrigin={false} autoBalanceSpringOnY={0.1}> {/* debug */}
-                        <CharacterModel castShadow position={characterPosition}/>
+                    <Ecctrl mode={controlMode} position={[0, 3, 0]} maxVelLimit={3} wakeUpDelay={200} showSlopeRayOrigin={false} autoBalanceSpringOnY={0.1}> {/* debug */}
+                        <CharacterModel castShadow position={characterPosition} />
                     </Ecctrl>
                 }
             </Physics>
         </>
-    )
+    );
 }
