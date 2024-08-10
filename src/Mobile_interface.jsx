@@ -108,10 +108,51 @@ export default function Mobile_interface() {
             </div>
 
             <div className="grid-item span-1-3 two_icons_large">
+                
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="70"
+                    height="70"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="url(#gradient)" 
+                    strokeWidth="1"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="icon icon-tabler icons-tabler-outline icon-tabler-cube-3d-sphere"
+                >
+                    <defs>
+                        <linearGradient id="gradient" gradientTransform="rotate(45)">
+                        <stop offset="0%" stopColor="#b57edc" />
+                        <stop offset="25%" stopColor="#ff6eb0" />
+                        <stop offset="60%" stopColor="#ff8166" />
+                        <stop offset="90%" stopColor="#ffb700" />
+                        <stop offset="100%" stopColor="#a8eb12" />
+
+
+                        </linearGradient>
+                    </defs>
+
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M6 17.6l-2 -1.1v-2.5" />
+                    <path d="M4 10v-2.5l2 -1.1" />
+                    <path d="M10 4.1l2 -1.1l2 1.1" />
+                    <path d="M18 6.4l2 1.1v2.5" />
+                    <path d="M20 14v2.5l-2 1.12" />
+                    <path d="M14 19.9l-2 1.1l-2 -1.1" />
+                    <path d="M12 12l2 -1.1" />
+                    <path d="M18 8.6l2 -1.1" />
+                    <path d="M12 12l0 2.5" />
+                    <path d="M12 18.5l0 2.5" />
+                    <path d="M12 12l-2 -1.12" />
+                    <path d="M6 8.6l-2 -1.1" />
+                </svg>
+
                 <div>
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="70"  height="70"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-cube-3d-sphere"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 17.6l-2 -1.1v-2.5" /><path d="M4 10v-2.5l2 -1.1" /><path d="M10 4.1l2 -1.1l2 1.1" /><path d="M18 6.4l2 1.1v2.5" /><path d="M20 14v2.5l-2 1.12" /><path d="M14 19.9l-2 1.1l-2 -1.1" /><path d="M12 12l2 -1.1" /><path d="M18 8.6l2 -1.1" /><path d="M12 12l0 2.5" /><path d="M12 18.5l0 2.5" /><path d="M12 12l-2 -1.12" /><path d="M6 8.6l-2 -1.1" /></svg>
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="70"  height="70"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-view-360-number"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 6a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h2a1 1 0 0 0 1 -1v-2a1 1 0 0 0 -1 -1h-3" /><path d="M3 5h2.5a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1 -1.5 1.5h-1.5h1.5a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1 -1.5 1.5h-2.5" /><path d="M17 7v4a2 2 0 1 0 4 0v-4a2 2 0 1 0 -4 0z" /><path d="M3 16c0 1.657 4.03 3 9 3s9 -1.343 9 -3" /></svg>
                 </div>
+
+
             </div>
 
             <div className="grid-item span-2-1 logo_mobile_main"></div>

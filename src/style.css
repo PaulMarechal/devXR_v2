@@ -1378,7 +1378,7 @@ footer p {
         background-size: 23vh!important;     
         /* background-color: #e0e0e0; */
         background-color: transparent;
-        box-shadow: none;
+        box-shadow: none; 
     }
 }
   
