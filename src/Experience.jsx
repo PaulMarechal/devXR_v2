@@ -14,7 +14,7 @@ import useGame from './stores/useGame.js'
 import Computer from './Computer.jsx';
 
 export default function Experience(){ 
-    const characterPosition = [0, 0, 0];
+    const characterPosition = [0, 0, 1];
     // const characterRef = useRef();
     const [showCharacterModel, setShowCharacterModel] = useState(false);
     const directionalLight = useRef()
@@ -51,7 +51,7 @@ export default function Experience(){
             <Physics >
                 <Model count={blockCount}/>
                 {showCharacterModel && 
-                    <Ecctrl maxVelLimit={3} wakeUpDelay={200} showSlopeRayOrigin={false} autoBalanceSpringOnY={0.1}> {/* debug */}
+                    <Ecctrl position={[0,3,0]} characterInitDir={0.5} maxVelLimit={3} wakeUpDelay={200} showSlopeRayOrigin={false} autoBalanceSpringOnY={0.1}> {/* debug */}
                         <CharacterModel castShadow position={characterPosition}/>
                     </Ecctrl>
                 }
