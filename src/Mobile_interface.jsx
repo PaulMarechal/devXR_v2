@@ -168,6 +168,10 @@ export default function Mobile_interface() {
                         </linearGradient>
                     </defs>
 
+                    {/* background-image: linear-gradient(to right top, #b57edc, #ff6eb0, #ff8166, #ffb700, #a8eb12); */}
+                    {/* background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1); */}
+                    {/* #845ec2 #4b4453 #b0a8b9 #c34a36 #ff8066 */}
+
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M14 6a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h2a1 1 0 0 0 1 -1v-2a1 1 0 0 0 -1 -1h-3" />
                     <path d="M3 5h2.5a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1 -1.5 1.5h-1.5h1.5a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1 -1.5 1.5h-2.5" />
