@@ -168,10 +168,6 @@ export default function Mobile_interface() {
                         </linearGradient>
                     </defs>
 
-                    {/* background-image: linear-gradient(to right top, #b57edc, #ff6eb0, #ff8166, #ffb700, #a8eb12); */}
-                    {/* background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1); */}
-                    {/* #845ec2 #4b4453 #b0a8b9 #c34a36 #ff8066 */}
-
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M14 6a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h2a1 1 0 0 0 1 -1v-2a1 1 0 0 0 -1 -1h-3" />
                     <path d="M3 5h2.5a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1 -1.5 1.5h-1.5h1.5a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1 -1.5 1.5h-2.5" />
@@ -217,13 +213,108 @@ export default function Mobile_interface() {
             <div className="grid-item span-3-1">
                 <div>
                     <span>
-                        <svg  xmlns="http://www.w3.org/2000/svg"  width="70"  height="70"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-badge-ar"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M7 15v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M7 13h3" /><path d="M14 12h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6m3 0l-2 -3" /></svg>
-                        <svg  xmlns="http://www.w3.org/2000/svg"  width="70"  height="70"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-badge-3d"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M7 9h1.5a1.5 1.5 0 0 1 0 3h-.5h.5a1.5 1.5 0 0 1 0 3h-1.5" /><path d="M14 9v6h1a2 2 0 0 0 2 -2v-2a2 2 0 0 0 -2 -2z" /></svg>
-                        <svg  xmlns="http://www.w3.org/2000/svg"  width="70"  height="70"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-badge-vr"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M14 12h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6m3 0l-2 -3" /><path d="M7 9l2 6l2 -6" /></svg>
+
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="icon icon-tabler icon-tabler-badge-ar"
+                        width="70"
+                        height="70"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="url(#gradient)" 
+                        strokeWidth="1"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        >
+                            <defs>
+                                <linearGradient id="gradient" gradientTransform="rotate(45)">
+                                    <stop offset="0%" stopColor="#b57edc" />
+                                    <stop offset="25%" stopColor="#ff6eb0" />
+                                    <stop offset="50%" stopColor="#ff8166" />
+                                    <stop offset="75%" stopColor="#ffb700" />
+                                    <stop offset="100%" stopColor="#a8eb12" />
+                                </linearGradient>
+                            </defs>
+
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                            <path d="M7 15v-4.5a1.5 1.5 0 0 1 3 0v4.5" />
+                            <path d="M7 13h3" />
+                            <path d="M14 12h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6m3 0l-2 -3" />
+                        </svg>
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="70"
+                            height="70"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="url(#gradient)" 
+                            strokeWidth="1"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="icon icon-tabler icons-tabler-outline icon-tabler-badge-3d"
+                        >
+                            <defs>
+                                <linearGradient id="gradient" gradientTransform="rotate(45)">
+                                    <stop offset="0%" stopColor="#845ec2" />
+                                    <stop offset="25%" stopColor="#4b4453" />
+                                    <stop offset="50%" stopColor="#b0a8b9" />
+                                    <stop offset="75%" stopColor="#c34a36" />
+                                    <stop offset="100%" stopColor="#ff8066" />
+                                </linearGradient>
+                            </defs>
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                            <path d="M7 9h1.5a1.5 1.5 0 0 1 0 3h-.5h.5a1.5 1.5 0 0 1 0 3h-1.5" />
+                            <path d="M14 9v6h1a2 2 0 0 0 2 -2v-2a2 2 0 0 0 -2 -2z" />
+                        </svg>
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="70"
+                            height="70"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="url(#gradient)" 
+                            strokeWidth="1"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="icon icon-tabler icons-tabler-outline icon-tabler-badge-vr"
+                        >
+                            <defs>
+                                <linearGradient id="gradient" gradientTransform="rotate(45)">
+                                    <stop offset="0%" stopColor="#d16ba5" />
+                                    <stop offset="8%" stopColor="#c777b9" />
+                                    <stop offset="16%" stopColor="#ba83ca" />
+
+                                    <stop offset="24%" stopColor="#aa8fd8" />
+                                    <stop offset="32%" stopColor="#9a9ae1" />
+                                    <stop offset="40%" stopColor="#8aa7ec" />
+
+                                    <stop offset="48%" stopColor="#79b3f4" />
+                                    <stop offset="56%" stopColor="#69bff8" />
+                                    <stop offset="64%" stopColor="#52cffe" />
+
+                                    <stop offset="72%" stopColor="#41dfff" />
+                                    <stop offset="80%" stopColor="#46eefa" />
+                                    <stop offset="100%" stopColor="#5ffbf1" />
+                                </linearGradient>
+                            </defs>
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                            <path d="M14 12h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6m3 0l-2 -3" />
+                            <path d="M7 9l2 6l2 -6" />
+                        </svg>
+    
                     </span>
                     <h4>Réalité mixte</h4>
                 </div>
             </div>
+
+
+                            
+                    
 
             <div className="grid-item span-2-2 div_hidden">
                 <div>
