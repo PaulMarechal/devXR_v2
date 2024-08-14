@@ -632,6 +632,60 @@ export default function Modal() {
                              
                         </div>
                     </div>
+
+                    {/* Virtual reality explication */}
+                    <div className="text_modale_div" id="catacombes_div">
+                        <span>
+                            <h4>Immersion Augmentée.</h4>
+                            <p>Plongez dans le monde fascinant de la <b>réalité augmentée</b> ! Grâce à cette technologie innovante, votre <b>smartphone</b> peut transformer des éléments du quotidien en expériences interactives et captivantes. En scannant des <b>images</b>, des <b>objets</b> ou des <b>codes QR</b>, vous découvrirez des <b>contenus enrichis</b> qui se superposent à la réalité. Cette <b>fonctionnalité</b> ouvre un nouvel univers d'<b>exploration</b> et de <b>découverte</b>, vous permettant de visualiser des <b>objets 3D</b>, des <b>infos interactives</b>, et bien plus encore, directement dans votre environnement.</p>
+                        </span>
+                        
+                        <video className="video" src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true}></video>
+                        
+                        <span>
+                            <span>
+                                <span id="background_color_button"></span>
+                                <p id="qr_code_v1">v1</p>
+                                <p id="qr_code_v2">v2</p>
+                            </span>
+                            <img id="guerinet_qr_v2" src="http://devxr.fr/assets/images/catacombes/qr_code_guerinet.png" alt="QR code pour afficher la salle Guerinet en réalité augmentée" />
+                            <img id="fdc_qr_v2" src="http://devxr.fr/assets/images/catacombes/qr_code_fdc.png" alt="QR code pour afficher la salle Bracitorium en réalité augmentée" />
+
+                            <img id="cabi_qr_v1" src="http://devxr.fr/assets/images/catacombes/cabi_qr_code_v1.png" alt="QR code pour afficher la salle Guerinet en réalité augmentée" />
+                            <img id="cabibis_qr_v1" src="http://devxr.fr/assets/images/catacombes/cabibis_qr_code_v1.png" alt="QR code pour afficher la salle Bracitorium en réalité augmentée" />
+                        </span>
+                        
+                        <div className="second_div_video_text">
+                            <video className="video" src="https://devxr.fr/assets/video/demo_catacombes_realite_virtuelle.mp4" loop muted autoPlay={true} ></video>
+                            <span>
+                                <h4>Voyage Virtuel.</h4>
+                                <p>Découvrez comment, en scannant un simple lien, un <b>modèle 3D</b> de taille réelle peut apparaître devant vous. Que ce soit pour explorer des <b>salles historiques</b>, <b>des appartements</b> à visiter, ou même des <b>œuvres d'art</b> et <b>meubles</b>, la réalité augmentée vous permet de créer des <b>visites immersives</b> et détaillées de vos produits et espaces. Laissez libre cours à votre imagination pour offrir des expériences uniques directement depuis votre écran.</p>
+                                <span className="hover-container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-circle-plus">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/>
+                                        <path d="M9 12h6"/>
+                                        <path d="M12 9v6"/>
+                                    </svg>
+                                    <a href="https://catacombes.xyz/displayRooms/" target="_blank" rel="noopener noreferrer" className="hover-text">
+                                        Explorer les modèles en réalité augmentée
+                                    </a>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* Augmented reality explication */}
+                    <div className="text_modale_div" id="catacombes_div">
+                        <div className="text_catacombes_page" >
+                            <h1 id="title_catacombes_page" >Découvrez les Catacombes Interdites<br/> de Paris avec catacombes.xyz</h1>
+                            <p id="first_text_catacombes_page" >
+                                Plongez dans l'histoire secrète de Paris 
+                                <span> grâce à notre projet innovant, <a href="https://catacombes.xyz" target="_blank" rel="noopener noreferrer"><b>catacombes.xyz</b></a>. Ce site unique vous offre une <b>exploration immersive</b> des catacombes interdites de la Rive Gauche de Paris. Découvrez les carrières de Paris comme jamais auparavant, avec des <b>visites en 3D</b>, des expériences de <b>réalité virtuelle (VR) et de réalité augmentée (AR)</b>.</span>
+                            </p>
+                        
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
