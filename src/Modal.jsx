@@ -84,7 +84,7 @@ export default function Modal() {
         }
 
 
-        
+        // First QR Code in catacombes page
         $("#qr_code_v1").on("click", () => {
             update_qr_code_display("#background_color_button", "0", ["#guerinet_qr_v2", "#fdc_qr_v2"], ["#cabi_qr_v1", "#cabibis_qr_v1"]);
         });
@@ -92,6 +92,18 @@ export default function Modal() {
         $("#qr_code_v2").on("click", () => {
             update_qr_code_display("#background_color_button", "39px", ["#cabi_qr_v1", "#cabibis_qr_v1"], ["#guerinet_qr_v2", "#fdc_qr_v2"]);
         });
+
+        // Second QR Code in Realité augmenté page
+        $("#qr_code_v1_1").on("click", () => {
+            update_qr_code_display("#background_color_button_1", "0", ["#guerinet_qr_v2_1", "#fdc_qr_v2_1"], ["#cabi_qr_v1_1", "#cabibis_qr_v1_1"]);
+        });
+        
+        $("#qr_code_v2_1").on("click", () => {
+            update_qr_code_display("#background_color_button_1", "39px", ["#cabi_qr_v1_1", "#cabibis_qr_v1_1"], ["#guerinet_qr_v2_1", "#fdc_qr_v2_1"]);
+        });
+
+
+
 
         $("#ar_icon_exemple").on("click", () => {
             update_qr_code_display("#background_color_button_third", "2px", [".realite_virtuelle_exemple"], [".realite_augmente_exemple"]);
@@ -423,7 +435,7 @@ export default function Modal() {
                             </div>
 
                             {/* augmented reality */}
-                            <div className="realisation_infos_div_first" onClick={() => display_modal("#catacombes_div")}>
+                            <div className="realisation_infos_div_first" onClick={() => display_modal("#virtual_reality_explication_div")}>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-augmented-reality" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M4 8v-2a2 2 0 0 1 2 -2h2" />
@@ -634,26 +646,28 @@ export default function Modal() {
                     </div>
 
                     {/* Virtual reality explication */}
-                    <div className="text_modale_div" id="catacombes_div">
-                        <span>
-                            <h4>Immersion Augmentée.</h4>
-                            <p>Plongez dans le monde fascinant de la <b>réalité augmentée</b> ! Grâce à cette technologie innovante, votre <b>smartphone</b> peut transformer des éléments du quotidien en expériences interactives et captivantes. En scannant des <b>images</b>, des <b>objets</b> ou des <b>codes QR</b>, vous découvrirez des <b>contenus enrichis</b> qui se superposent à la réalité. Cette <b>fonctionnalité</b> ouvre un nouvel univers d'<b>exploration</b> et de <b>découverte</b>, vous permettant de visualiser des <b>objets 3D</b>, des <b>infos interactives</b>, et bien plus encore, directement dans votre environnement.</p>
-                        </span>
-                        
-                        <video className="video" src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true}></video>
-                        
-                        <span>
+                    <div className="text_modale_div" id="virtual_reality_explication_div">
+                        <div className="third_div_video_text">
                             <span>
-                                <span id="background_color_button"></span>
-                                <p id="qr_code_v1">v1</p>
-                                <p id="qr_code_v2">v2</p>
+                                <h4>Immersion Augmentée.</h4>
+                                <p>Plongez dans le monde fascinant de la <b>réalité augmentée</b> ! Grâce à cette technologie innovante, votre <b>smartphone</b> peut transformer des éléments du quotidien en expériences interactives et captivantes. En scannant des <b>images</b>, des <b>objets</b> ou des <b>codes QR</b>, vous découvrirez des <b>contenus enrichis</b> qui se superposent à la réalité. Cette <b>fonctionnalité</b> ouvre un nouvel univers d'<b>exploration</b> et de <b>découverte</b>, vous permettant de visualiser des <b>objets 3D</b>, des <b>infos interactives</b>, et bien plus encore, directement dans votre environnement.</p>
                             </span>
-                            <img id="guerinet_qr_v2" src="http://devxr.fr/assets/images/catacombes/qr_code_guerinet.png" alt="QR code pour afficher la salle Guerinet en réalité augmentée" />
-                            <img id="fdc_qr_v2" src="http://devxr.fr/assets/images/catacombes/qr_code_fdc.png" alt="QR code pour afficher la salle Bracitorium en réalité augmentée" />
+                            <video className="video" src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true}></video>
+                            <span>
+                                {/* <img src="http://devxr.fr/assets/images/catacombes/qr_cabinet_old.png" alt="" /> */}
+                                <span>
+                                    <span id="background_color_button_1"></span>
+                                    <p id="qr_code_v1_1">v1</p>
+                                    <p id="qr_code_v2_1">v2</p>
+                                </span>
+                                <img id="guerinet_qr_v2_1" src="http://devxr.fr/assets/images/catacombes/qr_code_guerinet.png" alt="QR code qui permet d'afficher la salle Guerinet des Catacombes interdites de Paris en réalité augmentée" />
+                                <img id="fdc_qr_v2_1" src="http://devxr.fr/assets/images/catacombes/qr_code_fdc.png" alt="QR code qui permet d'affciher la salle Bracitorium des Catacombes interdites de Paris en réalité augmentée" />
 
-                            <img id="cabi_qr_v1" src="http://devxr.fr/assets/images/catacombes/cabi_qr_code_v1.png" alt="QR code pour afficher la salle Guerinet en réalité augmentée" />
-                            <img id="cabibis_qr_v1" src="http://devxr.fr/assets/images/catacombes/cabibis_qr_code_v1.png" alt="QR code pour afficher la salle Bracitorium en réalité augmentée" />
-                        </span>
+                                <img id="cabi_qr_v1_1" src="http://devxr.fr/assets/images/catacombes/cabi_qr_code_v1.png" alt="QR code qui permet d'afficher la salle Guerinet des Catacombes interdites de Paris en réalité augmentée" />
+                                <img id="cabibis_qr_v1_1" src="http://devxr.fr/assets/images/catacombes/cabibis_qr_code_v1.png" alt="QR code qui permet d'affciher la salle Bracitorium des Catacombes interdites de Paris en réalité augmentée" />
+                            </span>
+                        </div>
+
                         
                         <div className="second_div_video_text">
                             <video className="video" src="https://devxr.fr/assets/video/demo_catacombes_realite_virtuelle.mp4" loop muted autoPlay={true} ></video>
@@ -673,6 +687,15 @@ export default function Modal() {
                                 </span>
                             </span>
                         </div>
+
+                        <h4>Autres exemples</h4>
+                        <div className="display_inline">
+                            <img src="./assets/images/QR_code/fond_du_cresw.webp" alt="Salle du fond du crew dans les catacombes interdites de Paris en realité augmentée en scannant un QR code" />
+                            <img src="./assets/images/QR_code/Lune1.webp" alt="Chaussures en réalité augmentée en scannant un QR code" />
+                            <img src="./assets/images/QR_code/anubis.webp" alt="Voir les plans d'un appartement en réalité augmentée après avoir scanné un QR Code" />
+                            <img src="./assets/images/QR_code/fond_du_crew_1.webp" alt="Permet de voir une patisserie en ralité augmentée après avoir scanné le QR Code" />
+                        </div>
+
                     </div>
 
                     {/* Augmented reality explication */}

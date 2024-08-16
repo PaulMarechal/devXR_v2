@@ -345,7 +345,8 @@ b{
 #metro_map_div, #helico_aerobay_div, 
 #site_classique_presentation_page, 
 #product_div, #about_us_div, 
-#prestations_div, #contact_us_div{
+#prestations_div, #contact_us_div, 
+#virtual_reality_explication_div{
     overflow-y: scroll;
     scrollbar-color: rgb(148, 148, 148) transparent;
     padding: 0 17vh;
@@ -441,7 +442,8 @@ html, body {
 
 .div_video_catacombes, .fouth_div_img_navigo, 
 .fifth_div_navigo_page, .first_div_aero_page, 
-.display_infos_product, .classic_website_presentation_div{
+.display_infos_product, .classic_website_presentation_div, 
+.display_inline{
     display: flex;
     justify-content: space-between;
     align-items: center; 
@@ -521,17 +523,19 @@ html, body {
     border-radius: 45px;
 } */
 
-#cabi_qr_v1{
+#cabi_qr_v1, #cabi_qr_v1_1{
     position: relative;
     margin-top: -62.5vh;
 }
 
-#cabi_qr_v1, #cabibis_qr_v1{
+#cabi_qr_v1, #cabibis_qr_v1, 
+#cabi_qr_v1_1, #cabibis_qr_v1_1{
     opacity: 0;
     transition: opacity 0.4s ease-out;
 }
 
-#guerinet_qr_v2, #fdc_qr_v2{
+#guerinet_qr_v2, #fdc_qr_v2,
+#guerinet_qr_v2_1, #fdc_qr_v2_1{
     transition: opacity 0.5s ease-out;
 }
 
@@ -622,7 +626,7 @@ html, body {
 }
 
 #background_color_button, #background_color_button_second, 
-#background_color_button_third{
+#background_color_button_third, #background_color_button_1{
     background: rgba(188, 188, 188, 0.25);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(7px);
@@ -1224,7 +1228,10 @@ footer p {
     margin-top: 0;
 }
 
-
+.display_inline img{
+    width: 30vh;
+    margin: 5vh 0 15vh 0;
+}
 
 /**
 ** Mobile display

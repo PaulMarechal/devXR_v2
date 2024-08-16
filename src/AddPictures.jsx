@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { useGLTF, Html } from "@react-three/drei";
 import { useMemo, useState, useEffect } from 'react';
 import { useControls } from 'leva';
-import AddPictures from './AddPictures';
+// import AddPictures from './AddPictures';
 
 export default function Screen({ position = [0, 0, 0] }) {
   const screen_model = useGLTF("./tv_display.glb");
