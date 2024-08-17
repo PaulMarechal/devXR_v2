@@ -435,7 +435,7 @@ export default function Modal() {
                             </div>
 
                             {/* augmented reality */}
-                            <div className="realisation_infos_div_first" onClick={() => display_modal("#virtual_reality_explication_div")}>
+                            <div className="realisation_infos_div_first" onClick={() => display_modal("#augmented_reality_explication_div")}>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-augmented-reality" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M4 8v-2a2 2 0 0 1 2 -2h2" />
@@ -453,7 +453,7 @@ export default function Modal() {
 
                         <div className="display_infos_product">
                             {/* virtual reality */}
-                            <div className="realisation_infos_div_second" onClick={() => display_modal("#catacombes_div")}>
+                            <div className="realisation_infos_div_second" onClick={() => display_modal("#virtual_reality_explication_div")}>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-device-vision-pro" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M12 7c1.143 0 2.235 .035 3.275 .104c1.017 .068 1.95 .207 2.798 .42c.813 .203 1.52 .505 2.119 .909a3.903 3.903 0 0 1 1.328 1.531c.326 .657 .48 1.48 .48 2.466c0 1.006 -.189 1.91 -.574 2.707c-.375 .779 -.886 1.396 -1.537 1.848a3.696 3.696 0 0 1 -2.16 .66c-.509 0 -.97 -.068 -1.382 -.21a5.84 5.84 0 0 1 -1.17 -.548a18.45 18.45 0 0 1 -1.045 -.695a9.104 9.104 0 0 0 -1.001 -.63a2.376 2.376 0 0 0 -1.13 -.301c-.373 0 -.75 .097 -1.132 .3c-.316 .17 -.65 .38 -1 .63c-.322 .23 -.67 .462 -1.047 .695a5.78 5.78 0 0 1 -1.168 .548c-.413 .142 -.872 .21 -1.378 .21a3.706 3.706 0 0 1 -2.165 -.659c-.651 -.452 -1.162 -1.07 -1.537 -1.848c-.385 -.798 -.574 -1.7 -.574 -2.709c-.004 -.98 .15 -1.802 .477 -2.46a3.897 3.897 0 0 1 1.33 -1.531c.6 -.403 1.307 -.704 2.12 -.907a16.088 16.088 0 0 1 2.8 -.423c1.04 -.071 2.13 -.107 3.273 -.107z" />
@@ -645,8 +645,8 @@ export default function Modal() {
                         </div>
                     </div>
 
-                    {/* Virtual reality explication */}
-                    <div className="text_modale_div" id="virtual_reality_explication_div">
+                    {/* Augmented reality explication */}
+                    <div className="text_modale_div" id="augmented_reality_explication_div">
                         <div className="third_div_video_text">
                             <span>
                                 <h4>Immersion Augmentée.</h4>
@@ -698,15 +698,43 @@ export default function Modal() {
 
                     </div>
 
-                    {/* Augmented reality explication */}
-                    <div className="text_modale_div" id="catacombes_div">
-                        <div className="text_catacombes_page" >
-                            <h1 id="title_catacombes_page" >Découvrez les Catacombes Interdites<br/> de Paris avec catacombes.xyz</h1>
-                            <p id="first_text_catacombes_page" >
-                                Plongez dans l'histoire secrète de Paris 
-                                <span> grâce à notre projet innovant, <a href="https://catacombes.xyz" target="_blank" rel="noopener noreferrer"><b>catacombes.xyz</b></a>. Ce site unique vous offre une <b>exploration immersive</b> des catacombes interdites de la Rive Gauche de Paris. Découvrez les carrières de Paris comme jamais auparavant, avec des <b>visites en 3D</b>, des expériences de <b>réalité virtuelle (VR) et de réalité augmentée (AR)</b>.</span>
-                            </p>
-                        
+                    {/* Virtual reality explication */}
+                    <div className="text_modale_div" id="virtual_reality_explication_div">
+                        <h4 className="title_modale_presentation">Réalité Virtuelle : Une Nouvelle Dimension.</h4>
+                        <div className="div_video_catacombes">
+                            <img src="https://devxr.fr/assets/images/catacombes/oculus_screen_guerinet_catacombes.jpg" alt="Capture d'écran d'une visite des catacombes interdites avec un casque Oculus Quest 2 en réalité virtuelle." />
+
+                            <video className="video" src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4" loop autoPlay={true} muted></video>
+                            
+                            <img src="https://devxr.fr/assets/images/catacombes/graphiti_1863_guerinet_catacombes.jpg" alt="" />
+                        </div>
+
+                        <div className="div_text_under_images">
+                            <p>Plongez dans des mondes entièrement recréés en <b>3D</b>, où chaque détail vous transporte au-delà de la réalité. Avec la <b>réalité virtuelle</b>, vous ne regardez plus simplement des images : vous êtes au cœur de l'action.</p>
+                            <p>La réalité virtuelle vous offre une <b>expérience immersive inégalée</b> qui redéfinit la manière dont vous percevez le monde numérique, en vous ouvrant des portes vers des lieux et des expériences jusque-là inaccessibles.</p>
+                        </div>
+
+                        <div>
+                            <h4>Découvrez la puissance de la réalité virtuelle à travers des expériences uniques : </h4>
+                            <div className="exexmples_virtual_reality">
+                                <div>
+                                    <h4>Visites de lieux difficiles d'accès</h4>
+                                    <p>Explorez les profondeurs des catacombes, des grottes reculées ou des monuments historiques fermés au public.</p>
+                                </div>
+                                <div>
+                                    <h4>Musiées virtuels</h4>
+                                    <p>Promenez-vous dans des galeries d'art numériques, découvrez des œuvres célèbres de près et à votre rythme, tout en profitant de commentaires audio immersifs.</p>
+                                </div>
+                                
+                                <div>
+                                    <h4>Espaces multiples</h4>
+                                    <p>Naviguez dans des environnements variés, du fond des océans à la surface de Mars, en une simple interaction.</p>
+                                </div>
+                                <div>
+                                    <h4>Showrooms</h4>
+                                    <p>Entrez dans des showrooms virtuels pour découvrir les dernières innovations technologiques ou les nouvelles collections de mode sans quitter votre maison</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
