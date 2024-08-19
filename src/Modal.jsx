@@ -700,6 +700,15 @@ export default function Modal() {
 
                     {/* Virtual explication div */}
                     <div className="text_modale_div" id="virtual_reality_explication_div">
+                        <div className="return_back_arrow" onClick={() => display_modal("#product_div")}>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-left" width="46" height="46" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M5 12l14 0" />
+                                <path d="M5 12l6 6" />
+                                <path d="M5 12l6 -6" />
+                            </svg>
+                        </div>
+
                         <h1 id="title_catacombes_page">
                             Réalité Virtuelle : <br/>Une Nouvelle Dimension.
                         </h1>

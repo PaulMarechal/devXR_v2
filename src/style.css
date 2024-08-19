@@ -162,6 +162,14 @@ b{
     cursor: pointer;
 }
 
+.return_back_arrow{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: rotate 0.3s ease-out;
+    cursor: pointer;
+}
+
 .close_icon_start{
     position: absolute;
     top: -2vh;
