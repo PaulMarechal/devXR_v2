@@ -738,21 +738,57 @@ export default function Modal() {
                             <h1>Vivez des expériences uniques. </h1>
                             <div className="examples_virtual_reality">
                                 <div>
-                                    <h4>Visites de lieux difficiles d'accès</h4>
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-castle" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M15 19v-2a3 3 0 0 0 -6 0v2a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-14h4v3h3v-3h4v3h3v-3h4v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+                                            <path d="M3 11l18 0" />
+                                        </svg>
+                                        <h4>Visites de lieux difficiles d'accès</h4>
+                                    </span>
                                     <p>Explorez les profondeurs des catacombes, des grottes reculées ou des monuments historiques fermés au public.</p>
                                 </div>
                                 <div>
-                                    <h4>Musées virtuels</h4>
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-torii" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M4 4c5.333 1.333 10.667 1.333 16 0" />
+                                            <path d="M4 8h16" />
+                                            <path d="M12 5v3" />
+                                            <path d="M18 4.5v15.5" />
+                                            <path d="M6 4.5v15.5" />
+                                        </svg>
+                                        <h4>Musées virtuels</h4>
+                                    </span>
                                     <p>Promenez-vous dans des galeries d'art numériques, découvrez des œuvres célèbres de près et à votre rythme, tout en profitant de commentaires audio immersifs.</p>
                                 </div>
                             </div>
                             <div className="examples_virtual_reality examples_virtual_reality_second">
                                 <div>
-                                    <h4>Espaces multiples</h4>
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sitemap" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M3 15m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                                            <path d="M15 15m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                                            <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                                            <path d="M6 15v-1a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v1" />
+                                            <path d="M12 9l0 3" />
+                                        </svg>
+                                        <h4>Espaces multiples</h4>
+                                    </span>
                                     <p>Naviguez dans des environnements variés, du fond des océans à la surface de Mars, en une simple interaction.</p>
                                 </div>
                                 <div>
-                                    <h4>Showrooms</h4>
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-stadium" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M12 12m-8 0a8 2 0 1 0 16 0a8 2 0 1 0 -16 0" />
+                                            <path d="M4 12v7c0 .94 2.51 1.785 6 2v-3h4v3c3.435 -.225 6 -1.07 6 -2v-7" />
+                                            <path d="M15 6h4v-3h-4v7" />
+                                            <path d="M7 6h4v-3h-4v7" />
+                                        </svg>
+                                        <h4>Showrooms</h4>
+                                    </span>
                                     <p>Entrez dans des showrooms virtuels pour découvrir les dernières innovations technologiques ou les nouvelles collections de mode sans quitter votre maison.</p>
                                 </div>
                             </div>
