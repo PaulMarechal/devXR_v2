@@ -465,12 +465,40 @@ html, body {
 .second_div_navigo_page, 
 .third_div_navigo_page, 
 .third_div_aero_page, 
-.div_img_site_classique{
+.div_img_site_classique, 
+.examples_virtual_reality{
     display: flex;
     justify-content: space-evenly;
     align-items: center; 
     gap: 10px; 
 }
+
+.examples_virtual_reality_second{margin-bottom: 10vh;}
+
+.explication_text{
+    text-align: justify;
+    /* margin: 7vh 10vh 0 10vh; */
+    margin: 10vh 0;
+}
+
+.text_explication_vr div.examples_virtual_reality{align-items: baseline; text-align: center; margin: 4vh 0;}
+
+.text_explication_vr div div {
+    width: 50vh;
+}
+
+.text_explication_vr div div h4{
+    margin: 0 auto;
+    margin-top: 0;
+}
+
+.text_explication_vr div div p{
+    text-align: justify;
+}
+
+.text_explication_vr h1{text-align: center;}
+
+.video_explication{margin-right: -12vh;}
 
 .title_immersive_exploration{
     text-align: center;
@@ -482,7 +510,7 @@ html, body {
     margin: 10vh 0;
 }
 
-.div_text_under_images{margin-bottom: 5vh; margin-bottom: 10vh;}
+.div_text_under_images{margin: 10vh;}
 
 .div_text_under_images p{
     height: 100px;
@@ -633,6 +661,8 @@ html, body {
     width: fit-content;
 
 }
+
+.margin_video_div{margin-top: 5vh;}
 
 #background_color_button, #background_color_button_second, 
 #background_color_button_third, #background_color_button_1{

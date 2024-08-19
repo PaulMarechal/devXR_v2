@@ -698,45 +698,58 @@ export default function Modal() {
 
                     </div>
 
-                    {/* Virtual reality explication */}
+                    {/* Virtual explication div */}
                     <div className="text_modale_div" id="virtual_reality_explication_div">
-                        <h4 className="title_modale_presentation">Réalité Virtuelle : Une Nouvelle Dimension.</h4>
-                        <div className="div_video_catacombes">
-                            <img src="https://devxr.fr/assets/images/catacombes/oculus_screen_guerinet_catacombes.jpg" alt="Capture d'écran d'une visite des catacombes interdites avec un casque Oculus Quest 2 en réalité virtuelle." />
+                        <h1 id="title_catacombes_page">
+                            Réalité Virtuelle : <br/>Une Nouvelle Dimension.
+                        </h1>
 
+                        <div className="div_video_catacombes margin_video_div">
+                            <img src="https://devxr.fr/assets/images/catacombes/oculus_screen_guerinet_catacombes.jpg" alt="Capture d'écran d'une visite des catacombes interdites avec un casque Oculus Quest 2 en réalité virtuelle." />
+                            
                             <video className="video" src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4" loop autoPlay={true} muted></video>
                             
                             <img src="https://devxr.fr/assets/images/catacombes/graphiti_1863_guerinet_catacombes.jpg" alt="" />
                         </div>
 
-                        <div className="div_text_under_images">
-                            <p>Plongez dans des mondes entièrement recréés en <b>3D</b>, où chaque détail vous transporte au-delà de la réalité. Avec la <b>réalité virtuelle</b>, vous ne regardez plus simplement des images : vous êtes au cœur de l'action.</p>
-                            <p>La réalité virtuelle vous offre une <b>expérience immersive inégalée</b> qui redéfinit la manière dont vous percevez le monde numérique, en vous ouvrant des portes vers des lieux et des expériences jusque-là inaccessibles.</p>
+                        <div className="explication_text">
+                            <p>La <b>réalité virtuelle</b> (VR) est une technologie révolutionnaire qui vous permet de vous immerger complètement dans des mondes numériques, en vous donnant l'impression d'être physiquement présent dans un environnement simulé. À l'aide d'un casque comme l'<b>Oculus Quest</b>, vous pouvez explorer des environnements en trois dimensions qui réagissent à vos mouvements et à vos interactions, créant ainsi une expérience totalement immersive.</p>
                         </div>
 
-                        <div>
-                            <h4>Découvrez la puissance de la réalité virtuelle à travers des expériences uniques : </h4>
-                            <div className="exexmples_virtual_reality">
+                        <div className="div_text_under_images">
+                            <div>
+                                <p>Le grand avantage de l'Oculus Quest est qu'il ne nécessite aucune installation d'application : tout fonctionne directement en ligne, rendant l'accès à la réalité virtuelle plus simple et rapide pour tous les utilisateurs. Enfilez simplement votre casque, connectez-vous à l'interface, et plongez dans des aventures extraordinaires en quelques secondes.</p>
+                                <br/>
+                                <p>Avec la réalité virtuelle, vous ne vous contentez plus de regarder des images : vous êtes au cœur de l'action. Elle redéfinit la manière dont vous percevez le monde numérique, en vous ouvrant des portes vers des lieux et des expériences jusque-là inaccessibles.</p>
+                            </div>
+                            <video className="video video_explication" src="https://devxr.fr/assets/video/load_vr_experience.mp4" loop autoPlay={true} muted></video>
+                        </div>
+                        
+                        <div className="text_explication_vr">
+                            <h1>Vivez des expériences uniques. </h1>
+                            <div className="examples_virtual_reality">
                                 <div>
                                     <h4>Visites de lieux difficiles d'accès</h4>
                                     <p>Explorez les profondeurs des catacombes, des grottes reculées ou des monuments historiques fermés au public.</p>
                                 </div>
                                 <div>
-                                    <h4>Musiées virtuels</h4>
+                                    <h4>Musées virtuels</h4>
                                     <p>Promenez-vous dans des galeries d'art numériques, découvrez des œuvres célèbres de près et à votre rythme, tout en profitant de commentaires audio immersifs.</p>
                                 </div>
-                                
+                            </div>
+                            <div className="examples_virtual_reality examples_virtual_reality_second">
                                 <div>
                                     <h4>Espaces multiples</h4>
                                     <p>Naviguez dans des environnements variés, du fond des océans à la surface de Mars, en une simple interaction.</p>
                                 </div>
                                 <div>
                                     <h4>Showrooms</h4>
-                                    <p>Entrez dans des showrooms virtuels pour découvrir les dernières innovations technologiques ou les nouvelles collections de mode sans quitter votre maison</p>
+                                    <p>Entrez dans des showrooms virtuels pour découvrir les dernières innovations technologiques ou les nouvelles collections de mode sans quitter votre maison.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </>
