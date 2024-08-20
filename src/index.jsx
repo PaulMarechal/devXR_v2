@@ -33,35 +33,35 @@ const App = () => {
 
     return (
         <>
-        <MobileView>
-            <Mobile_interface />
-            <Modal/>
-        </MobileView>
-        <BrowserView className="window_size">
-            <KeyboardControls map={ [
-                { name: 'forward', keys: ['ArrowUp', 'KeyW'] },
-                { name: 'backward', keys: ['ArrowDown', 'KeyS'] },
-                { name: 'leftward', keys: ['ArrowLeft', 'KeyA'] },
-                { name: 'rightward', keys: ['ArrowRight', 'KeyD'] },
-                { name: 'jump', keys: ['Space'] },
-                { name: 'run', keys: ['Shift'] }
-            ] }>
-                <Canvas
-                    camera={{
-                        fov: 45,
-                        near: 0.1,
-                        far: 200,
-                    }}
-                >
-                    <Experience />
-                </Canvas>
-                <Interface />
-                <Modal />
-                <Loader
-                    dataInterpolation={(p) => `Loading ${p.toFixed(2)}%`} // Text
-                />
-            </KeyboardControls>
-        </BrowserView>
+            <MobileView>
+                <Mobile_interface />
+                <Modal/>
+            </MobileView>
+            <BrowserView className="window_size">
+                <KeyboardControls map={ [
+                    { name: 'forward', keys: ['ArrowUp', 'KeyW'] },
+                    { name: 'backward', keys: ['ArrowDown', 'KeyS'] },
+                    { name: 'leftward', keys: ['ArrowLeft', 'KeyA'] },
+                    { name: 'rightward', keys: ['ArrowRight', 'KeyD'] },
+                    { name: 'jump', keys: ['Space'] },
+                    { name: 'run', keys: ['Shift'] }
+                ] }>
+                    <Canvas
+                        camera={{
+                            fov: 45,
+                            near: 0.1,
+                            far: 200,
+                        }}
+                    >
+                        <Experience />
+                    </Canvas>
+                    <Interface />
+                    <Modal />
+                    <Loader
+                        dataInterpolation={(p) => `Loading ${p.toFixed(2)}%`}
+                    />
+                </KeyboardControls>
+            </BrowserView>
         </>
     );
 };

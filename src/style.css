@@ -1396,6 +1396,8 @@ footer p {
         justify-content: space-between;
     }
 
+    .header_banner{display: none;}
+
     .text_catacombes_page, 
     #metro_map_div, #helico_aerobay_div, 
     #site_classique_presentation_page, 

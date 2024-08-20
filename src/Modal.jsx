@@ -113,8 +113,6 @@ export default function Modal() {
         });
 
 
-
-
         $(document).ready(function () {
             function updateDisplay(targetImageClass, buttonMargin) {
                 $(".classique_website_img").css("opacity", "0");
