@@ -200,7 +200,6 @@ b{
     pointer-events: none;
     font-family: 'Bebas Neue', cursive; 
     transition: opacity 0.5s ease-out;
-
 }
 
 /* Time */
@@ -1325,7 +1324,7 @@ footer p {
 /* Grid styles */
 .grid {
     display: grid;
-    gap: 16px;
+    gap: 14px;
     padding: 8px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -1334,23 +1333,25 @@ footer p {
   /* Grid item styles */
 .grid-item {
     background-color: rgb(0, 0, 0);
-    border-radius: 8px;
+    border-radius: 3vh;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
+
+    
 }
 /* Portrait mode */
 @media screen and (orientation: portrait) {
     body, .container{
-        background: #3d3d3d;
+        background: #303030;
     }
 
     .grid {
         width: 100%;
-        height: 78%;
-        margin-top: -2vh;
+        height: 85%;
+        margin-top: -9vh;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(4, 1fr);
         padding-bottom: 7vh;
@@ -1462,6 +1463,36 @@ footer p {
         /* background-color: #e0e0e0; */
         background-color: transparent;
         box-shadow: none; 
+    }
+
+    /* Interface */
+    .interface_mobile{
+        position: fixed; 
+        top: 0;
+        left: 0; 
+        width: 95%; 
+        margin-left: 2.5%;
+        height: 100%; 
+        pointer-events: none;
+        font-family: 'Bebas Neue', cursive; 
+        transition: opacity 0.5s ease-out;
+    }
+
+    .main_title_restart{
+        margin: 0;
+        font-size: 7vh;
+    }
+
+    .name_font{
+        font-size: 21.5vw!important;
+    }
+
+    .text_intro{
+        margin: 2vh 3vh;
+    }
+
+    .welcome_modal .text_intro:last-child{
+        margin-top: 5vh;
     }
 }
   
