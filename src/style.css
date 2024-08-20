@@ -168,6 +168,11 @@ b{
     left: 0;
     transition: rotate 0.3s ease-out;
     cursor: pointer;
+    transition: transform 0.5s ease-out;
+}
+
+.return_back_arrow:hover{
+    transform: rotateX(180deg);
 }
 
 .close_icon_start{
@@ -389,8 +394,12 @@ b{
     float: right;
 }
 
-#second_div_text_catacombes_page p{
+#second_div_text_catacombes_page p, .explication_augmented_reality_text p{
     text-align: justify;
+}
+
+.explication_augmented_reality_text{
+    margin: 20vh 0;
 }
 
 #title_catacombes_page, .title_navigo_section h1{
@@ -417,7 +426,7 @@ b{
     filter: brightness(1.4);
 }
 
-.fouth_div_img_navigo img:nth-of-type(3){
+.fouth_div_img_navigo img:nth-of-type(3), .video_explication{
     filter: brightness(1.1);
 }
 
@@ -481,7 +490,19 @@ html, body {
     gap: 10px; 
 }
 
-.examples_virtual_reality_second{margin-bottom: 10vh;}
+.examples_virtual_reality div{
+    background: rgb(67 67 67 / 25%);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 10px 20px;
+    min-height: 25vh;
+    max-height: 26vh;
+}
+
+.examples_virtual_reality_second{margin-bottom: 10vh!important;}
 
 .explication_text{
     text-align: justify;
@@ -506,7 +527,10 @@ html, body {
 
 .text_explication_vr h1{text-align: center;}
 
-.video_explication{margin-right: -12vh;}
+.video_explication{
+    margin-right: -12vh;
+    width: 42vh;
+}
 
 .title_immersive_exploration{
     text-align: center;
@@ -515,7 +539,7 @@ html, body {
 
 .second_div_video_text, 
 .third_div_video_text{
-    margin: 10vh 0;
+    margin: 5vh 0 20vh 0;
 }
 
 .div_text_under_images{margin: 10vh;}
@@ -547,11 +571,11 @@ html, body {
 
 .second_div_video_text video {
     width: 20%;
-    border-radius: 30px;
+    border-radius: 5.5vh;
 }
 
 .third_div_video_text video {
-    border-radius: 30px;
+    border-radius: 5.5vh;
 }
 
 .second_div_video_text p{
@@ -586,7 +610,7 @@ html, body {
 
 .third_div_video_text span span p{
     width: fit-content;
-    margin: 4px 8px;
+    margin: 4px 7px;
 }
 
 .second_div_video_text span span svg{
@@ -640,7 +664,7 @@ html, body {
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(4px);
-    border-radius: 30px;
+    border-radius: 3.5vh;
     border: 1px solid rgba(255, 255, 255, 0.18);
     padding: 4px 10px;
     text-align: center;
@@ -653,7 +677,7 @@ html, body {
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(4px);
-    border-radius: 30px;
+    border-radius: 3vh;
     border: 1px solid rgba(255, 255, 255, 0.18);
     padding: 0px 4px;
     text-align: center;
@@ -678,7 +702,7 @@ html, body {
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(4px);
-    border-radius: 30px;
+    border-radius: 3vh;
     border: 1px solid rgba(255, 255, 255, 0.18);
     padding: 4px 10px;
     text-align: center;
@@ -741,7 +765,7 @@ html, body {
 
 .second_div_navigo_page video{
     width: 20%;
-    border-radius: 40px;
+    border-radius: 4.5vh;
 }
 
 .second_div_navigo_page p{
@@ -793,7 +817,7 @@ html, body {
 .fifth_div_navigo_page span span img{
     width: 15vh;
     height: 15vh;
-    border-radius: 15px;
+    border-radius: 1.5vh;
 }
 
 .fifth_div_navigo_page img{
@@ -916,7 +940,7 @@ html, body {
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    border-radius: 10px;
+    border-radius: 1vh;
     border: 1px solid rgba(255, 255, 255, 0.18);
     transition: background-color 0.5s ease-out;
 }
@@ -943,7 +967,7 @@ html, body {
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(4px);
-    border-radius: 30px;
+    border-radius: 3vh;
     border: 1px solid rgba(255, 255, 255, 0.18);
     padding: 0px 4px;
     text-align: center;
@@ -1027,7 +1051,7 @@ html, body {
 .realite_augmente_exemple video{
     margin: 0 11.5vh;
     width: 27vh;
-    border-radius: 30px;
+    border-radius: 5.5vh;
     cursor: pointer;
 }
 
@@ -1048,6 +1072,8 @@ html, body {
     margin-top: -49.5vh;
     opacity: 0;
 }
+
+#ar_icon_exemple, #vr_icon_exemple{margin-top: 14px;}
 
 #ar_icon_exemple svg, #vr_icon_exemple svg{
     margin: -2vh 5px 0px 5px;
@@ -1128,7 +1154,7 @@ footer p {
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
-    border-radius: 10px;
+    border-radius: 1vh;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
@@ -1164,6 +1190,7 @@ footer p {
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 20px 10px 10px 20px;
+    border-radius: 2vh 1vh 1vh 2vh;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
@@ -1173,7 +1200,7 @@ footer p {
 
 .position_duck img{
     width: 7vh;
-    border-radius: 14px;
+    border-radius: 1.5vh;
     margin: 0 1vh 0 0.7vh;
 }
 
@@ -1202,7 +1229,7 @@ footer p {
   
 .position_player {
     width: 60px;
-    border-radius: 10px;
+    border-radius: 1vh;
     /* border: 2px solid #ffffff; */
     background: #e4e1e1;
     display: flex;
@@ -1217,7 +1244,7 @@ footer p {
     height: 3.5vh;
     margin-top: -1vh;
     width: 24vh;
-    border-radius: 10px;
+    border-radius: 1vh;
     border: none;
 }
 

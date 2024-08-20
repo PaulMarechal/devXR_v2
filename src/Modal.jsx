@@ -104,14 +104,14 @@ export default function Modal() {
 
 
 
+        $("#vr_icon_exemple").on("click", () => {
+            update_qr_code_display("#background_color_button_third", "2px", [".realite_augmente_exemple"], [".realite_virtuelle_exemple"]);
+        });
 
         $("#ar_icon_exemple").on("click", () => {
-            update_qr_code_display("#background_color_button_third", "2px", [".realite_virtuelle_exemple"], [".realite_augmente_exemple"]);
+            update_qr_code_display("#background_color_button_third", "46px", [".realite_virtuelle_exemple"], [".realite_augmente_exemple"]);
         });
 
-        $("#vr_icon_exemple").on("click", () => {
-            update_qr_code_display("#background_color_button_third", "46px", [".realite_augmente_exemple"], [".realite_virtuelle_exemple"]);
-        });
 
 
 
@@ -179,6 +179,14 @@ export default function Modal() {
                     
                     {/* catacombes.xyz presentation page */}
                     <div className="text_modale_div" id="catacombes_div">
+                        <div className="return_back_arrow" onClick={() => display_modal("#product_div")}>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-left" width="46" height="46" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M5 12l14 0" />
+                                <path d="M5 12l6 6" />
+                                <path d="M5 12l6 -6" />
+                            </svg>
+                        </div>
                         <div className="text_catacombes_page" >
                             <h1 id="title_catacombes_page" >Découvrez les Catacombes Interdites<br/> de Paris avec catacombes.xyz</h1>
                             <p id="first_text_catacombes_page" >
@@ -262,6 +270,15 @@ export default function Modal() {
                     {/* Paris metro map presentation page */}
                     <div className="text_modale_div" id="metro_map_div">
 
+                        <div className="return_back_arrow" onClick={() => display_modal("#product_div")}>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-left" width="46" height="46" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M5 12l14 0" />
+                                <path d="M5 12l6 6" />
+                                <path d="M5 12l6 -6" />
+                            </svg>
+                        </div>
+
                         <div className="title_navigo_section">
                             <h1>Paris XR Guide: <br/>Navigo Augmentée.</h1>
                             <p>Découvrez une nouvelle façon de vous déplacer dans Paris avec notre <b>Carte Navigo Interactive</b>, un outil révolutionnaire pour les voyageurs urbains. Grâce à la réalité augmentée, votre simple carte Navigo se transforme en une <b>carte du métro de Paris en 3D</b>.</p>
@@ -310,6 +327,16 @@ export default function Modal() {
 
                     {/* Aero-Bay Helico 3D presentation page */}
                     <div className="text_modale_div" id="helico_aerobay_div">
+
+                        <div className="return_back_arrow" onClick={() => display_modal("#product_div")}>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-left" width="46" height="46" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M5 12l14 0" />
+                                <path d="M5 12l6 6" />
+                                <path d="M5 12l6 -6" />
+                            </svg>
+                        </div>
+
                         <h1 id="title_catacombes_page" >Présentation de la Page Interactive <br/>de aero-bay.com</h1>
 
                         <div>
@@ -348,6 +375,16 @@ export default function Modal() {
 
                     {/* Site classique presentation page */}
                     <div className="text_modale_div" id="site_classique_presentation_page">
+
+                        <div className="return_back_arrow" onClick={() => display_modal("#product_div")}>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-left" width="46" height="46" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M5 12l14 0" />
+                                <path d="M5 12l6 6" />
+                                <path d="M5 12l6 -6" />
+                            </svg>
+                        </div>
+                        
                         <h1 id="title_catacombes_page">Réalisation de sites 2D. <br/>Classiques et Efficaces.</h1>
                         
                         <div>
@@ -587,11 +624,12 @@ export default function Modal() {
                             <div id="exemple_different_button">
                                 <span id="background_color_button_third"></span>
                             
-                                <p id="ar_icon_exemple">
-                                    <svg xmlns="http://www.w3.org/2000/svg"  width="35"  height="35"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-badge-ar"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M7 15v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M7 13h3" /><path d="M14 12h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6m3 0l-2 -3" /></svg>
-                                </p>
                                 <p id="vr_icon_exemple">
                                     <svg xmlns="http://www.w3.org/2000/svg"  width="35"  height="35"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-badge-vr"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M14 12h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6m3 0l-2 -3" /><path d="M7 9l2 6l2 -6" /></svg>
+                                </p>
+
+                                <p id="ar_icon_exemple">
+                                    <svg xmlns="http://www.w3.org/2000/svg"  width="35"  height="35"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-badge-ar"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M7 15v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M7 13h3" /><path d="M14 12h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6m3 0l-2 -3" /></svg>
                                 </p>
                             </div>
                             
@@ -647,12 +685,23 @@ export default function Modal() {
 
                     {/* Augmented reality explication */}
                     <div className="text_modale_div" id="augmented_reality_explication_div">
+                        <div className="return_back_arrow" onClick={() => display_modal("#product_div")}>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-left" width="46" height="46" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M5 12l14 0" />
+                                <path d="M5 12l6 6" />
+                                <path d="M5 12l6 -6" />
+                            </svg>
+                        </div>
+                        <h1 id="title_catacombes_page" >Réalité Augmentée <br/>Avancée.</h1>
+
                         <div className="third_div_video_text">
                             <span>
                                 <h4>Immersion Augmentée.</h4>
                                 <p>Plongez dans le monde fascinant de la <b>réalité augmentée</b> ! Grâce à cette technologie innovante, votre <b>smartphone</b> peut transformer des éléments du quotidien en expériences interactives et captivantes. En scannant des <b>images</b>, des <b>objets</b> ou des <b>codes QR</b>, vous découvrirez des <b>contenus enrichis</b> qui se superposent à la réalité. Cette <b>fonctionnalité</b> ouvre un nouvel univers d'<b>exploration</b> et de <b>découverte</b>, vous permettant de visualiser des <b>objets 3D</b>, des <b>infos interactives</b>, et bien plus encore, directement dans votre environnement.</p>
                             </span>
                             <video className="video" src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true}></video>
+
                             <span>
                                 {/* <img src="http://devxr.fr/assets/images/catacombes/qr_cabinet_old.png" alt="" /> */}
                                 <span>
@@ -666,6 +715,11 @@ export default function Modal() {
                                 <img id="cabi_qr_v1_1" src="http://devxr.fr/assets/images/catacombes/cabi_qr_code_v1.png" alt="QR code qui permet d'afficher la salle Guerinet des Catacombes interdites de Paris en réalité augmentée" />
                                 <img id="cabibis_qr_v1_1" src="http://devxr.fr/assets/images/catacombes/cabibis_qr_code_v1.png" alt="QR code qui permet d'affciher la salle Bracitorium des Catacombes interdites de Paris en réalité augmentée" />
                             </span>
+                        </div>
+
+                        <div className="explication_augmented_reality_text">
+                            <p>La réalité augmentée que nous proposons va encore plus loin : elle vous permet de faire apparaître des <b>objets 3D</b>, <b>animés</b> ou <b>statiques</b>, non seulement à partir de QR codes, mais aussi depuis des <b>photos</b>, des devis, des <b>logos</b> ou tout <b>autre support</b>. Mieux encore, ces modèles 3D peuvent être visualisés directement depuis une <b>page web</b>, sans nécessiter l'installation d'une application spécifique. </p>
+                            <p>Imaginez pouvoir explorer une <b>salle historique</b> ou un <b>objet d'art</b> en 3D simplement en cliquant sur un lien, sans avoir à maintenir votre appareil sur un QR code, comme démontré dans notre vidéo de présentation. Cette flexibilité offre une <b>immersion totale</b> et une facilité d'accès inégalée, pour une <b>expérience utilisateur</b> véritablement <b>augmentée</b>.</p>
                         </div>
 
                         
@@ -690,10 +744,10 @@ export default function Modal() {
 
                         <h4>Autres exemples</h4>
                         <div className="display_inline">
-                            <img src="./assets/images/QR_code/fond_du_cresw.webp" alt="Salle du fond du crew dans les catacombes interdites de Paris en realité augmentée en scannant un QR code" />
-                            <img src="./assets/images/QR_code/Lune1.webp" alt="Chaussures en réalité augmentée en scannant un QR code" />
-                            <img src="./assets/images/QR_code/anubis.webp" alt="Voir les plans d'un appartement en réalité augmentée après avoir scanné un QR Code" />
-                            <img src="./assets/images/QR_code/fond_du_crew_1.webp" alt="Permet de voir une patisserie en ralité augmentée après avoir scanné le QR Code" />
+                            <img src="./assets/images/QR_code/fond_du_cresw.webp" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Salle du fond du crew dans les catacombes interdites de Paris en realité augmentée en scannant un QR code" />
+                            <img src="./assets/images/QR_code/Lune1.webp" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Chaussures en réalité augmentée en scannant un QR code" />
+                            <img src="./assets/images/QR_code/anubis.webp" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Voir les plans d'un appartement en réalité augmentée après avoir scanné un QR Code" />
+                            <img src="./assets/images/QR_code/fond_du_crew_1.webp" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Permet de voir une patisserie en ralité augmentée après avoir scanné le QR Code" />
                         </div>
 
                     </div>
@@ -716,7 +770,7 @@ export default function Modal() {
                         <div className="div_video_catacombes margin_video_div">
                             <img src="https://devxr.fr/assets/images/catacombes/oculus_screen_guerinet_catacombes.jpg" alt="Capture d'écran d'une visite des catacombes interdites avec un casque Oculus Quest 2 en réalité virtuelle." />
                             
-                            <video className="video" src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4" loop autoPlay={true} muted></video>
+                            <video className="video" src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4" loop autoPlay={true} muted ></video>
                             
                             <img src="https://devxr.fr/assets/images/catacombes/graphiti_1863_guerinet_catacombes.jpg" alt="" />
                         </div>
@@ -731,7 +785,7 @@ export default function Modal() {
                                 <br/>
                                 <p>Avec la réalité virtuelle, vous ne vous contentez plus de regarder des images : vous êtes au cœur de l'action. Elle redéfinit la manière dont vous percevez le monde numérique, en vous ouvrant des portes vers des lieux et des expériences jusque-là inaccessibles.</p>
                             </div>
-                            <video className="video video_explication" src="https://devxr.fr/assets/video/load_vr_experience.mp4" loop autoPlay={true} muted></video>
+                            <video className="video video_explication" src="https://devxr.fr/assets/video/load_vr_experience.mp4" loop autoPlay={true} muted ></video>
                         </div>
                         
                         <div className="text_explication_vr">
@@ -739,7 +793,7 @@ export default function Modal() {
                             <div className="examples_virtual_reality">
                                 <div>
                                     <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-building-castle" width="32" height="32" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#2c3e50" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-building-castle" width="32" height="32" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#d0d0d0" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                             <path d="M15 19v-2a3 3 0 0 0 -6 0v2a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-14h4v3h3v-3h4v3h3v-3h4v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
                                             <path d="M3 11l18 0" />
@@ -750,7 +804,7 @@ export default function Modal() {
                                 </div>
                                 <div>
                                     <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-torii" width="32" height="32" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#2c3e50" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-torii" width="32" height="32" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#d0d0d0" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                             <path d="M4 4c5.333 1.333 10.667 1.333 16 0" />
                                             <path d="M4 8h16" />
@@ -766,7 +820,7 @@ export default function Modal() {
                             <div className="examples_virtual_reality examples_virtual_reality_second">
                                 <div>
                                     <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-sitemap" width="32" height="32" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#2c3e50" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-sitemap" width="32" height="32" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#d0d0d0" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                             <path d="M3 15m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
                                             <path d="M15 15m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
@@ -780,7 +834,7 @@ export default function Modal() {
                                 </div>
                                 <div>
                                     <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-building-stadium" width="32" height="32" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#2c3e50" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-building-stadium" width="32" height="32" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#d0d0d0" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                             <path d="M12 12m-8 0a8 2 0 1 0 16 0a8 2 0 1 0 -16 0" />
                                             <path d="M4 12v7c0 .94 2.51 1.785 6 2v-3h4v3c3.435 -.225 6 -1.07 6 -2v-7" />
