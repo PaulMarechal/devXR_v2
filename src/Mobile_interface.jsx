@@ -27,8 +27,8 @@ export default function Mobile_interface() {
     <div className="container">
         <div className="grid">
 
+            {/* Site classique */}
             <div className="grid-item span-2-1" onClick={() => display_modal("#product_div")}>
-
                 <div>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -62,10 +62,10 @@ export default function Mobile_interface() {
                     </svg>
                     <h4>Site classique</h4>
                 </div>
-
             </div>
 
-            <div className="grid-item span-2-1">
+            {/* Site 3D */}
+            <div className="grid-item span-2-1" onClick={() => display_modal("#helico_aerobay_div")}>
                 <div>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -96,8 +96,8 @@ export default function Mobile_interface() {
                 </div>
             </div>
 
+            {/* Logo cube + 360 */}
             <div className="grid-item span-1-3 two_icons_large">
-                
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="70"
@@ -159,8 +159,10 @@ export default function Mobile_interface() {
                 </svg>
             </div>
 
+            {/* Logo DevXR */}
             <div className="grid-item span-2-1 logo_mobile_main"></div>
 
+            {/* Mobile + cube */}
             <div className="grid-item span-1-1">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -192,10 +194,10 @@ export default function Mobile_interface() {
                 </svg>
             </div>
 
-            <div className="grid-item span-3-1">
+            {/* Realité mixte */}
+            <div className="grid-item span-3-1" onClick={() => display_modal("#catacombes_div")}>
                 <div>
                     <span>
-
                         <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="icon icon-tabler icon-tabler-badge-ar"
@@ -280,11 +282,8 @@ export default function Mobile_interface() {
                 </div>
             </div>
 
-
-                            
-                    
-
-            <div className="grid-item span-2-2 div_hidden">
+            {/* Augmented reality */}
+            <div className="grid-item span-2-2 div_hidden" onClick={() => display_modal("#augmented_reality_explication_div")}>
                 <div>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -321,7 +320,8 @@ export default function Mobile_interface() {
                 </div>
             </div>
 
-            <div className="grid-item span-2-2">
+            {/* Virtual reality */}
+            <div className="grid-item span-2-2" onClick={() => display_modal("#virtual_reality_explication_div")}>
                 <div>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
