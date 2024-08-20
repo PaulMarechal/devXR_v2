@@ -96,8 +96,8 @@ export default function Mobile_interface() {
                 </div>
             </div>
 
-            {/* Logo cube + 360 */}
-            <div className="grid-item span-1-3 two_icons_large">
+            {/* Offres */}
+            <div className="grid-item span-1-1" onClick={() => display_modal("#product_div")}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="70"
@@ -108,7 +108,7 @@ export default function Mobile_interface() {
                     strokeWidth="1"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="icon icon-tabler icons-tabler-outline icon-tabler-cube-3d-sphere"
+                    className="icon icon-tabler icon-tabler-devices"
                 >
                     <defs>
                         <linearGradient id="gradient" gradientTransform="rotate(30)">
@@ -118,20 +118,18 @@ export default function Mobile_interface() {
                     </defs>
 
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M6 17.6l-2 -1.1v-2.5" />
-                    <path d="M4 10v-2.5l2 -1.1" />
-                    <path d="M10 4.1l2 -1.1l2 1.1" />
-                    <path d="M18 6.4l2 1.1v2.5" />
-                    <path d="M20 14v2.5l-2 1.12" />
-                    <path d="M14 19.9l-2 1.1l-2 -1.1" />
-                    <path d="M12 12l2 -1.1" />
-                    <path d="M18 8.6l2 -1.1" />
-                    <path d="M12 12l0 2.5" />
-                    <path d="M12 18.5l0 2.5" />
-                    <path d="M12 12l-2 -1.12" />
-                    <path d="M6 8.6l-2 -1.1" />
+                    <path d="M13 9a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1v-10z" />
+                    <path d="M18 8v-3a1 1 0 0 0 -1 -1h-13a1 1 0 0 0 -1 1v12a1 1 0 0 0 1 1h9" />
+                    <path d="M16 9h2" />
                 </svg>
+            </div>
 
+
+            {/* Logo DevXR */}
+            <div className="grid-item span-2-1 logo_mobile_main"></div>
+
+            {/* Contact div */}
+            <div className="grid-item span-1-1" onClick={() => display_modal("#contact_us_div")}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="70"
@@ -142,7 +140,7 @@ export default function Mobile_interface() {
                     strokeWidth="1"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="icon icon-tabler icons-tabler-outline icon-tabler-view-360-number"
+                    className="icon icon-tabler icon-tabler-phone-call"
                 >
                     <defs>
                         <linearGradient id="gradient" gradientTransform="rotate(10)">
@@ -152,18 +150,14 @@ export default function Mobile_interface() {
                     </defs>
 
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M14 6a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h2a1 1 0 0 0 1 -1v-2a1 1 0 0 0 -1 -1h-3" />
-                    <path d="M3 5h2.5a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1 -1.5 1.5h-1.5h1.5a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1 -1.5 1.5h-2.5" />
-                    <path d="M17 7v4a2 2 0 1 0 4 0v-4a2 2 0 1 0 -4 0z" />
-                    <path d="M3 16c0 1.657 4.03 3 9 3s9 -1.343 9 -3" />
+                    <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+                    <path d="M15 7a2 2 0 0 1 2 2" />
+                    <path d="M15 3a6 6 0 0 1 6 6" />
                 </svg>
             </div>
 
-            {/* Logo DevXR */}
-            <div className="grid-item span-2-1 logo_mobile_main"></div>
-
-            {/* Mobile + cube */}
-            <div className="grid-item span-1-1">
+            {/* About us */}
+            <div className="grid-item span-1-1" onClick={() => display_modal("#about_us_div")} >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="70"
@@ -174,23 +168,26 @@ export default function Mobile_interface() {
                     strokeWidth="1"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="icon icon-tabler icon-tabler-augmented-reality-2"
+                    className="icon icon-tabler icon-tabler-users"
                 >
                     <defs>
-                        <linearGradient id="gradient" gradientTransform="rotate(45)">
-                        <stop offset="0%" stopColor="#ffbe0b" />
-                        <stop offset="33%" stopColor="#fb5607" />
-                        <stop offset="66%" stopColor="#ff006e" />
-                        <stop offset="100%" stopColor="#8338ec" />
+                        {/* <linearGradient id="gradient" gradientTransform="rotate(45)">
+                            <stop offset="0%" stopColor="#ffbe0b" />
+                            <stop offset="33%" stopColor="#fb5607" />
+                            <stop offset="66%" stopColor="#ff006e" />
+                            <stop offset="100%" stopColor="#8338ec" />
+                        </linearGradient> */}
+                        <linearGradient id="gradient" gradientTransform="background-image: linear-gradient(to right top, #ff9808, #c1b210, #85bf4e, #47c486, #00c2b4, #00bfd3, #00b8ed, #00aefd, #519fff, #9489ff, #d067f3, #ff2bc9);">
+                            <stop offset="0%" stopColor="#ebf4f5" />
+                            <stop offset="100%" stopColor="#b5c6e0" />
                         </linearGradient>
                     </defs>
 
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M10 21h-2a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v3.5" />
-                    <path d="M17 17l-4 -2.5l4 -2.5l4 2.5v4.5l-4 2.5z" />
-                    <path d="M13 14.5v4.5l4 2.5" />
-                    <path d="M17 17l4 -2.5" />
-                    <path d="M11 4h2" />
+                    <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
                 </svg>
             </div>
 
@@ -287,6 +284,7 @@ export default function Mobile_interface() {
                 <div>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
+                        className="icon icon-tabler icons-tabler-outline icon-tabler-augmented-reality"
                         width="70"
                         height="70"
                         viewBox="0 0 24 24"
@@ -295,7 +293,6 @@ export default function Mobile_interface() {
                         strokeWidth="1"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="icon icon-tabler icons-tabler-outline icon-tabler-augmented-reality"
                     >
                         <defs>
                             <linearGradient id="gradient" gradientTransform="rotate(40)">
@@ -303,11 +300,7 @@ export default function Mobile_interface() {
                                 <stop offset="100%" stopColor="#0c75e6" />
                             </linearGradient>
                         </defs>
-                        <path
-                            stroke="none"
-                            d="M0 0h24v24H0z"
-                            fill="none"
-                        />
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M4 8v-2a2 2 0 0 1 2 -2h2"/>
                         <path d="M4 16v2a2 2 0 0 0 2 2h2" />
                         <path d="M16 4h2a2 2 0 0 1 2 2v2" />
