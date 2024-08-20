@@ -11,6 +11,7 @@ import Modal from "./Modal.jsx";
 import React, { useEffect } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import Mobile_interface from "./Mobile_interface.jsx";
+import Interface_mobile from "./Interface_mobile.jsx";
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
     return (
         <>
             <MobileView>
+                <Interface_mobile />
                 <Mobile_interface />
                 <Modal/>
             </MobileView>
