@@ -44,18 +44,8 @@ export default function Mobile_interface() {
                     >
                         <defs>
                             <linearGradient id="gradient" gradientTransform="background-image: linear-gradient(to right top, #ff9808, #c1b210, #85bf4e, #47c486, #00c2b4, #00bfd3, #00b8ed, #00aefd, #519fff, #9489ff, #d067f3, #ff2bc9);">
-                                <stop offset="0%" stopColor="#ff9808" />
-                                <stop offset="8%" stopColor="#c1b210" />
-                                <stop offset="16%" stopColor="#85bf4e" />
-                                <stop offset="24%" stopColor="#47c486" />
-                                <stop offset="32%" stopColor="#00c2b4" />
-                                <stop offset="40%" stopColor="#00bfd3" />
-                                <stop offset="48%" stopColor="#00b8ed" />
-                                <stop offset="56%" stopColor="#00aefd" />
-                                <stop offset="64%" stopColor="#519fff" />
-                                <stop offset="72%" stopColor="#9489ff" />
-                                <stop offset="80%" stopColor="#d067f3" />
-                                <stop offset="100%" stopColor="#ff2bc9" />
+                                <stop offset="0%" stopColor="#ebf4f5" />
+                                <stop offset="100%" stopColor="#b5c6e0" />
                             </linearGradient>
                         </defs>
 
@@ -91,10 +81,9 @@ export default function Mobile_interface() {
                     >
                         <defs>
                             <linearGradient id="gradient" gradientTransform="rotate(45)">
-                                <stop offset="0%" stopColor="#ff9808" />
-                                <stop offset="35%" stopColor="#ff675c" />
-                                <stop offset="70%" stopColor="#d5578b" />
-                                <stop offset="95%" stopColor="#8e5b9a" />
+                                <stop offset="0%" stopColor="#84ffc9" />
+                                <stop offset="50%" stopColor="#aab2ff" />
+                                <stop offset="100%" stopColor="#eca0ff" />
                             </linearGradient>
                         </defs>
 
@@ -122,14 +111,9 @@ export default function Mobile_interface() {
                     className="icon icon-tabler icons-tabler-outline icon-tabler-cube-3d-sphere"
                 >
                     <defs>
-                        <linearGradient id="gradient" gradientTransform="rotate(45)">
-                        <stop offset="0%" stopColor="#b57edc" />
-                        <stop offset="25%" stopColor="#ff6eb0" />
-                        <stop offset="60%" stopColor="#ff8166" />
-                        <stop offset="90%" stopColor="#ffb700" />
-                        <stop offset="100%" stopColor="#a8eb12" />
-
-
+                        <linearGradient id="gradient" gradientTransform="rotate(30)">
+                            <stop offset="0%" stopColor="#6d90b9" />
+                            <stop offset="100%" stopColor="#bbc7dc" />
                         </linearGradient>
                     </defs>
 
@@ -161,10 +145,9 @@ export default function Mobile_interface() {
                     className="icon icon-tabler icons-tabler-outline icon-tabler-view-360-number"
                 >
                     <defs>
-                        <linearGradient id="gradient" gradientTransform="rotate(90)">
-                            <stop offset="0%" stopColor="hsla(154, 100%, 76%, 1)" />
-                            <stop offset="50%" stopColor="hsla(234, 100%, 83%, 1) " />
-                            <stop offset="100%" stopColor="hsla(288, 100%, 81%, 1)" />
+                        <linearGradient id="gradient" gradientTransform="rotate(10)">
+                            <stop offset="0%" stopColor="#6d90b9" />
+                            <stop offset="100%" stopColor="#bbc7dc" />
                         </linearGradient>
                     </defs>
 
@@ -189,15 +172,14 @@ export default function Mobile_interface() {
                     strokeWidth="1"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="icon icon-tabler icons-tabler-outline icon-tabler-augmented-reality"
+                    className="icon icon-tabler icon-tabler-augmented-reality-2"
                 >
                     <defs>
                         <linearGradient id="gradient" gradientTransform="rotate(45)">
                         <stop offset="0%" stopColor="#ffbe0b" />
-                        <stop offset="25%" stopColor="#fb5607" />
-                        <stop offset="50%" stopColor="#ff006e" />
-                        <stop offset="75%" stopColor="#8338ec" />
-                        <stop offset="100%" stopColor="#3a86ff" />
+                        <stop offset="33%" stopColor="#fb5607" />
+                        <stop offset="66%" stopColor="#ff006e" />
+                        <stop offset="100%" stopColor="#8338ec" />
                         </linearGradient>
                     </defs>
 
@@ -227,12 +209,9 @@ export default function Mobile_interface() {
                         strokeLinejoin="round"
                         >
                             <defs>
-                                <linearGradient id="gradient" gradientTransform="rotate(45)">
-                                    <stop offset="0%" stopColor="#b57edc" />
-                                    <stop offset="25%" stopColor="#ff6eb0" />
-                                    <stop offset="50%" stopColor="#ff8166" />
-                                    <stop offset="75%" stopColor="#ffb700" />
-                                    <stop offset="100%" stopColor="#a8eb12" />
+                                <linearGradient id="gradient" gradientTransform="rotate(40)">
+                                    <stop offset="0%" stopColor="#00ee6e" />
+                                    <stop offset="100%" stopColor="#0c75e6" />
                                 </linearGradient>
                             </defs>
 
@@ -257,11 +236,9 @@ export default function Mobile_interface() {
                         >
                             <defs>
                                 <linearGradient id="gradient" gradientTransform="rotate(45)">
-                                    <stop offset="0%" stopColor="#845ec2" />
-                                    <stop offset="25%" stopColor="#4b4453" />
-                                    <stop offset="50%" stopColor="#b0a8b9" />
-                                    <stop offset="75%" stopColor="#c34a36" />
-                                    <stop offset="100%" stopColor="#ff8066" />
+                                    <stop offset="0%" stopColor="#84ffc9" />
+                                    <stop offset="50%" stopColor="#aab2ff" />
+                                    <stop offset="100%" stopColor="#eca0ff" />
                                 </linearGradient>
                             </defs>
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -284,21 +261,12 @@ export default function Mobile_interface() {
                         >
                             <defs>
                                 <linearGradient id="gradient" gradientTransform="rotate(45)">
-                                    <stop offset="0%" stopColor="#d16ba5" />
-                                    <stop offset="8%" stopColor="#c777b9" />
-                                    <stop offset="16%" stopColor="#ba83ca" />
-
-                                    <stop offset="24%" stopColor="#aa8fd8" />
-                                    <stop offset="32%" stopColor="#9a9ae1" />
-                                    <stop offset="40%" stopColor="#8aa7ec" />
-
-                                    <stop offset="48%" stopColor="#79b3f4" />
-                                    <stop offset="56%" stopColor="#69bff8" />
-                                    <stop offset="64%" stopColor="#52cffe" />
-
-                                    <stop offset="72%" stopColor="#41dfff" />
-                                    <stop offset="80%" stopColor="#46eefa" />
-                                    <stop offset="100%" stopColor="#5ffbf1" />
+                                    <stop offset="0%" stopColor="#845ec2" />
+                                    <stop offset="30%" stopColor="#d65db1" />
+                                    <stop offset="45%" stopColor="#ff6f91" />
+                                    <stop offset="60%" stopColor="#ff9671" />
+                                    <stop offset="90%" stopColor="#ffc75f" />
+                                    <stop offset="100%" stopColor="#f9f871" />
                                 </linearGradient>
                             </defs>
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -331,13 +299,9 @@ export default function Mobile_interface() {
                         className="icon icon-tabler icons-tabler-outline icon-tabler-augmented-reality"
                     >
                         <defs>
-                            <linearGradient id="gradient" gradientTransform="rotate(45)">
-                            <stop offset="0%" stopColor="#845ec2" />
-                            <stop offset="20%" stopColor="#2c73d2" />
-                            <stop offset="40%" stopColor="#0081cf" />
-                            <stop offset="60%" stopColor="#0089ba" />
-                            <stop offset="80%" stopColor="#008e9b" />
-                            <stop offset="100%" stopColor="#008f7a" />
+                            <linearGradient id="gradient" gradientTransform="rotate(40)">
+                                <stop offset="0%" stopColor="#00ee6e" />
+                                <stop offset="100%" stopColor="#0c75e6" />
                             </linearGradient>
                         </defs>
                         <path
@@ -373,12 +337,12 @@ export default function Mobile_interface() {
                     >
                         <defs>
                             <linearGradient id="gradient" gradientTransform="rotate(45)">
-                            <stop offset="0%" stopColor="#845ec2" />
-                            <stop offset="30%" stopColor="#d65db1" />
-                            <stop offset="45%" stopColor="#ff6f91" />
-                            <stop offset="60%" stopColor="#ff9671" />
-                            <stop offset="90%" stopColor="#ffc75f" />
-                            <stop offset="100%" stopColor="#f9f871" />
+                                <stop offset="0%" stopColor="#845ec2" />
+                                <stop offset="30%" stopColor="#d65db1" />
+                                <stop offset="45%" stopColor="#ff6f91" />
+                                <stop offset="60%" stopColor="#ff9671" />
+                                <stop offset="90%" stopColor="#ffc75f" />
+                                <stop offset="100%" stopColor="#f9f871" />
                             </linearGradient>
                         </defs>
                         <path
