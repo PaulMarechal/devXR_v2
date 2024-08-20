@@ -28,7 +28,7 @@ export default function Mobile_interface() {
         <div className="grid">
 
             {/* Site classique */}
-            <div className="grid-item span-2-1" onClick={() => display_modal("#product_div")}>
+            <div className="grid-item span-2-1" onClick={() => display_modal("#site_classique_presentation_page")}>
                 <div>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
