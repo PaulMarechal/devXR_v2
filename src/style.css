@@ -1514,7 +1514,8 @@ footer p {
     .div_video_catacombes, .fouth_div_img_navigo, 
     .fifth_div_navigo_page, .first_div_aero_page, 
     .display_infos_product, .classic_website_presentation_div, 
-    .display_inline, .third_div_aero_page {
+    .display_inline, .third_div_aero_page, .third_div_video_text, 
+    .second_div_video_text, .third_div_video_text {
             display: inline;
     }
 
@@ -1580,6 +1581,71 @@ footer p {
         width: 95%;
         margin: 7vh auto 10vh auto;
         text-align: center;
+    }
+
+    .third_div_video_text {
+        margin: 0;
+    }
+
+    .second_div_video_text video {
+        width: 70%;
+        border-radius: 5.5vh;
+    } 
+    
+    /* .third_div_video_text video {
+        border-radius: 5.5vh;
+    } */
+
+    #augmented_reality_explication_div{
+        padding: 0 2vh ;
+    }
+    
+    .second_div_video_text p{
+        width: 44vh;
+    }
+
+    .third_div_video_text span img{
+        width: 20vh;
+        height: 20vh;
+    }
+
+    .third_div_video_text span:nth-child(1){
+        display: inline;
+    }
+
+    .third_div_video_text span{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #guerinet_qr_v2_1{
+        position: relative;
+        margin-left: -20vh;
+    }
+
+    #fdc_qr_v2_1{
+        margin-right: 18.5vh;
+    }
+
+    #fdc_qr_v2_1, #guerinet_qr_v2_1{
+        margin-top: 7vh;
+    }
+
+    #cabi_qr_v1, #cabi_qr_v1_1 {
+        position: relative;
+        margin-top: 4.5vh;
+        margin-left: -62vh;
+    }
+
+    #cabibis_qr_v1_1{
+        margin-top: 7vh;
+        margin-right: 1.2vh;
+    }
+
+    #cabi_qr_v1_1{
+        margin-top: 7vh;
+        margin-right: .5vh;
     }
 }
   

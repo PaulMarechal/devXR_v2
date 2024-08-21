@@ -636,7 +636,7 @@ export default function Modal() {
                                     <h4>Réalité Virtuelle (VR)</h4>
                                     <p>Nous développons des <b>sites en réalité virtuelle (VR)</b> pour des <b>visites virtuelles</b> de sites culturels, musées ou propriétés immobilières. Ces expériences immersives permettent aux utilisateurs de <b>plonger dans un environnement virtuel riche et détaillé</b>, offrant une nouvelle dimension d’interaction et de découverte.</p>
                                 </div>
-                                <video className="video" onClick={() => display_modal("#catacombes_div")} src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4" loop autoPlay={true} muted ></video>
+                                <video className="video" onClick={() => display_modal("#catacombes_div")} src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4" loop autoPlay={true} muted playsInline></video>
                             </div>
 
                             <div className="realite_augmente_exemple">
@@ -644,7 +644,7 @@ export default function Modal() {
                                     <h4>Réalité Augmentée (AR)</h4>
                                     <p>Nous créons des <b>applications web en réalité augmentée (AR)</b> pour des expériences interactives uniques. Après avoir scanné un QR code ou chargé une page, les utilisateurs peuvent <b>visualiser des objets virtuels</b> ou obtenir des <b>informations supplémentaires</b>. Ces applications permettent de créer des expériences mémorables et engageantes qui enrichissent la réalité quotidienne.</p>
                                 </div>
-                                <video className="video" onClick={() => display_modal("#catacombes_div")} src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true}></video>
+                                <video className="video" onClick={() => display_modal("#catacombes_div")} src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true} playsInline></video>
                             </div>
                         </div>
 
@@ -698,7 +698,7 @@ export default function Modal() {
                                 <h4>Immersion Augmentée.</h4>
                                 <p>Plongez dans le monde fascinant de la <b>réalité augmentée</b> ! Grâce à cette technologie innovante, votre <b>smartphone</b> peut transformer des éléments du quotidien en expériences interactives et captivantes. En scannant des <b>images</b>, des <b>objets</b> ou des <b>codes QR</b>, vous découvrirez des <b>contenus enrichis</b> qui se superposent à la réalité. Cette <b>fonctionnalité</b> ouvre un nouvel univers d'<b>exploration</b> et de <b>découverte</b>, vous permettant de visualiser des <b>objets 3D</b>, des <b>infos interactives</b>, et bien plus encore, directement dans votre environnement.</p>
                             </span>
-                            <video className="video" src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true}></video>
+                            <video className="video" src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true} playsInline></video>
 
                             <span>
                                 {/* <img src="http://devxr.fr/assets/images/catacombes/qr_cabinet_old.png" alt="" /> */}
