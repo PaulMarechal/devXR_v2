@@ -295,7 +295,7 @@ export default function Mobile_interface() {
                         strokeLinejoin="round"
                     >
                         <defs>
-                            <linearGradient id="gradient" gradientTransform="rotate(40)">
+                            <linearGradient id="gradient" gradientTransform="rotate(10)">
                                 <stop offset="0%" stopColor="#00ee6e" />
                                 <stop offset="100%" stopColor="#0c75e6" />
                             </linearGradient>

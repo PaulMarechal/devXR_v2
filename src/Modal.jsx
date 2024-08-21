@@ -398,7 +398,7 @@ export default function Modal() {
                                     L'un de nos récents projets est la création d'un site web pour une société spécialisée dans le <b>nettoyage d'entreprise et de véhicules</b>. Ce site est conçu en <b>version "one page"</b>, une approche moderne qui permet aux visiteurs de trouver rapidement et facilement toutes les informations nécessaires sans avoir à naviguer à travers de multiples pages.
                                 </p>
                             </div>
-                            <video className="video" src="https://devxr.fr/assets/video/capture_ecran_site_classique.mp4" loop autoPlay={true} muted></video>
+                            <video className="video" src="https://devxr.fr/assets/video/capture_ecran_site_classique.mp4" loop autoPlay={true} muted playsInline></video>
                         </div>
 
                         <div className="third_div_site_classique_page">

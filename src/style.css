@@ -1348,6 +1348,15 @@ footer p {
         background: #303030;
     }
 
+    .welcome_modal{
+        font-size: 9vh; 
+        position: absolute;
+        top: 2.5%;
+        left: 0;
+        width: 100%;
+        height: 95%;
+    }
+
     .grid {
         width: 100%;
         height: 85%;
@@ -1493,6 +1502,58 @@ footer p {
 
     .welcome_modal .text_intro:last-child{
         margin-top: 5vh;
+    }
+
+    #first_text_catacombes_page, 
+    .title_navigo_section p, 
+    .first_text_site_classique{
+        width: 96%;
+        margin: 10vh auto;
+        text-align: center;
+    }
+
+    .div_video_catacombes, .fouth_div_img_navigo, 
+    .fifth_div_navigo_page, .first_div_aero_page, 
+    .display_infos_product, .classic_website_presentation_div, 
+    .display_inline {
+            display: inline;
+            /* justify-content: space-between; */
+            /* align-items: inline-flex; */
+            /* gap: 10px; */
+    }
+
+    .third_div_site_classique_page{
+        margin: 10vh 0 7vh 0;
+    }
+
+    .first_div_aero_page .video{
+        width: 100%;
+        margin: 5vh 0;
+    }
+
+    .third_div_site_classique_page p{
+        text-align: justify;
+    }
+
+    .div_img_site_classique img:nth-of-type(1){
+        width: 4.5vh;
+    }
+    
+    .div_img_site_classique img:nth-of-type(2){
+        width: 9vh;
+    }
+    
+    .div_img_site_classique img:nth-of-type(3){
+        width: 20vh;
+    }
+
+    .div_img_site_classique{
+        margin-bottom: 8vh;
+    }
+
+    .contact_us_presentation{
+        text-align: center;
+        margin: 10vh 2vh;
     }
 }
   
