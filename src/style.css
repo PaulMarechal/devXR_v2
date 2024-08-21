@@ -850,7 +850,6 @@ html, body {
     margin: 15vh auto;
     width: 80%;
     text-align: center;
-
 }
 
 .first_div_aero_page{
@@ -1515,11 +1514,8 @@ footer p {
     .div_video_catacombes, .fouth_div_img_navigo, 
     .fifth_div_navigo_page, .first_div_aero_page, 
     .display_infos_product, .classic_website_presentation_div, 
-    .display_inline {
+    .display_inline, .third_div_aero_page {
             display: inline;
-            /* justify-content: space-between; */
-            /* align-items: inline-flex; */
-            /* gap: 10px; */
     }
 
     .third_div_site_classique_page{
@@ -1554,6 +1550,36 @@ footer p {
     .contact_us_presentation{
         text-align: center;
         margin: 10vh 2vh;
+    }
+
+    .second_div_aero_page{
+        margin: 5vh auto 12vh auto;
+        width: 95%;
+        text-align: left;
+    }
+
+    .second_div_aero_page p {
+        text-align: justify;
+    }
+
+    .third_div_aero_page span h4{
+        margin-left: 0;
+        text-align: left;
+    }
+    
+    .third_div_aero_page span{
+        text-align: justify;
+    }
+    
+    .third_div_aero_page img{
+        width: 44vh;
+        margin-left: -18vh;
+    }
+
+    .fouth_div_aero_page{
+        width: 95%;
+        margin: 7vh auto 10vh auto;
+        text-align: center;
     }
 }
   

@@ -335,7 +335,7 @@ export default function Modal() {
                             </svg>
                         </div>
 
-                        <h1 id="title_catacombes_page" >Présentation de la Page Interactive <br/>de aero-bay.com</h1>
+                        <h1 id="title_catacombes_page">Présentation de la Page Interactive <br/>de aero-bay.com</h1>
 
                         <div>
                             <p id="first_text_catacombes_page" >
@@ -350,7 +350,7 @@ export default function Modal() {
                                     Naviguez à travers un <b>modèle 3D détaillé d'un hélicoptère</b>, où chaque pièce disponible à la vente est marquée par un point rouge interactif. En survolant ou en cliquant sur ces points, vous pouvez accéder instantanément à des informations détaillées sur chaque pièce : son nom, ses spécifications techniques, son état, et bien plus encore. Cette interface intuitive vous permet de <b>visualiser directement les pièces</b> que vous recherchez, rendant la navigation plus intuitive et efficace.
                                 </p>
                             </div>
-                            <video className="video" src="https://devxr.fr/assets/video/screen_helico_3D.mp4" loop muted autoPlay={true}></video>
+                            <video className="video" src="https://devxr.fr/assets/video/screen_helico_3D.mp4" loop muted autoPlay={true} playsInline></video>
                         </div>
 
                         <div className="second_div_aero_page">
