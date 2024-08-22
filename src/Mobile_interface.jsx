@@ -28,7 +28,7 @@ export default function Mobile_interface() {
         <div className="grid">
 
             {/* Site classique */}
-            <div className="grid-item span-2-1" onClick={() => display_modal("#site_classique_presentation_page")}>
+            <div className="grid-item span-2-1 site_classique_button" onClick={() => display_modal("#site_classique_presentation_page")}>
                 <div>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@ export default function Mobile_interface() {
             </div>
 
             {/* Site 3D */}
-            <div className="grid-item span-2-1" onClick={() => display_modal("#helico_aerobay_div")}>
+            <div className="grid-item span-2-1 site_3D_button" onClick={() => display_modal("#helico_aerobay_div")}>
                 <div>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -154,6 +154,7 @@ export default function Mobile_interface() {
                     <path d="M15 7a2 2 0 0 1 2 2" />
                     <path d="M15 3a6 6 0 0 1 6 6" />
                 </svg>
+                <h4>Contact us</h4>
             </div>
 
             {/* About us */}
@@ -189,10 +190,11 @@ export default function Mobile_interface() {
                     <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                     <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
                 </svg>
+                <h4>About us</h4>
             </div>
 
             {/* Realité mixte */}
-            <div className="grid-item span-3-1" onClick={() => display_modal("#catacombes_div")}>
+            <div className="grid-item span-3-1 realite_mixte_button" onClick={() => display_modal("#catacombes_div")}>
                 <div>
                     <span>
                         <svg

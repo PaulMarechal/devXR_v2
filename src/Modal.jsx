@@ -26,32 +26,59 @@ export default function Modal() {
         const handlePlay = (video) => {
           const userAgent = navigator.userAgent.toLowerCase();
           const isMobile = /android|iphone|ipad|ipod/.test(userAgent);
-    
+      
           if (isMobile) {
             video.controls = true; 
           } else {
             video.controls = false; 
           }
         };
-    
-        const videos = document.querySelectorAll('video');
-    
-        videos.forEach((video) => {
-            video.muted = true; 
-            video.addEventListener('play', () => handlePlay(video));
-            
-            video.play().catch((error) => {
-                console.log("AutoPlay failed, enabling controls:", error);
-                video.controls = true;
-            });
-          });
       
-          return () => {
-            videos.forEach((video) => {
-                video.removeEventListener('play', () => handlePlay(video));
-            });
-          };
-        }, []);
+        const videoContainers = [
+          '#catacombes_div', 
+          '#metro_map_div', 
+          '#helico_aerobay_div', 
+          '#site_classique_presentation_page', 
+          '#product_div', 
+          '#about_us_div', 
+          '#prestations_div', 
+          '#contact_us_div', 
+          '#augmented_reality_explication_div', 
+          '#virtual_reality_explication_div'
+        ];
+      
+        const observerCallback = (entries, observer) => {
+          entries.forEach((entry) => {
+            const video = entry.target.querySelector('video');
+            if (video) {
+              if (entry.isIntersecting && entry.target.style.display === 'block' && entry.target.style.opacity === '1') {
+                video.play().catch((error) => {
+                  console.log("AutoPlay failed, enabling controls:", error);
+                  video.controls = true;
+                });
+              } else {
+                video.pause();
+              }
+            }
+          });
+        };
+      
+        const observer = new IntersectionObserver(observerCallback, {
+          threshold: 0.5
+        });
+      
+        videoContainers.forEach(selector => {
+          const element = document.querySelector(selector);
+          if (element) {
+            observer.observe(element);
+          }
+        });
+      
+        return () => {
+          observer.disconnect();
+        };
+      }, []);
+      
 
     useEffect(() => {
         // const scroll = new LocomotiveScroll({
@@ -237,7 +264,7 @@ export default function Modal() {
                                     <h4>Découverte Augmentée.</h4>
                                     <p>Nous avons également inclus une section dédiée aux cartes des carrières. Chaque carte, lorsqu'elle est <b>scannée avec votre téléphone</b>, fait apparaître une <b>salle en réalité augmentée</b>. Cette fonctionnalité interactive permet une nouvelle dimension d'<b>exploration</b> et de <b>découverte</b>, offrant une <b>perspective unique</b> sur la taille et la composition des catacombes.</p>
                                 </span>
-                                <video className="video" src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true}></video>
+                                <video className="video" src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true} playsInline></video>
                                 <span id="qr_code_catacomebs_page">
                                     {/* <img src="http://devxr.fr/assets/images/catacombes/qr_cabinet_old.png" alt="" /> */}
                                     <span>

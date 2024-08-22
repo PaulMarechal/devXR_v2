@@ -1868,17 +1868,52 @@ footer p {
 }
   
 /* Landscape mode */
-@media screen and (orientation: landscape) {
+@media only screen and (min-device-width: 375px) and (max-device-width: 428px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+    body, .container{
+        background: #303030;
+    }
+
+    /* Interface */
+    .interface_mobile{
+        position: fixed; 
+        top: -4%;
+        left: 0; 
+        width: 95%; 
+        margin-left: 2.5%;
+        height: 100%; 
+        pointer-events: none;
+        font-family: 'Bebas Neue', cursive; 
+        transition: opacity 0.5s ease-out;
+    }
+
+    .main_title_restart{
+        margin: 0;
+        font-size: 9vh;
+    }
+
+    .name_font{
+        font-size: 7vw!important;
+    }
+    
     .grid {
-      height: 70%;
+      height: 92vh;
       width: 100%;
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(4, 1fr);
-      margin-top: -12%;
+      margin-top: -2vh;
+    }
+
+    .grid-item div svg, .grid-item svg{
+        width: 50px;
+        height: 50px;
+    }
+
+    .header_banner{
+        display: none;
     }
   
     .span-2-1 {
-      grid-column: span 2;
+      grid-column: span 1;
       grid-row: span 1;
     }
   
@@ -1888,8 +1923,8 @@ footer p {
     }
   
     .span-2-2 {
-      grid-column: span 2;
-      grid-row: span 2;
+      grid-column: span 1;
+      grid-row: span 1;
     }
   
     .span-1-2 {
@@ -1898,7 +1933,54 @@ footer p {
     }
   
     .span-3-2 {
-      grid-column: span 3;
+      grid-column: span 2;
       grid-row: span 2;
     }
+
+    .site_3D_button{
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .span-3-1 {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .site_classique_button{
+        grid-column: span 1;
+        grid-row: span 2;
+    }
+
+    .realite_mixte_button{
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .virtual_reality_button{
+        grid-column: span 1;
+        grid-row: span 2;
+    }
+
+    .grid-item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .logo_mobile_main{
+        background-image: url('https://devxr.fr/assets/images/logo/logo_devxr.png') !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        /* background-size: cover !important; */
+        background-size: 40vh!important;     
+        /* background-color: #e0e0e0; */
+        background-color: transparent;
+        box-shadow: none; 
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
 }
