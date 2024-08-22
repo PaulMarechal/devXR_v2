@@ -1305,6 +1305,10 @@ footer p {
     margin: 5vh 0 15vh 0;
 }
 
+#mobile_icons{
+    display: none;
+}
+
 /**
 ** Mobile display
 **/
@@ -1329,7 +1333,7 @@ footer p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.1);
 }
   
-  /* Grid item styles */
+/* Grid item styles */
 .grid-item {
     background-color: rgb(0, 0, 0);
     border-radius: 3vh;
@@ -1338,8 +1342,6 @@ footer p {
     align-items: center;
     justify-content: center;
     color: #fff;
-
-    
 }
 /* Portrait mode */
 @media screen and (orientation: portrait) {
@@ -1350,10 +1352,12 @@ footer p {
     .welcome_modal{
         font-size: 9vh; 
         position: absolute;
-        top: 2.5%;
+        top: 6.5%;
         left: 0;
         width: 100%;
-        height: 95%;
+        height: 85%;
+        -webkit-box-shadow: 5px 5px 15px 5px #FFFFFF; 
+        box-shadow: 0px 0px 50px 0px #FFFFFF;
     }
 
     .grid {
@@ -1619,13 +1623,70 @@ footer p {
         gap: 10px;
     }
 
+    .third_div_video_text span h4{
+        margin-top: 7vh;
+    }
+
+    .third_div_video_text span p{
+        width: 44vh;
+    }
+
+    .third_div_video_text .video{
+        margin-left: 3.5vh;
+    }
+
+    .third_div_video_text span span {
+        /* margin-right: 5vh; */
+        left: 10vh;
+        right: -10v;
+    }
+
+    .button_v1_V2{
+        position: relative;
+        margin-top: 5vh;
+        margin-left: -15vh;
+    }
+
+    .button_v1_V2 span{
+        margin-left: -100vh;
+    }
+
     #guerinet_qr_v2_1{
         position: relative;
         margin-left: -20vh;
     }
 
+    #background_color_button_1{
+        left: 0vh;
+        z-index: 2;
+        opacity: 0.5;
+    }
+
+    #background_color_button, #background_color_button_second, 
+    #background_color_button_third, #background_color_button_1{
+        width: 12px;
+        padding: 4px 8px;
+    }
+
+    .third_div_video_text > span:nth-of-type(2) > span{
+        width: 8vh;
+    }
+
+    .third_div_video_text span {
+        margin-top: 4vh;
+        margin-bottom: -10vh;
+    }
+
+    .third_div_video_text span span p {
+        margin: 4px 8.5px;
+    }
+
+    .button_v1_V2 p{
+        z-index: 10;
+    }
+
     #fdc_qr_v2_1{
-        margin-right: 18.5vh;
+        margin-right: 2.5vh;
     }
 
     #fdc_qr_v2_1, #guerinet_qr_v2_1{
@@ -1646,6 +1707,163 @@ footer p {
     #cabi_qr_v1_1{
         margin-top: 7vh;
         margin-right: .5vh;
+    }
+
+    .second_div_video_text video {
+        margin-top: -10vh;
+        margin-left: 7vh;
+        margin-bottom: 8vh;
+    }
+
+    .hover-container{
+        right: 14vh;
+    }
+
+    .others_examples_qr{
+        margin-top: 6vh;
+    }
+
+    #augmented_reality_explication_div div img{
+        width: 20vh;
+        margin: 5px;
+    }
+
+    #augmented_reality_explication_div .display_inline{
+        display: row;
+        margin-bottom: 30vh;
+    }
+
+    #augmented_reality_explication_div{
+        bottom: 10vh;
+    }
+
+    .hover-text{
+        right: -19.5vh;
+    }
+
+    #virtual_reality_explication_div{
+        padding: 2vh;
+    }
+
+    #virtual_reality_explication_div .div_text_under_images{
+        display: inline;
+    }
+
+    #virtual_reality_explication_div .div_text_under_images div p{
+        width: 43.5vh;
+    }
+
+    #virtual_reality_explication_div .text_explication_vr{
+        margin-top: 10vh;
+    }
+
+    .examples_virtual_reality {
+        display: inline;
+        width: 30vh;
+    }
+
+    .examples_virtual_reality div{
+        width: 32vh;
+        max-width: 37vh;
+        margin: 2vh 0;
+    }
+
+    .text_explication_vr{
+        margin-bottom: 10vh;
+    }
+
+    #catacombes_div .div_video_catacombes img{
+        display: none;
+    }
+
+    #second_div_text_catacombes_page{
+        padding: 0;
+        margin: 0;
+    }
+
+    #second_div_text_catacombes_page {
+        width: 42vh;
+        top: 7vh;
+        position: relative;
+        float: right;
+    }
+
+    #first_image_room_guerinet{
+        width: 40vh;
+        margin-top: 10vh;
+    }
+
+    .text_catacombes_page .div_text_under_images{
+        width: 32vh;
+        margin: 0;
+        display: inline;
+    }
+
+    #desktop_icons{
+        display: none!important; 
+    }
+
+    .text_catacombes_page .second_div_video_text video{
+        margin-top: 23vh;
+    }
+
+    #mobile_icons_qr_code_cata {
+        margin: auto;
+        margin-left: 2vh;
+    }
+
+    #mobile_icons_qr_code_cata span:nth-child(2){
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #mobile_icons_qr_code_cata .button_v1_V2{ 
+        background-color: transparent;
+    }
+
+    #mobile_icons_qr_code_cata .button_v1_V2{
+        display: flex;
+
+    }
+
+    #mobile_icons_qr_code_cata #guerinet_qr_v2_1, #mobile_icons_qr_code_cata #fdc_qr_v2_1{
+        margin-top: 7vh;
+        right: 1vh;
+    }  
+
+    #guerinet_qr_v2_1_mobile{
+        right: 50vh;
+    }
+
+    #mobile_icons_qr_code_cata #guerinet_qr_v2_1, #mobile_icons_qr_code_cata #guerinet_qr_v2_1{
+        margin-top: 7vh;
+        right: 0vh;
+    }  
+
+    #mobile_icons_qr_code_cata .display_inline{
+        display: inline;
+    }
+
+    #mobile_icons_qr_code_cata .display_inline{
+        margin-top: 7vh;
+        margin-left: -1vh;
+    }
+
+    #augmented_reality_explication_div .explication_augmented_reality_text{
+        margin-top: -25vh;
+    }
+
+    #augmented_reality_explication_div{
+        margin-bottom: 30vh;
+    }
+
+    #qr_code_catacomebs_page{
+        display: none;
+    }
+
+    #catacombes_div .text_catacombes_page .div_text_under_images p{
+        width: 42vh;
     }
 }
   

@@ -238,7 +238,7 @@ export default function Modal() {
                                     <p>Nous avons également inclus une section dédiée aux cartes des carrières. Chaque carte, lorsqu'elle est <b>scannée avec votre téléphone</b>, fait apparaître une <b>salle en réalité augmentée</b>. Cette fonctionnalité interactive permet une nouvelle dimension d'<b>exploration</b> et de <b>découverte</b>, offrant une <b>perspective unique</b> sur la taille et la composition des catacombes.</p>
                                 </span>
                                 <video className="video" src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true}></video>
-                                <span>
+                                <span id="qr_code_catacomebs_page">
                                     {/* <img src="http://devxr.fr/assets/images/catacombes/qr_cabinet_old.png" alt="" /> */}
                                     <span>
                                         <span id="background_color_button"></span>
@@ -691,7 +691,7 @@ export default function Modal() {
                                 <path d="M5 12l6 -6" />
                             </svg>
                         </div>
-                        <h1 id="title_catacombes_page" >Réalité Augmentée <br/>Avancée.</h1>
+                        <h1 id="title_catacombes_page">Réalité Augmentée <br/>Avancée.</h1>
 
                         <div className="third_div_video_text">
                             <span>
@@ -700,9 +700,9 @@ export default function Modal() {
                             </span>
                             <video className="video" src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true} playsInline></video>
 
-                            <span>
+                            <span id="desktop_icons">
                                 {/* <img src="http://devxr.fr/assets/images/catacombes/qr_cabinet_old.png" alt="" /> */}
-                                <span>
+                                <span className="button_v1_V2">
                                     <span id="background_color_button_1"></span>
                                     <p id="qr_code_v1_1">v1</p>
                                     <p id="qr_code_v2_1">v2</p>
@@ -713,6 +713,19 @@ export default function Modal() {
                                 <img id="cabi_qr_v1_1" src="http://devxr.fr/assets/images/catacombes/cabi_qr_code_v1.png" alt="QR code qui permet d'afficher la salle Guerinet des Catacombes interdites de Paris en réalité augmentée" />
                                 <img id="cabibis_qr_v1_1" src="http://devxr.fr/assets/images/catacombes/cabibis_qr_code_v1.png" alt="QR code qui permet d'affciher la salle Bracitorium des Catacombes interdites de Paris en réalité augmentée" />
                             </span>
+
+                            <span id="mobile_icons_qr_code_cata">
+     
+                                <div className="display_inline">
+                                    <img src="http://devxr.fr/assets/images/catacombes/cabi_qr_code_v1.png" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Permet de voir une patisserie en ralité augmentée après avoir scanné le QR Code" />
+                                    <img src="http://devxr.fr/assets/images/catacombes/qr_code_fdc.png" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Chaussures en réalité augmentée en scannant un QR code" />
+                                </div>
+
+                                <div className="display_inline">
+                                    <img src="http://devxr.fr/assets/images/catacombes/cabibis_qr_code_v1.png" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Voir les plans d'un appartement en réalité augmentée après avoir scanné un QR Code" />
+                                    <img src="http://devxr.fr/assets/images/catacombes/qr_code_guerinet.png" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Salle du fond du crew dans les catacombes interdites de Paris en realité augmentée en scannant un QR code" />
+                                </div>
+                            </span>
                         </div>
 
                         <div className="explication_augmented_reality_text">
@@ -722,7 +735,7 @@ export default function Modal() {
 
                         
                         <div className="second_div_video_text">
-                            <video className="video" src="https://devxr.fr/assets/video/demo_catacombes_realite_virtuelle.mp4" loop muted autoPlay={true} ></video>
+                            <video className="video" src="https://devxr.fr/assets/video/demo_catacombes_realite_virtuelle.mp4" loop muted autoPlay={true} playsInline></video>
                             <span>
                                 <h4>Voyage Virtuel.</h4>
                                 <p>Découvrez comment, en scannant un simple lien, un <b>modèle 3D</b> de taille réelle peut apparaître devant vous. Que ce soit pour explorer des <b>salles historiques</b>, <b>des appartements</b> à visiter, ou même des <b>œuvres d'art</b> et <b>meubles</b>, la réalité augmentée vous permet de créer des <b>visites immersives</b> et détaillées de vos produits et espaces. Laissez libre cours à votre imagination pour offrir des expériences uniques directement depuis votre écran.</p>
@@ -740,7 +753,7 @@ export default function Modal() {
                             </span>
                         </div>
 
-                        <h4>Autres exemples</h4>
+                        <h4 className="others_examples_qr">Autres exemples</h4>
                         <div className="display_inline">
                             <img src="./assets/images/QR_code/fond_du_cresw.webp" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Salle du fond du crew dans les catacombes interdites de Paris en realité augmentée en scannant un QR code" />
                             <img src="./assets/images/QR_code/Lune1.webp" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Chaussures en réalité augmentée en scannant un QR code" />
@@ -768,7 +781,7 @@ export default function Modal() {
                         <div className="div_video_catacombes margin_video_div">
                             <img src="https://devxr.fr/assets/images/catacombes/oculus_screen_guerinet_catacombes.jpg" alt="Capture d'écran d'une visite des catacombes interdites avec un casque Oculus Quest 2 en réalité virtuelle." />
                             
-                            <video className="video" src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4" loop autoPlay={true} muted ></video>
+                            <video className="video" src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4" loop autoPlay={true} muted playsInline></video>
                             
                             <img src="https://devxr.fr/assets/images/catacombes/graphiti_1863_guerinet_catacombes.jpg" alt="" />
                         </div>
@@ -783,7 +796,7 @@ export default function Modal() {
                                 <br/>
                                 <p>Avec la réalité virtuelle, vous ne vous contentez plus de regarder des images : vous êtes au cœur de l'action. Elle redéfinit la manière dont vous percevez le monde numérique, en vous ouvrant des portes vers des lieux et des expériences jusque-là inaccessibles.</p>
                             </div>
-                            <video className="video video_explication" src="https://devxr.fr/assets/video/load_vr_experience.mp4" loop autoPlay={true} muted ></video>
+                            <video className="video video_explication" src="https://devxr.fr/assets/video/load_vr_experience.mp4" loop autoPlay={true} muted playsInline></video>
                         </div>
                         
                         <div className="text_explication_vr">
