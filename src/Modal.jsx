@@ -892,6 +892,3 @@ export default function Modal() {
         </>
     );
 }
-
-
-

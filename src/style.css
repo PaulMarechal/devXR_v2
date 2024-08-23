@@ -141,7 +141,6 @@ b{
     top: 0;
     left: 0;
     overflow: hidden;
-
     background: #0f0f0f;
     color: #fff;
 }
@@ -182,7 +181,6 @@ b{
     transition: rotate 0.3s ease-out;
     pointer-events: auto;
     cursor: pointer;
-
 }
 
 .close_icon:hover, .close_icon_start:hover{
@@ -1350,14 +1348,18 @@ footer p {
     }
 
     .welcome_modal{
-        font-size: 9vh; 
+        font-size: 5vh; 
         position: absolute;
-        top: 6.5%;
+        top: 4.5%;
         left: 0;
         width: 100%;
         height: 85%;
-        -webkit-box-shadow: 5px 5px 15px 5px #FFFFFF; 
-        box-shadow: 0px 0px 50px 0px #FFFFFF;
+        -webkit-box-shadow: 5px 5px 15px 5px #d0d0d0; 
+        box-shadow: 0px 0px 50px 0px #9b9b9b;
+    }
+
+    .close_icon_start{
+        top: 0vh;
     }
 
     .grid {
@@ -1873,6 +1875,11 @@ footer p {
         background: #303030;
     }
 
+    .container {
+        height: 100vh;
+        width: 100vw;
+    }
+
     /* Interface */
     .interface_mobile{
         position: fixed; 
@@ -1886,6 +1893,10 @@ footer p {
         transition: opacity 0.5s ease-out;
     }
 
+    .close_icon_start{
+        top: .1vh;
+    }
+
     .main_title_restart{
         margin: 0;
         font-size: 9vh;
@@ -1896,16 +1907,16 @@ footer p {
     }
     
     .grid {
-      height: 92vh;
-      width: 100%;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(4, 1fr);
-      margin-top: -2vh;
+        height: 92vh;
+        width: 100%;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        margin-top: -2vh;
     }
 
     .grid-item div svg, .grid-item svg{
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
     }
 
     .header_banner{
@@ -1913,28 +1924,28 @@ footer p {
     }
   
     .span-2-1 {
-      grid-column: span 1;
-      grid-row: span 1;
+        grid-column: span 1;
+        grid-row: span 1;
     }
   
     .span-1-4 {
-      grid-column: span 1;
-      grid-row: span 4;
+        grid-column: span 1;
+        grid-row: span 4;
     }
   
     .span-2-2 {
-      grid-column: span 1;
-      grid-row: span 1;
+        grid-column: span 1;
+        grid-row: span 1;
     }
   
     .span-1-2 {
-      grid-column: span 1;
-      grid-row: span 2;
+        grid-column: span 1;
+        grid-row: span 2;
     }
   
     .span-3-2 {
-      grid-column: span 2;
-      grid-row: span 2;
+        grid-column: span 2;
+        grid-row: span 2;
     }
 
     .site_3D_button{
@@ -1975,7 +1986,7 @@ footer p {
         background-position: center center !important;
         background-repeat: no-repeat !important;
         /* background-size: cover !important; */
-        background-size: 40vh!important;     
+        background-size: 60vh!important;     
         /* background-color: #e0e0e0; */
         background-color: transparent;
         box-shadow: none; 
@@ -1983,4 +1994,81 @@ footer p {
         grid-row: span 1;
     }
 
+    /* Classique website div */
+    .text_modale_div div p, a, footer p {
+        font-size: 3.1vh;
+    }
+
+    .first_div_aero_page div h4{
+        font-size: 6vh;
+    }
+
+    .first_div_aero_page div p{
+        font-size: 4.5vh;
+    }
+    
+    b{
+        font-size: 3.2vh;
+    }
+
+    #first_text_catacombes_page, 
+    .title_navigo_section p, 
+    .first_text_site_classique{
+        width: 95%;
+        margin: 10vh auto;
+        text-align: center;
+    }
+
+    .display_infos_product .realisation_infos_div_second, 
+    .display_infos_product .realisation_infos_div_first {
+        padding: 2vh 3.5vh;
+    }
+
+    h1{ font-size: 5.6vh; }
+
+    #title_catacombes_page, .title_navigo_section h1{
+        font-size: 8vh;
+    }
+    
+    h3{ font-size: 5.3vh; margin: 1vh 0; }
+    
+    h4{ font-size: 5.3vh; margin-left: 0; }
+
+    .text_modale_div{
+        margin-bottom: 10vh;
+    }
+
+    /* Modal infos */
+    .modal_infos{
+        height: 82%;
+        width: 96%;
+        margin: 1% 2%;
+        padding: 0 0 4% 0;
+    }
+
+    .text_modale_div{
+        height: -webkit-fill-available;
+    }
+
+    .contact_us_presentation {
+        margin: 15vh 5vh 5vh 5vh;
+    }
+
+    .realisation_infos_div_first{
+        width: 45vh;
+        height: 75vh;
+    }
+
+    .realisation_infos_div_second{
+        width: 90vh;
+        height: 65vh;
+    }
+
+    .fouth_div_site_classique_page p b, .fifth_div_site_classique_page p b{
+        font-size: 3.1vh;
+    }
+
+    .grid-item{
+        border-radius: 6vh;
+    }
 }
