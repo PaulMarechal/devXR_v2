@@ -1321,6 +1321,17 @@ footer p {
     align-items: center;
     justify-content: center;
 }
+
+#mobile_icons_qr_code_cata{
+    display: none;
+}
+
+#exemple_plan_interactif{
+    margin-top: -5vh;
+    margin-bottom: 10vh;
+    text-align: center;
+    cursor: pointer;
+}
   
 /* Grid styles */
 .grid {
@@ -1345,6 +1356,10 @@ footer p {
 @media screen and (orientation: portrait) {
     body, .container{
         background: #303030;
+    }
+
+    #exemple_plan_interactif{
+        display: none;
     }
 
     .welcome_modal{
@@ -1873,6 +1888,10 @@ footer p {
 @media only screen and (min-device-width: 375px) and (max-device-width: 428px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
     body, .container{
         background: #303030;
+    }
+
+    #exemple_plan_interactif{
+        display: none;
     }
 
     .container {

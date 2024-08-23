@@ -51,14 +51,14 @@ export default function Modal() {
           entries.forEach((entry) => {
             const video = entry.target.querySelector('video');
             if (video) {
-              if (entry.isIntersecting && entry.target.style.display === 'block' && entry.target.style.opacity === '1') {
-                video.play().catch((error) => {
-                  console.log("AutoPlay failed, enabling controls:", error);
-                  video.controls = true;
-                });
-              } else {
-                video.pause();
-              }
+                if (entry.isIntersecting && entry.target.style.display === 'block' && entry.target.style.opacity === '1') {
+                    video.play().catch((error) => {
+                    console.log("AutoPlay failed, enabling controls:", error);
+                    video.controls = true;
+                    });
+                } else {
+                    video.pause();
+                }
             }
           });
         };
@@ -787,7 +787,7 @@ export default function Modal() {
                             <img src="./assets/images/QR_code/anubis.webp" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Voir les plans d'un appartement en réalité augmentée après avoir scanné un QR Code" />
                             <img src="./assets/images/QR_code/fond_du_crew_1.webp" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Permet de voir une patisserie en ralité augmentée après avoir scanné le QR Code" />
                         </div>
-
+                        <h4 id="exemple_plan_interactif" onClick={() => display_modal("#metro_map_div")}>Exemple d'un plan interactif</h4>
                     </div>
 
                     {/* Virtual explication div */}
