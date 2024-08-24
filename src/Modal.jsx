@@ -4,6 +4,7 @@ import $ from "jquery";
 export default function Modal() {
 
     function display_modal(elem_to_display){
+
         // Hide all modals first
         $(".modal_infos").css("display", "none").css("opacity", "0");
         $(".text_modale_div").css("display", "none").css("opacity", "0");
@@ -141,6 +142,8 @@ export default function Modal() {
 
 
         $(document).ready(function () {
+            $('#text_display').remove();
+            
             function updateDisplay(targetImageClass, buttonMargin) {
                 $(".classique_website_img").css("opacity", "0");
                 $("#background_color_button_second").css("margin-left", buttonMargin);
