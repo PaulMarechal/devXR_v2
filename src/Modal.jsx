@@ -143,7 +143,7 @@ export default function Modal() {
 
         $(document).ready(function () {
             $('#text_display').remove();
-            
+
             function updateDisplay(targetImageClass, buttonMargin) {
                 $(".classique_website_img").css("opacity", "0");
                 $("#background_color_button_second").css("margin-left", buttonMargin);
@@ -269,17 +269,17 @@ export default function Modal() {
                                 </span>
                                 <video className="video" src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true} playsInline></video>
                                 <span id="qr_code_catacomebs_page">
-                                    {/* <img src="http://devxr.fr/assets/images/catacombes/qr_cabinet_old.png" alt="" /> */}
+                                    {/* <img src="https://devxr.fr/assets/images/catacombes/qr_cabinet_old.png" alt="" /> */}
                                     <span>
                                         <span id="background_color_button"></span>
                                         <p id="qr_code_v1">v1</p>
                                         <p id="qr_code_v2">v2</p>
                                     </span>
-                                    <img id="guerinet_qr_v2" src="http://devxr.fr/assets/images/catacombes/qr_code_guerinet.png" alt="QR code qui permet d'afficher la salle Guerinet des Catacombes interdites de Paris en réalité augmentée" />
-                                    <img id="fdc_qr_v2" src="http://devxr.fr/assets/images/catacombes/qr_code_fdc.png" alt="QR code qui permet d'affciher la salle Bracitorium des Catacombes interdites de Paris en réalité augmentée" />
+                                    <img id="guerinet_qr_v2" src="https://devxr.fr/assets/images/catacombes/qr_code_guerinet.png" alt="QR code qui permet d'afficher la salle Guerinet des Catacombes interdites de Paris en réalité augmentée" />
+                                    <img id="fdc_qr_v2" src="https://devxr.fr/assets/images/catacombes/qr_code_fdc.png" alt="QR code qui permet d'affciher la salle Bracitorium des Catacombes interdites de Paris en réalité augmentée" />
 
-                                    <img id="cabi_qr_v1" src="http://devxr.fr/assets/images/catacombes/cabi_qr_code_v1.png" alt="QR code qui permet d'afficher la salle Guerinet des Catacombes interdites de Paris en réalité augmentée" />
-                                    <img id="cabibis_qr_v1" src="http://devxr.fr/assets/images/catacombes/cabibis_qr_code_v1.png" alt="QR code qui permet d'affciher la salle Bracitorium des Catacombes interdites de Paris en réalité augmentée" />
+                                    <img id="cabi_qr_v1" src="https://devxr.fr/assets/images/catacombes/cabi_qr_code_v1.png" alt="QR code qui permet d'afficher la salle Guerinet des Catacombes interdites de Paris en réalité augmentée" />
+                                    <img id="cabibis_qr_v1" src="https://devxr.fr/assets/images/catacombes/cabibis_qr_code_v1.png" alt="QR code qui permet d'affciher la salle Bracitorium des Catacombes interdites de Paris en réalité augmentée" />
                                 </span>
                             </div>
 
@@ -731,29 +731,29 @@ export default function Modal() {
                             <video className="video" src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" loop muted autoPlay={true} playsInline></video>
 
                             <span id="desktop_icons">
-                                {/* <img src="http://devxr.fr/assets/images/catacombes/qr_cabinet_old.png" alt="" /> */}
+                                {/* <img src="https://devxr.fr/assets/images/catacombes/qr_cabinet_old.png" alt="" /> */}
                                 <span className="button_v1_V2">
                                     <span id="background_color_button_1"></span>
                                     <p id="qr_code_v1_1">v1</p>
                                     <p id="qr_code_v2_1">v2</p>
                                 </span>
-                                <img id="guerinet_qr_v2_1" src="http://devxr.fr/assets/images/catacombes/qr_code_guerinet.png" alt="QR code qui permet d'afficher la salle Guerinet des Catacombes interdites de Paris en réalité augmentée" />
-                                <img id="fdc_qr_v2_1" src="http://devxr.fr/assets/images/catacombes/qr_code_fdc.png" alt="QR code qui permet d'affciher la salle Bracitorium des Catacombes interdites de Paris en réalité augmentée" />
+                                <img id="guerinet_qr_v2_1" src="https://devxr.fr/assets/images/catacombes/qr_code_guerinet.png" alt="QR code qui permet d'afficher la salle Guerinet des Catacombes interdites de Paris en réalité augmentée" />
+                                <img id="fdc_qr_v2_1" src="https://devxr.fr/assets/images/catacombes/qr_code_fdc.png" alt="QR code qui permet d'affciher la salle Bracitorium des Catacombes interdites de Paris en réalité augmentée" />
 
-                                <img id="cabi_qr_v1_1" src="http://devxr.fr/assets/images/catacombes/cabi_qr_code_v1.png" alt="QR code qui permet d'afficher la salle Guerinet des Catacombes interdites de Paris en réalité augmentée" />
-                                <img id="cabibis_qr_v1_1" src="http://devxr.fr/assets/images/catacombes/cabibis_qr_code_v1.png" alt="QR code qui permet d'affciher la salle Bracitorium des Catacombes interdites de Paris en réalité augmentée" />
+                                <img id="cabi_qr_v1_1" src="https://devxr.fr/assets/images/catacombes/cabi_qr_code_v1.png" alt="QR code qui permet d'afficher la salle Guerinet des Catacombes interdites de Paris en réalité augmentée" />
+                                <img id="cabibis_qr_v1_1" src="https://devxr.fr/assets/images/catacombes/cabibis_qr_code_v1.png" alt="QR code qui permet d'affciher la salle Bracitorium des Catacombes interdites de Paris en réalité augmentée" />
                             </span>
 
                             <span id="mobile_icons_qr_code_cata">
      
                                 <div className="display_inline">
-                                    <img src="http://devxr.fr/assets/images/catacombes/cabi_qr_code_v1.png" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Permet de voir une patisserie en ralité augmentée après avoir scanné le QR Code" />
-                                    <img src="http://devxr.fr/assets/images/catacombes/qr_code_fdc.png" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Chaussures en réalité augmentée en scannant un QR code" />
+                                    <img src="https://devxr.fr/assets/images/catacombes/cabi_qr_code_v1.png" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Permet de voir une patisserie en ralité augmentée après avoir scanné le QR Code" />
+                                    <img src="https://devxr.fr/assets/images/catacombes/qr_code_fdc.png" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Chaussures en réalité augmentée en scannant un QR code" />
                                 </div>
 
                                 <div className="display_inline">
-                                    <img src="http://devxr.fr/assets/images/catacombes/cabibis_qr_code_v1.png" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Voir les plans d'un appartement en réalité augmentée après avoir scanné un QR Code" />
-                                    <img src="http://devxr.fr/assets/images/catacombes/qr_code_guerinet.png" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Salle du fond du crew dans les catacombes interdites de Paris en realité augmentée en scannant un QR code" />
+                                    <img src="https://devxr.fr/assets/images/catacombes/cabibis_qr_code_v1.png" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Voir les plans d'un appartement en réalité augmentée après avoir scanné un QR Code" />
+                                    <img src="https://devxr.fr/assets/images/catacombes/qr_code_guerinet.png" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Salle du fond du crew dans les catacombes interdites de Paris en realité augmentée en scannant un QR code" />
                                 </div>
                             </span>
                         </div>
