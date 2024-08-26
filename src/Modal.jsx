@@ -25,8 +25,6 @@ export default function Modal() {
                 $(this).attr("muted", "true");
                 $(this).attr("loop", "true");
                 $(this).attr("playinline", "true");
-                // $(this).attr("controls", "true");
-                // $(this).prop("playsinline", true);
             });
 
                     
@@ -34,87 +32,15 @@ export default function Modal() {
         }, 350);
     }
 
-    $('.video').attr('playsinline',''); 
-
-    // useEffect(() => {
-    //     const handlePlay = (video) => {
-    //       const userAgent = navigator.userAgent.toLowerCase();
-    //       const isMobile = /android|iphone|ipad|ipod/.test(userAgent);
-      
-    //       if (isMobile) {
-    //         video.controls = true; 
-    //       } else {
-    //         video.controls = false; 
-    //       }
-    //     };
-    // })
-      
-    //     const videoContainers = [
-    //       '#catacombes_div', 
-    //       '#metro_map_div', 
-    //       '#helico_aerobay_div', 
-    //       '#site_classique_presentation_page', 
-    //       '#product_div', 
-    //       '#about_us_div', 
-    //       '#prestations_div', 
-    //       '#contact_us_div', 
-    //       '#augmented_reality_explication_div', 
-    //       '#virtual_reality_explication_div'
-    //     ];
-      
-    //     const observerCallback = (entries, observer) => {
-    //       entries.forEach((entry) => {
-    //         const video = entry.target.querySelector('video');
-    //         if (video) {
-    //             if (entry.isIntersecting && entry.target.style.display === 'block' && entry.target.style.opacity === '1') {
-    //                 video.play().catch((error) => {
-    //                 console.log("AutoPlay failed, enabling controls:", error);
-    //                 video.controls = true;
-    //                 });
-    //             } else {
-    //                 video.pause();
-    //             }
-    //         }
-    //       });
-    //     };
-      
-    //     const observer = new IntersectionObserver(observerCallback, {
-    //       threshold: 0.5
-    //     });
-      
-    //     videoContainers.forEach(selector => {
-    //       const element = document.querySelector(selector);
-    //       if (element) {
-    //         observer.observe(element);
-    //       }
-    //     });
-      
-    //     return () => {
-    //       observer.disconnect();
-    //     };
-    //   }, []);
+    // $('.video').attr('playsinline',''); 
       
 
     useEffect(() => {
-        // const scroll = new LocomotiveScroll({
-        //     el: document.querySelector(".text_modale_div"),
-        //     smooth: true,
-        // });
 
         /* Close modal */
         $(".close_icon").on("click", function() {
             $(".modal_infos").css("opacity", "0");
             $(".text_modale_div").each(function() { $(this).css("opacity", "0"); });
-            
-            // Remove attributes to video elem
-            // var videos = `${elem_to_display} div .video`
-
-            // videos.each(function() {
-            //     $(this).removeAttr( "autoPlay", "true" );
-            //     $(this).removeAttr( "loop" );
-            //     $(this).removeAttr( "muted");
-            //     $(this).removeAttr( "playsInline" );
-            // });
 
             let videos = $(".video")
 
