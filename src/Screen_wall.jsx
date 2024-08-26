@@ -9,11 +9,10 @@ export default function Screen({ position = [0, 0, 0] }) {
     const screen_model = useGLTF("./assets/models/tv_display.glb");
     const phone = useGLTF("./assets/models/phone.gltf");
 
-    const test ="./assets/images/cadres/test.jpg";
-    const image_catas = "./assets/images/cadres/geurinet_escalier.jpeg"
-    const image_navigo = "./assets/images/cadres/navigoDemo_2.png"
-    const image_aero = "./assets/images/cadres/aero.png"
-    const as_clean = "./assets/images/cadres/as_clean_2.png"
+    const image_catas = "./assets/images/cadres/geurinet_escalier.webp"
+    const image_navigo = "./assets/images/cadres/navigoDemo_2.webp"
+    const image_aero = "./assets/images/cadres/aero.webp"
+    const as_clean = "./assets/images/cadres/as_clean_2.webp"
 
     const fdc_qr = "./assets/images/QR_code/fond_du_cresw.webp"
     const fdc_2_qr = "./assets/images/QR_code/fond_du_crew_1.webp"
