@@ -1,11 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import $ from "jquery";
-
 export default function Modal() {
-
     function display_modal(elem_to_display){
-        $('#text_display').css("color", "#fff");
-
         // Hide all modals first
         $(".modal_infos").css("display", "none").css("opacity", "0");
         $(".text_modale_div").css("display", "none").css("opacity", "0");
@@ -15,7 +11,7 @@ export default function Modal() {
         setTimeout(() => {
             $(".modal_infos").css("opacity", "1");
         }, 200);
-    
+
         // Display the specific modal content
         setTimeout(() => {
             // Play video 
@@ -26,22 +22,91 @@ export default function Modal() {
                 $(this).attr("muted", "true");
                 $(this).attr("loop", "true");
                 $(this).attr("playinline", "true");
+                // $(this).attr("controls", "true");
+                // $(this).prop("playsinline", true);
             });
 
-                    
+
             $(elem_to_display).css("display", "block").css("opacity", "1");
         }, 350);
     }
 
-    // $('.video').attr('playsinline',''); 
-      
+    $('.video').attr('playsinline',''); 
+
+    useEffect(() => {
+        const handlePlay = (video) => {
+          const userAgent = navigator.userAgent.toLowerCase();
+          const isMobile = /android|iphone|ipad|ipod/.test(userAgent);
+
+          if (isMobile) {
+            video.controls = true; 
+          } else {
+            video.controls = false; 
+          }
+        };
+    })
+
+        const videoContainers = [
+          '#catacombes_div', 
+          '#metro_map_div', 
+          '#helico_aerobay_div', 
+          '#site_classique_presentation_page', 
+          '#product_div', 
+          '#about_us_div', 
+          '#prestations_div', 
+          '#contact_us_div', 
+          '#augmented_reality_explication_div', 
+          '#virtual_reality_explication_div'
+        ];
+
+        const observerCallback = (entries, observer) => {
+          entries.forEach((entry) => {
+            const video = entry.target.querySelector('video');
+            if (video) {
+                if (entry.isIntersecting && entry.target.style.display === 'block' && entry.target.style.opacity === '1') {
+                    video.play().catch((error) => {
+                    console.log("AutoPlay failed, enabling controls:", error);
+                    video.controls = true;
+                    });
+                } else {
+                    video.pause();
+                }
+            }
+          });
+        };
+
+    //     const observer = new IntersectionObserver(observerCallback, {
+    //       threshold: 0.5
+    //     });
+
+    //     videoContainers.forEach(selector => {
+    //       const element = document.querySelector(selector);
+    //       if (element) {
+    //         observer.observe(element);
+    //       }
+    //     });
+
+    //     return () => {
+    //       observer.disconnect();
+    //     };
+    //   }, []);
+
 
     useEffect(() => {
 
-        /* Close modal */
         $(".close_icon").on("click", function() {
             $(".modal_infos").css("opacity", "0");
             $(".text_modale_div").each(function() { $(this).css("opacity", "0"); });
+
+            // Remove attributes to video elem
+            // var videos = `${elem_to_display} div .video`
+
+            // videos.each(function() {
+            //     $(this).removeAttr( "autoPlay", "true" );
+            //     $(this).removeAttr( "loop" );
+            //     $(this).removeAttr( "muted");
+            //     $(this).removeAttr( "playsInline" );
+            // });
 
             let videos = $(".video")
 
@@ -57,7 +122,6 @@ export default function Modal() {
                 $(".text_modale_div").each(function() { $(this).css("display", "none"); });
             }, 200);
         });
-
         function update_qr_code_display(button_id, button_margin, hide_selectors, show_selectors) {
             $(button_id).css("margin-left", button_margin);
         
@@ -71,8 +135,6 @@ export default function Modal() {
                 });
             }, 450);
         }
-
-
         // First QR Code in catacombes page
         $("#qr_code_v1").on("click", () => {
             update_qr_code_display("#background_color_button", "0", ["#guerinet_qr_v2", "#fdc_qr_v2"], ["#cabi_qr_v1", "#cabibis_qr_v1"]);
@@ -81,7 +143,6 @@ export default function Modal() {
         $("#qr_code_v2").on("click", () => {
             update_qr_code_display("#background_color_button", "39px", ["#cabi_qr_v1", "#cabibis_qr_v1"], ["#guerinet_qr_v2", "#fdc_qr_v2"]);
         });
-
         // Second QR Code in Realité augmenté page
         $("#qr_code_v1_1").on("click", () => {
             update_qr_code_display("#background_color_button_1", "0", ["#guerinet_qr_v2_1", "#fdc_qr_v2_1"], ["#cabi_qr_v1_1", "#cabibis_qr_v1_1"]);
@@ -90,21 +151,14 @@ export default function Modal() {
         $("#qr_code_v2_1").on("click", () => {
             update_qr_code_display("#background_color_button_1", "39px", ["#cabi_qr_v1_1", "#cabibis_qr_v1_1"], ["#guerinet_qr_v2_1", "#fdc_qr_v2_1"]);
         });
-
-
-
         $("#vr_icon_exemple").on("click", () => {
             update_qr_code_display("#background_color_button_third", "2px", [".realite_augmente_exemple"], [".realite_virtuelle_exemple"]);
         });
-
         $("#ar_icon_exemple").on("click", () => {
             update_qr_code_display("#background_color_button_third", "46px", [".realite_virtuelle_exemple"], [".realite_augmente_exemple"]);
         });
-
-
         $(document).ready(function () {
             $('#text_display').remove();
-
             function updateDisplay(targetImageClass, buttonMargin) {
                 $(".classique_website_img").css("opacity", "0");
                 $("#background_color_button_second").css("margin-left", buttonMargin);
@@ -128,7 +182,6 @@ export default function Modal() {
         
             updateDisplay(".iphone_classic", "3px");
         });
-
         return () => {
             $(".close_icon").off("click");
             // scroll.destroy(); 
@@ -341,7 +394,7 @@ export default function Modal() {
                                     Naviguez à travers un <b>modèle 3D détaillé d'un hélicoptère</b>, où chaque pièce disponible à la vente est marquée par un point rouge interactif. En survolant ou en cliquant sur ces points, vous pouvez accéder instantanément à des informations détaillées sur chaque pièce : son nom, ses spécifications techniques, son état, et bien plus encore. Cette interface intuitive vous permet de <b>visualiser directement les pièces</b> que vous recherchez, rendant la navigation plus intuitive et efficace.
                                 </p>
                             </div>
-                            <video className="video" src="https://devxr.fr/assets/video/screen_helico_3D.mp4"></video>
+                            <video className="video" src="https://devxr.fr/assets/video/screen_helico_3D.mp4" autoPlay={true} muted loop playinline></video>
                         </div>
 
                         <div className="second_div_aero_page">
