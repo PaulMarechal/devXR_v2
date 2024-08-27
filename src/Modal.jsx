@@ -15,16 +15,16 @@ export default function Modal() {
         // Display the specific modal content
         setTimeout(() => {
             // Play video 
-            let videos = $(`${elem_to_display} div .video`);
+            // let videos = $(`${elem_to_display} div .video`);
 
-            videos.each(function() {
-                $(this).prop("autoplay", true);
-                $(this).attr("muted", "true");
-                $(this).attr("loop", "true");
-                $(this).attr("playinline", "true");
-                // $(this).attr("controls", "true");
-                // $(this).prop("playsinline", true);
-            });
+            // videos.each(function() {
+            //     $(this).prop("autoPlay", true);
+            //     $(this).attr("muted", "true");
+            //     $(this).attr("loop", "true");
+            //     $(this).attr("playsInline", "true");
+            //     // $(this).attr("controls", "true");
+            //     // $(this).prop("playsinline", true);
+            // });
 
 
             $(elem_to_display).css("display", "block").css("opacity", "1");
@@ -46,34 +46,34 @@ export default function Modal() {
         };
     })
 
-        const videoContainers = [
-          '#catacombes_div', 
-          '#metro_map_div', 
-          '#helico_aerobay_div', 
-          '#site_classique_presentation_page', 
-          '#product_div', 
-          '#about_us_div', 
-          '#prestations_div', 
-          '#contact_us_div', 
-          '#augmented_reality_explication_div', 
-          '#virtual_reality_explication_div'
-        ];
+        // const videoContainers = [
+        //   '#catacombes_div', 
+        //   '#metro_map_div', 
+        //   '#helico_aerobay_div', 
+        //   '#site_classique_presentation_page', 
+        //   '#product_div', 
+        //   '#about_us_div', 
+        //   '#prestations_div', 
+        //   '#contact_us_div', 
+        //   '#augmented_reality_explication_div', 
+        //   '#virtual_reality_explication_div'
+        // ];
 
-        const observerCallback = (entries, observer) => {
-          entries.forEach((entry) => {
-            const video = entry.target.querySelector('video');
-            if (video) {
-                if (entry.isIntersecting && entry.target.style.display === 'block' && entry.target.style.opacity === '1') {
-                    video.play().catch((error) => {
-                    console.log("AutoPlay failed, enabling controls:", error);
-                    video.controls = true;
-                    });
-                } else {
-                    video.pause();
-                }
-            }
-          });
-        };
+        // const observerCallback = (entries, observer) => {
+        //   entries.forEach((entry) => {
+        //     const video = entry.target.querySelector('video');
+        //     if (video) {
+        //         if (entry.isIntersecting && entry.target.style.display === 'block' && entry.target.style.opacity === '1') {
+        //             video.play().catch((error) => {
+        //             console.log("AutoPlay failed, enabling controls:", error);
+        //             video.controls = true;
+        //             });
+        //         } else {
+        //             video.pause();
+        //         }
+        //     }
+        //   });
+        // };
 
     //     const observer = new IntersectionObserver(observerCallback, {
     //       threshold: 0.5
@@ -108,14 +108,14 @@ export default function Modal() {
             //     $(this).removeAttr( "playsInline" );
             // });
 
-            let videos = $(".video")
+            // let videos = $(".video")
 
-            videos.each(function() {
-                $(this).removeAttr("autoplay")
-                $(this).removeAttr("muted")
-                $(this).removeAttr("loop")
-                $(this).removeAttr("playinline")
-            })
+            // videos.each(function() {
+            //     $(this).removeAttr("autoplay")
+            //     $(this).removeAttr("muted")
+            //     $(this).removeAttr("loop")
+            //     $(this).removeAttr("playsInline")
+            // })
 
             setTimeout(() => {
                 $(".modal_infos").css("display", "none");
@@ -246,7 +246,7 @@ export default function Modal() {
                             <div className="div_video_catacombes">
                                 <img src="https://devxr.fr/assets/images/catacombes/oculus_screen_guerinet_catacombes.webp" alt="Capture d'écran d'une visite des catacombes interdites avec un casque Oculus Quest 2 en réalité virtuelle." />
 
-                                <video className="video" src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4"></video>
+                                <video className="video" src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4" autoPlay={true} muted loop playsInline></video>
                                 
                                 <img src="https://devxr.fr/assets/images/catacombes/graphiti_1863_guerinet_catacombes.webp" alt="" />
                             </div>
@@ -258,7 +258,7 @@ export default function Modal() {
 
 
                             <div className="second_div_video_text">
-                                <video className="video" src="https://devxr.fr/assets/video/demo_catacombes_realite_virtuelle.mp4"></video>
+                                <video className="video" src="https://devxr.fr/assets/video/demo_catacombes_realite_virtuelle.mp4" autoPlay={true} muted loop playsInline></video>
                                 <span>
                                     <h4>Exploration Interactive.</h4>
                                     <p>Sur la vidéo à côté, vous pouvez voir comment, à partir d'un lien, un modèle 3D grandeur nature peut apparaître. Ici, il s'agit d'une salle des catacombes, mais cela peut être tout ce que vous souhaitez : un appartement à faire visiter à des clients, des œuvres d'art, des meubles etc. Imaginez pouvoir offrir des visites immersives et détaillées de vos produits ou espaces directement depuis un simple lien.</p>
@@ -281,7 +281,7 @@ export default function Modal() {
                                     <h4>Découverte Augmentée.</h4>
                                     <p>Nous avons également inclus une section dédiée aux cartes des carrières. Chaque carte, lorsqu'elle est <b>scannée avec votre téléphone</b>, fait apparaître une <b>salle en réalité augmentée</b>. Cette fonctionnalité interactive permet une nouvelle dimension d'<b>exploration</b> et de <b>découverte</b>, offrant une <b>perspective unique</b> sur la taille et la composition des catacombes.</p>
                                 </span>
-                                <video className="video" src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4"></video>
+                                <video className="video" src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" autoPlay muted loop playsInline></video>
                                 <span id="qr_code_catacomebs_page">
                                     {/* <img src="https://devxr.fr/assets/images/catacombes/qr_cabinet_old.webp" alt="" /> */}
                                     <span>
@@ -327,7 +327,7 @@ export default function Modal() {
                         </div>
 
                         <div className="second_div_navigo_page">
-                            <video className="video" src="https://devxr.fr/assets/video/demo_navigo_realite_augmentee.mp4"></video>
+                            <video className="video" src="https://devxr.fr/assets/video/demo_navigo_realite_augmentee.mp4" autoPlay={true} muted loop playsInline></video>
                             <p>Imaginez-vous en train de sortir de la station, cherchant la ligne de métro ou le RER le plus proche. Plus besoin de consulter des applications ou des plans papier compliqués. Avec notre technologie de <b>scanning AR</b>, il suffit de pointer votre smartphone vers votre carte Navigo pour voir s'afficher instantanément une <b>carte interactive en 3D</b>. Cette carte vous montre <b>votre position exacte</b> et vous guide vers la station la plus proche.</p>
                         </div>
 
@@ -394,7 +394,7 @@ export default function Modal() {
                                     Naviguez à travers un <b>modèle 3D détaillé d'un hélicoptère</b>, où chaque pièce disponible à la vente est marquée par un point rouge interactif. En survolant ou en cliquant sur ces points, vous pouvez accéder instantanément à des informations détaillées sur chaque pièce : son nom, ses spécifications techniques, son état, et bien plus encore. Cette interface intuitive vous permet de <b>visualiser directement les pièces</b> que vous recherchez, rendant la navigation plus intuitive et efficace.
                                 </p>
                             </div>
-                            <video className="video" src="https://devxr.fr/assets/video/screen_helico_3D.mp4" autoPlay={true} muted loop playinline></video>
+                            <video className="video" src="https://devxr.fr/assets/video/screen_helico_3D.mp4" autoPlay={true} muted loop playsInline></video>
                         </div>
 
                         <div className="second_div_aero_page">
@@ -442,7 +442,7 @@ export default function Modal() {
                                     L'un de nos récents projets est la création d'un site web pour une société spécialisée dans le <b>nettoyage d'entreprise et de véhicules</b>. Ce site est conçu en <b>version "one page"</b>, une approche moderne qui permet aux visiteurs de trouver rapidement et facilement toutes les informations nécessaires sans avoir à naviguer à travers de multiples pages.
                                 </p>
                             </div>
-                            <video className="video" src="https://devxr.fr/assets/video/capture_ecran_site_classique.mp4"></video>
+                            <video className="video" src="https://devxr.fr/assets/video/capture_ecran_site_classique.mp4" autoPlay={true} muted loop playsInline></video>
                         </div>
 
                         <div className="third_div_site_classique_page">
@@ -680,7 +680,7 @@ export default function Modal() {
                                     <h4>Réalité Virtuelle (VR)</h4>
                                     <p>Nous développons des <b>sites en réalité virtuelle (VR)</b> pour des <b>visites virtuelles</b> de sites culturels, musées ou propriétés immobilières. Ces expériences immersives permettent aux utilisateurs de <b>plonger dans un environnement virtuel riche et détaillé</b>, offrant une nouvelle dimension d’interaction et de découverte.</p>
                                 </div>
-                                <video className="video" onClick={() => display_modal("#catacombes_div")} src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4"></video>
+                                <video className="video" onClick={() => display_modal("#catacombes_div")} src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4" autoPlay={true} muted loop playsInline></video>
                             </div>
 
                             <div className="realite_augmente_exemple">
@@ -688,7 +688,7 @@ export default function Modal() {
                                     <h4>Réalité Augmentée (AR)</h4>
                                     <p>Nous créons des <b>applications web en réalité augmentée (AR)</b> pour des expériences interactives uniques. Après avoir scanné un QR code ou chargé une page, les utilisateurs peuvent <b>visualiser des objets virtuels</b> ou obtenir des <b>informations supplémentaires</b>. Ces applications permettent de créer des expériences mémorables et engageantes qui enrichissent la réalité quotidienne.</p>
                                 </div>
-                                <video className="video" onClick={() => display_modal("#catacombes_div")} src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4"></video>
+                                <video className="video" onClick={() => display_modal("#catacombes_div")} src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" autoPlay={true} muted loop playsInline></video>
                             </div>
                         </div>
 
@@ -742,7 +742,7 @@ export default function Modal() {
                                 <h4>Immersion Augmentée.</h4>
                                 <p>Plongez dans le monde fascinant de la <b>réalité augmentée</b> ! Grâce à cette technologie innovante, votre <b>smartphone</b> peut transformer des éléments du quotidien en expériences interactives et captivantes. En scannant des <b>images</b>, des <b>objets</b> ou des <b>codes QR</b>, vous découvrirez des <b>contenus enrichis</b> qui se superposent à la réalité. Cette <b>fonctionnalité</b> ouvre un nouvel univers d'<b>exploration</b> et de <b>découverte</b>, vous permettant de visualiser des <b>objets 3D</b>, des <b>infos interactives</b>, et bien plus encore, directement dans votre environnement.</p>
                             </span>
-                            <video className="video" src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4"></video>
+                            <video className="video" src="https://devxr.fr/assets/video/demo_telephone_realite_augmentee.mp4" autoPlay={true} muted loop playsInline></video>
 
                             <span id="desktop_icons">
                                 {/* <img src="https://devxr.fr/assets/images/catacombes/qr_cabinet_old.webp" alt="" /> */}
@@ -779,7 +779,7 @@ export default function Modal() {
 
                         
                         <div className="second_div_video_text">
-                            <video className="video" src="https://devxr.fr/assets/video/demo_catacombes_realite_virtuelle.mp4"></video>
+                            <video className="video" src="https://devxr.fr/assets/video/demo_catacombes_realite_virtuelle.mp4" autoPlay={true} muted loop playsInline></video>
                             <span>
                                 <h4>Voyage Virtuel.</h4>
                                 <p>Découvrez comment, en scannant un simple lien, un <b>modèle 3D</b> de taille réelle peut apparaître devant vous. Que ce soit pour explorer des <b>salles historiques</b>, <b>des appartements</b> à visiter, ou même des <b>œuvres d'art</b> et <b>meubles</b>, la réalité augmentée vous permet de créer des <b>visites immersives</b> et détaillées de vos produits et espaces. Laissez libre cours à votre imagination pour offrir des expériences uniques directement depuis votre écran.</p>
@@ -825,7 +825,7 @@ export default function Modal() {
                         <div className="div_video_catacombes margin_video_div">
                             <img src="https://devxr.fr/assets/images/catacombes/oculus_screen_guerinet_catacombes.webp" alt="Capture d'écran d'une visite des catacombes interdites avec un casque Oculus Quest 2 en réalité virtuelle." />
                             
-                            <video className="video" src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4"></video>
+                            <video className="video" src="https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4" autoPlay={true} muted loop playsInline></video>
                             
                             <img src="https://devxr.fr/assets/images/catacombes/graphiti_1863_guerinet_catacombes.webp" alt="" />
                         </div>
@@ -840,7 +840,7 @@ export default function Modal() {
                                 <br/>
                                 <p>Avec la réalité virtuelle, vous ne vous contentez plus de regarder des images : vous êtes au cœur de l'action. Elle redéfinit la manière dont vous percevez le monde numérique, en vous ouvrant des portes vers des lieux et des expériences jusque-là inaccessibles.</p>
                             </div>
-                            <video className="video video_explication" src="https://devxr.fr/assets/video/load_vr_experience.mp4"></video>
+                            <video className="video video_explication" src="https://devxr.fr/assets/video/load_vr_experience.mp4" autoPlay={true} muted loop playsInline></video>
                         </div>
                         
                         <div className="text_explication_vr">

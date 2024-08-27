@@ -369,6 +369,11 @@ b{
     user-select: none;
 }
 
+.text_catacombes_page #second_div_text_catacombes_page{
+    width: 82vh;
+    top: 3vh;
+}
+
 .text_modale_div, .text_catacombes_page{
     height: -webkit-fill-available;
 }
