@@ -158,11 +158,13 @@ export default function Modal() {
             update_qr_code_display("#background_color_button_third", "46px", [".realite_virtuelle_exemple"], [".realite_augmente_exemple"]);
         });
         $(document).ready(function () {
+
             $('#text_display').remove();
+
             function updateDisplay(targetImageClass, buttonMargin) {
                 $(".classique_website_img").css("opacity", "0");
                 $("#background_color_button_second").css("margin-left", buttonMargin);
-        
+
                 setTimeout(() => {
                     $(targetImageClass).css("opacity", "1");
                 }, 450);
@@ -235,7 +237,7 @@ export default function Modal() {
                                 Plongez dans l'histoire secrète de Paris 
                                 <span> grâce à notre projet innovant, <a href="https://catacombes.xyz" target="_blank" rel="noopener noreferrer"><b>catacombes.xyz</b></a>. Ce site unique vous offre une <b>exploration immersive</b> des catacombes interdites de la Rive Gauche de Paris. Découvrez les carrières de Paris comme jamais auparavant, avec des <b>visites en 3D</b>, des expériences de <b>réalité virtuelle (VR) et de réalité augmentée (AR)</b>.</span>
                             </p>
-                            <div id="second_div_text_catacombes_page">
+                            <div id="second_div_text_catacombes_page ">
                                 <h4>Photogrammétrie de Haute Précision.</h4>
                                 <p>Grâce à la technologie de <b>photogrammétrie avancée</b>, chaque salle des catacombes a été minutieusement scannée et modélisée en 3D. Cette technique permet de capturer les moindres détails, offrant une <b>représentation fidèle</b> et époustouflante de ces espaces souterrains historiques.</p>
                             </div>
