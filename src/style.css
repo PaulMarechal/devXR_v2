@@ -370,8 +370,17 @@ b{
 }
 
 .text_catacombes_page #second_div_text_catacombes_page{
-    width: 82vh;
+    width: 100%;
     top: 3vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15vh;
+}
+
+.text_catacombes_page #second_div_text_catacombes_page span p{
+    text-align: justify;
+    padding-right: 4vh;
 }
 
 .text_modale_div, .text_catacombes_page{

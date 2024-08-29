@@ -237,12 +237,14 @@ export default function Modal() {
                                 Plongez dans l'histoire secrète de Paris 
                                 <span> grâce à notre projet innovant, <a href="https://catacombes.xyz" target="_blank" rel="noopener noreferrer"><b>catacombes.xyz</b></a>. Ce site unique vous offre une <b>exploration immersive</b> des catacombes interdites de la Rive Gauche de Paris. Découvrez les carrières de Paris comme jamais auparavant, avec des <b>visites en 3D</b>, des expériences de <b>réalité virtuelle (VR) et de réalité augmentée (AR)</b>.</span>
                             </p>
-                            <div id="second_div_text_catacombes_page ">
-                                <h4>Photogrammétrie de Haute Précision.</h4>
-                                <p>Grâce à la technologie de <b>photogrammétrie avancée</b>, chaque salle des catacombes a été minutieusement scannée et modélisée en 3D. Cette technique permet de capturer les moindres détails, offrant une <b>représentation fidèle</b> et époustouflante de ces espaces souterrains historiques.</p>
+                            <div id="second_div_text_catacombes_page">
+                                <span>
+                                    <h4>Photogrammétrie de Haute Précision.</h4>
+                                    <p>Grâce à la technologie de <b>photogrammétrie avancée</b>, chaque salle des catacombes a été minutieusement scannée et modélisée en 3D. Cette technique permet de capturer les moindres détails, offrant une <b>représentation fidèle</b> et époustouflante de ces espaces souterrains historiques.</p>
+                                </span>
+                                <img  id="first_image_room_guerinet" src="https://devxr.fr/assets/images/catacombes/catacombes_page/guerinet_room_catacombes.webp" alt="Salle Guerinet - catacombes interdites de Paris" />
                             </div>
 
-                            <img  id="first_image_room_guerinet" src="https://devxr.fr/assets/images/catacombes/catacombes_page/guerinet_room_catacombes.webp" alt="Salle Guerinet - catacombes interdites de Paris" />
 
                             <h4 className="title_modale_presentation">Immersion Digitale.</h4>
                             <div className="div_video_catacombes">
