@@ -162,36 +162,45 @@ function Wheel() {
     * model-4 : Green truck | const scaleFactor = 65;  
  */
 function Car() {
-    /***
-     * model-1 : police car | const scaleFactor = 70;  
-     * model-2 : Cyber Truck | const scaleFactor = 38;  
-     * model-5 : Taxi | const scaleFactor = 50;  
-     * model-6 : Yellow sport car | const scaleFactor = 67;  
-     * model-7 : red car | const scaleFactor = 62;  
-     * model-8 : F1 Red | const scaleFactor = 62;  
-     * model-9 : Police truck | const scaleFactor = 62;  
-     */
-    const car_model = "https://devxr.fr/assets/Lost/Models/model-10.gltf"; 
+    // Liste des modèles disponibles avec leurs chemins et échelles correspondants
+    const carModels = [
+        { url: "https://devxr.fr/assets/Lost/Models/model-1.gltf", scaleFactor: 70 },  // Police car
+        { url: "https://devxr.fr/assets/Lost/Models/model-2.gltf", scaleFactor: 38 },  // Cyber Truck
+        { url: "https://devxr.fr/assets/Lost/Models/model-5.gltf", scaleFactor: 50 },  // Taxi
+        { url: "https://devxr.fr/assets/Lost/Models/model-6.gltf", scaleFactor: 67 },  // Yellow sport car
+        { url: "https://devxr.fr/assets/Lost/Models/model-7.gltf", scaleFactor: 62 },  // Red car
+        { url: "https://devxr.fr/assets/Lost/Models/model-8.gltf", scaleFactor: 62 },  // F1 Red
+        { url: "https://devxr.fr/assets/Lost/Models/model-9.gltf", scaleFactor: 62 },  // Police truck
+    ];
+
+    // Sélectionner un modèle aléatoire parmi les modèles disponibles
+    const randomIndex = Math.floor(Math.random() * carModels.length);
+    const selectedModel = carModels[randomIndex];
 
     const car = new THREE.Group();
     
     const loader = new GLTFLoader();
     const dracoLoader = new DRACOLoader();
     
+    // Charger les fichiers Draco depuis le CDN
     dracoLoader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
-    
     loader.setDRACOLoader(dracoLoader);
 
+    // Charger le modèle sélectionné
     loader.load(
-        car_model, 
+        selectedModel.url, 
         function (gltf) {
             const model = gltf.scene;
 
-            const scaleFactor = 75;  
+            // Appliquer l'échelle spécifique au modèle
+            const scaleFactor = selectedModel.scaleFactor;  
             model.scale.set(scaleFactor, scaleFactor, scaleFactor);
-            model.rotation.x = 1.5
-            model.rotation.y = -1.57
+
+            // Rotation du modèle (tu peux ajuster ces valeurs si nécessaire)
+            model.rotation.x = 1.5;  // Inclinaison légère en X (si nécessaire)
+            model.rotation.y = -1.57;  // Ajuste la rotation pour l'orienter correctement
             
+            // Ajouter ombre si nécessaire
             model.traverse(function (node) {
                 if (node.isMesh) {
                     node.castShadow = true;
@@ -199,6 +208,7 @@ function Car() {
                 }
             });
             
+            // Ajouter le modèle au groupe "car"
             car.add(model);
         },
         function (xhr) {
@@ -209,6 +219,7 @@ function Car() {
         }
     );
 
+    // Renvoie le groupe "car" qui contiendra le modèle 3D
     return car;
 }
 
