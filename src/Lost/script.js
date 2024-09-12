@@ -162,7 +162,6 @@ function Wheel() {
     * model-4 : Green truck | const scaleFactor = 65;  
  */
 function Car() {
-    // Liste des modèles disponibles avec leurs chemins et échelles correspondants
     const carModels = [
         { url: "https://devxr.fr/assets/Lost/Models/model-1.gltf", scaleFactor: 70 },  // Police car
         { url: "https://devxr.fr/assets/Lost/Models/model-2.gltf", scaleFactor: 38 },  // Cyber Truck
@@ -173,7 +172,6 @@ function Car() {
         { url: "https://devxr.fr/assets/Lost/Models/model-9.gltf", scaleFactor: 62 },  // Police truck
     ];
 
-    // Sélectionner un modèle aléatoire parmi les modèles disponibles
     const randomIndex = Math.floor(Math.random() * carModels.length);
     const selectedModel = carModels[randomIndex];
 
@@ -182,25 +180,20 @@ function Car() {
     const loader = new GLTFLoader();
     const dracoLoader = new DRACOLoader();
     
-    // Charger les fichiers Draco depuis le CDN
     dracoLoader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
     loader.setDRACOLoader(dracoLoader);
 
-    // Charger le modèle sélectionné
     loader.load(
         selectedModel.url, 
         function (gltf) {
             const model = gltf.scene;
 
-            // Appliquer l'échelle spécifique au modèle
             const scaleFactor = selectedModel.scaleFactor;  
             model.scale.set(scaleFactor, scaleFactor, scaleFactor);
 
-            // Rotation du modèle (tu peux ajuster ces valeurs si nécessaire)
-            model.rotation.x = 1.5;  // Inclinaison légère en X (si nécessaire)
-            model.rotation.y = -1.57;  // Ajuste la rotation pour l'orienter correctement
+            model.rotation.x = 1.5;  
+            model.rotation.y = -1.57; 
             
-            // Ajouter ombre si nécessaire
             model.traverse(function (node) {
                 if (node.isMesh) {
                     node.castShadow = true;
@@ -208,7 +201,6 @@ function Car() {
                 }
             });
             
-            // Ajouter le modèle au groupe "car"
             car.add(model);
         },
         function (xhr) {
@@ -219,7 +211,6 @@ function Car() {
         }
     );
 
-    // Renvoie le groupe "car" qui contiendra le modèle 3D
     return car;
 }
 
