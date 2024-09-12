@@ -1,4 +1,6 @@
-import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.168.0/three.module.js';
+import * as THREE from 'THREE';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 
 const counterDOM = document.getElementById('counter');  
 const endDOM = document.getElementById('end');  
@@ -153,50 +155,63 @@ function Wheel() {
     return wheel;
 }
 
+/**
+    *     
+    * model-10 : Green truck | const scaleFactor = 75;  
+    * model-3 : Blue truck | const scaleFactor = 65;  
+    * model-4 : Green truck | const scaleFactor = 65;  
+ */
 function Car() {
+    /***
+     * model-1 : police car | const scaleFactor = 70;  
+     * model-2 : Cyber Truck | const scaleFactor = 38;  
+     * model-5 : Taxi | const scaleFactor = 50;  
+     * model-6 : Yellow sport car | const scaleFactor = 67;  
+     * model-7 : red car | const scaleFactor = 62;  
+     * model-8 : F1 Red | const scaleFactor = 62;  
+     * model-9 : Police truck | const scaleFactor = 62;  
+     */
+    const car_model = "https://devxr.fr/assets/Lost/Models/model-10.gltf"; 
+
     const car = new THREE.Group();
-    const color = vechicleColors[Math.floor(Math.random() * vechicleColors.length)];
     
-    const main = new THREE.Mesh(
-        new THREE.BoxGeometry( 60*zoom, 30*zoom, 15*zoom ), 
-        new THREE.MeshPhongMaterial( { color, flatShading: true } )
-    );
-    main.position.z = 12*zoom;
-    main.castShadow = true;
-    main.receiveShadow = true;
-    car.add(main)
-  
-    const cabin = new THREE.Mesh(
-        new THREE.BoxGeometry( 33*zoom, 24*zoom, 12*zoom ), 
-        [
-        new THREE.MeshPhongMaterial( { color: 0xcccccc, flatShading: true, map: carBackTexture } ),
-        new THREE.MeshPhongMaterial( { color: 0xcccccc, flatShading: true, map: carFrontTexture } ),
-        new THREE.MeshPhongMaterial( { color: 0xcccccc, flatShading: true, map: carRightSideTexture } ),
-        new THREE.MeshPhongMaterial( { color: 0xcccccc, flatShading: true, map: carLeftSideTexture } ),
-        new THREE.MeshPhongMaterial( { color: 0xcccccc, flatShading: true } ), // top
-        new THREE.MeshPhongMaterial( { color: 0xcccccc, flatShading: true } ) // bottom
-        ]
-    );
-
-    cabin.position.x = 6*zoom;
-    cabin.position.z = 25.5*zoom;
-    cabin.castShadow = true;
-    cabin.receiveShadow = true;
-    car.add( cabin );
+    const loader = new GLTFLoader();
+    const dracoLoader = new DRACOLoader();
     
-    const frontWheel = new Wheel();
-    frontWheel.position.x = -18*zoom;
-    car.add( frontWheel );
+    dracoLoader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
+    
+    loader.setDRACOLoader(dracoLoader);
 
-    const backWheel = new Wheel();
-    backWheel.position.x = 18*zoom;
-    car.add( backWheel );
+    loader.load(
+        car_model, 
+        function (gltf) {
+            const model = gltf.scene;
 
-    car.castShadow = true;
-    car.receiveShadow = false;
-  
-    return car;  
+            const scaleFactor = 75;  
+            model.scale.set(scaleFactor, scaleFactor, scaleFactor);
+            model.rotation.x = 1.5
+            model.rotation.y = -1.57
+            
+            model.traverse(function (node) {
+                if (node.isMesh) {
+                    node.castShadow = true;
+                    node.receiveShadow = true;
+                }
+            });
+            
+            car.add(model);
+        },
+        function (xhr) {
+            console.log((xhr.loaded / xhr.total * 100) + '% chargé');
+        },
+        function (error) {
+            console.error('Erreur lors du chargement du modèle :', error);
+        }
+    );
+
+    return car;
 }
+
 
 function Truck() {
     const truck = new THREE.Group();
