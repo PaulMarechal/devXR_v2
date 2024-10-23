@@ -61,6 +61,23 @@ export default function Interface() {
     };
   }, []);
 
+  function display_modal(elem_to_display){
+    // Hide all modals first
+    $(".modal_infos").css("display", "none").css("opacity", "0");
+    $(".text_modale_div").css("display", "none").css("opacity", "0");
+
+    // Display the modal wrapper
+    $(".modal_infos").css("display", "block");
+    setTimeout(() => {
+        $(".modal_infos").css("opacity", "1");
+    }, 200);
+
+    // Display the specific modal content
+    setTimeout(() => {
+        $(elem_to_display).css("display", "block").css("opacity", "1");
+    }, 350);
+  }
+
   return (
     <div className="interface">
       <div className="welcome_modal">
@@ -77,6 +94,8 @@ export default function Interface() {
           <span className="name_font">DevXR.fr</span>
         </p>
         <p className="text_intro">Explorez notre scène interactive et cliquez sur les éléments pour découvrir nos services. Que ce soit pour un site web classique qui valorise votre entreprise ou des expériences immersives en réalité augmentée, virtuelle ou mixte, nous avons ce qu'il vous faut.</p>
+        <p className="text_intro" onClick={() => display_modal("#product_div")}>Cliquez ici pour voir le site en version classique 2D.</p>
+
       </div>
 
       <div>

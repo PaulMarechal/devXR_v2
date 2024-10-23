@@ -38,6 +38,7 @@ export default function Interface_mobile() {
                 Que ce soit pour un site web classique qui valorise votre entreprise ou des expériences 
                 immersives en réalité augmentée, virtuelle ou mixte, nous avons ce qu'il vous faut.
             </p>
+            <p onClick={() => display_modal("#product_div")}>Cliquez ici pour voir le site en version classique 2D.</p>
             <p className="text_intro">
                 Pour profiter pleinement du site web en version immersive merci de vous 
                 connecter depuis un ordinateur. 

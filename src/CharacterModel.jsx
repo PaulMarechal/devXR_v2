@@ -39,7 +39,7 @@ export default function CharacterModel(props) {
       () => {
         setTimeout(() => {
           $(".welcome_modal").css("opacity", "0")
-          $(".interface").css("pointer-events", "none")
+          // $(".interface").css("pointer-events", "none")
 
         }, 2500);
         setTimeout(() => {
