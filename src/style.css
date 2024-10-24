@@ -1914,6 +1914,8 @@ footer p {
     #catacombes_div .text_catacombes_page .div_text_under_images p{
         width: 42vh;
     }
+
+    .button_display_classique{display: none!important;}
 }
   
 /* Landscape mode */
@@ -2090,6 +2092,8 @@ footer p {
     .text_modale_div{
         margin-bottom: 10vh;
     }
+
+    .button_display_classique{display: none!important;}
 
     /* Modal infos */
     .modal_infos{
