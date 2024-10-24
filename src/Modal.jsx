@@ -802,7 +802,7 @@ export default function Modal() {
                         </div>
 
                         <h4 className="others_examples_qr">Autres exemples</h4>
-                        <div className="display_inline">
+                        <div className="display_inline qr_codes_exemples">
                             <img src="./assets/images/QR_code/fond_du_cresw.webp" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Salle du fond du crew dans les catacombes interdites de Paris en realité augmentée en scannant un QR code" />
                             <img src="./assets/images/QR_code/Lune1.webp" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Chaussures en réalité augmentée en scannant un QR code" />
                             <img src="./assets/images/QR_code/anubis.webp" title="Scannez le QR Code avec votre téléphone pour découvrir un objet 3D" alt="Voir les plans d'un appartement en réalité augmentée après avoir scanné un QR Code" />

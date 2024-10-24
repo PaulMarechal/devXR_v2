@@ -1837,6 +1837,7 @@ footer p {
     #first_image_room_guerinet{
         width: 40vh;
         margin-top: 10vh;
+        display: none;
     }
 
     .text_catacombes_page .div_text_under_images{
@@ -1897,7 +1898,7 @@ footer p {
     }
 
     #augmented_reality_explication_div .explication_augmented_reality_text{
-        margin-top: -25vh;
+        margin-top: 0vh;
     }
 
     #augmented_reality_explication_div{
@@ -1907,6 +1908,8 @@ footer p {
     #qr_code_catacomebs_page{
         display: none;
     }
+
+    .qr_codes_exemples{margin: 3vh 0}
 
     #catacombes_div .text_catacombes_page .div_text_under_images p{
         width: 42vh;
