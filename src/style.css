@@ -44,7 +44,7 @@ h4{
     height: 100%;
 }
 
-.text_modale_div div p, a, footer p {
+.text_modale_div div p, a, footer p, .choose-site-option p {
     font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: normal;
@@ -777,7 +777,6 @@ html, body {
     color: #f5f5f7;
     margin-left: 0;
 }
-
 /* Navigo page */
 
 .second_div_navigo_page{
@@ -1378,6 +1377,62 @@ footer p {
     align-items: center;
     justify-content: center;
     color: #fff;
+}
+
+/* Choose site */
+.choose-site-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.choose-site-content {
+    background: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+}
+
+.choose-site-option {
+    padding: 15px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 40vh;
+    height: fit-content;
+    transition: background 0.5s ease-out;
+}
+
+.choose-site-option p{
+    color: #d1d1d1;
+}
+
+.choose-site-option:hover{
+    background: rgb(170 170 170 / 25%);
+}
+
+.choose-site-option:first-child{
+    border-radius: 20px 5px 5px 20px;
+}
+
+.choose-site-option:nth-child(2){
+    border-radius: 5px 20px 20px 5px;
+}
+
+.choose-site-option img{
+    width: 35vh;
+    border-radius: 5px;
 }
 /* Portrait mode */
 @media screen and (orientation: portrait) {

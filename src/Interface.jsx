@@ -94,8 +94,6 @@ export default function Interface() {
           <span className="name_font">DevXR.fr</span>
         </p>
         <p className="text_intro">Explorez notre scène interactive et cliquez sur les éléments pour découvrir nos services. Que ce soit pour un site web classique qui valorise votre entreprise ou des expériences immersives en réalité augmentée, virtuelle ou mixte, nous avons ce qu'il vous faut.</p>
-        <p className="button_display_classique text_intro" onClick={() => display_modal("#product_div")}>Cliquez ici pour voir le site en version classique 2D</p>
-
       </div>
 
       <div>
