@@ -33,7 +33,7 @@ export default function Interface() {
     const handleMouseMove = () => {
       setMouseMoving(true);
       clearTimeout(window.mouseMoveTimeout);
-      window.mouseMoveTimeout = setTimeout(() => setMouseMoving(false), 100); // Mouse stopped moving after 100ms
+      window.mouseMoveTimeout = setTimeout(() => setMouseMoving(false), 100); 
     };
 
     window.addEventListener('mousedown', handleMouseDown);
@@ -53,12 +53,14 @@ export default function Interface() {
       $(".interface").css("opacity", "0");
       setTimeout(() => {
         $(".interface").css("display", "none");
+
       }, 400);
     });
 
     return () => {
       $(".close_icon_start").off("click");
     };
+    
   }, []);
 
   function display_modal(elem_to_display){
